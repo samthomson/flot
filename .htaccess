@@ -2,5 +2,5 @@
   RewriteEngine on
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ /flot/flot.php [L,QSA]
+  RewriteRule ^(.*)$ /flot_flot/flot.php [L,QSA]
 </IfModule>
