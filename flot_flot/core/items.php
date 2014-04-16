@@ -42,6 +42,19 @@
 					$template = str_replace("{{item:".$key."}}", $this->o_loaded_item_object->$key, $template);
 			}
 			# minify etc
+			$search = array(
+		        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+		        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+		        '/(\s)+/s'       // shorten multiple whitespace sequences
+		    );
+
+		    $replace = array(
+		        '>',
+		        '<',
+		        '\\1'
+		    );
+
+		    $template = preg_replace($search, $replace, $template);
 
 			# serve to user
 			echo $template;
