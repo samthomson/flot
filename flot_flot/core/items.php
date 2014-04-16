@@ -23,7 +23,24 @@
 		function rebuild() {
 		}
 		function update() {
-			file_put_contents($this->s_base_path.$this->o_loaded_item_object->url, $this->html_page);
+			$s_file_base = "";
+			$s_file_name = "";
+			if(!strpos($this->o_loaded_item_object->url, '.') || strrpos($this->o_loaded_item_object->url, '/') > -1){
+				# the path has directories in it
+				$s_file_base = $this->o_loaded_item_object->url; // one dir
+				if(strrpos($this->o_loaded_item_object->url, '/') > -1){ #multiple dirs
+					$s_file_base = substr($this->o_loaded_item_object->url, 0, strrpos($this->o_loaded_item_object->url, '/'));
+				}
+				echo "make dir: $s_file_base<br/>";
+				mkdir($this->s_base_path.$s_file_base, 0777, true);
+			}
+			$s_file_name = $this->s_base_path.$this->o_loaded_item_object->url;
+			if(!strpos($s_file_name, '.')){
+				# no file name, is dir, write as index
+				$s_file_name .= '/index.html';
+			}
+			echo $s_file_name;
+			file_put_contents($s_file_name, $this->html_page);
 		}
 		function delete() {
 			# delete the file

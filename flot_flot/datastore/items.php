@@ -15,7 +15,7 @@
 		"keywords":"",
 		"description":"",
 		"content":"features",
-		"url" : "features.html"
+		"url" : "features/features.html"
 	},
 	{
 		"id":"page_2",
@@ -31,6 +31,6 @@
 		"keywords":"",
 		"description":"",
 		"content":"about",
-		"url" : "about.html"
+		"url" : "about"
 	}]';
 ?>
