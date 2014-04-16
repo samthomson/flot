@@ -3,32 +3,25 @@
 	used to handle app entry point
 	*/
 	require_once('datastore.php');
+	require_once('items.php');
 
 
 
 	class Flot {
-		function s_current_relative_url() {
-			return $_SERVER['REQUEST_URI'];
+
+		public $datastore;
+
+		function __construct() {
+			$this->datastore = new DataStore;
 		}
-		function test() {
-			$datastore = new DataStore;
-			$item_id = $datastore->get_current_url_data()->id;
+
+		function create_item_from_url() {
+			$item_id = $this->datastore->get_current_url_data()->id;
 			// get the object representing the page requested
-			$item = $datastore->get_item_data($item_id);
-			// load in the template
-			$template = file_get_contents('themes/first_theme/page.html');
-			$sa_keys = array_keys(get_object_vars($item));
-
-			foreach ($sa_keys as $key) {
-				if($item->$key !== null)
-					$template = str_replace("{{".$key."}}", $item->$key, $template);
-			}
-			echo $template;
-		}
-
-		function get_current_url_data()
-		{
+			$item = $this->datastore->get_item_data($item_id);
 			
+			$o_item = new Item($item);
+			$o_item->render();
 		}
 	}
 ?>

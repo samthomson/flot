@@ -8,6 +8,11 @@
 		public $urls;
 		public $items;
 
+		function __construct() {
+			$this->initiate_urls();
+			$this->initiate_items();
+		}
+
 		function initiate_urls() {
 			require_once('datastore/urls.php');
 			$this->urls = json_decode($urls);
@@ -18,8 +23,8 @@
 		}
 		function get_current_url_data()
 		{
-			$this->initiate_urls();
 			foreach ($this->urls as $url) {
+				#echo "compare $url->url with current $_SERVER[REQUEST_URI]";
 				if ($url->url == $_SERVER['REQUEST_URI'])
 					return $url;
 			}
@@ -27,7 +32,6 @@
 		}
 		function get_item_data($item_id)
 		{
-			$this->initiate_items();
 			foreach ($this->items as $item) {
 				if ($item->id == $item_id)
 					return $item;

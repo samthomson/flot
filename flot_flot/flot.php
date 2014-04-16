@@ -12,6 +12,5 @@
 	# if found, load corresponding instance and render
 
 	$flot = new Flot;
-	$flot->test();
-	echo "<hr/><br/>served by <a href=\"http://flot.io\" target=\"_blank\">flot</a><br/>";
+	$flot->create_item_from_url();
 ?>
