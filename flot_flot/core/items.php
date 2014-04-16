@@ -12,15 +12,18 @@
 	class Item {
 
 		public $o_loaded_item_object;
+		public $html_page;
+		public $s_base_path;
 
-		function __construct($o_item) {
+		function __construct($o_item, $s_base_path) {
 			$this->o_loaded_item_object = $o_item;
+			$this->s_base_path = $s_base_path;
 		}
 
 		function rebuild() {
 		}
 		function update() {
-
+			file_put_contents($this->s_base_path.$this->o_loaded_item_object->url, $this->html_page);
 		}
 		function delete() {
 			# delete the file
@@ -42,6 +45,7 @@
 
 			# serve to user
 			echo $template;
+			$this->html_page = $template;
 
 			# store to disk
 			$this->update();

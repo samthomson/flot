@@ -6,27 +6,31 @@
 		"title": "flot",
 		"keywords":"",
 		"description":"",
-		"content":"flot"
+		"content":"flot",
+		"url" : ""
 	},
 	{
 		"id":"page_1",
 		"title": "features",
 		"keywords":"",
 		"description":"",
-		"content":"features"
+		"content":"features",
+		"url" : "features.html"
 	},
 	{
 		"id":"page_2",
 		"title": "getting started",
 		"keywords":"",
 		"description":"",
-		"content":"getting started"
+		"content":"getting started",
+		"url" : "gettingstarted.html"
 	},
 	{
 		"id":"page_3",
 		"title": "about",
 		"keywords":"",
 		"description":"",
-		"content":"about"
+		"content":"about",
+		"url" : "about.html"
 	}]';
 ?>
