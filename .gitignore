@@ -1,0 +1,7 @@
+# ignore all the user generated stuff
+
+*.html
+
+# but not flot stuff..
+
+!flot_flot/
