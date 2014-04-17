@@ -34,7 +34,6 @@
 			}
 
 			# write the file itself	
-			echo "write the file: ".$current_url->writing_file_path($this->s_base_path);
 			file_put_contents($current_url->writing_file_path($this->s_base_path), $this->html_page);
 		}
 		function delete() {
@@ -43,8 +42,9 @@
 			# if it was the last file in folder, delete folder, repeat this recursively until back to root
 		}
 		function render() {
+			$this->datastore = new DataStore;
 			# get template
-			$template = file_get_contents('themes/first_theme/page.html');
+			$template = file_get_contents('themes/'.$this->datastore->settings->theme.'/flot_template.html');
 
 			# parse in data
 			$sa_keys = array_keys(get_object_vars($this->o_loaded_item_object));

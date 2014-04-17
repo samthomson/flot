@@ -7,12 +7,18 @@
 
 		public $urls;
 		public $items;
+		public $settings;
 
 		function __construct() {
+			$this->initiate_settings();
 			$this->initiate_urls();
 			$this->initiate_items();
 		}
 
+		function initiate_settings() {
+			require_once('datastore/settings.php');
+			$this->settings = json_decode($settings);
+		}
 		function initiate_urls() {
 			require_once('datastore/urls.php');
 			$this->urls = json_decode($urls);
