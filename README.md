@@ -1,7 +1,9 @@
 flot
 ====
 
-no database CMS, written in PHP, supports themes, plugins, and flexible taxonomies (data types). Hybrid static/dynamic CMS that's cached by default. Runs on anything with PHP. - NO WHERE NEAR STABLE YET
+no database CMS, written in PHP, supports themes, plugins, and flexible taxonomies (data types). Hybrid static/dynamic CMS that's cached by default. Runs on anything with PHP.
+
+NO WHERE NEAR STABLE YET <a href="//flot.io">flot.io</a> for updates
 
 
 main features
