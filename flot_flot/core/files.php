@@ -15,7 +15,7 @@
 
 		function has_dirs() {
 			# has directories in its path
-			if((strlen($this->s_relative_url) > 0) && $this->is_empty() || (strpos($this->s_relative_url, '/') > 0 && $this->is_empty()))
+			if((strlen($this->s_relative_url) > 0) && $this->is_empty() || (strpos($this->s_relative_url, '/') > 0))
 				return true;
 			return false;
 		}
@@ -38,7 +38,7 @@
 				$i_last_slash = strrpos($this->s_relative_url, '/');
 				if($i_last_slash){
 					// file was in a dir
-					return substr($this->s_relative_url, $i_last_slash, strlen($this->s_relative_url));
+					return substr($this->s_relative_url, $i_last_slash+1, strlen($this->s_relative_url));
 				}else{
 					// file exists by itself, no dir
 					return $this->s_relative_url;
