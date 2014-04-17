@@ -21,8 +21,26 @@
 		}
 
 		function rebuild() {
+			# render, and rebuild dependent items
 		}
 		function update() {
+
+			$current_url = new CurrentURL;
+
+			# create any directories for the file if neccesary
+			if($current_url->has_dirs()){
+				# make dirs
+				mkdir($this->s_base_path.$current_url->dir_path(), 0777, true);
+			}
+
+			# write the file itself	
+			echo "write the file: ".$current_url->writing_file_path($this->s_base_path);
+			file_put_contents($current_url->writing_file_path($this->s_base_path), $this->html_page);
+
+
+
+
+/*
 			$s_file_base = "";
 			$s_file_name = "";
 			if(!strpos($this->o_loaded_item_object->url, '.') || strrpos($this->o_loaded_item_object->url, '/') > -1){
@@ -41,6 +59,7 @@
 			}
 			echo $s_file_name;
 			file_put_contents($s_file_name, $this->html_page);
+			*/
 		}
 		function delete() {
 			# delete the file

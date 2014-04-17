@@ -24,7 +24,7 @@
 		function get_current_url_data()
 		{
 			foreach ($this->urls as $url) {
-				#echo "compare $url->url with current $_SERVER[REQUEST_URI]";
+				#echo "compare '$url->url' with current '$_SERVER[REQUEST_URI]'";
 				if ($url->url == $_SERVER['REQUEST_URI'])
 					return $url;
 			}
