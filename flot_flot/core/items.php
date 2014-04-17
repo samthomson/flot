@@ -44,7 +44,7 @@
 		function render() {
 			$this->datastore = new DataStore;
 			# get template
-			$template = file_get_contents('themes/'.$this->datastore->settings->theme.'/flot_template.html');
+			$template = file_get_contents($this->s_base_path.'flot_flot/themes/'.$this->datastore->settings->theme.'/flot_template.html');
 
 			# parse in data
 			$sa_keys = array_keys(get_object_vars($this->o_loaded_item_object));
@@ -53,6 +53,9 @@
 				if($this->o_loaded_item_object->$key !== null)
 					$template = str_replace("{{item:".$key."}}", $this->o_loaded_item_object->$key, $template);
 			}
+			# general parsing
+			$template = str_replace("{{flot:theme_dir}}", 'themes/'.$this->datastore->settings->theme.'/', $template);
+
 			# minify etc
 			$search = array(
 		        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
