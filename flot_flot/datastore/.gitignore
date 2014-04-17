@@ -1,0 +1,2 @@
+# ignore all data (it's user generated, and not part of flot)
+*.*

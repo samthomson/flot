@@ -18,4 +18,3 @@ main features
 - no database!
 - speed optimised, cached by default
 - flexible taxonomies, not just posts or pages
-
