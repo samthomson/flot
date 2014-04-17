@@ -15,7 +15,6 @@
 
 		function has_dirs() {
 			# has directories in its path
-			echo "rel url: ".$this->s_relative_url;
 			if((strlen($this->s_relative_url) > 0) && $this->is_empty() || (strpos($this->s_relative_url, '/') > 0 && $this->is_empty()))
 				return true;
 			return false;
