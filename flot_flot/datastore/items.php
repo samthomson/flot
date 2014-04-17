@@ -5,8 +5,8 @@
 		"id":"page_0",
 		"title": "flot",
 		"keywords":"",
-		"description":"",
-		"content":"flot",
+		"description":"flot",
+		"content":"flot home page",
 		"url" : ""
 	},
 	{

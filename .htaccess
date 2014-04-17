@@ -4,3 +4,10 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ /flot_flot/flot.php [L,QSA]
 </IfModule>
+
+# disable directory browsing
+Options -Indexes
+# prevent folder listing
+IndexIgnore *
+
+DirectoryIndex /flot_flot/flot.php
