@@ -8,23 +8,25 @@
 		public $urls;
 		public $items;
 		public $settings;
+		public $s_base_path;
 
 		function __construct() {
+			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			$this->initiate_settings();
 			$this->initiate_urls();
 			$this->initiate_items();
 		}
 
 		function initiate_settings() {
-			require_once('datastore/settings.php');
+			require($this->s_base_path.'flot_flot/datastore/settings.php');
 			$this->settings = json_decode($settings);
 		}
 		function initiate_urls() {
-			require_once('datastore/urls.php');
+			require('datastore/urls.php');
 			$this->urls = json_decode($urls);
 		}
 		function initiate_items() {
-			require_once('datastore/items.php');
+			require('datastore/items.php');
 			$this->items = json_decode($items);
 		}
 		function get_current_url_data()
