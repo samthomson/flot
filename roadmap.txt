@@ -1,0 +1,82 @@
+V0 - MVP
+--------
+
+* nginx support
+* 30 second set up
+* admin: pages/menus/images
+* menu designer (that's easy)
+* markdown editor with live preview
+* fully compressed content sent with caching headers
+* URL agnostic; works on http://local:8080/ the same as http://www.website.com
+* flexible taxonomies; add anything
+* social response http://www.sharedcount.com/
+* error logging; php (generation)
+
+V1
+--
+* apache support
+* auto updater
+* SEO
+* plugin hook architecture
+* cloud flare integration (purge file from cdn)
+* starter template
+* accessible (aria roles etc) (in starter templates)
+* rss
+* specify file type (in an oncology) like xml
+
+V2
+--
+* add filters to images when embedding
+* serve jpgP if browser supports it
+* better picture management (plugins on upload hook auto tagging, face indexing, get exif atts)
+* choice of editor (markup/down); with live preview
+* native integration with flickr/facebook pics etc for embedding pics
+* integration with vimeo (and similar?) as a video manager/embedder
+* map integration (and add markers from other oncologies)
+* revision history with easy reversion
+* drag image upload, and also discovery mode (put images in pick up directory, cron discovery)
+* make gif from jpegs: http://stackoverflow.com/questions/2191367/php-create-simple-animated-gif-from-two-jpeg-images
+
+
+
+user stuff
+----------
+* multi author support
+* users and groups
+* notification of page changes; to user(s) or group(s)
+
+advanced cms stuff
+------------------
+* subscriptions; posts, pages, categories, tags (powered by rss ?)
+* open data format export of posts/pages/images
+* easy back end management; list and tree view of pages/items
+* easy AB testing for items
+* ui widgets plugin (horizontal scroller, ...)
+* plugin for making surverys
+* scheduled posts
+* shortcuts for everything in backend, with a mode where shortcuts are displayed over every button/link (like vimium)
+* responsive elements in toolbox/wysiwyg editor
+* form builder (with samples) (wysiwyg toolbar)
+* wordpress import
+* OPEN auth (as opposed to multisite)
+* data mapper - can be rendered to show where content is used
+* analytics (server and client side) (how to do server side if serving static files)
+* social response over time
+
+
+security
+--------
+* ban by ip
+* spamproof?
+* block repeat login attempts
+
+
+nice to have later
+------------------
+* easy multilingual front end
+* multilingual back end
+* client side error loggin (plugin)
+* preproccesor support? build css directly from sass/less docs
+* API access (off by default, turning on allows for public private key controlled access to get set operations)
+* win server support
+* max server support

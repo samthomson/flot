@@ -36,7 +36,7 @@
 			# write the file itself	
 			file_put_contents($current_url->writing_file_path($this->s_base_path), $this->html_page);
 
-			
+
 			echo "just rendered item: ".$current_url->writing_file_path($this->s_base_path);
 		}
 		function delete() {
@@ -75,12 +75,25 @@
 		    $template = preg_replace($search, $replace, $template);
 
 			# serve to user
+
+			ob_start("ob_gzhandler");
 			echo $template;
 			$this->html_page = $template;
 
 
 			# store to disk
 			$this->update();
+		}
+
+		#
+		# content generation
+		#
+		function make_header(){
+			# spit out content type (settings? content type, or not to display)
+
+			# keywords etc, generate if necessary
+
+			# open graph stuff
 		}
 	}
 ?>
