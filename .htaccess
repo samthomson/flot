@@ -2,7 +2,10 @@
   RewriteEngine on
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ /flot_flot/flot.php [L,QSA]
+  #RewriteRule ^(.*)$ /flot_flot/flot.php [L,QSA]
+  #RewriteRule ^/?$ /flot_flot/flot.php [L]
+  RewriteRule ^([^?]*)$ /flot_flot/flot.php?path=$1 [NC,L,QSA]
+  RewriteRule ^$ /flot_flot/flot.php [NC]
 </IfModule>
 
 # disable directory browsing
@@ -10,4 +13,4 @@ Options -Indexes
 # prevent folder listing
 IndexIgnore *
 
-DirectoryIndex /flot_flot/flot.php
+#DirectoryIndex /flot_flot/flot.php
