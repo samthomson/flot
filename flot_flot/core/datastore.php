@@ -22,11 +22,11 @@
 			$this->settings = json_decode($settings);
 		}
 		function initiate_urls() {
-			require('datastore/urls.php');
+			require($this->s_base_path.'flot_flot/datastore/urls.php');
 			$this->urls = json_decode($urls);
 		}
 		function initiate_items() {
-			require('datastore/items.php');
+			require($this->s_base_path.'flot_flot/datastore/items.php');
 			$this->items = json_decode($items);
 		}
 		function get_current_url_data()

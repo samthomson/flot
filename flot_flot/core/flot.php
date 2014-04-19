@@ -43,5 +43,50 @@
 			    require_once($file);
 			}
 		}
+
+		function b_is_user_admin()
+		{
+			session_start();
+			# is the user logged in to back end?
+			if(isset($_SESSION['admin_user']))
+				return true;
+
+			# didn't pass security
+			return false;
+		}
+		function _handle_auth_attempt()
+		{
+			# validate credentials and then deal with user accordingly		
+			if(isset($_POST['username']) && isset($_POST['password'])){
+			    $user = $_POST['username'];
+			    $pass = $_POST['password'];
+
+			    if($user === "samt@samt.st" && $pass === "sam"){
+			    	echo "validated";
+					session_start();
+					session_register("session_admin");
+					$_SESSION['admin_user'] = $user;
+			    }else{
+			    	echo "in valid";
+			    }
+			}
+		}
+		function _page_change($s_relative_page){
+			$s_new_page = "Location: ";
+			$s_new_page .= $s_relative_page;
+			header($s_new_page);
+			exit();
+		}
+		function s_admin_header(){
+			$s_header = "";
+
+			# bootstrap css
+			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/bootstrap.min.css">';
+
+			# bootstrap js
+			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
+
+			return $s_header;
+		}
 	}
 ?>
