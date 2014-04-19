@@ -57,19 +57,16 @@
 		function _handle_auth_attempt()
 		{
 			# validate credentials and then deal with user accordingly		
-			if(isset($_POST['username']) && isset($_POST['password'])){
-			    $user = $_POST['username'];
+			#if(isset($_POST['username']) && isset($_POST['password'])){
+			    $user = $_POST['email'];
 			    $pass = $_POST['password'];
 
 			    if($user === "samt@samt.st" && $pass === "sam"){
-			    	echo "validated";
-					session_start();
-					session_register("session_admin");
+			    	session_start();
 					$_SESSION['admin_user'] = $user;
-			    }else{
-			    	echo "in valid";
 			    }
-			}
+			#}else
+			#{echo "vars not set";}
 		}
 		function _page_change($s_relative_page){
 			$s_new_page = "Location: ";

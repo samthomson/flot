@@ -23,7 +23,7 @@
 		?>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container" style="max-width:300px;margin-top:150px;">
 			<!-- instruction, email, password, login/submit button -->
 			<form role="form" method="post" name="login" action="login.php">
 				<div class="form-group">
@@ -36,7 +36,7 @@
 					<input type="password" name="password" class="form-control" id="login_email" placeholder="password">
 				</div>
 				<div class="form-group">
-					<button type="submit" name="submit" class="btn btn-default form-control" id="login_button">login</button>
+					<button type="submit" name="submit" class="btn btn-success form-control" id="login_button">login</button>
 				</div>
 			</form>
 		</div>

@@ -6,11 +6,9 @@
 
 	$flot = new Flot;
 
-	if($flot->b_is_user_admin()){
-
-	}else{
+	if(!$flot->b_is_user_admin()){
 		# forward them to login page
-		$flot->_page_change("flot_flot/admin/login.php");
+		$flot->_page_change("/flot_flot/admin/login.php");
 	}
 
 ?>
@@ -23,5 +21,6 @@
 		?>
 	</head>
 	<body>
+		ph yeah manage flot site
 	</body>
 </html>
