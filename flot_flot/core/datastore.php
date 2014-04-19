@@ -8,6 +8,8 @@
 		public $urls;
 		public $items;
 		public $settings;
+		public $users;
+
 		public $s_base_path;
 
 		function __construct() {
@@ -15,6 +17,7 @@
 			$this->initiate_settings();
 			$this->initiate_urls();
 			$this->initiate_items();
+			$this->initiate_users();
 		}
 
 		function initiate_settings() {
@@ -28,6 +31,10 @@
 		function initiate_items() {
 			require($this->s_base_path.'flot_flot/datastore/items.php');
 			$this->items = json_decode($items);
+		}
+		function initiate_users() {
+			require($this->s_base_path.'flot_flot/datastore/users.php');
+			$this->users = json_decode($users);
 		}
 		function get_current_url_data()
 		{
@@ -43,6 +50,14 @@
 			foreach ($this->items as $item) {
 				if ($item->id == $item_id)
 					return $item;
+			}
+			return false;
+		}
+		function o_get_user_data($user_id)
+		{
+			foreach ($this->users as $user) {
+				if ($user->user == $user_id)
+					return $user;
 			}
 			return false;
 		}

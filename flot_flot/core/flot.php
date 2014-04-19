@@ -61,10 +61,14 @@
 			    $user = $_POST['email'];
 			    $pass = $_POST['password'];
 
-			    if($user === "samt@samt.st" && $pass === "sam"){
-			    	session_start();
-					$_SESSION['admin_user'] = $user;
-			    }
+			    $o_user = $this->datastore->o_get_user_data($user);
+
+			    if($o_user){
+				    if($user === $o_user->user && $pass === $o_user->pass){
+				    	session_start();
+						$_SESSION['admin_user'] = $user;
+				    }
+				}
 			}
 		}
 		function _kill_session()
