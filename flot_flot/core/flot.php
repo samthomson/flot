@@ -84,6 +84,8 @@
 			# bootstrap css
 			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/bootstrap.min.css">';
 
+			# jquery js
+			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
 			# bootstrap js
 			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
 
