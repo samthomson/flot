@@ -38,6 +38,9 @@
 				<div class="form-group">
 					<button type="submit" name="submit" class="btn btn-success form-control" id="login_button">login</button>
 				</div>
+				<div class="form-group">
+					<a href="/">back to site</a>
+				</div>
 			</form>
 		</div>
 	</body>
