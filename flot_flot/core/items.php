@@ -113,14 +113,27 @@
 			$html_form = "";
 
 			$html_form .= '<form role="form" method="post" action="index.php">';
+
 			# title
 			$html_form .= '<div class="form-group">';
 			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.$this->o_loaded_item_object->title.'">';
 			$html_form .= '</div>';
+
 			# content
 			$html_form .= '<div class="form-group">';
 			$html_form .= '<textarea class="form-control" name="content" rows="12">'.$this->o_loaded_item_object->content.'</textarea>';
 			$html_form .= '</div>';
+
+			# keywords
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<input type="text" class="form-control" name="keywords" placeholder="keywords" value="'.$this->o_loaded_item_object->keywords.'">';
+			$html_form .= '</div>';
+
+			# description
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<input type="text" class="form-control" name="description" placeholder="description" value="'.$this->o_loaded_item_object->description.'">';
+			$html_form .= '</div>';
+
 			# save
 			$html_form .= '<div class="form-group">';
 			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
