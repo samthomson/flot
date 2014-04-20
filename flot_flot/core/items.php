@@ -41,8 +41,6 @@
 
 			# write the file itself
 			file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
-
-			echo "just rendered item: ".$item_url->writing_file_path($this->s_base_path);
 		}
 		function delete() {
 			# delete the file
@@ -58,7 +56,7 @@
 
 			foreach ($sa_keys as $key) {
 				if($this->o_loaded_item_object->$key !== null)
-					$template = str_replace("{{item:".$key."}}", $this->o_loaded_item_object->$key, $template);
+					$template = str_replace("{{item:".$key."}}", urldecode($this->o_loaded_item_object->$key), $template);
 			}
 			# general parsing
 			$template = str_replace("{{flot:theme_dir}}", '/flot_flot/themes/'.$this->datastore->settings->theme.'/', $template);
@@ -116,22 +114,22 @@
 
 			# title
 			$html_form .= '<div class="form-group">';
-			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.$this->o_loaded_item_object->title.'">';
+			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
 			$html_form .= '</div>';
 
 			# content
 			$html_form .= '<div class="form-group">';
-			$html_form .= '<textarea class="form-control" name="content" rows="12">'.$this->o_loaded_item_object->content.'</textarea>';
+			$html_form .= '<textarea class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
 			$html_form .= '</div>';
 
 			# keywords
 			$html_form .= '<div class="form-group">';
-			$html_form .= '<input type="text" class="form-control" name="keywords" placeholder="keywords" value="'.$this->o_loaded_item_object->keywords.'">';
+			$html_form .= '<input type="text" class="form-control" name="keywords" placeholder="keywords" value="'.urldecode($this->o_loaded_item_object->keywords).'">';
 			$html_form .= '</div>';
 
 			# description
 			$html_form .= '<div class="form-group">';
-			$html_form .= '<input type="text" class="form-control" name="description" placeholder="description" value="'.$this->o_loaded_item_object->description.'">';
+			$html_form .= '<input type="text" class="form-control" name="description" placeholder="description" value="'.urldecode($this->o_loaded_item_object->description).'">';
 			$html_form .= '</div>';
 
 			# save
@@ -142,7 +140,7 @@
 			# hidden elements
 
 			$html_form .= '<input type="hidden" name="section" value="items">';
-			$html_form .= '<input type="hidden" name="item_id" value="'.$this->o_loaded_item_object->id.'">';
+			$html_form .= '<input type="hidden" name="item_id" value="'.urldecode($this->o_loaded_item_object->id).'">';
 
 			$html_form .= '</form>';
 			return $html_form;
@@ -154,7 +152,7 @@
 			foreach($this->o_oncology->elements as $element){
 				$s_new_value = $flot->s_post_var($element, false);
 				if($s_new_value){
-					$this->o_loaded_item_object->$element = $s_new_value;
+					$this->o_loaded_item_object->$element = urlencode($s_new_value);
 				}
 			}
 			$this->datastore->_set_item_data($this->o_loaded_item_object);

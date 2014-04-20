@@ -87,7 +87,6 @@
 					$this->items[$c_item] = $new_item;
 				}
 			}
-			print_r($this->items);
 		}
 
 		
