@@ -95,7 +95,13 @@
 			# bootstrap js
 			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
 
+			$s_header .= '<title>flot - manage your site</title>';
+
 			return $s_header;
+		}
+
+		function oa_pages(){
+			return $this->datastore->items;
 		}
 	}
 ?>

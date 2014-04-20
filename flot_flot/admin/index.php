@@ -49,30 +49,87 @@
 </nav>
 
 
-      <!-- tabs left -->
-      <div class="tabbable tabs-left">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#a" data-toggle="tab"><i class="glyphicon glyphicon-file"></i><span class="hidden-xs"> Webpages</span></a></li>
-          <li><a href="#b" data-toggle="tab"><i class="glyphicon glyphicon-picture"></i><span class="hidden-xs"> Pictures</span></a></li>
-          <li><a href="#c" data-toggle="tab"><i class="glyphicon glyphicon-list"></i><span class="hidden-xs"> Menus</span></a></li>
-          <li><a href="#d" data-toggle="tab"><i class="glyphicon glyphicon-cog"></i><span class="hidden-xs"> Settings</span></a></li>
-        </ul>
-        <div class="tab-content">
-         <div class="tab-pane active" id="a">
-         	Webpages
-         </div>
-         <div class="tab-pane" id="b">
-         	Pictures
-         </div>
-         <div class="tab-pane" id="c">
-         	Menus
-         </div>
-         <div class="tab-pane" id="d">
-         	Settings
-         </div>
-        </div>
-      </div>
-      <!-- /tabs -->
+<div class="row">
 
+	<!-- tabs left -->
+
+
+<?php
+	$s_section = "items";
+	if(isset($_GET['section'])){
+		switch ($_GET['section']) {
+			case 'items':
+				$s_section = "items";
+				break;
+			case 'pictures':
+				$s_section = "pictures";
+				break;
+			case 'menus':
+				$s_section = "menus";
+				break;
+			case 'settings':
+				$s_section = "settings";
+				break;
+			
+			default:
+				$s_section = "items";
+				break;
+		}
+	}
+
+?>
+
+
+
+	<div class="col-xs-1 col-sm-3">
+		<!-- render left menu, one item should be 'active' -->
+		<ul>
+			<li class="active"><a href="/flot_flot/admin/index.php?section=items&oncology=page"><i class="glyphicon glyphicon-file"></i><span class="hidden-xs"> Webpages</span></a></li>
+			<li><a href="/flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="hidden-xs"> Pictures</span></a></li>
+			<li><a href="/flot_flot/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="hidden-xs"> Menus</span></a></li>
+			<li><a href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="hidden-xs"> Settings</span></a></li>
+		</ul>
+	</div>
+	<div class="col-xs-11 col-xs-9">
+		<!-- main 'content' section -->
+		<?php
+			switch($s_section){
+				case "items":
+	         		$oa_pages = $flot->oa_pages();
+	         		$hmtl_pages_ui = "";
+
+	         		if(count($oa_pages) > 0)
+	         		{
+	         			$hmtl_pages_ui .= '<ul class="list-group">';
+		         		foreach ($oa_pages as $o_page) {
+		         			# code...
+		         			$hmtl_pages_ui .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
+		         			$hmtl_pages_ui .= $o_page->title;
+		         			$hmtl_pages_ui .= '</a></li>';
+		         		}
+		         		$hmtl_pages_ui .= '</ul>';
+		         	}else{
+		         		$hmtl_pages_ui .= "no pages..";
+		         	}
+
+		         	echo $hmtl_pages_ui;
+					break;
+				case "pictures":
+					$html_pictures_ui = "pictures";
+					echo $html_pictures_ui;
+					break;
+				case "menus":
+					$html_menu_ui = "menus";
+					echo $html_menu_ui;
+					break;
+				case "settings":
+					$html_settings_ui = "settings";
+					echo $html_settings_ui;
+					break;
+			}
+         	?>
+         </div>
+	</div>
+</div>
 	</body>
 </html>
