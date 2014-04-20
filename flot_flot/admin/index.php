@@ -23,97 +23,99 @@
 	$html_main_admin_content = "";
 
 	if($flot->b_post_vars()){
+		print_r($_POST);
 		# handle post request
+		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
+
+		switch($s_section){
+			case "items":
+				# get the id, find the item, then try replacing the attributes
+				$item_id = $flot->s_post_var("item_id", false);
+				if($item_id){
+
+					$o_item = $flot->datastore->get_item_data($item_id);
+
+					if($o_item){
+						$Item = new Item($o_item);
+
+						$Item->update_from_post();
+
+						# save the item
+						$Item->save();
+
+						# change location to view the item
+					}
+				}
+				break;
+		}
+
+
 
 		# location change to corresponding get
 	}else{
-
-	}
-
+		$s_section = $flot->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
 
 
-	$s_section = $flot->s_get_var("section", "items");
 
-	switch ($s_section) {
-		case 'items':
-			$s_section = "items";
-			break;
-		case 'pictures':
-			$s_section = "pictures";
-			break;
-		case 'menus':
-			$s_section = "menus";
-			break;
-		case 'settings':
-			$s_section = "settings";
-			break;
-		
-		default:
-			$s_section = "items";
-			break;
-	}
+		switch($s_section){
+			case "items":
+				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list"), "list");
 
+				switch ($s_action) {
+					case 'edit':
+						$s_page_id = $flot->s_get_var('item', false);
 
-	switch($s_section){
-		case "items":
-			$s_action = $flot->s_get_var("action", "list");
+						if($s_page_id){
+							# get the item
+							$o_item = $flot->datastore->get_item_data($s_page_id);
 
-			switch ($s_action) {
-				case 'edit':
-					$s_page_id = $flot->s_get_var('item', false);
+							# get the oncology
 
-					if($s_page_id){
-						# get the item
-						$o_item = $flot->datastore->get_item_data($s_page_id);
+							# render a form
+							$Item = new Item($o_item);
 
-						# get the oncology
+							$html_main_admin_content = $Item->html_edit_form();
+						}
+						break;
+					
+					case 'list':
+						# list all pages that can be edited (pagination ?)
+						$oa_pages = $flot->oa_pages();
+		         		$hmtl_pages_ui = "";
 
-						# render a form
-						$Item = new Item($o_item);
+		         		if(count($oa_pages) > 0)
+		         		{
+		         			$hmtl_pages_ui .= '<ul class="list-group">';
+			         		foreach ($oa_pages as $o_page) {
+			         			# code...
+			         			$hmtl_pages_ui .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
+			         			$hmtl_pages_ui .= $o_page->title;
+			         			$hmtl_pages_ui .= '</a></li>';
+			         		}
+			         		$hmtl_pages_ui .= '</ul>';
+			         	}else{
+			         		$hmtl_pages_ui .= "no pages..";
+			         	}
 
-						$html_main_admin_content = $Item->html_edit_form();
-					}
+			         	$html_main_admin_content = $hmtl_pages_ui;
+						break;
+				}
 
-
-					break;
-				
-				default: # list
-					# list all pages that can be edited (pagination ?)
-					$oa_pages = $flot->oa_pages();
-	         		$hmtl_pages_ui = "";
-
-	         		if(count($oa_pages) > 0)
-	         		{
-	         			$hmtl_pages_ui .= '<ul class="list-group">';
-		         		foreach ($oa_pages as $o_page) {
-		         			# code...
-		         			$hmtl_pages_ui .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
-		         			$hmtl_pages_ui .= $o_page->title;
-		         			$hmtl_pages_ui .= '</a></li>';
-		         		}
-		         		$hmtl_pages_ui .= '</ul>';
-		         	}else{
-		         		$hmtl_pages_ui .= "no pages..";
-		         	}
-
-		         	$html_main_admin_content = $hmtl_pages_ui;
-					break;
-			}
-
-     		
-			break;
-		case "pictures":
-			$html_pictures_ui = "pictures";
-			$html_main_admin_content = $html_pictures_ui;
-			break;
-		case "menus":
-			$html_menu_ui = "menus";
-			$html_main_admin_content = $html_menu_ui;
-			break;
-		case "settings":
-			$html_settings_ui = "settings";
-			$html_main_admin_content = $html_settings_ui;
-			break;
+	     		
+				break;
+			case "pictures":
+				$html_pictures_ui = "pictures";
+				$html_main_admin_content = $html_pictures_ui;
+				break;
+			case "menus":
+				$html_menu_ui = "menus";
+				$html_main_admin_content = $html_menu_ui;
+				break;
+			case "settings":
+				$html_settings_ui = "settings";
+				$html_main_admin_content = $html_settings_ui;
+				break;
+		}
 	}
 
 	#

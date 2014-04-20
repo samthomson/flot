@@ -9,6 +9,7 @@
 		public $items;
 		public $settings;
 		public $users;
+		public $oncologies;
 
 		public $s_base_path;
 
@@ -18,8 +19,14 @@
 			$this->initiate_urls();
 			$this->initiate_items();
 			$this->initiate_users();
+			$this->initiate_oncologies();
 		}
 
+		function initiate_oncologies() {
+			require($this->s_base_path.'flot_flot/datastore/oncologies.php');
+			$this->oncologies = json_decode($oncologies);
+			echo $this->oncologies;
+		}
 		function initiate_settings() {
 			require($this->s_base_path.'flot_flot/datastore/settings.php');
 			$this->settings = json_decode($settings);
@@ -42,6 +49,16 @@
 				#echo "compare '$url->url' with current '$_SERVER[REQUEST_URI]'";
 				if ($url->url == $_SERVER['REQUEST_URI'])
 					return $url;
+			}
+			return false;
+		}
+		function get_oncology($s_oncology_name)
+		{
+			print_r($this->oncologies);
+			foreach ($this->oncologies as $oncology) {
+				#echo "compare '$url->url' with current '$_SERVER[REQUEST_URI]'";
+				if ($oncology->id == $s_oncology_name)
+					return $oncology;
 			}
 			return false;
 		}

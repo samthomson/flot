@@ -14,10 +14,14 @@
 		public $o_loaded_item_object;
 		public $html_page;
 		public $s_base_path;
+		public $o_oncology;
 
 		function __construct($o_item) {
 			$this->o_loaded_item_object = $o_item;
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+			# set a reference to my oncology
+			$datastore = new DataStore;
+			$this->o_oncology = $datastore->get_oncology($o_item->oncology);
 		}
 
 		function rebuild() {
@@ -35,7 +39,6 @@
 
 			# write the file itself	
 			file_put_contents($current_url->writing_file_path($this->s_base_path), $this->html_page);
-
 
 			echo "just rendered item: ".$current_url->writing_file_path($this->s_base_path);
 		}
@@ -85,6 +88,13 @@
 			$this->update();
 		}
 
+		function save(){
+			# update the datastore
+
+			# re-render the page
+			$this->render();
+		}
+
 		#
 		# content generation
 		#
@@ -116,8 +126,18 @@
 			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
 			$html_form .= '</div>';
 
+			# hidden elements
+
+			$html_form .= '<input type="hidden" name="section" value="items">';
+			$html_form .= '<input type="hidden" name="item_id" value="'.$this->o_loaded_item_object->id.'">';
+
 			$html_form .= '</form>';
 			return $html_form;
+		}
+		function update_from_post(){
+			# update the item from post variables
+			print_r($this->o_oncology);
+			# we can find out what post variables to look for by checking our oncology
 		}
 	}
 ?>

@@ -9,13 +9,4 @@
 		# forward them to login page
 		$flot->_page_change("/flot_flot/admin/login.php");
 	}
-
-
-
-
-
-
-
-
-
 ?>
