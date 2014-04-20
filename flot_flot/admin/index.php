@@ -23,7 +23,7 @@
 	$html_main_admin_content = "";
 
 	if($flot->b_post_vars()){
-		print_r($_POST);
+		//print_r($_POST);
 		# handle post request
 		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
 
@@ -38,7 +38,7 @@
 					if($o_item){
 						$Item = new Item($o_item);
 
-						$Item->update_from_post();
+						//$Item->update_from_post();
 
 						# save the item
 						$Item->save();

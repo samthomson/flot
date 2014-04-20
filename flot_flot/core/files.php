@@ -3,12 +3,12 @@
 	
 	
 
-	class CurrentURL {
+	class ItemURL {
 
 		public $s_relative_url; # stored without the leading slash
 
-		function __construct() {
-			$this->s_relative_url = $_SERVER['REQUEST_URI'];
+		function __construct($o_item) {
+			$this->s_relative_url = $o_item->url;
 			if(strpos($this->s_relative_url, '/') == 0)
 				$this->s_relative_url = substr($this->s_relative_url, 1); # remove leading slash
 		}

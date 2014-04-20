@@ -29,18 +29,19 @@
 		}
 		function update() {
 
-			$current_url = new CurrentURL;
+			$item_url = new ItemURL($this->o_loaded_item_object);
+
 
 			# create any directories for the file if neccesary
-			if($current_url->has_dirs()){
+			if($item_url->has_dirs()){
 				# make dirs
-				mkdir($this->s_base_path.$current_url->dir_path(), 0777, true);
+				mkdir($this->s_base_path.$item_url->dir_path(), 0777, true);
 			}
 
-			# write the file itself	
-			file_put_contents($current_url->writing_file_path($this->s_base_path), $this->html_page);
+			# write the file itself
+			file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
 
-			echo "just rendered item: ".$current_url->writing_file_path($this->s_base_path);
+			echo "just rendered item: ".$item_url->writing_file_path($this->s_base_path);
 		}
 		function delete() {
 			# delete the file
@@ -79,8 +80,7 @@
 
 			# serve to user
 
-			ob_start("ob_gzhandler");
-			echo $template;
+			//ob_start("ob_gzhandler");
 			$this->html_page = $template;
 
 

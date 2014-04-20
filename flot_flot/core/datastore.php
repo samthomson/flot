@@ -25,7 +25,6 @@
 		function initiate_oncologies() {
 			require($this->s_base_path.'flot_flot/datastore/oncologies.php');
 			$this->oncologies = json_decode($oncologies);
-			echo $this->oncologies;
 		}
 		function initiate_settings() {
 			require($this->s_base_path.'flot_flot/datastore/settings.php');
@@ -54,7 +53,6 @@
 		}
 		function get_oncology($s_oncology_name)
 		{
-			print_r($this->oncologies);
 			foreach ($this->oncologies as $oncology) {
 				#echo "compare '$url->url' with current '$_SERVER[REQUEST_URI]'";
 				if ($oncology->id == $s_oncology_name)
