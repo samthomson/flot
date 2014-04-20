@@ -48,7 +48,7 @@
 		function get_item_data($item_id)
 		{
 			foreach ($this->items as $item) {
-				if ($item->id == $item_id)
+				if ($item->id === $item_id)
 					return $item;
 			}
 			return false;

@@ -103,5 +103,16 @@
 		function oa_pages(){
 			return $this->datastore->items;
 		}
+
+		function s_get_var($s_var, $s_default_return){
+			if(isset($_GET[$s_var]))
+				return $_GET[$s_var];
+			return $s_default_return;
+		}
+		function b_post_vars(){
+			if($_SERVER['REQUEST_METHOD'] === "POST")
+				return true;
+			return false;
+		}
 	}
 ?>

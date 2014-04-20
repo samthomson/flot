@@ -15,9 +15,9 @@
 		public $html_page;
 		public $s_base_path;
 
-		function __construct($o_item, $s_base_path) {
+		function __construct($o_item) {
 			$this->o_loaded_item_object = $o_item;
-			$this->s_base_path = $s_base_path;
+			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 		}
 
 		function rebuild() {
@@ -94,6 +94,30 @@
 			# keywords etc, generate if necessary
 
 			# open graph stuff
+		}
+
+		#
+		# editing
+		#
+		function html_edit_form(){
+			$html_form = "";
+
+			$html_form .= '<form role="form" method="post" action="index.php">';
+			# title
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.$this->o_loaded_item_object->title.'">';
+			$html_form .= '</div>';
+			# content
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<textarea class="form-control" name="content" rows="12">'.$this->o_loaded_item_object->content.'</textarea>';
+			$html_form .= '</div>';
+			# save
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
+			$html_form .= '</div>';
+
+			$html_form .= '</form>';
+			return $html_form;
 		}
 	}
 ?>

@@ -1,101 +1,85 @@
 <?php
 	# manage site
 
+	/*
+	this page handles both gets and sets.
+	ideally we could check for post vars, process set request, then location change to a get
+	however we also need to show invalid post requests? maybe we could just do that client side.
+	*/
+
 	require_once('../core/flot.php');
 
 
 	$flot = new Flot;
+	$admin_ui = new AdminUI;
+
 
 	if(!$flot->b_is_user_admin()){
 		# forward them to login page
 		$flot->_page_change("/flot_flot/admin/login.php");
 	}
 
-?>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<?php
-			echo $flot->s_admin_header();
-		?>
-	</head>
-	<body>
+	$html_main_admin_content = "";
 
+	if($flot->b_post_vars()){
+		# handle post request
 
+		# location change to corresponding get
+	}else{
 
-
-		<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">flot</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> help</a></li>
-        <li><a href="logout.php"><i class="glyphicon glyphicon-user"></i> logout</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-<div class="row">
-
-	<!-- tabs left -->
-
-
-<?php
-	$s_section = "items";
-	if(isset($_GET['section'])){
-		switch ($_GET['section']) {
-			case 'items':
-				$s_section = "items";
-				break;
-			case 'pictures':
-				$s_section = "pictures";
-				break;
-			case 'menus':
-				$s_section = "menus";
-				break;
-			case 'settings':
-				$s_section = "settings";
-				break;
-			
-			default:
-				$s_section = "items";
-				break;
-		}
 	}
 
-?>
 
 
+	$s_section = $flot->s_get_var("section", "items");
 
-	<div class="col-xs-1 col-sm-3">
-		<!-- render left menu, one item should be 'active' -->
-		<ul>
-			<li class="active"><a href="/flot_flot/admin/index.php?section=items&oncology=page"><i class="glyphicon glyphicon-file"></i><span class="hidden-xs"> Webpages</span></a></li>
-			<li><a href="/flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="hidden-xs"> Pictures</span></a></li>
-			<li><a href="/flot_flot/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="hidden-xs"> Menus</span></a></li>
-			<li><a href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="hidden-xs"> Settings</span></a></li>
-		</ul>
-	</div>
-	<div class="col-xs-11 col-xs-9">
-		<!-- main 'content' section -->
-		<?php
-			switch($s_section){
-				case "items":
-	         		$oa_pages = $flot->oa_pages();
+	switch ($s_section) {
+		case 'items':
+			$s_section = "items";
+			break;
+		case 'pictures':
+			$s_section = "pictures";
+			break;
+		case 'menus':
+			$s_section = "menus";
+			break;
+		case 'settings':
+			$s_section = "settings";
+			break;
+		
+		default:
+			$s_section = "items";
+			break;
+	}
+
+
+	switch($s_section){
+		case "items":
+			$s_action = $flot->s_get_var("action", "list");
+
+			switch ($s_action) {
+				case 'edit':
+					$s_page_id = $flot->s_get_var('item', false);
+
+					if($s_page_id){
+						# get the item
+						$o_item = $flot->datastore->get_item_data($s_page_id);
+
+						# get the oncology
+
+						# render a form
+						$Item = new Item($o_item);
+
+						$html_main_admin_content = $Item->html_edit_form();
+					}
+
+
+					break;
+				
+				default: # list
+					# list all pages that can be edited (pagination ?)
+					$oa_pages = $flot->oa_pages();
 	         		$hmtl_pages_ui = "";
 
 	         		if(count($oa_pages) > 0)
@@ -112,24 +96,29 @@
 		         		$hmtl_pages_ui .= "no pages..";
 		         	}
 
-		         	echo $hmtl_pages_ui;
-					break;
-				case "pictures":
-					$html_pictures_ui = "pictures";
-					echo $html_pictures_ui;
-					break;
-				case "menus":
-					$html_menu_ui = "menus";
-					echo $html_menu_ui;
-					break;
-				case "settings":
-					$html_settings_ui = "settings";
-					echo $html_settings_ui;
+		         	$html_main_admin_content = $hmtl_pages_ui;
 					break;
 			}
-         	?>
-         </div>
-	</div>
-</div>
-	</body>
-</html>
+
+     		
+			break;
+		case "pictures":
+			$html_pictures_ui = "pictures";
+			$html_main_admin_content = $html_pictures_ui;
+			break;
+		case "menus":
+			$html_menu_ui = "menus";
+			$html_main_admin_content = $html_menu_ui;
+			break;
+		case "settings":
+			$html_settings_ui = "settings";
+			$html_main_admin_content = $html_settings_ui;
+			break;
+	}
+
+	#
+	# if we're still here, render a page for the user
+	#
+
+	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu(), $html_main_admin_content);
+?>
