@@ -15,13 +15,14 @@
 		public $html_page;
 		public $s_base_path;
 		public $o_oncology;
+		public $datastore;
 
 		function __construct($o_item) {
 			$this->o_loaded_item_object = $o_item;
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			# set a reference to my oncology
-			$datastore = new DataStore;
-			$this->o_oncology = $datastore->get_oncology($o_item->oncology);
+			$this->datastore = new DataStore;
+			$this->o_oncology = $this->datastore->get_oncology($o_item->oncology);
 		}
 
 		function rebuild() {
@@ -49,7 +50,6 @@
 			# if it was the last file in folder, delete folder, repeat this recursively until back to root
 		}
 		function render() {
-			$this->datastore = new DataStore;
 			# get template
 			$template = file_get_contents($this->s_base_path.'/flot_flot/themes/'.$this->datastore->settings->theme.'/flot_template.html');
 
@@ -157,6 +157,8 @@
 					$this->o_loaded_item_object->$element = $s_new_value;
 				}
 			}
+			$this->datastore->_set_item_data($this->o_loaded_item_object);
+			$this->datastore->_save_datastore("items");
 		}
 	}
 ?>

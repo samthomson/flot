@@ -76,5 +76,37 @@
 			}
 			return false;
 		}
+
+		#
+		# Setting
+		#
+		function _set_item_data($new_item)
+		{
+			for($c_item = 0; $c_item < count($this->items); $c_item++) {
+				if ($this->items[$c_item]->id === $new_item->id){
+					$this->items[$c_item] = $new_item;
+				}
+			}
+			print_r($this->items);
+		}
+
+		
+		#
+		# Saving
+		#
+		function _save_datastore($s_datastore){
+			switch ($s_datastore) {
+				case 'items':
+					$s_write_path = $this->s_base_path.'flot_flot/datastore/items.php';
+					$s_new_content = "<?php ";
+					$s_new_content .= '$items = \'';
+					$s_new_content .= json_encode($this->items);
+					$s_new_content .= "'; ?>";
+
+					file_put_contents($s_write_path, $s_new_content);
+					break;
+			}
+		}
+
 	}
 ?>
