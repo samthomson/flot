@@ -136,8 +136,14 @@
 		}
 		function update_from_post(){
 			# update the item from post variables
-			print_r($this->o_oncology);
 			# we can find out what post variables to look for by checking our oncology
+			$flot = new Flot();
+			foreach($this->o_oncology->elements as $element){
+				$s_new_value = $flot->s_post_var($element, false);
+				if($s_new_value){
+					$this->o_loaded_item_object->$element = $s_new_value;
+				}
+			}
 		}
 	}
 ?>

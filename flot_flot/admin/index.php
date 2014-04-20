@@ -38,7 +38,7 @@
 					if($o_item){
 						$Item = new Item($o_item);
 
-						//$Item->update_from_post();
+						$Item->update_from_post();
 
 						# save the item
 						$Item->save();
