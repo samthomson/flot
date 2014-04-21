@@ -30,19 +30,19 @@
 		</nav>
 
 
-		<div class="row">
+		<div>
 
 			<!-- tabs left -->
-			<div class="col-xs-1 col-sm-3">
+			<div class="left_col">
 				<!-- render left menu, one item should be 'active' -->
 				<?php echo $html_left_menu ?>
 			</div>
-			<div class="col-xs-11 col-xs-9">
+			<div class="right_col">
 				<!-- main 'content' section -->
 
 				<?php 
 					if($html_make_admin_content_menu !== "")
-					echo $html_make_admin_content_menu; 
+					echo '<div class="btn-group">'.$html_make_admin_content_menu.'</div>'; 
 					echo "<hr/>";
 				?>
 				<?php echo $html_make_admin_content; ?>

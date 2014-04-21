@@ -93,7 +93,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_pages = $flot->oa_pages();
 		         		$hmtl_pages_ui = "";
-						$html_main_admin_content_menu .= '<a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> add new page</a>';
+						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add new page</a></button>';
 
 		         		if(count($oa_pages) > 0)
 		         		{
@@ -102,7 +102,7 @@
 			         			# code...
 			         			$hmtl_pages_ui .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
 			         			$hmtl_pages_ui .= $o_page->title;
-			         			$hmtl_pages_ui .= '</a> <a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger">delete</a></li>';
+			         			$hmtl_pages_ui .= '</a> <a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs">delete</a></li>';
 			         		}
 			         		$hmtl_pages_ui .= '</ul>';
 			         	}else{
