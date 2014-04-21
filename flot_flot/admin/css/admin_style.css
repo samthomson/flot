@@ -1,8 +1,56 @@
 
-.left_col{float:left;width:200px;background: green;}
-.right_col{margin-left:200px;background: orange;}
+.left_col{float:left;width:200px;padding: 5px;}
+.right_col{margin-left:200px;padding: 5px;}
 
 @media only screen and (max-width : 600px) {
   .left_col{width:50px;}
   .right_col{margin-left:50px;}
+
+  .small-hidden{display: none;}
 }
+
+#admin_header{
+  border-bottom: silver 1px solid;
+  height: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#top_right_buttons{
+  float:right;
+}
+.clearer:before,
+.clearer:after {
+    content: "";
+    display: table;
+} 
+.clearer:after {
+    clear: both;
+}
+.clearer {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+
+#logo_container{
+  font-family: 'Nunito', sans-serif !important;
+  padding-left: 15px;
+}
+#logo_container span{
+  position: absolute;
+  font-size: 36px;
+  line-height: 36px;
+  height: 48px;
+}
+#logo_container span#f{z-index: 13;}
+#logo_container span#l{z-index: 12;margin-left: -1px;margin-top: -2px;}
+#logo_container span#o{z-index: 11;margin-left: 2px;margin-top: -1px;}
+#logo_container span#t{z-index: 10;margin-left: -1px;margin-top: 2px;}
+
+.blue {
+  color: #0074d9; }
+.green {
+  color: #2ecc40; }
+.yellow {
+  color: #ffdc00; }
+.red {
+  color: #ff4136; }

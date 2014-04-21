@@ -23,12 +23,13 @@
 	$html_main_admin_content = "";
 	$html_main_admin_content_menu = "";
 
-
+	$s_section = "";
+		
 	if($flot->b_post_vars()){
 		//print_r($_POST);
 		# handle post request
+		$s_action = $flot->s_post_var_from_allowed("action", array("edit"), "edit");		
 		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
-		$s_action = $flot->s_post_var_from_allowed("action", array("edit"), "edit");
 
 		switch($s_section){
 			case "items":
@@ -64,9 +65,8 @@
 		#
 		# no post vars, this is a get request ?
 		#
+
 		$s_section = $flot->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
-
-
 
 		switch($s_section){
 			case "items":
@@ -97,14 +97,14 @@
 
 		         		if(count($oa_pages) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<ul class="list-group">';
+		         			$hmtl_pages_ui .= '<table class="table table-hover"><thead><tr><th>page name</th><th>last changed</th><th>author</th><th>delete</th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
 			         			# code...
-			         			$hmtl_pages_ui .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
+			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
 			         			$hmtl_pages_ui .= $o_page->title;
-			         			$hmtl_pages_ui .= '</a> <a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs">delete</a></li>';
+			         			$hmtl_pages_ui .= '</a></td><td>'.$o_page->date_modified.'</td><td>'.$o_page->author.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
-			         		$hmtl_pages_ui .= '</ul>';
+			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
 			         		$hmtl_pages_ui .= "no pages..";
 			         	}
@@ -155,5 +155,5 @@
 	# if we're still here, render a page for the user
 	#
 
-	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu(), $html_main_admin_content, $html_main_admin_content_menu);
+	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu($s_section), $html_main_admin_content, $html_main_admin_content_menu);
 ?>

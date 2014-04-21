@@ -90,6 +90,8 @@
 			# bootstrap css
 			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/admin_style.css">';
 
+			$s_header .= "<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>";
+
 			# jquery js
 			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
 			# bootstrap js

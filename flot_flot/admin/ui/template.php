@@ -6,38 +6,34 @@
 		?>
 	</head>
 	<body>
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">flot</a>
-				</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> help</a></li>
-					<li><a href="logout.php"><i class="glyphicon glyphicon-user"></i> logout</a></li>
-				</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
+		<div id="admin_header" class="clearer">
+			<div class="left_col" class="clearer">
+				<a href="/flot_flot/admin/">
+					<div id="logo_container">
+						<span id="f" class="blue">f<span class="small-hidden">lot</span></span>
+						<span id="l" class="red">f<span class="small-hidden">lot</span></span>
+						<span id="o" class="yellow">f<span class="small-hidden">lot</span></span>
+						<span id="t" class="green">f<span class="small-hidden">lot</span></span>
+					</div>
+				</a>
+			</div>
+			<div class="right_col">
+				<div id="top_right_buttons" class="clearer">
+					<a class="btn btn-info btn-sm" href="#"><i class="glyphicon glyphicon-question-sign"></i> help</a>
+					<a class="btn btn-danger btn-sm" href="logout.php"><i class="glyphicon glyphicon-user"></i> logout</a>
+				</div>
+			</div>
+		</div>
 
 
 		<div>
-
 			<!-- tabs left -->
 			<div class="left_col">
 				<!-- render left menu, one item should be 'active' -->
-				<?php echo $html_left_menu ?>
+				<?php echo $html_left_menu; ?>
 			</div>
-			<div class="right_col">
+			<div class="right_col clearer">
 				<!-- main 'content' section -->
 
 				<?php 
