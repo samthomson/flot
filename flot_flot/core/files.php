@@ -9,7 +9,7 @@
 
 		function __construct($o_item) {
 			$this->s_relative_url = $o_item->url;
-			if(strpos($this->s_relative_url, '/') == 0)
+			if(substr($this->s_relative_url, 0, 1) === '/')
 				$this->s_relative_url = substr($this->s_relative_url, 1); # remove leading slash
 		}
 
@@ -26,7 +26,11 @@
 			return false;
 		}
 		function dir_path(){
-			return substr($this->s_relative_url, 0, strrpos($this->s_relative_url, '/'));
+			echo "rel url: '".$this->s_relative_url."'";
+			$i_end_index = strrpos($this->s_relative_url, '/');
+			if(!$i_end_index)
+				return $this->s_relative_url;
+			return substr($this->s_relative_url, 0, $i_end_index);
 		}
 
 		function writing_filename(){

@@ -40,6 +40,7 @@
 			}
 
 			# write the file itself
+			echo "write at: ".$item_url->writing_file_path($this->s_base_path);
 			file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
 		}
 		function delete() {
