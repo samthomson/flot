@@ -43,6 +43,7 @@
 				<?php 
 					if($html_make_admin_content_menu !== "")
 					echo $html_make_admin_content_menu; 
+					echo "<hr/>";
 				?>
 				<?php echo $html_make_admin_content; ?>
 		        </div>

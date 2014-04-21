@@ -61,13 +61,16 @@
 
 		# location change to corresponding get
 	}else{
+		#
+		# no post vars, this is a get request ?
+		#
 		$s_section = $flot->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
 
 
 
 		switch($s_section){
 			case "items":
-				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list", "new"), "list");
+				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
 
 				switch ($s_action) {
 					case 'edit':
@@ -99,7 +102,7 @@
 			         			# code...
 			         			$hmtl_pages_ui .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
 			         			$hmtl_pages_ui .= $o_page->title;
-			         			$hmtl_pages_ui .= '</a></li>';
+			         			$hmtl_pages_ui .= '</a> <a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger">delete</a></li>';
 			         		}
 			         		$hmtl_pages_ui .= '</ul>';
 			         	}else{
@@ -117,6 +120,17 @@
 
 						$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&item=".$s_newitem_id."&action=edit";
 						$flot->_page_change($s_new_page);
+						break;
+					
+					case 'delete':
+						# create the new item, then do a page change to be editing it
+						$s_page_id = $flot->s_get_var('item', false);
+						if($s_page_id){
+							$flot->datastore->_delete_item($s_page_id);
+
+							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&action=list";
+							$flot->_page_change($s_new_page);
+						}
 						break;
 				}
 

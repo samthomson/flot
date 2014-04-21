@@ -100,6 +100,19 @@
 			# return its id
 			return $s_new_id;
 		}
+		function _delete_item($s_id){
+			$i_kill_index = -1;
+			for($c_item = 0; $c_item < count($this->items); $c_item++) {
+				if ($this->items[$c_item]->id === $s_id)
+					$i_kill_index = $c_item;
+			}
+			if($i_kill_index > -1){
+				unset($this->items[$i_kill_index]);
+				$this->items = array_values($this->items);
+			}
+
+			$this->_save_datastore("items");
+		}
 
 		
 		#
