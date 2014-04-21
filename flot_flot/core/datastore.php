@@ -113,6 +113,12 @@
 
 			$this->_save_datastore("items");
 		}
+		function _add_user($s_email, $s_pass){
+			$s_user_template = '{"user":"'.$s_email.'", "pass": "'.$s_pass.'"}';
+			array_push($this->users, json_decode($s_user_template));
+
+			$this->_save_datastore("users");
+		}
 
 		
 		#
@@ -125,6 +131,15 @@
 					$s_new_content = "<?php ";
 					$s_new_content .= '$items = \'';
 					$s_new_content .= json_encode($this->items);
+					$s_new_content .= "'; ?>";
+
+					file_put_contents($s_write_path, $s_new_content);
+					break;
+				case 'users':
+					$s_write_path = $this->s_base_path.'flot_flot/datastore/users.php';
+					$s_new_content = "<?php ";
+					$s_new_content .= '$users = \'';
+					$s_new_content .= json_encode($this->users);
 					$s_new_content .= "'; ?>";
 
 					file_put_contents($s_write_path, $s_new_content);

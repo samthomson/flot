@@ -135,5 +135,15 @@
 				return true;
 			return false;
 		}
+		function _render_all_pages(){
+			foreach ($this->datastore->items as $item) {
+				$item_to_render = new Item($item);
+				$item_to_render->render();
+			}
+		}
+		function _delete_start_page(){
+			$s_start_path = $this->s_base_path."start.php";
+			unlink($s_start_path);
+		}
 	}
 ?>
