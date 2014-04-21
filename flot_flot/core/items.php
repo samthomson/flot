@@ -132,6 +132,17 @@
 			$html_form .= '<input type="text" class="form-control" name="description" placeholder="description" value="'.urldecode($this->o_loaded_item_object->description).'">';
 			$html_form .= '</div>';
 
+			# url
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<input type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
+			$html_form .= '</div>';
+
+
+			# published
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<input type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
+			$html_form .= '</div>';
+
 			# save
 			$html_form .= '<div class="form-group">';
 			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';

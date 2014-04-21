@@ -16,7 +16,7 @@
 					<li><a href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="hidden-xs"> Settings</span></a></li>
 				</ul>';
 		}
-		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content){
+		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content, $html_make_admin_content_menu){
 			/*
 			global $html_header = $html_header;
 			global $html_left_menu;

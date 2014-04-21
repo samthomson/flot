@@ -21,31 +21,38 @@
 
 
 	$html_main_admin_content = "";
+	$html_main_admin_content_menu = "";
+
 
 	if($flot->b_post_vars()){
 		//print_r($_POST);
 		# handle post request
 		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
+		$s_action = $flot->s_post_var_from_allowed("action", array("edit"), "edit");
 
 		switch($s_section){
 			case "items":
-				# get the id, find the item, then try replacing the attributes
-				$item_id = $flot->s_post_var("item_id", false);
-				if($item_id){
+				switch ($s_action) {
+					case 'edit':
+						# get the id, find the item, then try replacing the attributes
+						$item_id = $flot->s_post_var("item_id", false);
+						if($item_id){
 
-					$o_item = $flot->datastore->get_item_data($item_id);
+							$o_item = $flot->datastore->get_item_data($item_id);
 
-					if($o_item){
-						$Item = new Item($o_item);
+							if($o_item){
+								$Item = new Item($o_item);
 
-						$Item->update_from_post();
+								$Item->update_from_post();
 
-						# save the item
-						$Item->save();
+								# save the item
+								$Item->save();
 
-						# change location to view the item
-						$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&item=".$item_id."&action=edit");
-					}
+								# change location to view the item
+								$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&item=".$item_id."&action=edit");
+							}
+						}
+						break;
 				}
 				break;
 		}
@@ -60,7 +67,7 @@
 
 		switch($s_section){
 			case "items":
-				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list"), "list");
+				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list", "new"), "list");
 
 				switch ($s_action) {
 					case 'edit':
@@ -83,6 +90,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_pages = $flot->oa_pages();
 		         		$hmtl_pages_ui = "";
+						$html_main_admin_content_menu .= '<a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> add new page</a>';
 
 		         		if(count($oa_pages) > 0)
 		         		{
@@ -99,6 +107,16 @@
 			         	}
 
 			         	$html_main_admin_content = $hmtl_pages_ui;
+						break;
+					
+					case 'new':
+						# create the new item, then do a page change to be editing it
+
+						$s_newitem_id = $flot->datastore->s_new_item("page");
+
+
+						$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&item=".$s_newitem_id."&action=edit";
+						$flot->_page_change($s_new_page);
 						break;
 				}
 
@@ -123,5 +141,5 @@
 	# if we're still here, render a page for the user
 	#
 
-	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu(), $html_main_admin_content);
+	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu(), $html_main_admin_content, $html_main_admin_content_menu);
 ?>

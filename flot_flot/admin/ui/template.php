@@ -39,6 +39,11 @@
 			</div>
 			<div class="col-xs-11 col-xs-9">
 				<!-- main 'content' section -->
+
+				<?php 
+					if($html_make_admin_content_menu !== "")
+					echo $html_make_admin_content_menu; 
+				?>
 				<?php echo $html_make_admin_content; ?>
 		        </div>
 			</div>

@@ -88,6 +88,18 @@
 				}
 			}
 		}
+		function s_new_item($s_oncology){
+			# create a new item
+			$s_new_id = uniqid($s_oncology);
+			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "description":"", "keywords":"","url":"","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "content": ""}';
+			array_push($this->items, json_decode($s_item_template));
+
+			# save it to datastore
+			$this->_save_datastore("items");
+
+			# return its id
+			return $s_new_id;
+		}
 
 		
 		#
