@@ -36,11 +36,11 @@
 			# create any directories for the file if neccesary
 			if($item_url->has_dirs()){
 				# make dirs
-				mkdir($this->s_base_path.$item_url->dir_path(), 0777, true);
+				if(!file_exists($this->s_base_path.$item_url->dir_path()))
+					mkdir($this->s_base_path.$item_url->dir_path(), 0777, true);
 			}
 
 			# write the file itself
-			echo "write at: ".$item_url->writing_file_path($this->s_base_path);
 			file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
 		}
 		function delete() {

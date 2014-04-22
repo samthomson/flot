@@ -26,7 +26,6 @@
 			return false;
 		}
 		function dir_path(){
-			echo "rel url: '".$this->s_relative_url."'";
 			$i_end_index = strrpos($this->s_relative_url, '/');
 			if(!$i_end_index)
 				return $this->s_relative_url;
