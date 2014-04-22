@@ -80,7 +80,7 @@
 						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a></button>';
 						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a></button>';
 						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a></button>';
-						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></span></button>';
+						$html_main_admin_content_menu .= '<button class="btn btn-danger btn-sm"><a href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></span></button>';
 
 						if($s_page_id){
 							# get the item
