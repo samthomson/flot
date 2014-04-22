@@ -97,6 +97,14 @@
 			# bootstrap js
 			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
 
+
+			# markdown parser
+			$s_header .= '<script src="/flot_flot/admin/js/markdown/markdown.converter.js"></script>';
+			$s_header .= '<script src="/flot_flot/admin/js/markdown/markdown.sanitizer.js"></script>';
+
+			# general admin js
+			$s_header .= '<script src="/flot_flot/admin/js/admin.js"></script>';
+
 			$s_header .= '<title>flot - manage your site</title>';
 
 			return $s_header;

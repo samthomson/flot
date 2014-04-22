@@ -8,6 +8,9 @@
 
   .small-hidden{display: none;}
 }
+body.smaller_left .left_col{width:50px;}
+body.smaller_left .right_col{margin-left:50px;}
+body.smaller_left .condensed_hidden{display: none;}
 
 #admin_header{
   border-bottom: silver 1px solid;

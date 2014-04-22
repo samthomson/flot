@@ -2,11 +2,11 @@ CURRENT V0 sprint
 -----------------
 
 BUGS
-- overwriting an existing folder/file shouldn't result in a warning
+
 
 SPRINT ITEMS
 - markdown editor, with preview
-- preview/cancel on edit page too
+- preview toggler/cancel on edit page too
 - pictures
 - menu editor
 - informative default pages
@@ -17,6 +17,7 @@ DO NEAR THE END
 -- save the same way too
 - nginx
 - combine css,js
+- flot logo to base image into css, remove google fonts dependency
 
 
 
@@ -49,6 +50,9 @@ V0 - MVP
 * admin: pages/menus/images
 * nginx support
 
+
+* seriously? check on item deletion
+
 V1
 --
 * flexible taxonomies; add anything
@@ -66,6 +70,7 @@ V1
 * validate items in someway
 ** SEO
 ** social response http://www.sharedcount.com/
+** preview to different sizes
 
 * logical shortcuts (get all posts, paginated?)
 ** test by making rss

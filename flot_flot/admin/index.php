@@ -22,6 +22,7 @@
 
 	$html_main_admin_content = "";
 	$html_main_admin_content_menu = "";
+	$s_body_class = "";
 
 	$s_section = "";
 		
@@ -75,6 +76,11 @@
 				switch ($s_action) {
 					case 'edit':
 						$s_page_id = $flot->s_get_var('item', false);
+						# menu items; purge from cache, preview, regenerate, delete
+						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a></button>';
+						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a></button>';
+						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a></button>';
+						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></span></button>';
 
 						if($s_page_id){
 							# get the item
@@ -86,6 +92,9 @@
 							$Item = new Item($o_item);
 
 							$html_main_admin_content = $Item->html_edit_form();
+
+							// make left menu smaller, to give more focus to editing
+							$s_body_class = "smaller_left";
 						}
 						break;
 					
@@ -155,5 +164,5 @@
 	# if we're still here, render a page for the user
 	#
 
-	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu($s_section), $html_main_admin_content, $html_main_admin_content_menu);
+	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu($s_section), $html_main_admin_content, $html_main_admin_content_menu, $s_body_class);
 ?>

@@ -5,7 +5,7 @@
 			echo $html_header;
 		?>
 	</head>
-	<body>
+	<body class="<?php echo $s_body_class; ?>">
 
 		<div id="admin_header" class="clearer">
 			<div class="left_col" class="clearer">
@@ -25,7 +25,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<div>
 			<!-- tabs left -->

@@ -119,8 +119,13 @@
 			$html_form .= '</div>';
 
 			# content
-			$html_form .= '<div class="form-group">';
-			$html_form .= '<textarea class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
+			$html_form .= '<div class="">';
+			$html_form .= '<div class="col-xs-6">';
+			$html_form .= '<textarea oninput="this.editor.update()" id="edit_item_markdown" class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
+
+			$html_form .= '</div>';
+			$html_form .= '<div class="col-xs-6"><div id="content_html_preview">preview here</div>';
+			$html_form .= '</div>';
 			$html_form .= '</div>';
 
 			# keywords
@@ -152,6 +157,7 @@
 			# hidden elements
 
 			$html_form .= '<input type="hidden" name="section" value="items">';
+			$html_form .= '<input type="hidden" name="content_html" value="items">';
 			$html_form .= '<input type="hidden" name="item_id" value="'.urldecode($this->o_loaded_item_object->id).'">';
 
 			$html_form .= '</form>';
