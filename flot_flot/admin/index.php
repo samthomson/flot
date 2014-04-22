@@ -101,7 +101,7 @@
 			         		foreach ($oa_pages as $o_page) {
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
-			         			$hmtl_pages_ui .= $o_page->title;
+			         			$hmtl_pages_ui .= urldecode($o_page->title);
 			         			$hmtl_pages_ui .= '</a></td><td>'.$o_page->date_modified.'</td><td>'.$o_page->author.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';

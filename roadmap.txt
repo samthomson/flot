@@ -1,28 +1,83 @@
+CURRENT V0 sprint
+-----------------
+
+BUGS
+- overwriting an existing folder/file shouldn't result in a warning
+
+SPRINT ITEMS
+- markdown editor, with preview
+- preview/cancel on edit page too
+- pictures
+- menu editor
+- informative default pages
+- settings editor
+
+DO NEAR THE END
+- refactor datastore to load all datastores the same way (no individual methods per datastore)
+-- save the same way too
+- nginx
+- combine css,js
+
+
+
+SECURITY
+- check user is logged in when changing data (items)
+- securer passwords
+- make page with url flot_flot, or .htaccess, overwrite? maybe have some disallowed urls
+
+
+LATER
+
+- oncology editor
+-- elements should have a data type (text, html)
+-- elements should have an order
+- spit out default stuff into header (charset)
+
+
+
+
+
 V0 - MVP
 --------
 
-* nginx support
+* apache support
 * 30 second set up
-* admin: pages/menus/images
-* menu designer (that's easy)
-* markdown editor with live preview
 * fully compressed content sent with caching headers
 * URL agnostic; works on http://local:8080/ the same as http://www.website.com
-* flexible taxonomies; add anything
-* social response http://www.sharedcount.com/
-* error logging; php (generation)
+* markdown editor with live preview
+* menu designer (that's easy)
+* admin: pages/menus/images
+* nginx support
 
 V1
 --
-* apache support
+* flexible taxonomies; add anything
+** item edit form, should be generated from the oncology
+** specify file type (in an oncology) like xml
+
+* advanced item stuff
+** url structure for item with default slug generation or overloading
+** choose a parent for a page
+
+* starter themes (with aria roles, accesability in mind when designing)
+** bootstrap
+** purecss.io
+
+* validate items in someway
+** SEO
+** social response http://www.sharedcount.com/
+
+* logical shortcuts (get all posts, paginated?)
+** test by making rss
+
 * auto updater
-* SEO
+
 * plugin hook architecture
+
 * cloud flare integration (purge file from cdn)
-* starter template
-* accessible (aria roles etc) (in starter templates)
-* rss
-* specify file type (in an oncology) like xml
+
+* error logging; php (generation)
+
 
 V2
 --
