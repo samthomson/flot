@@ -27,8 +27,9 @@
 	$s_section = "";
 		
 	if($flot->b_post_vars()){
-		//print_r($_POST);
+		#
 		# handle post request
+		#
 		$s_action = $flot->s_post_var_from_allowed("action", array("edit"), "edit");		
 		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
 
@@ -146,8 +147,11 @@
 	     		
 				break;
 			case "pictures":
-				$html_pictures_ui = "pictures";
-				$html_main_admin_content = $html_pictures_ui;
+				$html_main_admin_content .= "upload path: ".$flot->datastore->settings->upload_dir;
+				#
+				# top menu
+				#
+				$html_main_admin_content_menu .= '<button class="btn btn-success btn-sm"><a href="#"><i class="glyphicon glyphicon-cloud-upload"></i><span class="small-hidden"> upload new pictures</span></a></button>';
 				break;
 			case "menus":
 				$html_menu_ui = "menus";

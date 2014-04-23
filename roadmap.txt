@@ -2,13 +2,14 @@ CURRENT V0 sprint
 -----------------
 
 BUGS
+- only initialise page editor if on edit page
 
 
 SPRINT ITEMS
 * pictures
 * menu editor
 * informative default pages
-* settings editor
+
 
 DO NEAR THE END
 * refactor datastore to load all datastores the same way (no individual methods per datastore)
@@ -31,7 +32,6 @@ LATER
 ** elements should have a data type (text, html)
 ** elements should have an order
 * spit out default stuff into header (charset)
-* toggle previews visibility
 
 
 
@@ -45,15 +45,19 @@ V0 - MVP
 * fully compressed content sent with caching headers
 * URL agnostic; works on http://local:8080/ the same as http://www.website.com
 * markdown editor with live preview
+* images
 * menu designer (that's easy)
 * admin: pages/menus/images
 * nginx support
 
 
 * seriously? check on item deletion
+* toggle previews visibility
 
 V1
 --
+* settings editor
+
 * flexible taxonomies; add anything
 ** item edit form, should be generated from the oncology
 ** specify file type (in an oncology) like xml

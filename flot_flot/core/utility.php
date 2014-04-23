@@ -36,7 +36,10 @@
 			#
 			# permission are all 777
 			if(!$this->full_write_permissions())
-				array_push($this->sa_instructions, "flot needs full write access");
+				array_push($this->sa_instructions, "flot needs full write access to the web directory");
+			# check uploads dir is writable too
+			if(!$this->uploads_full_write_permissions())
+				array_push($this->sa_instructions, "flot needs full write access to the uploads directory");
 
 			# return true or false
 			if(count($this->sa_instructions) > 0)
@@ -53,6 +56,13 @@
 		#
 		function full_write_permissions(){
 			if(substr(decoct(fileperms($this->s_base_path)), -4) === "0777"){
+				return true;				
+			}
+			return false;			
+		}
+		function uploads_full_write_permissions(){
+			$Datastore = new Datastore;
+			if(substr(decoct(fileperms($this->s_base_path.$Datastore->settings->upload_dir)), -4) === "0777"){
 				return true;				
 			}
 			return false;			
