@@ -151,7 +151,7 @@
 				#
 				# top menu
 				#
-				$html_main_admin_content_menu .= '<button class="btn btn-success btn-sm"><a href="#"><i class="glyphicon glyphicon-cloud-upload"></i><span class="small-hidden"> upload new pictures</span></a></button>';
+				$html_main_admin_content .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/uploads/index.php" multiple>';
 				break;
 			case "menus":
 				$html_menu_ui = "menus";
@@ -168,5 +168,5 @@
 	# if we're still here, render a page for the user
 	#
 
-	$admin_ui->html_make_admin_page($flot->s_admin_header(), $admin_ui->html_make_left_menu($s_section), $html_main_admin_content, $html_main_admin_content_menu, $s_body_class);
+	$admin_ui->html_make_admin_page($flot->s_admin_header($s_section), $admin_ui->html_make_left_menu($s_section), $html_main_admin_content, $html_main_admin_content_menu, $s_body_class);
 ?>

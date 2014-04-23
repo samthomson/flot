@@ -81,7 +81,7 @@
 			header($s_new_page);
 			exit();
 		}
-		function s_admin_header(){
+		function s_admin_header($s_section){
 			$s_header = "";
 
 			# bootstrap css
@@ -97,11 +97,24 @@
 			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
 
 
-			# markdown parser
-			$s_header .= '<script src="/flot_flot/admin/js/markdown/markdown.js"></script>';
+			if($s_section === "items"){
+				# markdown parser
+				$s_header .= '<script src="/flot_flot/admin/js/markdown/markdown.js"></script>';
 
-			# general admin js
-			$s_header .= '<script src="/flot_flot/admin/js/admin.js"></script>';
+				# general admin js
+				$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+			}
+
+			if($s_section === "pictures"){
+				# file upload stuff
+				$s_header .= '<script src="/flot_flot/admin/js/jquery.ui.widget.js"></script>';
+				$s_header .= '<script src="/flot_flot/admin/js/jquery.iframe-transport.js"></script>';
+				$s_header .= '<script src="/flot_flot/admin/js/jquery.fileupload.js"></script>';
+
+				# general admin js
+				$s_header .= '<script src="/flot_flot/admin/js/admin_pictures.js"></script>';
+			}
+
 
 			$s_header .= '<title>flot - manage your site</title>';
 
