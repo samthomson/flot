@@ -114,13 +114,13 @@
 			$html_form .= '<form role="form" method="post" action="index.php">';
 
 			# title
-			$html_form .= '<div class="form-group">';
+			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
 			$html_form .= '</div>';
 
 			# content edit
-			$html_form .= '<div class="">';
-			$html_form .= '<div class="col-xs-6">';
+			$html_form .= '<div class="form-group">';
+			$html_form .= '<div class="col-xs-6 ">';
 			$html_form .= '<textarea id="item_content_edit" oninput="this.editor.update()" class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
 
 			# content preview
@@ -130,29 +130,41 @@
 			$html_form .= '</div>';
 
 			# keywords
-			$html_form .= '<div class="form-group">';
+			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="keywords" placeholder="keywords" value="'.urldecode($this->o_loaded_item_object->keywords).'">';
 			$html_form .= '</div>';
 
 			# description
-			$html_form .= '<div class="form-group">';
+			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="description" placeholder="description" value="'.urldecode($this->o_loaded_item_object->description).'">';
 			$html_form .= '</div>';
 
 			# url
-			$html_form .= '<div class="form-group">';
+			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
 			$html_form .= '</div>';
 
 
 			# published
-			$html_form .= '<div class="form-group">';
+			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
 			$html_form .= '</div>';
 
 			# save
 			$html_form .= '<div class="form-group">';
+
+			$html_form .= '<div class="col-xs-4 ">';
+			$html_form .= '<input value="cancel" class="form-control btn btn-primary">';
+			$html_form .= '</div>';
+
+			$html_form .= '<div class="col-xs-4 ">';
+			$html_form .= '<input value="preview" class="form-control btn btn-warning">';
+			$html_form .= '</div>';
+
+			$html_form .= '<div class="col-xs-4 ">';
 			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
+			$html_form .= '</div>';
+
 			$html_form .= '</div>';
 
 			# hidden elements

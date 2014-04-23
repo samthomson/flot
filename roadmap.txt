@@ -5,34 +5,33 @@ BUGS
 
 
 SPRINT ITEMS
-- markdown editor, with preview
-- preview toggler/cancel on edit page too
-- pictures
-- menu editor
-- informative default pages
-- settings editor
+* pictures
+* menu editor
+* informative default pages
+* settings editor
 
 DO NEAR THE END
-- refactor datastore to load all datastores the same way (no individual methods per datastore)
--- save the same way too
-- nginx
-- combine css,js
-- flot logo to base image into css, remove google fonts dependency
+* refactor datastore to load all datastores the same way (no individual methods per datastore)
+** save the same way too
+* nginx
+* combine css,js
+* flot logo to base image into css, remove google fonts dependency
 
 
 
 SECURITY
-- check user is logged in when changing data (items)
-- securer passwords
-- make page with url flot_flot, or .htaccess, overwrite? maybe have some disallowed urls
+* check user is logged in when changing data (items)
+* securer passwords
+* make page with url flot_flot, or .htaccess, overwrite? maybe have some disallowed urls
 
 
 LATER
 
-- oncology editor
--- elements should have a data type (text, html)
--- elements should have an order
-- spit out default stuff into header (charset)
+* oncology editor
+** elements should have a data type (text, html)
+** elements should have an order
+* spit out default stuff into header (charset)
+* toggle previews visibility
 
 
 
@@ -63,6 +62,7 @@ V1
 ** url structure for item with default slug generation or overloading
 ** choose a parent for a page
 ** html edit as well as markdown
+** published option for items
 
 * starter themes (with aria roles, accesability in mind when designing)
 ** bootstrap
