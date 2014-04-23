@@ -151,7 +151,7 @@
 				#
 				# top menu
 				#
-				$html_main_admin_content .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/uploads/index.php" multiple>';
+				$html_main_admin_content .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple>';
 				break;
 			case "menus":
 				$html_menu_ui = "menus";
