@@ -158,7 +158,7 @@
 			# hidden elements
 
 			$html_form .= '<input type="hidden" name="section" value="items">';
-			$html_form .= '<input type="hidden" name="content_html" value="items">';
+			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="items">';
 			$html_form .= '<input type="hidden" name="item_id" value="'.urldecode($this->o_loaded_item_object->id).'">';
 
 			$html_form .= '</form>';

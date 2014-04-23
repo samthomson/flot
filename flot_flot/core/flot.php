@@ -3,7 +3,6 @@
 	used to handle app entry point
 	*/
 
-
 	class Flot {
 
 		public $datastore;
