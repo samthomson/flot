@@ -62,6 +62,7 @@ V1
 * advanced item stuff
 ** url structure for item with default slug generation or overloading
 ** choose a parent for a page
+** html edit as well as markdown
 
 * starter themes (with aria roles, accesability in mind when designing)
 ** bootstrap

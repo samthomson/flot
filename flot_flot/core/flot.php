@@ -99,8 +99,7 @@
 
 
 			# markdown parser
-			$s_header .= '<script src="/flot_flot/admin/js/markdown/markdown.converter.js"></script>';
-			$s_header .= '<script src="/flot_flot/admin/js/markdown/markdown.sanitizer.js"></script>';
+			$s_header .= '<script src="/flot_flot/admin/js/markdown/markdown.js"></script>';
 
 			# general admin js
 			$s_header .= '<script src="/flot_flot/admin/js/admin.js"></script>';
