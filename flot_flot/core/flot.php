@@ -166,5 +166,11 @@
 			$s_start_path = $this->s_base_path."start.php";
 			unlink($s_start_path);
 		}
+
+		function _process_file_upload($s_upload_dir, $s_filename){
+			$o_ImageProcessor = new ImageProcessor($this->s_base_path, $s_upload_dir, $s_filename);
+
+			$o_ImageProcessor->process_and_tag_to_datastore();
+		}
 	}
 ?>

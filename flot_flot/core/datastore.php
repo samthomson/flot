@@ -10,6 +10,7 @@
 		public $settings;
 		public $users;
 		public $oncologies;
+		public $pictures;
 
 		public $s_base_path;
 
@@ -20,6 +21,7 @@
 			$this->initiate_items();
 			$this->initiate_users();
 			$this->initiate_oncologies();
+			$this->initiate_pictures();
 		}
 
 		function initiate_oncologies() {
@@ -41,6 +43,10 @@
 		function initiate_users() {
 			require($this->s_base_path.'flot_flot/datastore/users.php');
 			$this->users = json_decode($users);
+		}
+		function initiate_pictures() {
+			require($this->s_base_path.'flot_flot/datastore/pictures.php');
+			$this->pictures = json_decode($pictures);
 		}
 		function get_current_url_data()
 		{
@@ -120,6 +126,16 @@
 			$this->_save_datastore("users");
 		}
 
+		function _add_file($s_filename){
+			# create a new item
+			$s_new_id = uniqid("pictures");
+			$s_picture_template = '{"id":"'.$s_new_id.'", "filename":"'.$s_filename.'"}';
+			array_push($this->pictures, json_decode($s_picture_template));
+
+			# save it to datastore
+			$this->_save_datastore("pictures");
+		}
+
 		
 		#
 		# Saving
@@ -140,6 +156,15 @@
 					$s_new_content = "<?php ";
 					$s_new_content .= '$users = \'';
 					$s_new_content .= json_encode($this->users);
+					$s_new_content .= "'; ?>";
+
+					file_put_contents($s_write_path, $s_new_content);
+					break;
+				case 'pictures':
+					$s_write_path = $this->s_base_path.'flot_flot/datastore/pictures.php';
+					$s_new_content = "<?php ";
+					$s_new_content .= '$pictures = \'';
+					$s_new_content .= json_encode($this->pictures);
 					$s_new_content .= "'; ?>";
 
 					file_put_contents($s_write_path, $s_new_content);

@@ -68,4 +68,35 @@
 			return false;			
 		}
 	}
+	class UtilityFunctions {
+		function get_full_url(){
+			$https = !empty($_SERVER['HTTPS']) && strcasecmp($_SERVER['HTTPS'], 'on') === 0;
+	        return
+	            ($https ? 'https://' : 'http://').
+	            (!empty($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'].'@' : '').
+	            (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ($_SERVER['SERVER_NAME'].
+	            ($https && $_SERVER['SERVER_PORT'] === 443 ||
+	            $_SERVER['SERVER_PORT'] === 80 ? '' : ':'.$_SERVER['SERVER_PORT']))).
+	            substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
+		}
+	}
+
+	class ImageProcessor {
+		public $full_file_path;
+		public $filename;
+
+		function __construct($s_base_path, $s_upload_dir, $s_file_name) {
+			# build full system file path
+			$this->full_file_path = $s_base_path.$s_upload_dir.'/'.$s_file_name;
+			$this->filename = $s_file_name;
+		}
+
+		function process_and_tag_to_datastore(){
+
+			# get tags for file
+			# store file and tags in datastore
+			$o_Datastore = new Datastore();
+			$o_Datastore->_add_file($this->filename);
+		}
+	}
 ?>

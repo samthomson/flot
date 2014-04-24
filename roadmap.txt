@@ -4,12 +4,11 @@ CURRENT V0 sprint
 BUGS
 
 SPRINT ITEMS
-* tidy up editor a little
-** add desc to fields
 * pictures
 ** generate thumbnails from settings thumb sizes
+** make file browser mini
 ** tagging from filename
-* 
+* medium like content editor
 * menu editor
 * informative default pages
 
@@ -49,8 +48,8 @@ V0 - MVP
 * URL agnostic; works on http://local:8080/ the same as http://www.website.com
 * markdown editor with live preview
 * images
+* nicer editor
 * menu designer (that's easy)
-* admin: pages/menus/images
 * nginx support
 
 

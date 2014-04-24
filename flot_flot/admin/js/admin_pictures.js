@@ -6,6 +6,9 @@ $(function () {
 			$.each(data.result.files, function (index, file) {
 				$('<p/>').text(file.name).appendTo(document.body);
 			});
+		},
+		fail: function (e, data) {
+			console.log("upload failed: "+e+", "+data);
 		}
 	});
 });
