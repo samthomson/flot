@@ -2,11 +2,14 @@ CURRENT V0 sprint
 -----------------
 
 BUGS
-- only initialise page editor if on edit page
-
 
 SPRINT ITEMS
+* tidy up editor a little
+** add desc to fields
 * pictures
+** generate thumbnails from settings thumb sizes
+** tagging from filename
+* 
 * menu editor
 * informative default pages
 

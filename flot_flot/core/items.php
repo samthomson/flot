@@ -113,22 +113,46 @@
 
 			$html_form .= '<form role="form" method="post" action="index.php">';
 
+			#
+			# make tabs
+			#
+/*
+			# tab menu
+			$html_form .= '<ul class="nav nav-tabs">';
+			$html_form .= '<li class="active"><a href="#edit" data-toggle="tab">edit</a></li>';
+			$html_form .= '<li><a href="#extra" data-toggle="tab">Extra</a></li>';    
+			$html_form .= '</ul>';
+
+			# tabs
+			$html_form .= '<div class="tab-content">';
+
+			# edit tab
+			$html_form .= '<div class="tab-pane active" id="edit">';
+*/
 			# title
 			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
 			$html_form .= '</div>';
 
+
 			# content edit
 			$html_form .= '<div class="form-group">';
 			$html_form .= '<div class="col-xs-6 ">';
 			$html_form .= '<textarea id="item_content_edit" oninput="this.editor.update()" class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
+			$html_form .= '</div>';
 
 			# content preview
-			$html_form .= '</div>';
 			$html_form .= '<div class="col-xs-6"><div id="item_content_preview">preview here</div>';
 			$html_form .= '</div>';
 			$html_form .= '</div>';
+			/**/
+/*
+			# end edit tab
+			$html_form .= '</div>';
 
+			# 'extra' tab
+			$html_form .= '<div class="tab-pane" id="extra">';
+*/
 			# keywords
 			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="keywords" placeholder="keywords" value="'.urldecode($this->o_loaded_item_object->keywords).'">';
@@ -150,28 +174,36 @@
 			$html_form .= '<input type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
 			$html_form .= '</div>';
 
-			# save
-			$html_form .= '<div class="form-group">';
-
-			$html_form .= '<div class="col-xs-4 ">';
-			$html_form .= '<input value="cancel" class="form-control btn btn-primary">';
+/*
+			# end extra tab
 			$html_form .= '</div>';
 
-			$html_form .= '<div class="col-xs-4 ">';
-			$html_form .= '<input value="preview" class="form-control btn btn-warning">';
+			# end tabs
 			$html_form .= '</div>';
-
-			$html_form .= '<div class="col-xs-4 ">';
-			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
-			$html_form .= '</div>';
-
-			$html_form .= '</div>';
-
+*/
 			# hidden elements
 
 			$html_form .= '<input type="hidden" name="section" value="items">';
 			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="items">';
 			$html_form .= '<input type="hidden" name="item_id" value="'.urldecode($this->o_loaded_item_object->id).'">';
+
+			# save
+			$html_form .= '<div class="form-group">';
+
+			$html_form .= '<div class="col-xs-6 ">';
+			$html_form .= '<input value="cancel" class="form-control btn btn-primary">';
+			$html_form .= '</div>';
+
+			/*
+			$html_form .= '<div class="col-xs-4 ">';
+			$html_form .= '<input value="save draft" class="form-control btn btn-warning">';
+			$html_form .= '</div>';
+			*/
+
+			$html_form .= '<div class="col-xs-6 ">';
+			$html_form .= '<input value="Publish / Update" type="submit" class="form-control btn btn-success">';
+			$html_form .= '</div>';
+			$html_form .= '</div>';
 
 			$html_form .= '</form>';
 
