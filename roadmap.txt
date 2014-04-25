@@ -4,11 +4,11 @@ CURRENT V0 sprint
 BUGS
 
 SPRINT ITEMS
+* medium like content editor
 * pictures
 ** generate thumbnails from settings thumb sizes
 ** make file browser mini
 ** tagging from filename
-* medium like content editor
 * menu editor
 * informative default pages
 
