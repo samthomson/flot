@@ -116,7 +116,7 @@
 			#
 			# make tabs
 			#
-/*
+/**/
 			# tab menu
 			$html_form .= '<ul class="nav nav-tabs">';
 			$html_form .= '<li class="active"><a href="#edit" data-toggle="tab">edit</a></li>';
@@ -128,13 +128,15 @@
 
 			# edit tab
 			$html_form .= '<div class="tab-pane active" id="edit">';
-*/
+
 			# title
 			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
 			$html_form .= '</div>';
 
 			$html_form .= '<div id="medium_editor" oninput="editor_update()" name="content" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
+
+			/*
 
 			# content edit
 			$html_form .= '<div class="form-group">';
@@ -146,14 +148,15 @@
 			$html_form .= '<div class="col-xs-6"><div id="item_content_preview">preview here</div>';
 			$html_form .= '</div>';
 			$html_form .= '</div>';
+			*/
 			/**/
-/*
+
 			# end edit tab
 			$html_form .= '</div>';
 
 			# 'extra' tab
 			$html_form .= '<div class="tab-pane" id="extra">';
-*/
+/**/
 			# keywords
 			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<input type="text" class="form-control" name="keywords" placeholder="keywords" value="'.urldecode($this->o_loaded_item_object->keywords).'">';
@@ -175,13 +178,13 @@
 			$html_form .= '<input type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
 			$html_form .= '</div>';
 
-/*
+
 			# end extra tab
 			$html_form .= '</div>';
 
 			# end tabs
 			$html_form .= '</div>';
-*/
+/**/
 			# hidden elements
 
 			$html_form .= '<input type="hidden" name="section" value="items">';

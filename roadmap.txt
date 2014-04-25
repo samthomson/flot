@@ -4,7 +4,10 @@ CURRENT V0 sprint
 BUGS
 
 SPRINT ITEMS
-* medium like content editor
+* nicer backend
+-- re organise into tabs
+-- field descriptions
+-- publish/cancel button somewhere else
 * pictures
 ** generate thumbnails from settings thumb sizes
 ** make file browser mini
