@@ -28,40 +28,20 @@ $a_options = array('upload_dir' => $s_base_path.$flot->datastore->settings->uplo
 
 
 class CustomUploadHandler extends UploadHandler {
+/**/
+	public $flot;
 
-	//public $flot;
 
-	function __construct(){
-		//$this->flot = new Flot;
-	}
-
-    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
-        $index = null, $content_range = null) {
+    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
     	try{
+    		$this->flot = new Flot;
 	        $file = parent::handle_file_upload(
 	            $uploaded_file, $name, $size, $type, $error, $index, $content_range
 	        );
 	        if (empty($file->error)) {
-
-	        	/*
-	            $sql = 'INSERT INTO `'.$this->options['db_table']
-	                .'` (`name`, `size`, `type`, `title`, `description`)'
-	                .' VALUES (?, ?, ?, ?, ?)';
-	            $query = $this->db->prepare($sql);
-	            $query->bind_param(
-	                'sisss',
-	                $file->name,
-	                $file->size,
-	                $file->type,
-	                $file->title,
-	                $file->description
-	            );
-	            $query->execute();
-	            $file->id = $this->db->insert_id;
-	            */
 	            //echo $file->name;
-	            //$o_ImageProcessor = new ImageProcessor($flot->s_base_path, $flot->datastore->settings->upload_dir, $file->name);
-	            //$o_ImageProcessor->process_and_tag_to_datastore();
+	            $o_ImageProcessor = new ImageProcessor($flot->s_base_path, $flot->datastore->settings->upload_dir, $file->name);
+	            $o_ImageProcessor->process_and_tag_to_datastore();
 	        }else{
 	        	echo $file->error;
 	        }
