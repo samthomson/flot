@@ -134,11 +134,12 @@
 			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
 			$html_form .= '</div>';
 
+			$html_form .= '<div id="medium_editor" oninput="editor_update()" name="content" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
 
 			# content edit
 			$html_form .= '<div class="form-group">';
 			$html_form .= '<div class="col-xs-6 ">';
-			$html_form .= '<textarea id="item_content_edit" oninput="this.editor.update()" class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
+			//$html_form .= '<textarea id="item_content_edit" oninput="this.editor.update()" class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
 			$html_form .= '</div>';
 
 			# content preview
