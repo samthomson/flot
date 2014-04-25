@@ -147,11 +147,15 @@
 	     		
 				break;
 			case "pictures":
-				$html_main_admin_content .= "upload path: ".$flot->datastore->settings->upload_dir;
+				$html_main_admin_content_menu .= "upload path: ".$flot->datastore->settings->upload_dir;
 				#
 				# top menu
 				#
-				$html_main_admin_content .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple>';
+				$html_main_admin_content_menu .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple><div id="upload_output"></div>';
+
+				$o_FileBrowser = new FileBrowser();
+
+				$html_main_admin_content .= $o_FileBrowser->html_make_browser();
 				break;
 			case "menus":
 				$html_menu_ui = "menus";

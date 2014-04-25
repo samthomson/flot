@@ -83,6 +83,15 @@
 			return false;
 		}
 
+		function oa_search_pictures($s_query){
+			if(empty($s_query)){
+				// return all
+				return $this->pictures;
+			}else{
+
+			}
+		}
+
 		#
 		# Setting
 		#

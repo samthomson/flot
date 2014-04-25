@@ -39,7 +39,6 @@ class CustomUploadHandler extends UploadHandler {
 	            $uploaded_file, $name, $size, $type, $error, $index, $content_range
 	        );
 	        if (empty($file->error)) {
-	            //echo $file->name;
 	            $o_ImageProcessor = new ImageProcessor($flot->s_base_path, $flot->datastore->settings->upload_dir, $file->name);
 	            $o_ImageProcessor->process_and_tag_to_datastore();
 	        }else{

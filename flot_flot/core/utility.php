@@ -99,4 +99,20 @@
 			$o_Datastore->_add_file($this->filename);
 		}
 	}
+
+	class FileBrowser {
+		function __construct()
+		{
+		}
+		function html_make_browser () {
+			$o_Datastore = new Datastore();
+			$s_return_html = "";
+			$s_upload_dir = $o_Datastore->settings->upload_dir;
+			foreach ($o_Datastore->oa_search_pictures("") as $o_image) {
+				$s_return_html .= '<img src="'."/".$s_upload_dir."/thumbnail/".$o_image->filename.'"/>';
+			};
+
+			return $s_return_html;
+		}
+	}
 ?>
