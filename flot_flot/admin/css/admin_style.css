@@ -118,4 +118,5 @@ body.smaller_left .condensed_hidden{display: none;}
 }
 #medium_editor:focus{
     /* no glow */
+    outline: none;
 }

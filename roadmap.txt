@@ -6,9 +6,6 @@ BUGS
 SPRINT ITEMS
 * nicer backend
 
--- nicer controls
----- no glow
-
 -- slimmer left menu
 
 -- publishing
