@@ -138,17 +138,11 @@
 
 			# url
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Web addres (URL)</label><input type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
-			$html_form .= '</div>';
-
-
-			# published
-			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<input id="item_published" type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
+			$html_form .= '<label for="item_keywords">Web address (URL)</label><input disabled type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
 			$html_form .= '</div>';
 
 			# editor
-			$html_form .= '<label>Edit</label><div id="medium_editor" oninput="editor_update()" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
+			$html_form .= '<label>WYSIWYG editer</label><div id="medium_editor" oninput="editor_update()" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
 
 
 			# end edit tab
@@ -175,27 +169,38 @@
 			# end tabs
 			$html_form .= '</div>';
 
-			# hidden elements
+			# published toggle
+			$b_published = urldecode($this->o_loaded_item_object->published);
 
+			$s_published_class = "";
+			$s_unpublished_class = "";
+
+			if($b_published)
+				$s_unpublished_class = "disabled ";
+			else
+				$s_published_class = "disabled ";
+
+			$html_form .= '<div class="btn-group">';
+			$html_form .= '<a class="btn btn-default" '.$s_published_class.'href="javascript:publish(\'published\');">publish on the internet</a>';		
+			$html_form .= '<a class="btn btn-default" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');">unpublish from the internet</a>';			
+			$html_form .= '</div>';
+
+
+			# hidden elements
+			$html_form .= '<input id="published" type="hidden" name="published" value="'.$b_published .'">';
 			$html_form .= '<input type="hidden" name="section" value="items">';
 			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="items">';
 			$html_form .= '<input type="hidden" name="item_id" value="'.urldecode($this->o_loaded_item_object->id).'">';
 
 			# save
-			$html_form .= '<div class="form-group">';
+			$html_form .= '<div class="row form-group">';
 
 			$html_form .= '<div class="col-xs-6 ">';
 			$html_form .= '<input value="cancel" class="form-control btn btn-primary">';
 			$html_form .= '</div>';
 
-			/*
-			$html_form .= '<div class="col-xs-4 ">';
-			$html_form .= '<input value="save draft" class="form-control btn btn-warning">';
-			$html_form .= '</div>';
-			*/
-
 			$html_form .= '<div class="col-xs-6 ">';
-			$html_form .= '<input value="Publish / Update" type="submit" class="form-control btn btn-success">';
+			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
 			$html_form .= '</div>';
 			$html_form .= '</div>';
 

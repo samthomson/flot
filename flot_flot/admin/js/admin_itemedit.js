@@ -18,36 +18,17 @@ $('.editable').on('input', function() {
   // Do some work
   editor_update();
 });
-/*
-function Editor(input, preview) {
-    this.update = function () {
-		var html_from_markdown = markdown.toHTML(input.value);
-		preview.innerHTML = html_from_markdown;
-		$("#content_html").val(html_from_markdown);
-    };
-    input.editor = this;
-    this.update();
-  }
 
-
-
-$('.editable').each(function() {
-    var $this = $(this);
-    var styles = $this.attr('style');
-    if (typeof styles != 'undefined') {
-        styles = ' style="' + styles + '"';
+function publish(s_publish_status){
+    console.log("set status to: " + s_publish_status);
+    switch(s_publish_status){
+        case "published":
+            // set as published
+            $("#published").val("true");
+            break;
+        case "unpublished":
+            // set as unpublished
+            $("#published").val("false");
+            break;
     }
-
-    $this.wrap('<div class="editable-wrapper"/>');
-    var $w = $(this).parent();
-    $w.prepend('<div class="editable" ' + styles + ' data-placeholder="'+$this.attr('placeholder')+'">' + $this.val()+'</div>');
-    $this.hide();
-    var editor = new MediumEditor('.editable-wrapper');
-});
-$('form').submit(function(){
-    $('.editable-wrapper').each(function(){
-    	var s_newhtml = $(this).find('.editable').html();
-        $(this).find('textarea').val(s_newhtml);
-        console.log("content now: " + s_newhtml)
-    });
-});*/
+}

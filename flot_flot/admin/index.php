@@ -83,7 +83,7 @@
 						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
 						
 						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
-						
+
 						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
 
 						if($s_page_id){
@@ -110,12 +110,12 @@
 
 		         		if(count($oa_pages) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<table class="table table-hover"><thead><tr><th>page name</th><th>last changed</th><th>author</th><th>delete</th></tr></thead><tbody>';
+		         			$hmtl_pages_ui .= '<table class="table table-hover"><thead><tr><th>page name</th><th>last changed</th><th>author</th><th>published</th><th>delete</th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
 			         			$hmtl_pages_ui .= urldecode($o_page->title);
-			         			$hmtl_pages_ui .= '</a></td><td>'.$o_page->date_modified.'</td><td>'.$o_page->author.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td>'.$o_page->date_modified.'</td><td>'.$o_page->author.'</td><td>'.urldecode($o_page->published).'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{

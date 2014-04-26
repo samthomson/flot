@@ -12,6 +12,12 @@ SPRINT ITEMS
 --- publish actions; save / update (same thing but rendering is conditional)
 --- publish/cancel button somewhere else
 
+- unpublish a page (delete rendering) if publish changes to false
+-- change toggle button as js is pressed, and tell user to save
+-- handle post submission, if false make sure file is deleted
+
+- make the homepage?
+
 * pictures
 ** generate thumbnails from settings thumb sizes
 ** make file browser mini

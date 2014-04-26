@@ -85,13 +85,6 @@ body.smaller_left .condensed_hidden{display: none;}
     padding: 8px;
 
     border-bottom:1px solid #dddddd;
-
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    border-bottom-left-radius: 5px;
 }
 .admin_menu_left span{
     padding-left: 8px;
@@ -109,6 +102,13 @@ body.smaller_left .condensed_hidden{display: none;}
     border-right:1px solid white;
     margin-right: -1px;
     background: #fff;
+
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .tab-pane{
