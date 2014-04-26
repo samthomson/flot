@@ -7,11 +7,6 @@ BUGS
 SPRINT ITEMS
 * nicer backend
 
--- publishing
---- publish states; unpublished / published
---- publish actions; save / update (same thing but rendering is conditional)
---- publish/cancel button somewhere else
-
 - unpublish a page (delete rendering) if publish changes to false
 -- change toggle button as js is pressed, and tell user to save
 -- handle post submission, if false make sure file is deleted
@@ -40,6 +35,7 @@ DO NEAR THE END
 * combine css,js
 * flot logo to base image into css, remove google fonts dependency
 * thinner font on backend
+* set author and date when saving page
 
 
 SECURITY

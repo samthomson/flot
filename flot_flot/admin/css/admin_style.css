@@ -72,7 +72,7 @@ body.smaller_left .condensed_hidden{display: none;}
 
 #left_admin_menu_col{
     bottom: 0px;
-    top: 56px;
+    top: 76px;
     padding-left: 8px;
 }
 #admin_menu_left{
@@ -142,11 +142,8 @@ body.smaller_left .condensed_hidden{display: none;}
     border: 1px solid #ddd;
 
     -webkit-border-radius: 8px;
-    -webkit-border-top-left-radius: 0;
     -moz-border-radius: 8px;
-    -moz-border-radius-topleft: 0;
-    border-radius: 8px;
-    border-top-left-radius: 0;    
+    border-radius: 8px;   
 
     box-shadow: rgb(187, 187, 187) 1px 1px 1px 0px;
 }
