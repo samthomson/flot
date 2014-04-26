@@ -21,8 +21,9 @@ body.smaller_left .condensed_hidden{display: none;}
 #admin_header{
   border-bottom: silver 1px solid;
   height: auto;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
   background: #fff;
 
   box-shadow: 0px 1px 5px silver;
@@ -71,7 +72,7 @@ body.smaller_left .condensed_hidden{display: none;}
 
 #left_admin_menu_col{
     bottom: 0px;
-    top: 50px;
+    top: 56px;
     padding-left: 8px;
 }
 #admin_menu_left{
@@ -145,4 +146,6 @@ body.smaller_left .condensed_hidden{display: none;}
     -moz-border-radius-topleft: 0;
     border-radius: 8px;
     border-top-left-radius: 0;    
+
+    box-shadow: rgb(187, 187, 187) 1px 1px 1px 0px;
 }
