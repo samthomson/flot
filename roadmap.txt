@@ -6,8 +6,6 @@ BUGS
 SPRINT ITEMS
 * nicer backend
 
--- slimmer left menu
-
 -- publishing
 --- publish states; unpublished / published
 --- publish actions; save / update (same thing but rendering is conditional)

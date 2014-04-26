@@ -1,6 +1,6 @@
 
-.left_col{float:left;width:200px;padding: 5px;position:absolute;}
-.right_col{margin-left:200px;padding: 5px;}
+.left_col{float:left;width:140px;padding: 5px;position:absolute;}
+.right_col{margin-left:140px;padding: 5px;}
 
 @media only screen and (max-width : 600px) {
   .left_col{width:50px;}
