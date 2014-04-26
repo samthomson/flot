@@ -107,3 +107,15 @@ body.smaller_left .condensed_hidden{display: none;}
     /* start each tab with a little gap, so the tab headers don't rub the tab content */
     padding-top: 16px;
 }
+
+#medium_editor{
+    padding:8px;
+    margin-bottom: 16px; /* double padding, to counter negative vertical offsetting */
+
+    box-shadow: 3px 3px 10px 0px #aaa, -3px -3px 10px 0px #aaa;
+    -webkit-box-shadow: 3px 3px 10px 0px #aaa, -3px -3px 10px 0px #aaa;
+    -moz-box-shadow: 3px 3px 10px 0px #aaa, -3px -3px 10px 0px #aaa;
+}
+#medium_editor:focus{
+    /* no glow */
+}

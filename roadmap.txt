@@ -5,14 +5,17 @@ BUGS
 
 SPRINT ITEMS
 * nicer backend
+
 -- nicer controls
---- 'paper' editor
 ---- no glow
+
 -- slimmer left menu
+
 -- publishing
 --- publish states; unpublished / published
 --- publish actions; save / update (same thing but rendering is conditional)
 --- publish/cancel button somewhere else
+
 * pictures
 ** generate thumbnails from settings thumb sizes
 ** make file browser mini
