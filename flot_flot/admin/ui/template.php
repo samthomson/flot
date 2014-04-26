@@ -8,7 +8,7 @@
 	<body class="<?php echo $s_body_class; ?>">
 
 		<div id="admin_header" class="clearer">
-			<div class="left_col" class="clearer">
+			<div class="left_col clearer">
 				<a href="/flot_flot/admin/">
 					<div id="logo_container">
 						<span id="f" class="blue">f<span class="small-hidden">lot</span></span>
@@ -41,7 +41,6 @@
 					echo "<hr/>";
 				?>
 				<?php echo $html_make_admin_content; ?>
-		        </div>
 			</div>
 		</div>
 	</body>

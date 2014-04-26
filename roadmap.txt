@@ -8,6 +8,12 @@ SPRINT ITEMS
 -- re organise into tabs
 -- field descriptions
 -- publish/cancel button somewhere else
+-- tablike left menu
+-- colouring of top menu
+-- drop help button
+-- nicer controls
+--- 'paper' editor
+-- slimmer left menu
 * pictures
 ** generate thumbnails from settings thumb sizes
 ** make file browser mini

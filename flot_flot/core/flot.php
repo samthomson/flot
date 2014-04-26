@@ -81,7 +81,7 @@
 			header($s_new_page);
 			exit();
 		}
-		function s_admin_header($s_section){
+		function s_admin_header($s_section = ""){
 			$s_header = "";
 
 			# bootstrap css
