@@ -78,14 +78,7 @@
 					case 'edit':
 						$s_page_id = $flot->s_get_var('item', false);
 						# menu items; purge from cache, preview, regenerate, delete
-						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
-
-						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
 						
-						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
-
-						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
-
 						if($s_page_id){
 							# get the item
 							$o_item = $flot->datastore->get_item_data($s_page_id);
@@ -95,7 +88,7 @@
 							# render a form
 							$Item = new Item($o_item);
 
-							$html_main_admin_content = $Item->html_edit_form();
+							$html_main_admin_content .= $Item->html_edit_form();
 
 							// make left menu smaller, to give more focus to editing
 							$s_body_class = "smaller_left";
@@ -106,7 +99,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_pages = $flot->oa_pages();
 		         		$hmtl_pages_ui = "";
-						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add new page</a></button>';
+						$hmtl_pages_ui .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add new page</a></button><hr/>';
 
 		         		if(count($oa_pages) > 0)
 		         		{
@@ -150,11 +143,11 @@
 	     		
 				break;
 			case "pictures":
-				$html_main_admin_content_menu .= "upload path: ".$flot->datastore->settings->upload_dir;
+				$html_main_admin_content .= "upload path: ".$flot->datastore->settings->upload_dir;
 				#
 				# top menu
 				#
-				$html_main_admin_content_menu .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple><div id="upload_output"></div>';
+				$html_main_admin_content .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple><div id="upload_output"></div><hr/>';
 
 				$o_FileBrowser = new FileBrowser();
 

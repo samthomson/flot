@@ -110,6 +110,39 @@
 		#
 		function html_edit_form(){
 			$html_form = "";
+			$s_title = urldecode($this->o_loaded_item_object->title);
+			$s_url = urldecode($this->o_loaded_item_object->url);
+			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
+			$s_keywords = urldecode($this->o_loaded_item_object->keywords);
+			$s_description = urldecode($this->o_loaded_item_object->description);
+			$s_title = urldecode($this->o_loaded_item_object->title);
+			$b_published = urldecode($this->o_loaded_item_object->published);
+
+			$s_published_class = "";
+			$s_unpublished_class = "";
+
+			if($b_published === "true")
+				$s_published_class = "disabled ";
+			else
+				$s_unpublished_class = "disabled ";
+
+			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar"><a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
+
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
+			
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
+
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
+
+
+
+			# published toggle
+
+
+			$html_form .= '<div class="btn-group" id="edit_item_publish_toolbar">';
+			$html_form .= '<a class="btn btn-default btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');">publish on the internet</a>';		
+			$html_form .= '<a class="btn btn-default btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');">unpublish from the internet</a>';			
+			$html_form .= '</div><hr/>';
 
 			$html_form .= '<form role="form" method="post" action="index.php">';
 
@@ -133,16 +166,16 @@
 
 			# title
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Title</label><input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
+			$html_form .= '<label for="item_keywords">Title</label><input type="text" class="form-control" name="title" placeholder="page title" value="'.$s_title.'">';
 			$html_form .= '</div>';
 
 			# url
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Web address (URL)</label><input disabled type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
+			$html_form .= '<label for="item_keywords">Web address (URL)</label><input disabled type="text" class="form-control" name="url" placeholder="url" value="'.$s_url.'">';
 			$html_form .= '</div>';
 
 			# editor
-			$html_form .= '<label>WYSIWYG editer</label><div id="medium_editor" oninput="editor_update()" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
+			$html_form .= '<label>WYSIWYG editer</label><div id="medium_editor" oninput="editor_update()" class="editable">'.$s_content_html.'</div>';
 
 
 			# end edit tab
@@ -155,12 +188,12 @@
 
 			# keywords
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Keywords (comma seperated)</label><input id="item_keywords" type="text" class="form-control" name="keywords" placeholder="keywords" value="'.urldecode($this->o_loaded_item_object->keywords).'">';
+			$html_form .= '<label for="item_keywords">Keywords (comma seperated)</label><input id="item_keywords" type="text" class="form-control" name="keywords" placeholder="keywords" value="'.$s_keywords.'">';
 			$html_form .= '</div>';
 
 			# description
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_description">Description</label><input type="text" class="form-control" name="description" id="item_description" placeholder="description" value="'.urldecode($this->o_loaded_item_object->description).'">';
+			$html_form .= '<label for="item_description">Description</label><input type="text" class="form-control" name="description" id="item_description" placeholder="description" value="'.$s_description.'">';
 			$html_form .= '</div>';
 
 			# end extra tab
@@ -169,23 +202,6 @@
 			# end tabs
 			$html_form .= '</div>';
 
-			# published toggle
-			$b_published = urldecode($this->o_loaded_item_object->published);
-
-			$s_published_class = "";
-			$s_unpublished_class = "";
-
-			if($b_published)
-				$s_unpublished_class = "disabled ";
-			else
-				$s_published_class = "disabled ";
-
-			$html_form .= '<div class="btn-group">';
-			$html_form .= '<a class="btn btn-default" '.$s_published_class.'href="javascript:publish(\'published\');">publish on the internet</a>';		
-			$html_form .= '<a class="btn btn-default" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');">unpublish from the internet</a>';			
-			$html_form .= '</div>';
-
-
 			# hidden elements
 			$html_form .= '<input id="published" type="hidden" name="published" value="'.$b_published .'">';
 			$html_form .= '<input type="hidden" name="section" value="items">';
@@ -193,15 +209,9 @@
 			$html_form .= '<input type="hidden" name="item_id" value="'.urldecode($this->o_loaded_item_object->id).'">';
 
 			# save
-			$html_form .= '<div class="row form-group">';
+			$html_form .= '<div class="form-group">';
 
-			$html_form .= '<div class="col-xs-6 ">';
-			$html_form .= '<input value="cancel" class="form-control btn btn-primary">';
-			$html_form .= '</div>';
-
-			$html_form .= '<div class="col-xs-6 ">';
-			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
-			$html_form .= '</div>';
+			$html_form .= '<input value="save" type="submit" class="form-control btn btn-default">';
 			$html_form .= '</div>';
 
 			$html_form .= '</form>';
