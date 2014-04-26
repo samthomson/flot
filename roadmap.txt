@@ -19,7 +19,7 @@ SPRINT ITEMS
 
 * editor
 ** insert picture
-** thinner font
+
 
 
 
@@ -33,7 +33,8 @@ DO NEAR THE END
 * nginx
 * combine css,js
 * flot logo to base image into css, remove google fonts dependency
-
+* thinner font on backend
+* shadow under top header in backend
 
 
 SECURITY

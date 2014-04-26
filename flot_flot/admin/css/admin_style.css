@@ -1,6 +1,10 @@
 
-.left_col{float:left;width:140px;padding: 5px;position:absolute;}
-.right_col{margin-left:140px;padding: 5px;}
+body{
+    background: rgb(238, 238, 238);
+}
+
+.left_col{float:left;width:140px;position:absolute;}
+.right_col{margin-left:140px;}
 
 @media only screen and (max-width : 600px) {
   .left_col{width:50px;}
@@ -65,9 +69,9 @@ body.smaller_left .condensed_hidden{display: none;}
 #left_admin_menu_col{
     bottom: 0px;
     top: 50px;
+    padding-left: 8px;
 }
 #admin_menu_left{
-    border-right: 1px solid #ddd;
     height: 100%;
 }
 
@@ -80,9 +84,9 @@ body.smaller_left .condensed_hidden{display: none;}
 
     -webkit-border-top-left-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
+
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-bottomleft: 5px;
-    border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 .admin_menu_left span{
@@ -100,6 +104,7 @@ body.smaller_left .condensed_hidden{display: none;}
     border:1px solid #ddd;
     border-right:1px solid white;
     margin-right: -1px;
+    background: #fff;
 }
 
 .tab-pane{
@@ -123,5 +128,18 @@ body.smaller_left .condensed_hidden{display: none;}
 #right_admin_section{
     padding-left: 16px;
     padding-right: 16px;
+    padding-bottom: 16px;
     padding-top: 10px;
+    background: #fff;
+    margin-bottom: 36px;
+    margin-top:9px;
+    margin-right:16px;
+    border: 1px solid #ddd;
+
+    -webkit-border-radius: 8px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 8px;
+    -moz-border-radius-topleft: 0;
+    border-radius: 8px;
+    border-top-left-radius: 0;    
 }
