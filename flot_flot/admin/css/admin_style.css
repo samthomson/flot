@@ -67,7 +67,7 @@ body.smaller_left .condensed_hidden{display: none;}
     top: 50px;
 }
 #admin_menu_left{
-    border-right: 1px solid #aaaaaa;
+    border-right: 1px solid #ddd;
     height: 100%;
 }
 
@@ -97,7 +97,7 @@ body.smaller_left .condensed_hidden{display: none;}
     text-shadow: 1px 1px 2px #fff, -1px -1px 2px #fff;
 }
 .admin_menu_left.active{
-    border:1px solid #aaaaaa;
+    border:1px solid #ddd;
     border-right:1px solid white;
     font-weight: bold;
     margin-right: -1px;
