@@ -5,7 +5,6 @@ BUGS
 
 SPRINT ITEMS
 * nicer backend
--- drop help button
 -- nicer controls
 --- 'paper' editor
 ---- no glow

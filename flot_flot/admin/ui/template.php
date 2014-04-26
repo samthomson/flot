@@ -20,7 +20,6 @@
 			</div>
 			<div class="right_col">
 				<div id="top_right_buttons" class="clearer">
-					<a class="btn btn-info btn-sm" href="#"><i class="glyphicon glyphicon-question-sign"></i> help</a>
 					<a class="btn btn-danger btn-sm" href="logout.php"><i class="glyphicon glyphicon-user"></i> logout</a>
 				</div>
 			</div>
