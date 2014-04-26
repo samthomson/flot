@@ -116,7 +116,7 @@
 			#
 			# make tabs
 			#
-/**/
+
 			# tab menu
 			$html_form .= '<ul class="nav nav-tabs">';
 			$html_form .= '<li class="active"><a href="#edit" data-toggle="tab">edit</a></li>';
@@ -126,65 +126,55 @@
 			# tabs
 			$html_form .= '<div class="tab-content">';
 
+			# 
 			# edit tab
+			#
 			$html_form .= '<div class="tab-pane active" id="edit">';
 
 			# title
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
-			$html_form .= '</div>';
-
-			$html_form .= '<div id="medium_editor" oninput="editor_update()" name="content" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
-
-			/*
-
-			# content edit
-			$html_form .= '<div class="form-group">';
-			$html_form .= '<div class="col-xs-6 ">';
-			//$html_form .= '<textarea id="item_content_edit" oninput="this.editor.update()" class="form-control" name="content" rows="12">'.urldecode($this->o_loaded_item_object->content).'</textarea>';
-			$html_form .= '</div>';
-
-			# content preview
-			$html_form .= '<div class="col-xs-6"><div id="item_content_preview">preview here</div>';
-			$html_form .= '</div>';
-			$html_form .= '</div>';
-			*/
-			/**/
-
-			# end edit tab
-			$html_form .= '</div>';
-
-			# 'extra' tab
-			$html_form .= '<div class="tab-pane" id="extra">';
-/**/
-			# keywords
-			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<input type="text" class="form-control" name="keywords" placeholder="keywords" value="'.urldecode($this->o_loaded_item_object->keywords).'">';
-			$html_form .= '</div>';
-
-			# description
-			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<input type="text" class="form-control" name="description" placeholder="description" value="'.urldecode($this->o_loaded_item_object->description).'">';
+			$html_form .= '<label for="item_keywords">Keywords (comma seperated)</label><input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
 			$html_form .= '</div>';
 
 			# url
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<input type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
+			$html_form .= '<label for="item_keywords">Keywords (comma seperated)</label><input type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
 			$html_form .= '</div>';
 
 
 			# published
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<input type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
+			$html_form .= '<input id="item_published" type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
 			$html_form .= '</div>';
 
+
+			$html_form .= '<label for="medium_editor">Edit</label><div id="medium_editor" oninput="editor_update()" name="content" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
+
+
+			# end edit tab
+			$html_form .= '</div>';
+
+			#
+			# 'extra' tab
+			#
+			$html_form .= '<div class="tab-pane" id="extra">';
+
+			# keywords
+			$html_form .= '<div class="form-group input-group-sm">';
+			$html_form .= '<label for="item_keywords">Keywords (comma seperated)</label><input id="item_keywords" type="text" class="form-control" name="keywords" placeholder="keywords" value="'.urldecode($this->o_loaded_item_object->keywords).'">';
+			$html_form .= '</div>';
+
+			# description
+			$html_form .= '<div class="form-group input-group-sm">';
+			$html_form .= '<label for="item_description">Description</label><input type="text" class="form-control" name="description" id="item_description" placeholder="description" value="'.urldecode($this->o_loaded_item_object->description).'">';
+			$html_form .= '</div>';
 
 			# end extra tab
 			$html_form .= '</div>';
 
 			# end tabs
 			$html_form .= '</div>';
-/**/
+
 			# hidden elements
 
 			$html_form .= '<input type="hidden" name="section" value="items">';
