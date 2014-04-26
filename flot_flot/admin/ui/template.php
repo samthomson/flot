@@ -28,7 +28,7 @@
 
 		<div>
 			<!-- tabs left -->
-			<div class="left_col">
+			<div class="left_col" id="left_admin_menu_col">
 				<!-- render left menu, one item should be 'active' -->
 				<?php echo $html_left_menu; ?>
 			</div>

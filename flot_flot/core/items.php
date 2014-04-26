@@ -133,12 +133,12 @@
 
 			# title
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Keywords (comma seperated)</label><input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
+			$html_form .= '<label for="item_keywords">Title</label><input type="text" class="form-control" name="title" placeholder="page title" value="'.urldecode($this->o_loaded_item_object->title).'">';
 			$html_form .= '</div>';
 
 			# url
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Keywords (comma seperated)</label><input type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
+			$html_form .= '<label for="item_keywords">Web addres (URL)</label><input type="text" class="form-control" name="url" placeholder="url" value="'.urldecode($this->o_loaded_item_object->url).'">';
 			$html_form .= '</div>';
 
 

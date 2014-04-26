@@ -5,9 +5,6 @@ BUGS
 
 SPRINT ITEMS
 * nicer backend
--- field descriptions
--- publish/cancel button somewhere else
--- tablike left menu
 -- colouring of top menu
 -- drop help button
 -- nicer controls
@@ -15,8 +12,10 @@ SPRINT ITEMS
 ---- no glow
 -- slimmer left menu
 -- html valid
-- publish states; unpublished / published
-- publish actions; save / update (same thing but rendering is conditional)
+-- publishing
+--- publish states; unpublished / published
+--- publish actions; save / update (same thing but rendering is conditional)
+--- publish/cancel button somewhere else
 * pictures
 ** generate thumbnails from settings thumb sizes
 ** make file browser mini
