@@ -147,8 +147,8 @@
 			$html_form .= '<input id="item_published" type="text" class="form-control" name="published" placeholder="true/false" value="'.urldecode($this->o_loaded_item_object->published).'">';
 			$html_form .= '</div>';
 
-
-			$html_form .= '<label for="medium_editor">Edit</label><div id="medium_editor" oninput="editor_update()" name="content" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
+			# editor
+			$html_form .= '<label>Edit</label><div id="medium_editor" oninput="editor_update()" class="editable">'.urldecode($this->o_loaded_item_object->content_html).'</div>';
 
 
 			# end edit tab

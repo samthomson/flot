@@ -5,13 +5,11 @@ BUGS
 
 SPRINT ITEMS
 * nicer backend
--- colouring of top menu
 -- drop help button
 -- nicer controls
 --- 'paper' editor
 ---- no glow
 -- slimmer left menu
--- html valid
 -- publishing
 --- publish states; unpublished / published
 --- publish actions; save / update (same thing but rendering is conditional)

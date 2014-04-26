@@ -78,10 +78,13 @@
 					case 'edit':
 						$s_page_id = $flot->s_get_var('item', false);
 						# menu items; purge from cache, preview, regenerate, delete
-						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a></button>';
-						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a></button>';
-						$html_main_admin_content_menu .= '<button class="btn btn-default btn-sm"><a href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a></button>';
-						$html_main_admin_content_menu .= '<button class="btn btn-danger btn-sm"><a href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></button>';
+						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
+
+						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
+						
+						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
+						
+						$html_main_admin_content_menu .= '<a class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
 
 						if($s_page_id){
 							# get the item
