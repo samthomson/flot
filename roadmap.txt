@@ -34,7 +34,6 @@ DO NEAR THE END
 * combine css,js
 * flot logo to base image into css, remove google fonts dependency
 * thinner font on backend
-* shadow under top header in backend
 
 
 SECURITY
