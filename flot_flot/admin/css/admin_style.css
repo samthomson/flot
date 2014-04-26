@@ -99,7 +99,6 @@ body.smaller_left .condensed_hidden{display: none;}
 .admin_menu_left.active{
     border:1px solid #ddd;
     border-right:1px solid white;
-    font-weight: bold;
     margin-right: -1px;
 }
 
@@ -119,4 +118,10 @@ body.smaller_left .condensed_hidden{display: none;}
 #medium_editor:focus{
     /* no glow */
     outline: none;
+}
+
+#right_admin_section{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
 }

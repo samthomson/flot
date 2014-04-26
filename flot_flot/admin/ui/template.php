@@ -31,13 +31,14 @@
 				<!-- render left menu, one item should be 'active' -->
 				<?php echo $html_left_menu; ?>
 			</div>
-			<div class="right_col clearer">
+			<div class="right_col clearer" id="right_admin_section">
 				<!-- main 'content' section -->
 
 				<?php 
-					if($html_make_admin_content_menu !== "")
-					echo '<div class="btn-group">'.$html_make_admin_content_menu.'</div>'; 
-					echo "<hr/>";
+					if($html_make_admin_content_menu !== ""){
+						echo '<div class="btn-group">'.$html_make_admin_content_menu.'</div>'; 
+						echo "<hr/>";
+					}
 				?>
 				<?php echo $html_make_admin_content; ?>
 			</div>

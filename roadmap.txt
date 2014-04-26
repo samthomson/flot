@@ -2,6 +2,7 @@ CURRENT V0 sprint
 -----------------
 
 BUGS
+- cancel button is editable?
 
 SPRINT ITEMS
 * nicer backend
@@ -15,6 +16,13 @@ SPRINT ITEMS
 ** generate thumbnails from settings thumb sizes
 ** make file browser mini
 ** tagging from filename
+
+* editor
+** insert picture
+** thinner font
+
+
+
 * menu editor
 * informative default pages
 
