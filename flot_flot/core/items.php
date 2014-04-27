@@ -92,11 +92,12 @@
 		}
 
 		function save(){
-			# update the datastore
+			# re-render the page into internal memory
+			$this->render();
+
+			# persist the page to disk
 			$this->update();
 
-			# re-render the page
-			$this->render();
 		}
 
 		#
@@ -115,6 +116,7 @@
 		#
 		function html_edit_form(){
 			$html_form = "";
+			$s_id = urldecode($this->o_loaded_item_object->id);
 			$s_title = urldecode($this->o_loaded_item_object->title);
 			$s_url = urldecode($this->o_loaded_item_object->url);
 			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
@@ -210,8 +212,8 @@
 			# hidden elements
 			$html_form .= '<input id="published" type="hidden" name="published" value="'.$b_published .'">';
 			$html_form .= '<input type="hidden" name="section" value="items">';
-			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="items">';
-			$html_form .= '<input type="hidden" name="item_id" value="'.urldecode($this->o_loaded_item_object->id).'">';
+			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="'.$s_content_html.'">';
+			$html_form .= '<input type="hidden" name="item_id" value="'.$s_id.'">';
 
 			# save
 			$html_form .= '<div class="form-group">';

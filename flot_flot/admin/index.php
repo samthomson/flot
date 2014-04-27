@@ -48,10 +48,8 @@
 
 								$Item->update_from_post();
 
-								# save the item
+								# persist (or not) the item
 								$Item->save();
-								# save (or delete) the physical webpage item
-								$Item->update();
 
 
 								# change location to view the item
