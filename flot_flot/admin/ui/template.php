@@ -9,6 +9,11 @@
 
 		<div id="admin_header" class="clearer">
 			<div class="left_col clearer">
+				<img src="/flot_flot/admin/images/flot.png" style="
+				    max-height: 35px;
+				    margin-left: 20px;
+				">
+				<!--
 				<a href="/flot_flot/admin/">
 					<div id="logo_container">
 						<span id="f" class="blue">f<span class="small-hidden">lot</span></span>
@@ -17,6 +22,7 @@
 						<span id="t" class="green">f<span class="small-hidden">lot</span></span>
 					</div>
 				</a>
+				-->
 			</div>
 			<div class="right_col">
 				<div id="top_right_buttons" class="clearer">
