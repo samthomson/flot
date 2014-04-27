@@ -1,4 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/samthomson/flot.png?label=ready&title=Ready)](https://waffle.io/samthomson/flot)
 flot
 ====
 
@@ -23,3 +22,5 @@ Flot was written in PHP, as it's the most common webserver language, so getting 
 Flot is open source, which means totally free.
 
 For now, flot is still being developed, but coming together quickly. Check out the <a href="//flot.io">flot website</a>, or follow <a href="https://twitter.com/flot_io">flot on twitter</a> to stay updated.
+
+[![Stories in Ready](https://badge.waffle.io/samthomson/flot.png?label=ready&title=Ready)](https://waffle.io/samthomson/flot)
