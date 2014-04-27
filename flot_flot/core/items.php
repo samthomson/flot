@@ -29,19 +29,24 @@
 			# render, and rebuild dependent items
 		}
 		function update() {
+			# physical file storing of page; create new from render, or delete if unpublished
 
 			$item_url = new ItemURL($this->o_loaded_item_object);
 
+			if($this->o_loaded_item_object->published === "true")
+			{
+				# create any directories for the file if neccesary
+				if($item_url->has_dirs()){
+					# make dirs
+					if(!file_exists($this->s_base_path.$item_url->dir_path()))
+						mkdir($this->s_base_path.$item_url->dir_path(), 0777, true);
+				}
 
-			# create any directories for the file if neccesary
-			if($item_url->has_dirs()){
-				# make dirs
-				if(!file_exists($this->s_base_path.$item_url->dir_path()))
-					mkdir($this->s_base_path.$item_url->dir_path(), 0777, true);
+				# write the file itself
+				file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
+			}else{
+				// the item is not marked as 'published' so we don't want it saved, or there to be a saved copy of the redndered webpage
 			}
-
-			# write the file itself
-			file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
 		}
 		function delete() {
 			# delete the file
@@ -81,14 +86,11 @@
 
 			//ob_start("ob_gzhandler");
 			$this->html_page = $template;
-
-
-			# store to disk
-			$this->update();
 		}
 
 		function save(){
 			# update the datastore
+			$this->update();
 
 			# re-render the page
 			$this->render();
