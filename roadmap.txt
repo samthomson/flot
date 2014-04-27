@@ -2,8 +2,6 @@ CURRENT V0 sprint
 -----------------
 
 BUGS
-- when changin publish status, the content reverts back to "items"
-- cancel button is editable?
 
 SPRINT ITEMS
 
