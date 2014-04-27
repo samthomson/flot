@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/samthomson/flot.png?label=ready&title=Ready)](https://waffle.io/samthomson/flot)
 flot
 ====
 
