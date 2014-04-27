@@ -5,13 +5,6 @@ $(document).ready(function() {
 	//new Editor(document.getElementById("item_content_edit"), document.getElementById("item_content_preview"));
 
 	editor = new MediumEditor('.editable');
-
-    $('.editable').mediumInsert({
-        editor: editor,
-        addons: {
-          images: {}
-        }
-      });
 });  
 
 function editor_update(){

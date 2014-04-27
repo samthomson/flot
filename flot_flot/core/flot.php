@@ -104,13 +104,9 @@
 				
 				# medium editor
 				$s_header .= '<script src="/flot_flot/admin/js/medium-editor.min.js"></script>';
-				# medium addon for inserting images
-				$s_header .= '<script src="/flot_flot/admin/js/medium-editor-insert-plugin.min.js"></script>';
-				$s_header .= '<script src="/flot_flot/admin/js/medium-editor-insert-images.js"></script>';
 
 				$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/medium-editor.css">';
 				$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/medium-theme.css">';
-				$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/medium-editor-insert-plugin.css">';
 
 				# general admin js
 				$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
