@@ -142,9 +142,9 @@
 			$html_form .= '<div class="btn-group" id="edit_item_publish_toolbar">';
 			$html_form .= '<a class="btn btn-default btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');">publish on the internet</a>';		
 			$html_form .= '<a class="btn btn-default btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');">unpublish from the internet</a>';			
-			$html_form .= '</div><hr/>';
+			$html_form .= '</div><div id="publish_output"></div><hr/>';
 
-			$html_form .= '<form role="form" method="post" action="index.php">';
+			$html_form .= '<form id="item_edit_form" role="form" method="post" action="index.php">';
 
 			#
 			# make tabs

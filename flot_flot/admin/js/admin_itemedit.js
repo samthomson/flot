@@ -31,4 +31,5 @@ function publish(s_publish_status){
             $("#published").val("false");
             break;
     }
+    $("#item_edit_form").submit();
 }
