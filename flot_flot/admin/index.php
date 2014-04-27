@@ -105,10 +105,16 @@
 		         		{
 		         			$hmtl_pages_ui .= '<table class="table table-hover"><thead><tr><th>page name</th><th>last changed</th><th>author</th><th>published</th><th>delete</th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
+								$s_id = urldecode($o_page->id);
+								$s_title = urldecode($o_page->title);
+								$s_author = urldecode($o_page->author);
+								$s_date_modified = urldecode($o_page->date_modified);
+								$s_published = (urldecode($o_page->published) === "true" ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
+
 			         			# code...
-			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=edit">';
-			         			$hmtl_pages_ui .= urldecode($o_page->title);
-			         			$hmtl_pages_ui .= '</a></td><td>'.$o_page->date_modified.'</td><td>'.$o_page->author.'</td><td>'.urldecode($o_page->published).'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
+			         			$hmtl_pages_ui .= $s_title;
+			         			$hmtl_pages_ui .= '</a></td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{

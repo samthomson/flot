@@ -8,10 +8,10 @@ SPRINT ITEMS
 * nicer backend
 
 - unpublish a page (delete rendering) if publish changes to false
--- icon/colour for publish status when listing items
 -- handle post submission, if false make sure file is deleted
 
 - make the homepage?
+-- display if it's the homepage when listing pages
 
 * pictures
 ** generate thumbnails from settings thumb sizes
