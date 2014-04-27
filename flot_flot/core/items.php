@@ -46,11 +46,13 @@
 				file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
 			}else{
 				// the item is not marked as 'published' so we don't want it saved, or there to be a saved copy of the redndered webpage
-				
+				$this->delete();
 			}
 		}
 		function delete() {
+			$item_url = new ItemURL($this->o_loaded_item_object);
 			# delete the file
+			unlink($item_url->writing_file_path($this->s_base_path));
 
 			# if it was the last file in folder, delete folder, repeat this recursively until back to root
 		}
@@ -174,7 +176,7 @@
 
 			# url
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Web address (URL)</label><input disabled type="text" class="form-control" name="url" placeholder="url" value="'.$s_url.'">';
+			$html_form .= '<label for="item_keywords">Web address (URL)</label><input type="text" class="form-control" name="url" placeholder="url" value="'.$s_url.'">';
 			$html_form .= '</div>';
 
 			# editor

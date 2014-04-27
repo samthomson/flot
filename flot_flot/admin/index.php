@@ -50,6 +50,8 @@
 
 								# save the item
 								$Item->save();
+								# save (or delete) the physical webpage item
+								$Item->update();
 
 
 								# change location to view the item
