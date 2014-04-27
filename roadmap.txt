@@ -2,6 +2,7 @@ CURRENT V0 sprint
 -----------------
 
 BUGS
+- not saving files properly
 - cancel button is editable?
 
 SPRINT ITEMS
