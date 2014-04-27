@@ -2,6 +2,7 @@ CURRENT V0 sprint
 -----------------
 
 BUGS
+- editor text not being escaped when put into hidden element
 
 SPRINT ITEMS
 
@@ -11,6 +12,9 @@ SPRINT ITEMS
 90 mn - make file browser mini
 30 mn - tagging from filename
 
+pic upload experience
+-- upload progress bar, plus text description
+-- reload browser
 
 120 mn - menu editor
 

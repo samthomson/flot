@@ -4,7 +4,8 @@ var editor;
 $(document).ready(function() {
 	//new Editor(document.getElementById("item_content_edit"), document.getElementById("item_content_preview"));
 
-	editor = new MediumEditor('.editable');
+	editor = new MediumEditor('.editable',
+        {buttons: ['bold', 'italic', 'underline', 'header1', 'header2', 'unorderedlist', 'orderedlist']});
 });  
 
 function editor_update(){
