@@ -4,8 +4,10 @@ var editor;
 $(document).ready(function() {
 	//new Editor(document.getElementById("item_content_edit"), document.getElementById("item_content_preview"));
 
-	editor = new MediumEditor('.editable',
-        {buttons: ['bold', 'italic', 'underline', 'header1', 'header2', 'unorderedlist', 'orderedlist']});
+	//editor = new MediumEditor('.editable',
+    //    {buttons: ['bold', 'italic', 'underline', 'header1', 'header2', 'unorderedlist', 'orderedlist']});
+    CKEDITOR.replace('medium_editor');
+
 });  
 
 function editor_update(){
@@ -17,10 +19,11 @@ function editor_update(){
 
     console.log(s_newhtml);
 }
+/*
 $('.editable').on('input', function() {
   // Do some work
   editor_update();
-});
+});*/
 
 function publish(s_publish_status){
     console.log("set status to: " + s_publish_status);

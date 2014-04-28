@@ -184,7 +184,8 @@
 			# editor
 			$html_form .= '<hr/><label class="form-group">WYSIWYG editer</label><br/>';
 			$html_form .= '<div class="form-group btn-group"><a href="javascript:" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-picture"></i> add a picture</a></div>';
-			$html_form .= '<div id="medium_editor" oninput="editor_update()" class="editable">'.$s_content_html.'</div>';
+			//$html_form .= '<div id="medium_editor" oninput="editor_update()" class="editable">'.$s_content_html.'</div>';
+			$html_form .= '<textarea id="medium_editor" name="content_html" rows="30">'.$s_content_html.'</textarea>';
 
 
 			# end edit tab
@@ -214,7 +215,7 @@
 			# hidden elements
 			$html_form .= '<input id="published" type="hidden" name="published" value="'.$b_published .'">';
 			$html_form .= '<input type="hidden" name="section" value="items">';
-			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="'.urlencode($s_content_html).'">';
+			//$html_form .= '<input id="content_html" type="hidden" name="content_html" value="'.urlencode($s_content_html).'">';
 			$html_form .= '<input type="hidden" name="item_id" value="'.$s_id.'">';
 
 			# save

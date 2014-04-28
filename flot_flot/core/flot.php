@@ -105,6 +105,9 @@
 				# medium editor
 				$s_header .= '<script src="/flot_flot/admin/js/medium-editor.min.js"></script>';
 
+				# ckeditor
+				$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+
 				$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/medium-editor.css">';
 				$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/medium-theme.css">';
 
