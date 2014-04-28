@@ -101,16 +101,30 @@
 	}
 
 	class FileBrowser {
-		function __construct()
+		public $s_mode;
+		function __construct($s_mode = "browse")
 		{
+			$this->s_mode = $s_mode;
 		}
 		function html_make_browser () {
 			$o_Datastore = new Datastore();
 			$s_return_html = "";
 			$s_upload_dir = $o_Datastore->settings->upload_dir;
 			foreach ($o_Datastore->oa_search_pictures("") as $o_image) {
-				$s_return_html .= '<img src="'."/".$s_upload_dir."/thumbnail/".$o_image->filename.'"/>';
+				$s_file_url = "/".$s_upload_dir."/thumbnail/".$o_image->filename;
+				$s_onclick = "console.log('lightbox: $s_file_url');";
+				if($this->s_mode === "select"){
+					$s_onclick = "chooseFile('$s_file_url');";
+				}
+				$s_return_html .= '<img onclick="'.$s_onclick.'" src="'.$s_file_url.'"/>';
 			};
+
+			$s_return_html .= '<script type="text/javascript">
+			    function chooseFile(fileUrl){
+			        window.opener.CKEDITOR.tools.callFunction('.$_GET['CKEditorFuncNum'].', fileUrl);
+			        window.close();
+			    }
+			</script>';
 
 			return $s_return_html;
 		}

@@ -2,7 +2,7 @@
 $(document).ready(function() {
     CKEDITOR.replace('wysiwyg_editor',
         {
-            filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures'
+            filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures&action=select'
         });
 });  
 

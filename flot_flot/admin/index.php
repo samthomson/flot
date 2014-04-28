@@ -151,13 +151,20 @@
 	     		
 				break;
 			case "pictures":
+				$s_action = $flot->s_get_var_from_allowed("action", array("select", "browse"), "browse");
+
 				$html_main_admin_content .= "upload path: ".$flot->datastore->settings->upload_dir;
 				#
 				# top menu
 				#
 				$html_main_admin_content .= '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple><div id="upload_output"></div><hr/>';
 
-				$o_FileBrowser = new FileBrowser();
+				$o_FileBrowser = new FileBrowser($s_action);
+
+				if($s_action === "select"){
+					echo $o_FileBrowser->html_make_browser();
+					exit();
+				}
 
 				$html_main_admin_content .= $o_FileBrowser->html_make_browser();
 				break;
