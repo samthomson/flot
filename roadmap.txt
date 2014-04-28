@@ -1,42 +1,6 @@
 CURRENT V0 sprint
 -----------------
 
-BUGS
-- editor text not being escaped when put into hidden element
-
-SPRINT ITEMS
-
-* pictures
-30 mn - thumbnails from settings thumb sizes
-90 mn - insert picture
-90 mn - make file browser mini
-30 mn - tagging from filename
-
-pic upload experience
--- upload progress bar, plus text description
--- reload browser
-
-120 mn - menu editor
-
-30 mn - informative default pages
-
-
-DO NEAR THE END
-30 mn -  refactor datastore to load all datastores the same way (no individual methods per datastore)
-30 mn - save the same way too
-60 mn - nginx
-15 mn - flot logo to base image into css, remove google fonts dependency
-15 mn - set author and date when saving page
-15 mn - url editing instructions ('page' for dir, 'page.html' etc)
-
-
-SECURITY
-30 mn -  check user is logged in when changing data (items)
-30 mn -  securer passwords!
-30 mn - make page with url flot_flot, or .htaccess, overwrite? maybe have some disallowed urls
-15 mn - limit default allowed files in uploader (https://github.com/blueimp/jQuery-File-Upload/wiki/Security#php)
-
-
 LATER
 
 * oncology editor
@@ -121,14 +85,14 @@ V2
 
 
 
-user stuff
-----------
+V3 user stuff
+-------------
 * multi author support
 * users and groups
 * notification of page changes; to user(s) or group(s)
 
-advanced cms stuff
-------------------
+V4 advanced cms stuff
+---------------------
 * subscriptions; posts, pages, categories, tags (powered by rss ?)
 * open data format export of posts/pages/images
 * easy back end management; list and tree view of pages/items

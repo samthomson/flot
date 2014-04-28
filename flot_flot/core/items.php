@@ -214,7 +214,7 @@
 			# hidden elements
 			$html_form .= '<input id="published" type="hidden" name="published" value="'.$b_published .'">';
 			$html_form .= '<input type="hidden" name="section" value="items">';
-			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="'.$s_content_html.'">';
+			$html_form .= '<input id="content_html" type="hidden" name="content_html" value="'.urlencode($s_content_html).'">';
 			$html_form .= '<input type="hidden" name="item_id" value="'.$s_id.'">';
 
 			# save
@@ -234,7 +234,7 @@
 			foreach($this->o_oncology->elements as $element){
 				$s_new_value = $flot->s_post_var($element, false);
 				if($s_new_value){
-					$this->o_loaded_item_object->$element = urlencode($s_new_value);
+					$this->o_loaded_item_object->$element = urldecode($s_new_value);
 				}
 			}
 			$this->datastore->_set_item_data($this->o_loaded_item_object);

@@ -11,9 +11,11 @@ $(document).ready(function() {
 function editor_update(){
 	//$("#content").val($("#medium_editor").val());
 	//var s_newhtml = $(this).find('.editable').html();
-	var s_newhtml = $("#medium_editor").html();
+	var s_newhtml = encodeURI(editor.serialize().medium_editor.value);
     //console.log("content now: " + s_newhtml);
     $("#content_html").val(s_newhtml);
+
+    console.log(s_newhtml);
 }
 $('.editable').on('input', function() {
   // Do some work
