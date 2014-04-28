@@ -183,9 +183,7 @@
 
 			# editor
 			$html_form .= '<hr/><label class="form-group">WYSIWYG editer</label><br/>';
-			$html_form .= '<div class="form-group btn-group"><a href="javascript:" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-picture"></i> add a picture</a></div>';
-			//$html_form .= '<div id="medium_editor" oninput="editor_update()" class="editable">'.$s_content_html.'</div>';
-			$html_form .= '<textarea id="medium_editor" name="content_html" rows="30">'.$s_content_html.'</textarea>';
+			$html_form .= '<textarea id="wysiwyg_editor" name="content_html" rows="30">'.$s_content_html.'</textarea>';
 
 
 			# end edit tab
