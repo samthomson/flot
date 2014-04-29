@@ -151,3 +151,8 @@ body.smaller_left .condensed_hidden{display: none;}
 #edit_item_general_toolbar{
     margin-right: 16px;
 }
+
+#upload_output{height: 24px;display: block;}
+
+#upload_progress_bar{width: 100%;}
+#upload_progress_bar .bar{height:8px;margin-top: 4px;background: ##2ECC40;display: block;}

@@ -107,24 +107,16 @@
 			$this->s_mode = $s_mode;
 		}
 		function html_make_browser () {
-			$o_Datastore = new Datastore();
-			$s_return_html = "";
-			$s_upload_dir = $o_Datastore->settings->upload_dir;
-			foreach ($o_Datastore->oa_search_pictures("") as $o_image) {
-				$s_file_url = "/".$s_upload_dir."/thumbnail/".$o_image->filename;
-				$s_onclick = "console.log('lightbox: $s_file_url');";
-				if($this->s_mode === "select"){
-					$s_onclick = "chooseFile('$s_file_url');";
-				}
-				$s_return_html .= '<img onclick="'.$s_onclick.'" src="'.$s_file_url.'"/>';
-			};
+			$s_return_html = '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple><div id="upload_output"></div><div id="upload_progress_bar"><div class="bar" style="width: 50%;"></div></div><hr/><div id="picture_browser_results">loading pics..<script>_pic_search("", "'.$this->s_mode.'");</script></div>';
 
-			$s_return_html .= '<script type="text/javascript">
-			    function chooseFile(fileUrl){
-			        window.opener.CKEDITOR.tools.callFunction('.$_GET['CKEditorFuncNum'].', fileUrl);
-			        window.close();
-			    }
-			</script>';
+			if($this->s_mode === "select"){
+				$s_return_html .= '<script type="text/javascript">
+				    function chooseFile(fileUrl){
+				        window.opener.CKEDITOR.tools.callFunction('.$_GET['CKEditorFuncNum'].', fileUrl);
+				        window.close();
+				    }
+				</script>';
+			}
 
 			return $s_return_html;
 		}
