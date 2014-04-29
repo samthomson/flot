@@ -164,8 +164,12 @@
 				$html_main_admin_content .= $o_FileBrowser->html_make_browser();
 
 				if($s_action === "select"){
+					echo $admin_ui->html_admin_headers_base();
+					echo $admin_ui->html_admin_headers_pictures();
+					echo $html_main_admin_content;
 					exit();
 				}
+
 				break;
 			case "menus":
 				$html_menu_ui = "menus";
@@ -181,5 +185,5 @@
 	# if we're still here, render a page for the user
 	#
 
-	$admin_ui->html_make_admin_page($flot->s_admin_header($s_section), $admin_ui->html_make_left_menu($s_section), $html_main_admin_content, $html_main_admin_content_menu, $s_body_class);
+	$admin_ui->html_make_admin_page($admin_ui->s_admin_header($s_section), $admin_ui->html_make_left_menu($s_section), $html_main_admin_content, $html_main_admin_content_menu, $s_body_class);
 ?>

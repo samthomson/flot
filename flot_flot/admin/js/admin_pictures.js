@@ -34,3 +34,11 @@ function _pic_search(s_term, s_mode, i_page){
 		$("#picture_browser_results").html(data);
 	});
 }
+
+var s_file_selected = "";
+
+function selected_picture(s_filename){
+	s_file_selected = s_filename;
+	console.log(s_filename);
+	chooseFile();
+}

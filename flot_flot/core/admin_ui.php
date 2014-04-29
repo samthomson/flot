@@ -28,5 +28,49 @@
 			else
 				return "";
 		}
+		function s_admin_header($s_section = ""){
+			$s_header = "";
+
+			$s_header .= $this->html_admin_headers_base();
+
+			if($s_section === "items"){
+				# ckeditor
+				$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+
+				# general admin js
+				$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+			}
+
+			if($s_section === "pictures"){
+				# general admin js
+				$s_header .= $this->html_admin_headers_pictures();
+			}
+
+
+			$s_header .= '<title>flot - manage your site</title>';
+
+			return $s_header;
+		}
+		function html_admin_headers_pictures(){
+			$s_header = "";
+			$s_header .= '<script src="/flot_flot/admin/js/jquery.ui.widget.js"></script>';
+			$s_header .= '<script src="/flot_flot/admin/js/jquery.iframe-transport.js"></script>';
+			$s_header .= '<script src="/flot_flot/admin/js/jquery.fileupload.js"></script>';
+			$s_header .= '<script src="/flot_flot/admin/js/admin_pictures.js"></script>';
+			return $s_header;
+		}
+		function html_admin_headers_base(){
+			$s_header = "";
+			# bootstrap css
+			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/bootstrap.min.css">';
+			# admin css
+			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/admin_style.css">';
+
+			# jquery js
+			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
+			# bootstrap js
+			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
+			return $s_header;
+		}
 	}
 ?>

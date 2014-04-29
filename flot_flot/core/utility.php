@@ -111,8 +111,8 @@
 
 			if($this->s_mode === "select"){
 				$s_return_html .= '<script type="text/javascript">
-				    function chooseFile(fileUrl){
-				        window.opener.CKEDITOR.tools.callFunction('.$_GET['CKEditorFuncNum'].', fileUrl);
+				    function chooseFile(){
+				        window.opener.CKEDITOR.tools.callFunction('.$_GET['CKEditorFuncNum'].', s_file_selected);
 				        window.close();
 				    }
 				</script>';

@@ -17,7 +17,7 @@
 		$s_file_url = "/".$s_upload_dir."small/".$o_image->filename;
 		$s_onclick = "console.log('lightbox: $s_file_url');";
 		if($s_mode === "select"){
-			$s_onclick = "chooseFile('$s_file_url');";
+			$s_onclick = "selected_picture('$s_file_url');";
 		}
 		$s_return_html .= '<img onclick="'.$s_onclick.'" src="'.$s_file_url.'"/>';
 	};
