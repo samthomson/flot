@@ -172,8 +172,7 @@
 				$html_main_admin_content = $html_menu_ui;
 				break;
 			case "settings":
-				$html_settings_ui = "settings";
-				$html_main_admin_content = $html_settings_ui;
+				$html_main_admin_content = serialize($flot->datastore->settings);
 				break;
 		}
 	}
