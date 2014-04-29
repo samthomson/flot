@@ -14,7 +14,7 @@
 	$s_upload_dir = $o_Datastore->settings->upload_dir;
 	
 	foreach ($o_Datastore->oa_search_pictures("") as $o_image) {
-		$s_file_url = "/".$s_upload_dir."/thumbnail/".$o_image->filename;
+		$s_file_url = "/".$s_upload_dir."small/".$o_image->filename;
 		$s_onclick = "console.log('lightbox: $s_file_url');";
 		if($s_mode === "select"){
 			$s_onclick = "chooseFile('$s_file_url');";
