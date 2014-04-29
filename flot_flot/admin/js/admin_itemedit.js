@@ -1,8 +1,16 @@
 
 $(document).ready(function() {
+    CKEDITOR.config.removePlugins = 'forms, flash,iframe';
     CKEDITOR.replace('wysiwyg_editor',
         {
-            filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures&action=select'
+            filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures&action=select',
+            extraPlugins : 'flot_pictures',
+            toolbar :
+            [
+                [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
+                [ 'Pictures' ],
+                [ 'Source' ],
+            ]
         });
 });  
 
