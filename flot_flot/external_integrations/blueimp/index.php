@@ -22,15 +22,34 @@ require('UploadHandler.php');
 
 
 //$a_options = array('upload_dir' => $s_base_path.$flot->datastore->settings->upload_dir, 'upload_url' => $util->get_full_url().'/'.$flot->datastore->settings->upload_dir);
-$a_options = array('upload_dir' => $s_base_path.$flot->datastore->settings->upload_dir);
+$oa_image_sizes = array();
+
+$oa_image_sizes[''] = array();
+$oa_image_sizes['']['auto_orient'] = true;
+
+
+foreach ($flot->datastore->settings->thumb_sizes as $image_size) {
+	$oa_image_sizes[$image_size->name] = array();
+
+	if(isset($image_size->max_width)){
+		$oa_image_sizes[$image_size->name]['max_width'] = $image_size->max_width;
+	}
+	if(isset($image_size->max_height)){
+		$oa_image_sizes[$image_size->name]['max_height'] = $image_size->max_height;
+	}
+}
+
+
+$a_options = array(
+	'upload_dir' => $s_base_path.$flot->datastore->settings->upload_dir,
+	'image_versions' => $oa_image_sizes
+	);
 //print_r($a_options);
 //$upload_handler = new UploadHandler($a_options);
 
 
 class CustomUploadHandler extends UploadHandler {
-/**/
 	public $flot;
-
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null, $content_range = null) {
     	try{
