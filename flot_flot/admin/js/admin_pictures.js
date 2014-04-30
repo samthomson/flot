@@ -65,7 +65,7 @@ function show_selected_pics(){
 
 	$("#file_browser_selected").html(html_selected_images);
 
-	if(sa_selected.length > -1){
+	if(sa_selected.length > 0){
 		// enable insert button
 		$("#file_browser_insert_selected").removeClass('disabled');
 	}else{

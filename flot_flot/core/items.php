@@ -244,7 +244,7 @@
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 			        
 			        <div class="btn-group dropup">
-				        <button onclick="insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'medium\')" type="button" class="btn btn-success">Insert picture(s)</button>
+				        <button id="file_browser_insert_selected" onclick="insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'medium\')" type="button" class="disabled btn btn-success">Insert picture(s)</button>
 				        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
 				          <span class="caret"></span>
 				          <span class="sr-only">Toggle Dropdown</span>
