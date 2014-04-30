@@ -12,6 +12,7 @@ $(document).ready(function() {
                 [ 'Source' ],
             ]
         });
+    CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height]';
 });  
 
 

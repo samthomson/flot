@@ -7,8 +7,7 @@ CKEDITOR.plugins.add( 'flot_pictures',
 		{
 			exec : function( editor )
 			{    
-				var timestamp = new Date();
-				editor.insertHtml( 'The current date and time is: <em>' + timestamp.toString() + '</em>' );
+				$('#file_browser_modal').modal('show');				
 			}
 		});
 		editor.ui.addButton( 'Pictures',

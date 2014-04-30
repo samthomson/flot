@@ -224,6 +224,30 @@
 
 			$html_form .= '</form>';
 
+			$html_form .= '<div id="file_browser_modal" class="modal fade">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        <h4 class="modal-title">Select a picture to insert</h4>
+			      </div>
+			      <div class="modal-body">';
+
+				$o_FileBrowser = new FileBrowser("select");
+
+				$html_form .= $o_FileBrowser->html_make_browser();
+
+
+			$html_form .= '</div>
+			      <div class="modal-footer">
+			      <div id="file_browser_selected"></div><hr/>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			        <button onclick="insert_selected_pictures(\'medium\')" id="file_browser_insert_selected" type="button" disabled class="btn btn-primary">Insert selected</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->';
+
 			return $html_form;
 		}
 		function update_from_post(){

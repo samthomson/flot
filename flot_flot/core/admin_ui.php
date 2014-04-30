@@ -39,6 +39,8 @@
 
 				# general admin js
 				$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+
+				$s_header .= $this->html_admin_headers_pictures();
 			}
 
 			if($s_section === "pictures"){

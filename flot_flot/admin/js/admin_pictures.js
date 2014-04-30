@@ -43,3 +43,41 @@ function selected_picture(s_filename){
 	console.log(s_filename);
 	chooseFile();
 }
+
+var sa_selected = new Array();
+
+function select_picture(s_filename){
+	if($.inArray(s_filename, sa_selected) > -1){
+		// file already there, deselect it
+		sa_selected.splice(sa_selected.indexOf(s_filename),1);
+	}else{
+		// add to selected
+		sa_selected.push(s_filename);
+	}
+	show_selected_pics();
+}
+function show_selected_pics(){
+	var html_selected_images = "";
+
+	for(var cSelected = 0; cSelected < sa_selected.length; cSelected++){
+		html_selected_images += '<img src="/flot_flot/uploads/tiny/'+sa_selected[cSelected]+'" />';
+	}
+
+	$("#file_browser_selected").html(html_selected_images);
+
+	if(sa_selected.length > -1){
+		// enable insert button
+		$("#file_browser_insert_selected").removeAttr('disabled');
+	}else{
+		// disable insert button
+		$("#file_browser_insert_selected").prop('disabled', true);
+	}
+}
+function insert_selected_pictures(s_size){
+	var html_selected_images = "";
+	for(var cSelected = 0; cSelected < sa_selected.length; cSelected++){
+		html_selected_images += '<img src="/flot_flot/uploads/'+s_size+'/'+sa_selected[cSelected]+'" />';
+	}
+	CKEDITOR.instances.wysiwyg_editor.insertHtml(html_selected_images);
+	$('#file_browser_modal').modal('hide');
+}
