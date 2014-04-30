@@ -242,7 +242,21 @@
 			      <div class="modal-footer">
 			      <div id="file_browser_selected"></div><hr/>
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			        <button onclick="insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'medium\')" id="file_browser_insert_selected" type="button" disabled class="btn btn-primary">Insert selected</button>
+			        
+			        <div class="btn-group dropup">
+				        <button onclick="insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'medium\')" type="button" class="btn btn-success">Insert picture(s)</button>
+				        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+				          <span class="caret"></span>
+				          <span class="sr-only">Toggle Dropdown</span>
+				        </button>
+				        <ul class="dropdown-menu" role="menu">
+				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'tiny\');">tiny</a></li>
+				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'small\');">small</a></li>
+				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'medium\');">medium</a></li>
+				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'large\');">large</a></li>
+				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'\');">original</a></li>
+				        </ul>
+				      </div>
 			      </div>
 			    </div><!-- /.modal-content -->
 			  </div><!-- /.modal-dialog -->

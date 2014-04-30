@@ -67,10 +67,10 @@ function show_selected_pics(){
 
 	if(sa_selected.length > -1){
 		// enable insert button
-		$("#file_browser_insert_selected").removeAttr('disabled');
+		$("#file_browser_insert_selected").removeClass('disabled');
 	}else{
 		// disable insert button
-		$("#file_browser_insert_selected").prop('disabled', true);
+		$("#file_browser_insert_selected").addClass('disabled');
 	}
 }
 function insert_selected_pictures(s_upload_dir, s_size){
