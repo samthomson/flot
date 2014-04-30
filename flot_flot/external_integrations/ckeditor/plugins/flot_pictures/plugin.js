@@ -12,7 +12,7 @@ CKEDITOR.plugins.add( 'flot_pictures',
 		});
 		editor.ui.addButton( 'Pictures',
 		{
-			label: 'Insert Timestamp',
+			label: 'Insert Picture',
 			command: 'insert_picture'/*,
 			icon: this.path + 'images/timestamp.png'*/
 		} );

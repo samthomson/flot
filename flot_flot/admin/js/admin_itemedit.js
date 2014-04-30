@@ -13,6 +13,8 @@ $(document).ready(function() {
             ]
         });
     CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height]';
+    CKEDITOR.config.extraPlugins = 'autogrow';
+    CKEDITOR.config.autoGrow_onStartup = true;
 });  
 
 

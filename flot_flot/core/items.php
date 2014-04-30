@@ -183,7 +183,7 @@
 
 			# editor
 			$html_form .= '<hr/><label class="form-group">WYSIWYG editer</label><br/>';
-			$html_form .= '<textarea id="wysiwyg_editor" name="content_html" rows="30">'.$s_content_html.'</textarea>';
+			$html_form .= '<textarea id="wysiwyg_editor" name="content_html">'.$s_content_html.'</textarea><br/>';
 
 
 			# end edit tab
