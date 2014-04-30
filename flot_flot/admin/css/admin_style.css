@@ -156,3 +156,16 @@ body.smaller_left .condensed_hidden{display: none;}
 
 #upload_progress_bar{width: 100%;}
 #upload_progress_bar .bar{height:8px;margin-top: 4px;background: ##2ECC40;display: block;}
+
+#picture_browser_results img{
+  /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+  -webkit-border-radius: 12px; 
+
+  /* Firefox 1-3.6 */
+  -moz-border-radius: 12px; 
+  
+  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+  border-radius: 12px; 
+
+  margin:0 8px 8px;
+}
