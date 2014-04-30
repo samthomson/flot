@@ -226,12 +226,13 @@
 
 			$html_form .= '<div id="file_browser_modal" class="modal fade">
 			  <div class="modal-dialog">
-			    <div class="modal-content">
+			    <div class="modal-content">			    	
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			        <h4 class="modal-title">Select a picture to insert</h4>
 			      </div>
-			      <div class="modal-body">';
+			      <div class="modal-body">
+			      	Click a file to select it, you can upload new files too. Once files are selected you can click "insert pictures" or choose a different picture size from the drop up menu on the same button.<hr/>';
 
 				$o_FileBrowser = new FileBrowser("select");
 
