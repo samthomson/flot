@@ -225,7 +225,7 @@
 			$html_form .= '</form>';
 
 			$html_form .= '<div id="file_browser_modal" class="modal fade">
-			  <div class="modal-dialog">
+			  <div class="container">
 			    <div class="modal-content">			    	
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
