@@ -44,7 +44,7 @@ function selected_picture(s_filename){
 	chooseFile();
 }
 
-var sa_selected = new Array();
+var sa_selected = [];
 
 function select_picture(s_filename){
 	if($.inArray(s_filename, sa_selected) > -1){
@@ -81,5 +81,5 @@ function insert_selected_pictures(s_upload_dir, s_size){
 	CKEDITOR.instances.wysiwyg_editor.insertHtml(html_selected_images);
 	$('#file_browser_modal').modal('hide');
 	// reset selected
-	var sa_selected = new Array();
+	sa_selected = [];
 }
