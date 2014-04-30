@@ -1,4 +1,9 @@
 
+var s_term = "";
+var s_mode = "browse";
+var i_page = 1;
+
+
 $(function () {
 	$('#fileupload').fileupload({
 		dataType: 'json',
@@ -24,15 +29,7 @@ $(function () {
 	});
 });
 
-function _pic_search(s_term, s_mode, i_page){
-	if(i_page === null)
-		i_page = 1;
-	if(s_term === null)
-		s_term = "";
-	if(s_mode === null)
-		s_mode = "browse";
-
-
+function _pic_search(){
 	$.get('/flot_flot/admin/search_pics.php',{"term": s_term, "mode": s_mode}, function(data){
 		$("#picture_browser_results").html(data);
 	});

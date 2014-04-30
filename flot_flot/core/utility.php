@@ -107,7 +107,7 @@
 			$this->s_mode = $s_mode;
 		}
 		function html_make_browser () {
-			$s_return_html = '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple class="btn btn-info"><div id="upload_output"></div><div id="upload_progress_bar"><div class="bar" style="width: 50%;"></div></div><hr/><div id="picture_browser_results">loading pics..<script>_pic_search("", "'.$this->s_mode.'");</script></div>';
+			$s_return_html = '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple class="btn btn-info"><div id="upload_output"></div><div id="upload_progress_bar"><div class="bar" style="width: 50%;"></div></div><hr/><div id="picture_browser_results">loading pics..<script>s_mode = "'.$this->s_mode.'";_pic_search();</script></div>';
 
 			return $s_return_html;
 		}

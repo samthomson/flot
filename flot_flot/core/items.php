@@ -256,14 +256,7 @@
 				        foreach ($this->datastore->settings->thumb_sizes as $size) {
 				        	$html_form .= '<li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \''.$size->name.'\');">'.$size->name.'</a></li>';
 				        }
-				        /*
-				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'tiny\');">tiny</a></li>
-				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'small\');">small</a></li>
-				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'medium\');">medium</a></li>
-				          <li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'large\');">large</a></li>*/
-
-
-				          $html_form .= '<li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'\');">original</a></li>
+				        $html_form .= '<li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'\');">original</a></li>
 				        </ul>
 				      </div>
 			      </div>
