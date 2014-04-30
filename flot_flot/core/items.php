@@ -242,7 +242,7 @@
 			      <div class="modal-footer">
 			      <div id="file_browser_selected"></div><hr/>
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-			        <button onclick="insert_selected_pictures(\'medium\')" id="file_browser_insert_selected" type="button" disabled class="btn btn-primary">Insert selected</button>
+			        <button onclick="insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \'medium\')" id="file_browser_insert_selected" type="button" disabled class="btn btn-primary">Insert selected</button>
 			      </div>
 			    </div><!-- /.modal-content -->
 			  </div><!-- /.modal-dialog -->

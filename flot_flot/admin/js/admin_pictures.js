@@ -73,10 +73,10 @@ function show_selected_pics(){
 		$("#file_browser_insert_selected").prop('disabled', true);
 	}
 }
-function insert_selected_pictures(s_size){
+function insert_selected_pictures(s_upload_dir, s_size){
 	var html_selected_images = "";
 	for(var cSelected = 0; cSelected < sa_selected.length; cSelected++){
-		html_selected_images += '<img src="/flot_flot/uploads/'+s_size+'/'+sa_selected[cSelected]+'" />';
+		html_selected_images += '<img src="/'+s_upload_dir+'/'+s_size+'/'+sa_selected[cSelected]+'" />';
 	}
 	CKEDITOR.instances.wysiwyg_editor.insertHtml(html_selected_images);
 	$('#file_browser_modal').modal('hide');
