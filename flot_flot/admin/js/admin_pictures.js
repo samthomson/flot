@@ -11,6 +11,7 @@ $(function () {
 		},
 		fail: function (e, data) {
 			console.log("upload failed: "+e+", "+data);
+	        _pic_search();
 		},
 		progressall: function (e, data) {
 	        var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -28,6 +29,8 @@ function _pic_search(s_term, s_mode, i_page){
 		i_page = 1;
 	if(s_term === null)
 		s_term = "";
+	if(s_mode === null)
+		s_mode = "browse";
 
 
 	$.get('/flot_flot/admin/search_pics.php',{"term": s_term, "mode": s_mode}, function(data){

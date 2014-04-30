@@ -20,7 +20,7 @@
 		if($s_mode === "select"){
 			$s_onclick = "select_picture('$s_file_name');";
 		}
-		$s_return_html .= '<img onclick="'.$s_onclick.'" src="'.$s_file_url.'"/>';
+		$s_return_html .= '<img id="'.$o_image->filename.'"  onclick="'.$s_onclick.'" src="'.$s_file_url.'"/>';
 	};
 
 	echo $s_return_html;
