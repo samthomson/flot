@@ -16,8 +16,8 @@ LATER
 * seriously? check on item deletion
 * combine css,js
 * thinner font on backend
-
-
+* search
+* jquery selectable on image insert dialog (for styling and easy multiselect)
 
 V0 - MVP
 --------
@@ -82,7 +82,7 @@ V2
 * revision history with easy reversion
 * drag image upload, and also discovery mode (put images in pick up directory, cron discovery)
 * make gif from jpegs: http://stackoverflow.com/questions/2191367/php-create-simple-animated-gif-from-two-jpeg-images
-
+* image thumbnails, support forcing image to exact dimensions (like squares), maybe take of chaining of thumbs, to give more thumbing flexibility
 
 
 V3 user stuff
