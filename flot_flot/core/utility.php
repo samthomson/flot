@@ -97,6 +97,26 @@
 			# store file and tags in datastore
 			$o_Datastore = new Datastore();
 			$o_Datastore->_add_file($this->filename);
+
+			// generate tags for the file with different methods, then add what tags we have (if any) to the datastore for the file
+
+			$sa_tags_for_file = array();
+			foreach ($this->_sa_tags_from_filename() as $tag) {
+				array_push($sa_tags_for_file, $tag);
+			}
+			
+
+			if(count($sa_tags_for_file)){
+				$o_Datastore->_add_file_tags($this->filename, $sa_tags_for_file);
+			}
+			$o_Datastore->_save_datastore("file_tags");
+		}
+		function _sa_tags_from_filename(){
+			$sa_tags = array();
+			// add the filename itself as a tag
+			array_push($sa_tags, $this->filename);
+
+			return $sa_tags;
 		}
 	}
 

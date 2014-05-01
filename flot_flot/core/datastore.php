@@ -11,6 +11,7 @@
 		public $users;
 		public $oncologies;
 		public $pictures;
+		public $file_tags;
 
 		public $s_base_path;
 
@@ -22,6 +23,7 @@
 			$this->initiate_users();
 			$this->initiate_oncologies();
 			$this->initiate_pictures();
+			$this->initiate_file_tags();
 		}
 
 		function initiate_oncologies() {
@@ -47,6 +49,10 @@
 		function initiate_pictures() {
 			require($this->s_base_path.'flot_flot/datastore/pictures.php');
 			$this->pictures = json_decode($pictures);
+		}
+		function initiate_file_tags() {
+			require($this->s_base_path.'flot_flot/datastore/file_tags.php');
+			$this->file_tags = json_decode($file_tags);
 		}
 		function get_current_url_data()
 		{
@@ -144,6 +150,11 @@
 			# save it to datastore
 			$this->_save_datastore("pictures");
 		}
+		function _add_file_tags($s_filename, $sa_tags){
+			foreach ($sa_tags as $s_tag) {
+				$this->file_tags->$s_tag = $s_filename;
+			}	
+		}
 
 		
 		#
@@ -174,6 +185,15 @@
 					$s_new_content = "<?php ";
 					$s_new_content .= '$pictures = \'';
 					$s_new_content .= json_encode($this->pictures);
+					$s_new_content .= "'; ?>";
+
+					file_put_contents($s_write_path, $s_new_content);
+					break;
+				case 'file_tags':
+					$s_write_path = $this->s_base_path.'flot_flot/datastore/file_tags.php';
+					$s_new_content = "<?php ";
+					$s_new_content .= '$file_tags = \'';
+					$s_new_content .= json_encode($this->file_tags);
 					$s_new_content .= "'; ?>";
 
 					file_put_contents($s_write_path, $s_new_content);

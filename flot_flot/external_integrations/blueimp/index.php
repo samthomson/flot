@@ -29,7 +29,6 @@ $oa_image_sizes['']['auto_orient'] = true;
 
 
 foreach ($flot->datastore->settings->thumb_sizes as $image_size) {
-	print_r($image_size);
 	$oa_image_sizes[$image_size->name] = array();
 
 	if(isset($image_size->max_width)){
@@ -40,7 +39,7 @@ foreach ($flot->datastore->settings->thumb_sizes as $image_size) {
 	}
 }
 
-print_r($oa_image_sizes);
+//print_r($oa_image_sizes);
 
 $a_options = array(
 	'upload_dir' => $s_base_path.$flot->datastore->settings->upload_dir,
