@@ -151,8 +151,14 @@
 			$this->_save_datastore("pictures");
 		}
 		function _add_file_tags($s_filename, $sa_tags){
+			// set each tag with the filename, if there are filename already, add this one
 			foreach ($sa_tags as $s_tag) {
-				$this->file_tags->$s_tag = $s_filename;
+				if(!isset($this->file_tags->$s_tag)){
+					// no tag yet, make it
+					$this->file_tags->$s_tag = array();
+				}
+				array_push($this->file_tags->$s_tag, $s_filename);
+				//$this->file_tags->$s_tag = $s_filename;
 			}	
 		}
 
