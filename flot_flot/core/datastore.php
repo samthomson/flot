@@ -90,12 +90,20 @@
 		}
 
 		function oa_search_pictures($s_query){
-			if(empty($s_query)){
+			$sa_matching_pictures = array();
+			if(!empty($s_query)){
+				// search file tags
+				if(isset($this->file_tags->$s_query))
+					foreach ($this->file_tags->$s_query as $s_result) {
+						array_push($sa_matching_pictures, $s_result);
+					}
 				// return all
-				return $this->pictures;
 			}else{
-
+				foreach ($this->pictures as $o_picture) {
+					array_push($sa_matching_pictures, $o_picture->filename);
+				}
 			}
+			return $sa_matching_pictures;
 		}
 
 		#

@@ -27,6 +27,12 @@ $(function () {
 	        $("#upload_output").html("uploading.. "+progress+"%");
 	    }
 	});
+		console.log("init");
+	$("#file_browser_text_search").keyup(function() {
+		s_term = $("#file_browser_text_search").val();
+		_pic_search();
+		console.log("searching: "+s_term);
+	});
 });
 
 function _pic_search(){
