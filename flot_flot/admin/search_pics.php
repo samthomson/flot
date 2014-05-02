@@ -10,7 +10,7 @@
 
 	$s_query = "";
 	if(isset($_GET['term']))
-		$s_query = $_GET['term'];
+		$s_query = strtolower($_GET['term']);
 
 	$o_Datastore = new Datastore();
 

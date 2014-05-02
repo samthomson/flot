@@ -116,12 +116,11 @@
 			// add the filename itself as a tag
 			array_push($sa_tags, $this->filename);
 
-			$s_extension = explode('.', $this->filename);
+			$s_dot_parts = explode('.', $this->filename);
 
-			if(count($s_extension) > 1){
-				$s_extension = $s_extension[count($s_extension)-1];
-				array_push($sa_tags, $s_extension);
-			}
+			foreach ($s_dot_parts as $s_part) {
+				array_push($sa_tags, $s_part);
+			}			
 
 			return $sa_tags;
 		}
