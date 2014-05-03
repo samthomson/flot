@@ -139,7 +139,7 @@
 			
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 
-			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
+			$html_form .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
 
 
 
