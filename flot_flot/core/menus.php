@@ -40,8 +40,7 @@
 			$s_id = urldecode($this->o_loaded_menu_object->id);
 			$s_name = urldecode($this->o_loaded_menu_object->title);
 
-
-			$html_form .= '<div class="btn-group"><a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
+			$html_form .= '<div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
 
 			$html_form .= '<hr/>';
 
