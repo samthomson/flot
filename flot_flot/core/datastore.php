@@ -18,48 +18,19 @@
 
 		function __construct() {
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-			$this->initiate_settings();
-			$this->initiate_urls();
-			$this->initiate_items();
-			$this->initiate_menus();
-			$this->initiate_users();
-			$this->initiate_oncologies();
-			$this->initiate_pictures();
-			$this->initiate_file_tags();
+
+			$sa_datastores_to_initiate = array('settings', 'urls', 'items', 'menus', 'users', 'oncologies', 'pictures', 'file_tags');
+
+			foreach ($sa_datastores_to_initiate as $s_datastore_to_initiate) {
+				$this->initiate_datastore($s_datastore_to_initiate);
+			}
 		}
 
-		function initiate_oncologies() {
-			require($this->s_base_path.'flot_flot/datastore/oncologies.php');
-			$this->oncologies = json_decode($oncologies);
+		function initiate_datastore($s_datastore_name){
+			require($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php');
+			$this->$s_datastore_name = json_decode(${$s_datastore_name});
 		}
-		function initiate_settings() {
-			require($this->s_base_path.'flot_flot/datastore/settings.php');
-			$this->settings = json_decode($settings);
-		}
-		function initiate_urls() {
-			require($this->s_base_path.'flot_flot/datastore/urls.php');
-			$this->urls = json_decode($urls);
-		}
-		function initiate_items() {
-			require($this->s_base_path.'flot_flot/datastore/items.php');
-			$this->items = json_decode($items);
-		}
-		function initiate_menus() {
-			require($this->s_base_path.'flot_flot/datastore/menus.php');
-			$this->menus = json_decode($menus);
-		}
-		function initiate_users() {
-			require($this->s_base_path.'flot_flot/datastore/users.php');
-			$this->users = json_decode($users);
-		}
-		function initiate_pictures() {
-			require($this->s_base_path.'flot_flot/datastore/pictures.php');
-			$this->pictures = json_decode($pictures);
-		}
-		function initiate_file_tags() {
-			require($this->s_base_path.'flot_flot/datastore/file_tags.php');
-			$this->file_tags = json_decode($file_tags);
-		}
+
 		function get_current_url_data()
 		{
 			foreach ($this->urls as $url) {
