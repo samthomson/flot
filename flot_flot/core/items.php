@@ -91,21 +91,53 @@
 			$this->html_page = $template;
 		}
 
+		function save(){
+			# re-render the page into internal memory
+			$this->render();
+
+			# persist the page to disk
+			$this->update();
+
+		}
+
 		#
 		# content generation
 		#
-		function html_render(){
-			# spit out ul
+		function make_header(){
+			# spit out content type (settings? content type, or not to display)
+
+			# keywords etc, generate if necessary
+
+			# open graph stuff
 		}
+
 		#
 		# editing
 		#
 		function html_edit_form(){
 			$html_form = "";
-			$s_id = urldecode($this->o_loaded_menu_object->id);
-			$s_title = urldecode($this->o_loaded_menu_object->title);
+			$s_id = urldecode($this->o_loaded_item_object->id);
+			$s_title = urldecode($this->o_loaded_item_object->title);
+			$s_url = urldecode($this->o_loaded_item_object->url);
+			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
+			$s_keywords = urldecode($this->o_loaded_item_object->keywords);
+			$s_description = urldecode($this->o_loaded_item_object->description);
+			$s_title = urldecode($this->o_loaded_item_object->title);
+			$b_published = urldecode($this->o_loaded_item_object->published);
 
+			$s_published_class = "";
+			$s_unpublished_class = "";
+
+			if($b_published === "true")
+				$s_published_class = "disabled ";
+			else
+				$s_unpublished_class = "disabled ";
+
+			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar"><a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
+
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
 			
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
 
@@ -202,9 +234,10 @@
 			      <div class="modal-body">
 			      	Click a file to select it, you can upload new files too. Once files are selected you can click "insert pictures" or choose a different picture size from the drop up menu on the same button.<hr/>';
 
-			$o_FileBrowser = new FileBrowser("select");
+				$o_FileBrowser = new FileBrowser("select");
 
-			$html_form .= $o_FileBrowser->html_make_browser();
+				$html_form .= $o_FileBrowser->html_make_browser();
+
 
 			$html_form .= '</div>
 			      <div class="modal-footer">
