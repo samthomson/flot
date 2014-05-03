@@ -3,6 +3,7 @@
 	require('../core/flot.php');
 
 	$flot = new Flot;
+	$AdminUI = new AdminUI;
 
 	# are we handling the log in form submission ?
 	
@@ -19,7 +20,7 @@
 <html>
 	<head>
 		<?php
-			echo $flot->s_admin_header();
+			echo $AdminUI->s_admin_header();
 		?>
 	</head>
 	<body>

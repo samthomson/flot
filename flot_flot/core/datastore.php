@@ -92,17 +92,32 @@
 		function oa_search_pictures($s_query){
 			$sa_matching_pictures = array();
 			if(!empty($s_query)){
-				// search file tags
-				if(isset($this->file_tags->$s_query))
+				// search exact file tags
+				if(isset($this->file_tags->$s_query)){
 					foreach ($this->file_tags->$s_query as $s_result) {
 						array_push($sa_matching_pictures, $s_result);
 					}
-				// return all
+				}
+
+				// search partial
+				/*
+				if(empty($sa_matching_pictures)){
+					// no exact matches, try partials
+					print_r($this->file_tags);
+					$sa_matching_indexes = preg_grep("/{$s_query}/i", array_keys($this->file_tags));
+					print_r($sa_matching_indexes);
+					foreach($sa_matching_indexes as $s_index){
+						array_push($sa_matching_pictures, $this->pictures[$s_index]);
+					}
+				}
+				*/
 			}else{
+				// empty search query, add all pictures to return
 				foreach ($this->pictures as $o_picture) {
 					array_push($sa_matching_pictures, $o_picture->filename);
 				}
 			}
+			// return all
 			return $sa_matching_pictures;
 		}
 
