@@ -100,7 +100,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_pages = $flot->oa_pages();
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add new page</a></button><hr/>';
+						$hmtl_pages_ui .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a></button><hr/>';
 
 		         		if(count($oa_pages) > 0)
 		         		{
@@ -150,6 +150,85 @@
 
 	     		
 				break;
+			case "menus":
+				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
+
+				switch ($s_action) {
+					case 'edit':
+						$s_menu_id = $flot->s_get_var('menu', false);
+						# menu items; purge from cache, preview, regenerate, delete
+						
+						if($s_menu_id){
+							# get the item
+							$o_menu = $flot->datastore->get_menu_data($s_menu_id);
+
+							# get the oncology
+
+							# render a form
+							$Menu = new Menu($o_menu);
+
+							$html_main_admin_content .= $Menu->html_edit_form();
+
+							// make left menu smaller, to give more focus to editing
+							$s_body_class = "smaller_left";
+						}
+						break;					
+					case 'list':
+						# list all pages that can be edited (pagination ?)
+						$oa_menus = $flot->oa_menus();
+		         		$hmtl_menus_ui = "";
+						$hmtl_menus_ui .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=menus&action=new"><i class="glyphicon glyphicon-plus"></i> add a new menu</a></button><hr/>';
+
+		         		if(count($oa_menus) > 0)
+		         		{
+		         			$hmtl_menus_ui .= '<table class="table table-hover"><thead><tr><th>menu name</th><th>delete</th></tr></thead><tbody>';
+			         		foreach ($oa_menus as $o_menu) {
+								$s_id = urldecode($o_menu->id);
+								$s_title = urldecode($o_menu->title);
+
+			         			# code...
+			         			$hmtl_menus_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=menus&item='.$s_id.'&action=edit">';
+			         			$hmtl_menus_ui .= $s_title;
+			         			$hmtl_menus_ui .= '</a></td>';
+
+								$hmtl_menus_ui .= '<td><a href="/flot_flot/admin/index.php?section=menus&menu='.$o_menu->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         		}
+			         		$hmtl_menus_ui .= '</tbody></table>';
+			         	}else{
+			         		$hmtl_menus_ui .= "no menus..";
+			         	}
+
+			         	$html_main_admin_content = $hmtl_menus_ui;
+						break;
+					
+					case 'new':
+						
+						# create the new item, then do a page change to be editing it
+
+						$s_new_menu_id = $flot->datastore->s_new_menu();
+
+
+						$s_new_menu = "/flot_flot/admin/index.php?section=menus&menu=".$s_new_menu_id."&action=edit";
+						$flot->_page_change($s_new_menu);
+						
+						break;
+					
+					case 'delete':
+						/*
+						# create the new item, then do a page change to be editing it
+						$s_page_id = $flot->s_get_var('item', false);
+						if($s_page_id){
+							$flot->datastore->_delete_item($s_page_id);
+
+							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&action=list";
+							$flot->_page_change($s_new_page);
+						}
+						*/
+						break;
+				}
+
+	     		
+				break;
 			case "pictures":
 				$s_action = $flot->s_get_var_from_allowed("action", array("select", "browse"), "browse");
 
@@ -170,10 +249,6 @@
 					exit();
 				}
 
-				break;
-			case "menus":
-				$html_menu_ui = "menus";
-				$html_main_admin_content = $html_menu_ui;
 				break;
 			case "settings":
 				$html_main_admin_content = serialize($flot->datastore->settings);

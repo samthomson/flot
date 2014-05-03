@@ -7,6 +7,7 @@
 
 		public $urls;
 		public $items;
+		public $menus;
 		public $settings;
 		public $users;
 		public $oncologies;
@@ -20,6 +21,7 @@
 			$this->initiate_settings();
 			$this->initiate_urls();
 			$this->initiate_items();
+			$this->initiate_menus();
 			$this->initiate_users();
 			$this->initiate_oncologies();
 			$this->initiate_pictures();
@@ -41,6 +43,10 @@
 		function initiate_items() {
 			require($this->s_base_path.'flot_flot/datastore/items.php');
 			$this->items = json_decode($items);
+		}
+		function initiate_menus() {
+			require($this->s_base_path.'flot_flot/datastore/menus.php');
+			$this->menus = json_decode($menus);
 		}
 		function initiate_users() {
 			require($this->s_base_path.'flot_flot/datastore/users.php');
@@ -77,6 +83,14 @@
 			foreach ($this->items as $item) {
 				if ($item->id === $item_id)
 					return $item;
+			}
+			return false;
+		}
+		function get_menu_data($menu_id)
+		{
+			foreach ($this->menus as $menu) {
+				if ($menu->id === $menu_id)
+					return $menu;
 			}
 			return false;
 		}
@@ -144,6 +158,18 @@
 			# return its id
 			return $s_new_id;
 		}
+		function s_new_menu(){
+			# create a new item
+			$s_new_id = uniqid("menu");
+			$s_menu_template = '{"id":"'.$s_new_id.'", "title":"new menu"}';
+			array_push($this->menus, json_decode($s_menu_template));
+
+			# save it to datastore
+			$this->_save_datastore("menus");
+
+			# return its id
+			return $s_new_id;
+		}
 		function _delete_item($s_id){
 			$i_kill_index = -1;
 			for($c_item = 0; $c_item < count($this->items); $c_item++) {
@@ -197,6 +223,15 @@
 					$s_new_content = "<?php ";
 					$s_new_content .= '$items = \'';
 					$s_new_content .= json_encode($this->items);
+					$s_new_content .= "'; ?>";
+
+					file_put_contents($s_write_path, $s_new_content);
+					break;
+				case 'menus':
+					$s_write_path = $this->s_base_path.'flot_flot/datastore/menus.php';
+					$s_new_content = "<?php ";
+					$s_new_content .= '$menus = \'';
+					$s_new_content .= json_encode($this->menus);
 					$s_new_content .= "'; ?>";
 
 					file_put_contents($s_write_path, $s_new_content);

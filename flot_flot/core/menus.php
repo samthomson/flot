@@ -1,28 +1,16 @@
 <?php
-	# handles everything to do with the items, initiating and rendering
+	# menus; initiate, make edit form, render to ui
 
-	# properties: url, private, oncology, template, dynamic/static
-	# methods: rebuild, update, add, edit, delete
+	class Menu {
 
-
-    # initiate an item from the data in urls datastore
-	
-	# call its render method
-
-	class Item {
-
-		public $o_loaded_item_object;
-		public $html_page;
-		public $s_base_path;
-		public $o_oncology;
 		public $datastore;
+		public $o_loaded_menu_object;
 
-		function __construct($o_item) {
-			$this->o_loaded_item_object = $o_item;
+		function __construct($o_menu) {
+			$this->o_loaded_menu_object = $o_menu;
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			# set a reference to my oncology
 			$this->datastore = new DataStore;
-			$this->o_oncology = $this->datastore->get_oncology($o_item->oncology);
 		}
 
 		function rebuild() {
@@ -91,21 +79,53 @@
 			$this->html_page = $template;
 		}
 
+		function save(){
+			# re-render the page into internal memory
+			$this->render();
+
+			# persist the page to disk
+			$this->update();
+
+		}
+
 		#
 		# content generation
 		#
-		function html_render(){
-			# spit out ul
+		function make_header(){
+			# spit out content type (settings? content type, or not to display)
+
+			# keywords etc, generate if necessary
+
+			# open graph stuff
 		}
+
 		#
 		# editing
 		#
 		function html_edit_form(){
 			$html_form = "";
-			$s_id = urldecode($this->o_loaded_menu_object->id);
-			$s_title = urldecode($this->o_loaded_menu_object->title);
+			$s_id = urldecode($this->o_loaded_item_object->id);
+			$s_title = urldecode($this->o_loaded_item_object->title);
+			$s_url = urldecode($this->o_loaded_item_object->url);
+			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
+			$s_keywords = urldecode($this->o_loaded_item_object->keywords);
+			$s_description = urldecode($this->o_loaded_item_object->description);
+			$s_title = urldecode($this->o_loaded_item_object->title);
+			$b_published = urldecode($this->o_loaded_item_object->published);
 
+			$s_published_class = "";
+			$s_unpublished_class = "";
+
+			if($b_published === "true")
+				$s_published_class = "disabled ";
+			else
+				$s_unpublished_class = "disabled ";
+
+			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar"><a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
+
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
 			
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
 

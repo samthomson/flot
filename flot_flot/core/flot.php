@@ -85,6 +85,9 @@
 		function oa_pages(){
 			return $this->datastore->items;
 		}
+		function oa_menus(){
+			return $this->datastore->menus;
+		}
 
 		function s_get_var($s_var, $s_default_return){
 			if(isset($_GET[$s_var]))
