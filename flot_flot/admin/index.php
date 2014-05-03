@@ -33,6 +33,7 @@
 		$s_action = $flot->s_post_var_from_allowed("action", array("edit"), "edit");		
 		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
 
+
 		switch($s_section){
 			case "items":
 				switch ($s_action) {
@@ -59,9 +60,32 @@
 						break;
 				}
 				break;
+			case "menus":
+				switch ($s_action) {
+					case 'edit':
+						# get the id, find the item, then try replacing the attributes
+						$menu_id = $flot->s_post_var("menu_id", false);
+						if($menu_id){
+
+							$o_menu = $flot->datastore->get_menu_data($menu_id);
+
+							if($o_menu){
+								$Menu = new Menu($o_menu);
+
+								$Menu->update_from_post();
+
+								# persist (or not) the item
+								$Menu->save();
+
+
+								# change location to view the item
+								$flot->_page_change("/flot_flot/admin/index.php?section=menus&action=list");
+							}
+						}
+						break;
+				}
+				break;
 		}
-
-
 
 		# location change to corresponding get
 	}else{
@@ -171,6 +195,8 @@
 
 							// make left menu smaller, to give more focus to editing
 							$s_body_class = "smaller_left";
+						}else{
+							$html_main_admin_content .= "flot couln't find that menu :(";
 						}
 						break;					
 					case 'list':
@@ -187,7 +213,7 @@
 								$s_title = urldecode($o_menu->title);
 
 			         			# code...
-			         			$hmtl_menus_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=menus&item='.$s_id.'&action=edit">';
+			         			$hmtl_menus_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=edit">';
 			         			$hmtl_menus_ui .= $s_title;
 			         			$hmtl_menus_ui .= '</a></td>';
 

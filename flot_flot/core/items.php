@@ -202,10 +202,9 @@
 			      <div class="modal-body">
 			      	Click a file to select it, you can upload new files too. Once files are selected you can click "insert pictures" or choose a different picture size from the drop up menu on the same button.<hr/>';
 
-				$o_FileBrowser = new FileBrowser("select");
+			$o_FileBrowser = new FileBrowser("select");
 
-				$html_form .= $o_FileBrowser->html_make_browser();
-
+			$html_form .= $o_FileBrowser->html_make_browser();
 
 			$html_form .= '</div>
 			      <div class="modal-footer">

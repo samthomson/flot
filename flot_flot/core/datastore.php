@@ -146,6 +146,14 @@
 				}
 			}
 		}
+		function _set_menu_data($new_menu)
+		{
+			for($c_menu = 0; $c_menu < count($this->menus); $c_menu++) {
+				if ($this->menus[$c_menu]->id === $new_menu->id){
+					$this->menus[$c_menu] = $new_menu;
+				}
+			}
+		}
 		function s_new_item($s_oncology){
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
