@@ -238,6 +238,21 @@
 		# Saving
 		#
 		function _save_datastore($s_datastore){
+			if($s_datastore === 'items' ||
+				$s_datastore === 'menus' ||
+				$s_datastore === 'users' ||
+				$s_datastore === 'pictures' ||
+				$s_datastore === 'file_tags'){
+
+				$s_write_path = $this->s_base_path.'flot_flot/datastore/'.$s_datastore.'.php';
+				$s_new_content = "<?php ";
+				$s_new_content .= '$'.$s_datastore.' = \'';
+				$s_new_content .= json_encode($this->$s_datastore);
+				$s_new_content .= "'; ?>";
+
+				file_put_contents($s_write_path, $s_new_content);
+			}
+/*
 			switch ($s_datastore) {
 				case 'items':
 					$s_write_path = $this->s_base_path.'flot_flot/datastore/items.php';
@@ -285,6 +300,7 @@
 					file_put_contents($s_write_path, $s_new_content);
 					break;
 			}
+			*/
 		}
 
 	}
