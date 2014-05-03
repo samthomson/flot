@@ -43,8 +43,9 @@ foreach ($flot->datastore->settings->thumb_sizes as $image_size) {
 
 $a_options = array(
 	'upload_dir' => $s_base_path.$flot->datastore->settings->upload_dir,
-	'image_versions' => $oa_image_sizes
-	);
+	'image_versions' => $oa_image_sizes,
+	'accept_file_types' => '/\.(gif|jpe?g|png)$/i'
+);
 //$upload_handler = new UploadHandler($a_options);
 
 
