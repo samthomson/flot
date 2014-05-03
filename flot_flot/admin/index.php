@@ -240,16 +240,16 @@
 						break;
 					
 					case 'delete':
-						/*
+						
 						# create the new item, then do a page change to be editing it
-						$s_page_id = $flot->s_get_var('item', false);
-						if($s_page_id){
-							$flot->datastore->_delete_item($s_page_id);
+						$s_menu_id = $flot->s_get_var('menu', false);
+						if($s_menu_id){
+							$flot->datastore->_delete_menu($s_menu_id);
 
-							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&action=list";
+							$s_new_page = "/flot_flot/admin/index.php?section=menus&action=list";
 							$flot->_page_change($s_new_page);
 						}
-						*/
+						
 						break;
 				}
 

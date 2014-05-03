@@ -191,6 +191,19 @@
 
 			$this->_save_datastore("items");
 		}
+		function _delete_menu($s_id){
+			$i_kill_index = -1;
+			for($c_menu = 0; $c_menu < count($this->menus); $c_menu++) {
+				if ($this->menus[$c_menu]->id === $s_id)
+					$i_kill_index = $c_menu;
+			}
+			if($i_kill_index > -1){
+				unset($this->menus[$i_kill_index]);
+				$this->menus = array_values($this->menus);
+			}
+
+			$this->_save_datastore("menus");
+		}
 		function _add_user($s_email, $s_pass){
 			$s_user_template = '{"user":"'.$s_email.'", "pass": "'.$s_pass.'"}';
 			array_push($this->users, json_decode($s_user_template));
