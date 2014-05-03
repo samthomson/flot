@@ -133,13 +133,21 @@
 			else
 				$s_unpublished_class = "disabled ";
 
-			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar"><a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
+			# start button group
+			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar">';
+
+			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
 
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
 			
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 
-			$html_form .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
+			$html_form .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
+
+			$html_form .= '<a target="_blank" class="btn btn-default btn-sm" href="/'.$s_url.'"><i class="glyphicon glyphicon-eye-open"></i><span class="small-hidden"> view</span></a>';
+
+			# end button group
+			$html_form .= '</div>';
 
 
 
