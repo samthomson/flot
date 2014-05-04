@@ -173,23 +173,48 @@ body.smaller_left .condensed_hidden{display: none;}
   border:2px solid blue;
 }
 
-ul#available_pages{
+ul.menu_items_pages{
   padding-left: 0px;
 }
-ul#available_pages li{
+ul.menu_items_pages li{
   list-style: none;
   font-size: larger;
-  border:1px solid silver;
+  border:1px solid #dddddd;
   border-radius: 8px;
-  padding:8px;
+  padding: 4px;
   margin-bottom: 8px;
   cursor: move;
 }
-ul#available_pages li:hover{
-  background: silver;
+ul.menu_items_pages li:hover{
+  background: #dddddd;
+  border-color: #aaaaaa;
+  border-width:2px;
+  padding: 3px;
+  /* thicker border */
 }
 #menu_order_area{
-  background: lime;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
   height: auto;
   min-height: 200px;
+  padding: 30px 10px 30px 10px;
+}
+.menu_item_dragging{
+  /* shadow & minor rotation */
+  -moz-box-shadow:    2px 2px 0px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px 0px #ccc;
+  box-shadow:         2px 2px 0px 0px #ccc;
+
+  transform:rotate(6deg);
+  -ms-transform:rotate(6deg); /* IE 9 */
+  -webkit-transform:rotate(6deg); /* Opera, Chrome, and Safari */
+}
+.item_hovering{
+  border-width:2px;
+  border-color: #aaaaaa;
+  padding: 29px 9px 29px 9px;
+
+  -moz-box-shadow:    2px 2px 0px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px 0px #ccc;
+  box-shadow:         2px 2px 0px 0px #ccc;
 }
