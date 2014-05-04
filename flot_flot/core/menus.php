@@ -16,6 +16,7 @@
 		}
 		function render() {
 			# spit out ul
+			return "MENU";
 		}
 
 		function save(){
@@ -54,7 +55,7 @@
 			$html_form .= "<script>";
 
 			$sa_menu_levels = explode(';', $s_serialisation);
-			
+
 			$sa_root_menu_items = array();
 			foreach ($sa_menu_levels as $s_menu) {
 				$sa_menu = explode(':', $s_menu);

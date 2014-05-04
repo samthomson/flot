@@ -67,6 +67,18 @@
 				if($this->o_loaded_item_object->$key !== null)
 					$template = str_replace("{{item:".$key."}}", urldecode($this->o_loaded_item_object->$key), $template);
 			}
+
+			# parse in menus
+			// look for {{menu:[menu_id]}}
+			$template = preg_replace_callback("(\{{menu:(.*?)\}})is", 
+				function($m){
+					if(isset($m[1])){
+						$o_Menu = new Menu($this->datastore->get_menu_data($m[1]));
+						return $o_Menu->render();
+					}
+				},
+				$template);
+
 			# general parsing
 			$template = str_replace("{{flot:theme_dir}}", '/flot_flot/themes/'.$this->datastore->settings->theme.'/', $template);
 
