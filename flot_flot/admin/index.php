@@ -90,7 +90,7 @@
 		# location change to corresponding get
 	}else{
 		#
-		# no post vars, this is a get request ?
+		# no post vars, this is a GET request ?
 		#
 
 		$s_section = $flot->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");

@@ -223,55 +223,6 @@
 
 				file_put_contents($s_write_path, $s_new_content);
 			}
-/*
-			switch ($s_datastore) {
-				case 'items':
-					$s_write_path = $this->s_base_path.'flot_flot/datastore/items.php';
-					$s_new_content = "<?php ";
-					$s_new_content .= '$items = \'';
-					$s_new_content .= json_encode($this->items);
-					$s_new_content .= "'; ?>";
-
-					file_put_contents($s_write_path, $s_new_content);
-					break;
-				case 'menus':
-					$s_write_path = $this->s_base_path.'flot_flot/datastore/menus.php';
-					$s_new_content = "<?php ";
-					$s_new_content .= '$menus = \'';
-					$s_new_content .= json_encode($this->menus);
-					$s_new_content .= "'; ?>";
-
-					file_put_contents($s_write_path, $s_new_content);
-					break;
-				case 'users':
-					$s_write_path = $this->s_base_path.'flot_flot/datastore/users.php';
-					$s_new_content = "<?php ";
-					$s_new_content .= '$users = \'';
-					$s_new_content .= json_encode($this->users);
-					$s_new_content .= "'; ?>";
-
-					file_put_contents($s_write_path, $s_new_content);
-					break;
-				case 'pictures':
-					$s_write_path = $this->s_base_path.'flot_flot/datastore/pictures.php';
-					$s_new_content = "<?php ";
-					$s_new_content .= '$pictures = \'';
-					$s_new_content .= json_encode($this->pictures);
-					$s_new_content .= "'; ?>";
-
-					file_put_contents($s_write_path, $s_new_content);
-					break;
-				case 'file_tags':
-					$s_write_path = $this->s_base_path.'flot_flot/datastore/file_tags.php';
-					$s_new_content = "<?php ";
-					$s_new_content .= '$file_tags = \'';
-					$s_new_content .= json_encode($this->file_tags);
-					$s_new_content .= "'; ?>";
-
-					file_put_contents($s_write_path, $s_new_content);
-					break;
-			}
-			*/
 		}
 
 	}
