@@ -136,7 +136,7 @@
 
 			foreach ($sa_root_menu_items as $menu_item) {
 				$page = $this->datastore->get_item_data($menu_item);
-				$html_form .= '<li class="menu_item" id="'.$page->id.'" menu_id="'.$page->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($page->title,0,10).'</li>';
+				$html_form .= '<li class="menu_item clearer" menu_id="'.$page->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($page->title,0,10).'<a class="btn btn-sm btn-danger pull-right" href="javascript:delete_menu_item(\''.$page->id.'\')"><i class="glyphicon glyphicon-remove"></i> remove</a></li>';
 			}
 
 			$html_form .= '</ul></div></div>';
@@ -144,7 +144,7 @@
 			<h4>list of available pages</h4>
 			<ul id="available_pages" class="menu_items_pages">';
 			foreach ($oa_items as $value) {
-				$html_form .= '<li class="menu_item" id="'.$value->id.'" menu_id="'.$value->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($value->title,0,10).'</li>';
+				$html_form .= '<li class="menu_item clearer" menu_id="'.$value->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($value->title,0,10).'</li>';
 			}
 			$html_form .= '</ul></div></div>';
 
