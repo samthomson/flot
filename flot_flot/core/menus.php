@@ -121,6 +121,8 @@
 
 			$html_form .= '<hr/>';
 
+			$html_form .= '<p>Drag pages from the list of available pages, to the menu on the left. Then drag to re-order, or click "submenu" to make a submenu, for that menu item.</p>';
+
 			$html_form .= '<form id="menu_edit_form" role="form" method="post" action="index.php">';
 
 
