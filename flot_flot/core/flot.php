@@ -124,6 +124,7 @@
 			foreach ($this->datastore->items as $item) {
 				$item_to_render = new Item($item);
 				$item_to_render->render();
+				$item_to_render->update();
 			}
 		}
 		function _delete_start_page(){

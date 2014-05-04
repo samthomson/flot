@@ -198,6 +198,9 @@
 
 				$this->datastore->_set_menu_data($this->o_loaded_menu_object);
 				$this->datastore->_save_datastore("menus");
+
+				// regenerate pages
+				$flot->_render_all_pages();
 			}else{echo "no id";}
 		}
 	}
