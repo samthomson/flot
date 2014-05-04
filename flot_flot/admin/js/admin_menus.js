@@ -73,7 +73,9 @@ function recreate_menu_ui_for_current(){
 		oa_menus[s_current_menu].forEach(function(s_menu_item){
 			// make a ui item
 			//html_current_menu += html_menu_item(s_menu_item, sa_item_name_look_up['"'+s_menu_item+'"']);
-			html_current_menu += html_menu_item(s_menu_item, sa_item_name_look_up[s_menu_item]);
+			if(s_menu_item !== ""){
+				html_current_menu += html_menu_item(s_menu_item, sa_item_name_look_up[s_menu_item]);
+			}
 		});
 	}else{
 		oa_menus[s_current_menu] = [];
