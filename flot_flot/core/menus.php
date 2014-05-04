@@ -134,7 +134,7 @@
 
 			$html_form .= '<div class="row">';
 			$html_form .= '<div class="col-xs-12 col-sm-8">
-			<h4>re-order</h4><div id="menu_order_area"><ul class="menu_items_pages">';
+			<h4>re-order</h4><p id="menu_order_output"></p><div id="menu_order_area"><ul class="menu_items_pages">';
 
 			foreach ($sa_root_menu_items as $menu_item) {
 				$page = $this->datastore->get_item_data($menu_item);

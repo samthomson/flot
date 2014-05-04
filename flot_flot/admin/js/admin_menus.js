@@ -61,7 +61,10 @@ function delete_menu_item(s_id){
 function sub_menu(s_id){
 	// set current menu to id
 	s_current_menu = s_id;
-	console.log("setting menu to: "+s_id);
+	if(s_id !== "root")
+		$("#menu_order_output").html('<a href="javascript:sub_menu(\'root\')">menu root</a> > <b>' + sa_item_name_look_up[s_id] + '</b>:');
+	else
+		$("#menu_order_output").html('');
 	// recreate ui for current menu
 	recreate_menu_ui_for_current();
 }
