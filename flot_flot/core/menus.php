@@ -43,13 +43,41 @@
 			// go through items and take out and that are in the menu serialisation, leaving only what's available
 
 
-
-
-
-			$html_form = "";
 			$s_id = urldecode($this->o_loaded_menu_object->id);
 			$s_name = urldecode($this->o_loaded_menu_object->title);
 			$s_serialisation = urldecode($this->o_loaded_menu_object->serialisation);
+			
+			$html_form = "";
+
+
+			// push out js to load the menu
+			$html_form .= "<script>";
+
+			$sa_menu_levels = explode(';', $s_serialisation);
+			
+			$sa_root_menu_items = array();
+			foreach ($sa_menu_levels as $s_menu) {
+				$sa_menu = explode(':', $s_menu);
+				if(count($sa_menu) === 2){
+
+					$s_menu_parent = $sa_menu[0];
+					$html_form .= "oa_menus['".$s_menu_parent."'] = [];";
+
+					$sa_menu_items = explode(",", $sa_menu[1]);
+					if(count($sa_menu_items) > 0){
+						foreach ($sa_menu_items as $s_menu_item) {
+							$html_form .= "oa_menus['".$s_menu_parent."'].push('".$s_menu_item."');";
+							if($sa_menu[0] === "root")
+								array_push($sa_root_menu_items, $s_menu_item);
+						}
+					}
+				}
+			}
+
+			$html_form .= "console.log(oa_menus);";
+			$html_form .= "</script>";	
+
+
 
 			$html_form .= '<div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
 
@@ -66,7 +94,14 @@
 
 			$html_form .= '<div class="row">';
 			$html_form .= '<div class="col-xs-12 col-sm-8">
-			<h4>re-order</h4><div id="menu_order_area"><ul class="menu_items_pages"></ul></div></div>';
+			<h4>re-order</h4><div id="menu_order_area"><ul class="menu_items_pages">';
+
+			foreach ($sa_root_menu_items as $menu_item) {
+				$page = $this->datastore->get_item_data($menu_item);
+				$html_form .= '<li class="menu_item" id="'.$page->id.'" menu_id="'.$page->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($page->title,0,10).'</li>';
+			}
+
+			$html_form .= '</ul></div></div>';
 			$html_form .= '<div class="col-xs-12 col-sm-4">
 			<h4>list of available pages</h4>
 			<ul id="available_pages" class="menu_items_pages">';
@@ -88,7 +123,8 @@
 			$html_form .= '<input value="save" type="submit" class="form-control btn btn-default">';
 			$html_form .= '</div>';
 
-			$html_form .= '</form>';			
+			$html_form .= '</form>';
+
 
 			return $html_form;
 

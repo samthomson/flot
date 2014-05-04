@@ -37,9 +37,9 @@ function serialise_menu_order(){
 		sa_menu_ids.push($(this).attr("menu_id"));
 	});
 
-	serialise_entire_menu();
 
 	oa_menus[s_current_menu] = sa_menu_ids.toString();
+	serialise_entire_menu();
 }
 function serialise_entire_menu(){
 	var sa_individual_menus = [];
