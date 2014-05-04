@@ -16,7 +16,18 @@
 		}
 		function render() {
 			# spit out ul
-			return "MENU";
+			$html_menu = "";
+
+			$html_menu = urldecode($this->o_loaded_menu_object->serialisation);
+			
+			$html_menu = str_replace('root:', "", $html_menu);
+			$html_menu = str_replace(':', "<ul><li>", $html_menu);
+			$html_menu = str_replace(';', "</li></ul><ul><li>", $html_menu);
+			$html_menu = str_replace(',', "</li><li>", $html_menu);
+
+
+
+			return "<ul><li>".$html_menu."</ul>";
 		}
 
 		function save(){
