@@ -150,7 +150,7 @@
 
 
 
-			$html_form .= '<input type="text" id="menu_order_serialised" class="form-control" name="serialisation" value="'.$s_serialisation.'">';
+			$html_form .= '<input type="hidden" id="menu_order_serialised" class="form-control" name="serialisation" value="'.$s_serialisation.'">';
 			$html_form .= '<input type="hidden" name="section" value="menus">';
 
 			$html_form .= '<input type="hidden" name="menu_id" value="'.$s_id.'">';
@@ -158,7 +158,7 @@
 			# save
 			$html_form .= '<div class="form-group">';
 
-			$html_form .= '<input value="save" type="submit" class="form-control btn btn-default">';
+			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
 			$html_form .= '</div>';
 
 			$html_form .= '</form>';

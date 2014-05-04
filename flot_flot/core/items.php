@@ -239,7 +239,7 @@
 			# save
 			$html_form .= '<div class="form-group">';
 
-			$html_form .= '<input value="save" type="submit" class="form-control btn btn-default">';
+			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
 			$html_form .= '</div>';
 
 			$html_form .= '</form>';
