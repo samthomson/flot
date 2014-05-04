@@ -101,11 +101,11 @@
 
 			if($s_id){
 				$s_name = $flot->s_post_var("name", false);
-				if($s_name)
+				if($s_name !== false)
 					$this->o_loaded_menu_object->title = urldecode($s_name);
 
 				$s_serialisation = $flot->s_post_var("serialisation", false);
-				if($s_serialisation)
+				if($s_serialisation !== false)
 					$this->o_loaded_menu_object->serialisation = urldecode($s_serialisation);
 
 				$this->datastore->_set_menu_data($this->o_loaded_menu_object);
