@@ -86,5 +86,5 @@ function recreate_menu_ui_for_current(){
 	$("#menu_order_area ul").html(html_current_menu);
 }
 function html_menu_item(s_id, s_name){
-	return '<li class="menu_item clearer" menu_id="'+s_id+'"><i class="glyphicon glyphicon-move"></i> '+s_name+'<a class="btn btn-sm btn-danger pull-right" href="javascript:delete_menu_item(\''+s_id+'\')"><i class="glyphicon glyphicon-remove"></i> remove</a><a class="btn btn-sm btn-info pull-right" href="javascript:sub_menu(\''+s_id+'\')"><i class="glyphicon glyphicon-arrow-right"></i> submenu</a></li>';
+	return '<li class="menu_item clearer" menu_id="'+s_id+'"><i class="glyphicon glyphicon-resize-vertical"></i> '+s_name+'<a class="btn btn-sm btn-danger pull-right" href="javascript:delete_menu_item(\''+s_id+'\')"><i class="glyphicon glyphicon-remove"></i> remove</a><a class="btn btn-sm btn-info pull-right" href="javascript:sub_menu(\''+s_id+'\')"><i class="glyphicon glyphicon-arrow-right"></i> submenu</a></li>';
 }

@@ -139,7 +139,7 @@
 			foreach ($sa_root_menu_items as $menu_item) {
 				$page = $this->datastore->get_item_data($menu_item);
 				if($page){
-					$html_form .= '<li class="menu_item clearer" menu_id="'.$page->id.'"><i class="glyphicon glyphicon-move"></i> <span class="title">'.substr($page->title,0,10).'</span><a class="btn btn-sm btn-danger pull-right" href="javascript:delete_menu_item(\''.$page->id.'\')"><i class="glyphicon glyphicon-remove"></i> remove</a><a class="btn btn-sm btn-info pull-right" href="javascript:sub_menu(\''.$page->id.'\')"><i class="glyphicon glyphicon-arrow-right"></i> submenu</a></li>';
+					$html_form .= '<li class="menu_item clearer" menu_id="'.$page->id.'"><i class="glyphicon glyphicon-resize-vertical"></i> <span class="title">'.substr($page->title,0,10).'</span><a class="btn btn-sm btn-danger pull-right" href="javascript:delete_menu_item(\''.$page->id.'\')"><i class="glyphicon glyphicon-remove"></i> remove</a><a class="btn btn-sm btn-info pull-right" href="javascript:sub_menu(\''.$page->id.'\')"><i class="glyphicon glyphicon-arrow-right"></i> submenu</a></li>';
 				}else{
 					$html_form .= "";
 				}
