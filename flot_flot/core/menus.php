@@ -71,13 +71,13 @@
 			<h4>list of available pages</h4>
 			<ul id="available_pages" class="menu_items_pages">';
 			foreach ($oa_items as $value) {
-				$html_form .= '<li class="menu_item" menu_id="'.$value->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($value->title,0,10).'</li>';
+				$html_form .= '<li class="menu_item" id="'.$value->id.'" menu_id="'.$value->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($value->title,0,10).'</li>';
 			}
 			$html_form .= '</ul></div></div>';
 
 
 
-			$html_form .= '<input type="text" class="form-control" name="serialisation" value="'.$s_serialisation.'">';
+			$html_form .= '<input type="text" id="menu_order_serialised" class="form-control" name="serialisation" value="'.$s_serialisation.'">';
 			$html_form .= '<input type="hidden" name="section" value="menus">';
 
 			$html_form .= '<input type="hidden" name="menu_id" value="'.$s_id.'">';
