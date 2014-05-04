@@ -172,3 +172,19 @@ body.smaller_left .condensed_hidden{display: none;}
 #picture_browser_results img.selected{
   border:2px solid blue;
 }
+
+ul#available_pages{
+  padding-left: 0px;
+}
+ul#available_pages li{
+  list-style: none;
+  font-size: larger;
+  border:1px solid silver;
+  border-radius: 8px;
+  padding:8px;
+  margin-bottom: 8px;
+  cursor: move;
+}
+ul#available_pages li:hover{
+  background: silver;
+}

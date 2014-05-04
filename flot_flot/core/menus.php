@@ -68,11 +68,11 @@
 			$html_form .= '<div class="col-xs-12 col-sm-6">re-order</div>';
 			$html_form .= '<div class="col-xs-12 col-sm-6">
 			<h4>list of available pages</h4>
-			<div id="available_pages">';
+			<ul id="available_pages">';
 			foreach ($oa_items as $value) {
-				$html_form .= '<div class="menu_item" menu_id="'.$value->id.'">'.substr($value->title,0,10).'</div>';
+				$html_form .= '<li class="menu_item" menu_id="'.$value->id.'"><i class="glyphicon glyphicon-move"></i> '.substr($value->title,0,10).'</li>';
 			}
-			$html_form .= '</div></div></div>';
+			$html_form .= '</ul></div></div>';
 
 
 

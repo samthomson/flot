@@ -43,10 +43,19 @@
 				$s_header .= $this->html_admin_headers_pictures();
 			}
 
+			if($s_section === "menus"){
+				# jquery ui, for sortables
+				$s_header .= '<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>';
+				// admin js for menus
+				$s_header .= '<script src="/flot_flot/admin/js/admin_menus.js"></script>';
+			}
+
 			if($s_section === "pictures"){
 				# general admin js
 				$s_header .= $this->html_admin_headers_pictures();
 			}
+
+
 
 
 			$s_header .= '<title>flot - manage your site</title>';
