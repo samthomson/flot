@@ -65,7 +65,8 @@
 			$html_form .= '</div>';
 
 			$html_form .= '<div class="row">';
-			$html_form .= '<div class="col-xs-12 col-sm-6">re-order</div>';
+			$html_form .= '<div class="col-xs-12 col-sm-6">
+			<h4>re-order</h4><div id="menu_order_area"><ul></ul></div></div>';
 			$html_form .= '<div class="col-xs-12 col-sm-6">
 			<h4>list of available pages</h4>
 			<ul id="available_pages">';

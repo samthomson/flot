@@ -188,3 +188,8 @@ ul#available_pages li{
 ul#available_pages li:hover{
   background: silver;
 }
+#menu_order_area{
+  background: lime;
+  height: auto;
+  min-height: 200px;
+}
