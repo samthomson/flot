@@ -18,16 +18,42 @@
 			# spit out ul
 			$html_menu = "";
 
-			$html_menu = urldecode($this->o_loaded_menu_object->serialisation);
+			$sa_menus = explode(';', urldecode($this->o_loaded_menu_object->serialisation));
+
 			
-			$html_menu = str_replace('root:', "", $html_menu);
-			$html_menu = str_replace(':', "<ul><li>", $html_menu);
-			$html_menu = str_replace(';', "</li></ul><ul><li>", $html_menu);
-			$html_menu = str_replace(',', "</li><li>", $html_menu);
+			$s_seed_menu_items = $this->s_take_out_menu_items("root", $sa_menus);
+			$html_menu .= $this->s_fill_out_menu($s_seed_menu_items, $sa_menus);
 
+			return $html_menu;
+		}
+		function s_take_out_menu_items($s_parent, $sa_menus){
+			$s_found = "";
+			// returns a string of comma seperated menu items, or nothing if none found
+			for ($c_pos = 0; $c_pos < count($sa_menus); $c_pos++){
+				$sa_menu_parts = explode(":", $sa_menus[$c_pos]);
+				if($sa_menu_parts[0] === $s_parent)
+					$s_found .= $sa_menu_parts[1];
+			}
+			return $s_found;
+		}
+		function s_fill_out_menu($s_menu_items, $sa_menus){
+			// make a list of menu items, and recurse through child items too
+			$s_return = "";
+			if($s_menu_items !== ""){
 
+				$sa_menu_items = explode(",", $s_menu_items);
+				$s_return .= "<ul>";
+				foreach ($sa_menu_items as $s_menu_item) {
 
-			return "<ul><li>".$html_menu."</ul>";
+					$o_Item = new Item($this->datastore->get_item_data($s_menu_item));
+
+					$s_return .= '<li><a href="/'.$o_Item->o_loaded_item_object->url.'">'.$o_Item->o_loaded_item_object->title.'</a>';
+					$s_return .= $this->s_fill_out_menu($this->s_take_out_menu_items($s_menu_item, $sa_menus), $sa_menus);
+					$s_return .= "</li>";
+				}
+				$s_return .= "</ul>";
+			}
+			return $s_return;
 		}
 
 		function save(){
