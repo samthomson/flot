@@ -41,7 +41,7 @@
 		}
 
 		function _create_datestore_afresh($s_name){
-
+			/*
 			switch($s_name){
 				case 'users':
 					$this->users = [];
@@ -68,8 +68,10 @@
 					$this->oncologies = [];
 					break;
 			}
+			*/
+			$this->$s_name = [];
 			$this->b_save_datastore($s_name);
-			$this->$s_name = json_decode(${$s_name});
+			//$this->s_name = json_decode(${$s_name});
 		}
 
 		function get_current_url_data()
