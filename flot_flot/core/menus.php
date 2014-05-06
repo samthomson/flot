@@ -201,7 +201,7 @@
 					$this->o_loaded_menu_object->serialisation = urldecode($s_serialisation);
 
 				$this->datastore->_set_menu_data($this->o_loaded_menu_object);
-				$this->datastore->_save_datastore("menus");
+				$this->datastore->b_save_datastore("menus");
 
 				// regenerate pages
 				$flot->_render_all_pages();

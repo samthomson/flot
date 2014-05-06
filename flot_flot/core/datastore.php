@@ -31,6 +31,7 @@
 			@include($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php');
 			// if we could read in datastore file, initiate object to it
 			if(isset(${$s_datastore_name})){
+				// including the datastore file worked, we have the datastores variable now set in memory
 				$this->$s_datastore_name = json_decode(${$s_datastore_name});
 			}
 			else{
@@ -44,6 +45,27 @@
 			switch($s_name){
 				case 'users':
 					$this->users = [];
+					break;
+				case 'items':
+					$this->items = [];
+					break;
+				case 'menus':
+					$this->menus = [];
+					break;
+				case 'pictures':
+					$this->pictures = [];
+					break;
+				case 'file_tags':
+					$this->file_tags = [];
+					break;
+				case 'urls':
+					$this->urls = [];
+					break;
+				case 'settings':
+					$this->settings = [];
+					break;
+				case 'oncologies':
+					$this->oncologies = [];
 					break;
 			}
 			$this->b_save_datastore($s_name);
@@ -151,7 +173,7 @@
 			array_push($this->items, json_decode($s_item_template));
 
 			# save it to datastore
-			$this->_save_datastore("items");
+			$this->b_save_datastore("items");
 
 			# return its id
 			return $s_new_id;
@@ -163,7 +185,7 @@
 			array_push($this->menus, json_decode($s_menu_template));
 
 			# save it to datastore
-			$this->_save_datastore("menus");
+			$this->b_save_datastore("menus");
 
 			# return its id
 			return $s_new_id;
@@ -179,7 +201,7 @@
 				$this->items = array_values($this->items);
 			}
 
-			$this->_save_datastore("items");
+			$this->b_save_datastore("items");
 		}
 		function _delete_menu($s_id){
 			$i_kill_index = -1;
@@ -192,7 +214,7 @@
 				$this->menus = array_values($this->menus);
 			}
 
-			$this->_save_datastore("menus");
+			$this->b_save_datastore("menus");
 		}
 		function b_add_user($s_email, $s_pass){
 			try{
@@ -212,7 +234,7 @@
 			array_push($this->pictures, json_decode($s_picture_template));
 
 			# save it to datastore
-			$this->_save_datastore("pictures");
+			$this->b_save_datastore("pictures");
 		}
 		function _add_file_tags($s_filename, $sa_tags){
 			// set each tag with the filename, if there are filename already, add this one

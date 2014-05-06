@@ -297,7 +297,7 @@
 				}
 			}
 			$this->datastore->_set_item_data($this->o_loaded_item_object);
-			$this->datastore->_save_datastore("items");
+			$this->datastore->b_save_datastore("items");
 		}
 	}
 ?>
