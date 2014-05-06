@@ -15,6 +15,7 @@
 	$o_Datastore = new Datastore();
 
 	$s_return_html = "<script>var s_upload_dir = '".$o_Datastore->settings->upload_dir."';</script>";
+	
 	$s_upload_dir = $o_Datastore->settings->upload_dir;
 
 	$oa_search_results = $o_Datastore->oa_search_pictures($s_query);

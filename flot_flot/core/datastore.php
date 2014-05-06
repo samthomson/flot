@@ -1,8 +1,6 @@
 <?php
 	# handles everything to do with the data store, loading writing etc
 	
-	
-
 	class DataStore {
 
 		public $urls;
@@ -41,7 +39,7 @@
 		}
 
 		function _create_datestore_afresh($s_name){
-			/*
+			
 			switch($s_name){
 				case 'users':
 					$this->users = [];
@@ -62,16 +60,17 @@
 					$this->urls = [];
 					break;
 				case 'settings':
-					$this->settings = [];
+					$this->settings = '[{"upload_dir":"uploads"}]';
 					break;
 				case 'oncologies':
 					$this->oncologies = [];
 					break;
+				default:
+					$this->$s_name = [];
+					break;
 			}
-			*/
-			$this->$s_name = [];
 			$this->b_save_datastore($s_name);
-			//$this->s_name = json_decode(${$s_name});
+			$this->s_name = json_decode(${$s_name});
 		}
 
 		function get_current_url_data()
@@ -260,7 +259,10 @@
 				$s_datastore === 'menus' ||
 				$s_datastore === 'users' ||
 				$s_datastore === 'pictures' ||
-				$s_datastore === 'file_tags'){
+				$s_datastore === 'file_tags' ||
+				$s_datastore === 'settings' ||
+				$s_datastore === 'urls' ||
+				$s_datastore === 'oncologies'){
 
 				$s_write_path = $this->s_base_path.'flot_flot/datastore/'.$s_datastore.'.php';
 				$s_new_content = "<?php ";
