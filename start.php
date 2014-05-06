@@ -16,21 +16,25 @@
 				// set up flot
 				//
 				// add username/pass, store to datastore
-				$flot->datastore->_add_user($_POST["email"], $_POST["password"]);
+				if($flot->datastore->b_add_user($_POST["email"], $_POST["password"])){
 
-				# at a later date, add some starter items
-				## web page oncology
-				## a few pages
-				## a menu
 
-				// generate all pages
-				$flot->_render_all_pages();
+					# at a later date, add some starter items
+					## web page oncology
+					## a few pages
+					## a menu
 
-				// delete this start.php page for security
-				$flot->_delete_start_page();
+					// generate all pages
+					$flot->_render_all_pages();
 
-				// redirect user to home page
-				$flot->_page_change("/");
+					// delete this start.php page for security
+					$flot->_delete_start_page();
+
+					// redirect user to home page
+					$flot->_page_change("/");
+				}else{
+					echo "error creating user.. :(";
+				}
 			}
 		}
 	}

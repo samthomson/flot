@@ -27,8 +27,27 @@
 		}
 
 		function initiate_datastore($s_datastore_name){
-			require($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php');
-			$this->$s_datastore_name = json_decode(${$s_datastore_name});
+			// '@' to repress first read error before start has created settings files
+			@include($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php');
+			// if we could read in datastore file, initiate object to it
+			if(isset(${$s_datastore_name})){
+				$this->$s_datastore_name = json_decode(${$s_datastore_name});
+			}
+			else{
+				// $this->$s_datastore_name = ?
+				$this->_create_datestore_afresh($s_datastore_name);
+			}
+		}
+
+		function _create_datestore_afresh($s_name){
+
+			switch($s_name){
+				case 'users':
+					$this->users = [];
+					break;
+			}
+			$this->b_save_datastore($s_name);
+			$this->$s_name = json_decode(${$s_name});
 		}
 
 		function get_current_url_data()
@@ -175,11 +194,15 @@
 
 			$this->_save_datastore("menus");
 		}
-		function _add_user($s_email, $s_pass){
-			$s_user_template = '{"user":"'.$s_email.'", "pass": "'.$s_pass.'"}';
-			array_push($this->users, json_decode($s_user_template));
+		function b_add_user($s_email, $s_pass){
+			try{
+				$s_user_template = '{"user":"'.$s_email.'", "pass": "'.$s_pass.'"}';
+				array_push($this->users, json_decode($s_user_template));
+			}catch(Exception $e){
+				echo $e;
+			}
 
-			$this->_save_datastore("users");
+			return $this->b_save_datastore("users");
 		}
 
 		function _add_file($s_filename){
@@ -208,7 +231,7 @@
 		#
 		# Saving
 		#
-		function _save_datastore($s_datastore){
+		function b_save_datastore($s_datastore){
 			if($s_datastore === 'items' ||
 				$s_datastore === 'menus' ||
 				$s_datastore === 'users' ||
@@ -222,7 +245,9 @@
 				$s_new_content .= "'; ?>";
 
 				file_put_contents($s_write_path, $s_new_content);
+				return true;
 			}
+			return false;
 		}
 
 	}
