@@ -124,7 +124,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_pages = $flot->oa_pages();
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a></button><hr/>';
+						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a><hr/>';
 
 		         		if(count($oa_pages) > 0)
 		         		{
