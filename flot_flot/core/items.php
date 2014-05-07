@@ -52,7 +52,8 @@
 		function delete() {
 			$item_url = new ItemURL($this->o_loaded_item_object);
 			# delete the file
-			unlink($item_url->writing_file_path($this->s_base_path));
+			if(file_exists($item_url->writing_file_path($this->s_base_path)))
+				unlink($item_url->writing_file_path($this->s_base_path));
 
 			# if it was the last file in folder, delete folder, repeat this recursively until back to root
 		}
