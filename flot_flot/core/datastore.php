@@ -42,35 +42,65 @@
 			
 			switch($s_name){
 				case 'users':
-					$this->users = [];
+					$this->users = '[]';
 					break;
 				case 'items':
-					$this->items = [];
+					$this->items = '[]';
 					break;
 				case 'menus':
-					$this->menus = [];
+					$this->menus = '[]';
 					break;
 				case 'pictures':
-					$this->pictures = [];
+					$this->pictures = '[]';
 					break;
 				case 'file_tags':
-					$this->file_tags = [];
+					$this->file_tags = '[]';
 					break;
 				case 'urls':
-					$this->urls = [];
+					$this->urls = '[]';
 					break;
 				case 'settings':
-					$this->settings = '[{"upload_dir":"uploads"}]';
+					$this->settings = 
+						'{
+							"theme":"first_theme",
+							"upload_dir":"flot_flot/uploads/",
+							"thumb_sizes":
+							[
+								{
+									"name": "large",
+									"max_height": "1100"
+								},
+								{
+									"name": "medium",
+									"max_height": "300"
+								},
+								{
+									"name": "small",
+									"max_width": "115",
+									"max_height": "115"
+								},
+								{
+									"name": "tiny",
+									"max_width": "32",
+									"max_height": "32"
+								}
+							]
+						}';
 					break;
 				case 'oncologies':
-					$this->oncologies = [];
+					$this->oncologies = '[
+							{
+								"id":"page",
+								"elements": ["title", "content", "content_html", "keywords", "description", "url", "published"]
+							}
+						]';
 					break;
 				default:
-					$this->$s_name = [];
+					$this->$s_name = '[]';
 					break;
 			}
+			$this->$s_name = json_decode($this->{$s_name});
 			$this->b_save_datastore($s_name);
-			$this->s_name = json_decode(${$s_name});
 		}
 
 		function get_current_url_data()
