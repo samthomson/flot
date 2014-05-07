@@ -26,11 +26,11 @@
 
 		function initiate_datastore($s_datastore_name){
 			// '@' to repress first read error before start has created settings files
-			@include($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php');
+			;
 			// if we could read in datastore file, initiate object to it
-			if(isset(${$s_datastore_name})){
+			if($json_data = file_get_contents($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php')){
 				// including the datastore file worked, we have the datastores variable now set in memory
-				$this->$s_datastore_name = json_decode(${$s_datastore_name});
+				$this->$s_datastore_name = json_decode($json_data);
 			}
 			else{
 				// $this->$s_datastore_name = ?
@@ -295,13 +295,18 @@
 				$s_datastore === 'oncologies'){
 
 				$s_write_path = $this->s_base_path.'flot_flot/datastore/'.$s_datastore.'.php';
-				$s_new_content = "<?php ";
+				/*$s_new_content = "<?php ";
 				$s_new_content .= '$'.$s_datastore.' = \'';
 				$s_new_content .= json_encode($this->$s_datastore);
-				$s_new_content .= "'; ?>";
+				$s_new_content .= "'; ?>";*/
 
-				file_put_contents($s_write_path, $s_new_content);
-				return true;
+				$s_new_content .= json_encode($this->$s_datastore);
+
+				if(file_put_contents($s_write_path, $s_new_content) > 0){
+					return true;
+				}else{
+					return false;
+				}
 			}
 			return false;
 		}
