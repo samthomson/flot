@@ -277,4 +277,45 @@
 		}
 
 	}
+
+	/*
+	# oncologies: 
+	$oncologies = '[
+	{
+		"id":"page",
+		"elements": ["title", "content", "content_html", "keywords", "description", "url", "published"]
+	}
+	]';
+	*/
+
+
+	/*
+	# settings: theme 
+	$settings = '
+	{
+		"theme":"first_theme",
+		"upload_dir":"flot_flot/uploads/",
+		"thumb_sizes":
+		[
+			{
+				"name": "large",
+				"max_height": "1100"
+			},
+			{
+				"name": "medium",
+				"max_height": "300"
+			},
+			{
+				"name": "small",
+				"max_width": "115",
+				"max_height": "115"
+			},
+			{
+				"name": "tiny",
+				"max_width": "32",
+				"max_height": "32"
+			}
+		]
+	}';
+	*/
 ?>
