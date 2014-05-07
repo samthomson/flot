@@ -30,7 +30,7 @@
 			// if we could read in datastore file, initiate object to it
 			if($json_data = file_get_contents($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php')){
 				// including the datastore file worked, we have the datastores variable now set in memory
-				$this->$s_datastore_name = json_decode($json_data);
+				$this->{$s_datastore_name} = json_decode($json_data);
 			}
 			else{
 				// $this->$s_datastore_name = ?
@@ -99,7 +99,7 @@
 					$this->$s_name = '[]';
 					break;
 			}
-			$this->$s_name = json_decode($this->{$s_name});
+			$this->{$s_name} = json_decode($this->{$s_name});
 			$this->b_save_datastore($s_name);
 		}
 
@@ -300,7 +300,7 @@
 				$s_new_content .= json_encode($this->$s_datastore);
 				$s_new_content .= "'; ?>";*/
 
-				$s_new_content .= json_encode($this->$s_datastore);
+				$s_new_content = json_encode($this->{$s_datastore});
 
 				if(file_put_contents($s_write_path, $s_new_content) > 0){
 					return true;
