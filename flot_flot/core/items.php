@@ -137,6 +137,7 @@
 			$s_description = urldecode($this->o_loaded_item_object->description);
 			$s_title = urldecode($this->o_loaded_item_object->title);
 			$b_published = urldecode($this->o_loaded_item_object->published);
+			$s_checked = urldecode($this->o_loaded_item_object->url_auto);
 
 			$s_published_class = "";
 			$s_unpublished_class = "";
@@ -145,6 +146,9 @@
 				$s_published_class = "disabled ";
 			else
 				$s_unpublished_class = "disabled ";
+
+			if($s_checked === "true")
+				$s_checked = " checked";
 
 			# start button group
 			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar">';
@@ -206,7 +210,7 @@
 
 			$html_form .= '<div class="input-group input-group-sm">';
 			$html_form .= '<span class="input-group-addon">';
-        	$html_form .= '<input type="checkbox">';
+        	$html_form .= '<input name="url_auto" '.$s_checked.' value="true" type="checkbox">';
       		$html_form .= '</span>';
       		$html_form .= '<input type="text" class="form-control" name="url" placeholder="url" value="'.$s_url.'">';
     		$html_form .= '</div><!-- /input-group -->';

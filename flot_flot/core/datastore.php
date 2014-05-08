@@ -91,7 +91,7 @@
 					$this->oncologies = '[
 							{
 								"id":"page",
-								"elements": ["title", "content", "content_html", "keywords", "description", "url", "published"]
+								"elements": ["title", "content", "content_html", "keywords", "description", "url", "published", "url_auto"]
 							}
 						]';
 					break;
@@ -200,7 +200,7 @@
 		function s_new_item($s_oncology){
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
-			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "description":"", "keywords":"","url":"","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "content_html": "", "date_modified": "01/01/3000"}';
+			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "description":"", "keywords":"","url":"","url_auto":"true","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "content_html": "", "date_modified": "01/01/3000"}';
 			array_push($this->items, json_decode($s_item_template));
 
 			# save it to datastore
@@ -295,10 +295,6 @@
 				$s_datastore === 'oncologies'){
 
 				$s_write_path = $this->s_base_path.'flot_flot/datastore/'.$s_datastore.'.php';
-				/*$s_new_content = "<?php ";
-				$s_new_content .= '$'.$s_datastore.' = \'';
-				$s_new_content .= json_encode($this->$s_datastore);
-				$s_new_content .= "'; ?>";*/
 
 				$s_new_content = json_encode($this->{$s_datastore});
 
@@ -312,45 +308,4 @@
 		}
 
 	}
-
-	/*
-	# oncologies: 
-	$oncologies = '[
-	{
-		"id":"page",
-		"elements": ["title", "content", "content_html", "keywords", "description", "url", "published"]
-	}
-	]';
-	*/
-
-
-	/*
-	# settings: theme 
-	$settings = '
-	{
-		"theme":"first_theme",
-		"upload_dir":"flot_flot/uploads/",
-		"thumb_sizes":
-		[
-			{
-				"name": "large",
-				"max_height": "1100"
-			},
-			{
-				"name": "medium",
-				"max_height": "300"
-			},
-			{
-				"name": "small",
-				"max_width": "115",
-				"max_height": "115"
-			},
-			{
-				"name": "tiny",
-				"max_width": "32",
-				"max_height": "32"
-			}
-		]
-	}';
-	*/
 ?>
