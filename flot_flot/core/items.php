@@ -298,7 +298,7 @@
 				}
 			}
 			# update date and set author
-			$this->o_loaded_item_object->date_modified = date("d m Y");
+			$this->o_loaded_item_object->date_modified = date("D jS M Y");
 
 			$this->datastore->_set_item_data($this->o_loaded_item_object);
 			$this->datastore->b_save_datastore("items");
