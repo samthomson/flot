@@ -137,6 +137,10 @@
 								$s_date_modified = urldecode($o_page->date_modified);
 								$s_published = (urldecode($o_page->published) === "true" ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
 
+								$s_date_modified = explode('-', $s_date_modified);
+
+								$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[0], $s_date_modified[1], $s_date_modified[2]));
+
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
