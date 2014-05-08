@@ -282,7 +282,7 @@
 
 				break;
 			case "settings":
-				$html_main_admin_content = serialize($flot->datastore->settings);
+				$html_main_admin_content = $admin_ui->html_make_settings_form($flot->datastore->settings);
 				break;
 		}
 	}

@@ -83,5 +83,8 @@
 			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
 			return $s_header;
 		}
+		function html_make_settings_form($jo_settings){
+			return "settings form".serialize($jo_settings);
+		}
 	}
 ?>
