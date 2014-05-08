@@ -250,7 +250,7 @@
 			# hidden elements
 			$html_form .= '<input id="published" type="hidden" name="published" value="'.$b_published .'">';
 			$html_form .= '<input type="hidden" name="section" value="items">';
-			$html_form .= '<input type="hidden" class="item_edit_url" name="url" value="items">';
+			$html_form .= '<input type="hidden" class="item_edit_url" name="url" value="'.$s_url.'">';
 			$html_form .= '<input type="hidden" name="item_id" value="'.$s_id.'">';
 
 			# save
