@@ -84,7 +84,22 @@
 			return $s_header;
 		}
 		function html_make_settings_form($jo_settings){
-			return "settings form".serialize($jo_settings);
+			$html_form = "";
+
+			$html_form .= '<h4>Settings</h4>';
+			$html_form .= '<p>settings can\'t be edited here just yet, only in the settings.php file in the datastore folder.</p><hr/>';
+
+			$html_form .= '<form role="form">';
+
+			# upload dir
+			$html_form .= '<div class="form-group"><label for="setting_upload_dir">Upload folder (file path, relative from root)</label><input type="text" class="form-control" id="setting_upload_dir" placeholder="relative upload directory" disabled value="'.$jo_settings->upload_dir.'"></div>';
+
+			# theme
+			$html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control" id="setting_theme_name" disabled placeholder="theme" value="'.$jo_settings->theme.'"></div>';
+
+			$html_form .= '</form>';
+
+			return $html_form;
 		}
 	}
 ?>
