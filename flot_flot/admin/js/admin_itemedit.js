@@ -1,5 +1,8 @@
 
 $(document).ready(function() {
+    /*
+    set up wysiwyg editor
+    */
     CKEDITOR.config.removePlugins = 'forms, flash,iframe';
     CKEDITOR.replace('wysiwyg_editor',
         {
@@ -15,7 +18,33 @@ $(document).ready(function() {
     CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height]';
     CKEDITOR.config.extraPlugins = 'autogrow';
     CKEDITOR.config.autoGrow_onStartup = true;
+
+    /*
+    url stuff, slug title into url if auto is checked
+    */
+    $("#item_edit_title").keyup(function() {
+        if($("#item_edit_auto_url").is(':checked')){
+            _set_url_from_title();
+        }
+    });
+    $("#item_edit_auto_url").change(function() {
+        if($("#item_edit_auto_url").is(':checked')){
+            // disable url input
+            $('#item_edit_url').prop('disabled', true);
+            // make sure url is based on title
+            _set_url_from_title();
+        }else{
+            // enable url input
+            $('#item_edit_url').prop('disabled', false);
+        }
+    });
 });  
+
+function _set_url_from_title(){
+    //var s_slug = encodeURIComponent('/' + $("#item_edit_title").val() + '/');
+    var s_slug = '/' + $("#item_edit_title").val() + '/';
+    $(".item_edit_url").val(s_slug);
+}
 
 
 function publish(s_publish_status){
