@@ -39,7 +39,7 @@ foreach ($flot->datastore->settings->thumb_sizes as $image_size) {
 	}
 }
 
-//print_r($oa_image_sizes);
+#print_r($oa_image_sizes);
 
 $a_options = array(
 	'upload_dir' => $s_base_path.$flot->datastore->settings->upload_dir,
