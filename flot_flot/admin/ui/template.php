@@ -9,10 +9,12 @@
 
 		<div id="admin_header" class="clearer">
 			<div class="left_col clearer">
-				<img src="/flot_flot/admin/images/flot.png" style="
-				    max-height: 35px;
-				    margin-left: 20px;
-				">
+				<a href="/flot_flot/admin/">
+					<img src="/flot_flot/admin/images/flot.png" style="
+					    max-height: 35px;
+					    margin-left: 20px;
+					"/>
+				</a>
 			</div>
 			<div class="right_col">
 				<div id="top_right_buttons" class="clearer">
