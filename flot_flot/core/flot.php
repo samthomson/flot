@@ -9,6 +9,8 @@
 		public $error_handler;
 		public $s_base_path;
 
+		public $s_current_user;
+
 		function __construct() {
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			$this->load_all_dependencies();
@@ -47,8 +49,10 @@
 		{
 			session_start();
 			# is the user logged in to back end?
-			if(isset($_SESSION['admin_user']))
+			if(isset($_SESSION['admin_user'])){
+				$this->s_current_user = $_SESSION['admin_user'];
 				return true;
+			}
 
 			# didn't pass security
 			return false;
