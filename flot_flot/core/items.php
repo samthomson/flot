@@ -198,9 +198,18 @@
 			$html_form .= '</div>';
 
 			# url
+			/*
 			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<label for="item_keywords">Web address (URL)</label><input type="text" class="form-control" name="url" placeholder="url" value="'.$s_url.'">';
 			$html_form .= '</div>';
+			*/
+
+			$html_form .= '<div class="input-group input-group-sm">';
+			$html_form .= '<span class="input-group-addon">';
+        	$html_form .= '<input type="checkbox">';
+      		$html_form .= '</span>';
+      		$html_form .= '<input type="text" class="form-control" name="url" placeholder="url" value="'.$s_url.'">';
+    		$html_form .= '</div><!-- /input-group -->';
 
 			# editor
 			$html_form .= '<hr/><label class="form-group">WYSIWYG editer</label><br/>';
