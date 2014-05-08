@@ -92,10 +92,28 @@
 			$html_form .= '<form role="form">';
 
 			# upload dir
-			$html_form .= '<div class="form-group"><label for="setting_upload_dir">Upload folder (file path, relative from root)</label><input type="text" class="form-control" id="setting_upload_dir" placeholder="relative upload directory" disabled value="'.$jo_settings->upload_dir.'"></div>';
+			$html_form .= '<div class="form-group"><label for="setting_upload_dir">Upload folder (file path, relative from root)</label><input type="text" class="form-control input-sm" id="setting_upload_dir" placeholder="relative upload directory" disabled value="'.$jo_settings->upload_dir.'"></div>';
 
 			# theme
-			$html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control" id="setting_theme_name" disabled placeholder="theme" value="'.$jo_settings->theme.'"></div>';
+			$html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control input-sm" id="setting_theme_name" disabled placeholder="theme" value="'.$jo_settings->theme.'"></div>';
+
+			$html_form .= '<hr/>';
+			$html_form .= '<h5>Thumbnail sizes</h5>';
+			#
+			# thumbs
+			#
+			foreach ($jo_settings->thumb_sizes as $o_thumb_size) {
+				/*
+				# name
+				$html_form .= $o_thumb_size->name;
+				# width
+				$html_form .= $o_thumb_size->max_width;
+				# height
+				$html_form .= $o_thumb_size->max_height;
+				*/
+
+				$html_form .= '<div class="row form-group"><div class="col-xs-12"><label>'.$o_thumb_size->name.'</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->name.'" disabled></div></div><div class="row form-group"><div class="col-xs-12 col-sm-6"><label>max width (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_width.'" disabled></div><div class="col-xs-12 col-sm-6"><label>max height (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_height.'" disabled></div></div>';
+			}
 
 			$html_form .= '</form>';
 
