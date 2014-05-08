@@ -169,7 +169,7 @@
 			$html_form .= '<input type="hidden" name="menu_id" value="'.$s_id.'">';
 
 			# save
-			$html_form .= '<div class="form-group">';
+			$html_form .= '<br/><div class="form-group">';
 
 			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
 			$html_form .= '</div>';
