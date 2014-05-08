@@ -297,6 +297,9 @@
 					$this->o_loaded_item_object->$element = urldecode($s_new_value);
 				}
 			}
+			# update date and set author
+			$this->o_loaded_item_object->date_modified = date("d m Y");
+
 			$this->datastore->_set_item_data($this->o_loaded_item_object);
 			$this->datastore->b_save_datastore("items");
 		}
