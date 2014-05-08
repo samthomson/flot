@@ -305,6 +305,8 @@
 			# we can find out what post variables to look for by checking our oncology
 			$flot = new Flot();
 			$flot->b_is_user_admin();
+			// set url auto to false as a default, since it will only be posted if it was checked
+			$this->o_loaded_item_object->url_auto = "false";
 			foreach($this->o_oncology->elements as $element){
 				$s_new_value = $flot->s_post_var($element, false);
 				if($s_new_value){
