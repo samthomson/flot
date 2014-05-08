@@ -212,7 +212,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_menus = $flot->oa_menus();
 		         		$hmtl_menus_ui = "";
-						$hmtl_menus_ui .= '<button class="btn btn-default btn-sm"><a href="/flot_flot/admin/index.php?section=menus&action=new"><i class="glyphicon glyphicon-plus"></i> add a new menu</a></button><hr/>';
+						$hmtl_menus_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=menus&action=new"><i class="glyphicon glyphicon-plus"></i> add a new menu</a><hr/>';
 
 		         		if(count($oa_menus) > 0)
 		         		{
