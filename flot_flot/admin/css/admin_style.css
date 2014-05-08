@@ -1,6 +1,8 @@
 
 body{
-    background: rgb(238, 238, 238);
+  background: rgb(238, 238, 238);
+  font-family: 'Nunito', sans-serif !important;
+  word-wrap:break-word;
 }
 
 .left_col{float:left;width:140px;position:absolute;}
@@ -9,7 +11,6 @@ body{
 @media only screen and (max-width : 600px) {
   .left_col{width:50px;}
   .right_col{margin-left:50px;}
-
   .small-hidden{display: none;}
 }
 /*
@@ -218,3 +219,23 @@ ul.menu_items_pages li:hover{
   -webkit-box-shadow: 2px 2px 0px 0px #ccc;
   box-shadow:         2px 2px 0px 0px #ccc;
 }
+
+/*
+login form
+*/
+body#start #logo_container{  
+  display: block;
+  height:180px;
+  width: 250px;
+  padding-left: 0px;
+}
+body#start #logo_container span{
+  position: absolute;
+  font-size: 160px;
+  line-height: 160px;
+}
+body#start #start_container{max-width:300px;margin-top:50px;}
+body#start #logo_container span#f{z-index: 13;}
+body#start #logo_container span#l{z-index: 12;margin-left: -3px;margin-top: -3px;}
+body#start #logo_container span#o{z-index: 11;margin-left: 4px;margin-top: -2px;}
+body#start #logo_container span#t{z-index: 10;margin-left: -3px;margin-top: 3px;}

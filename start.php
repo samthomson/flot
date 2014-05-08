@@ -44,44 +44,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/flot_flot/admin/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/flot_flot/admin/css/admin_style.css">
 		
 		<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-		<style type="text/css">
-			body{
-				font-family: 'Nunito', sans-serif !important;
-				word-wrap:break-word;
-			}
-
-			#logo_container{	
-				display: block;
-				height:180px;
-				width: 250px;
-			}
-			#logo_container span{
-				position: absolute;
-				font-size: 160px;
-			}
-			#logo_container span#f{z-index: 13;}
-			#logo_container span#l{z-index: 12;margin-left: -3px;margin-top: -3px;}
-			#logo_container span#o{z-index: 11;margin-left: 4px;margin-top: -2px;}
-			#logo_container span#t{z-index: 10;margin-left: -3px;margin-top: 3px;}
-
-			.blue {
-			  color: #0074d9; }
-			.green {
-			  color: #2ecc40; }
-			.yellow {
-			  color: #ffdc00; }
-			.red {
-			  color: #ff4136; }
-		</style>
+		<script src="/flot_flot/admin/js/bootstrap.min.js"></script>
 	</head>
-	<body>
-		<div class="container" style="max-width:300px;margin-top:50px;">
+	<body id="start">
+		<div id="start_container" class="container">
 			<!-- instruction, email, password, submit button -->
 			<form role="form" method="post" name="login" action="start.php">
 				<div class="form-group">
