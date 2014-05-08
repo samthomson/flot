@@ -213,9 +213,9 @@
 
 			$html_form .= '<div class="input-group input-group-sm">';
 			$html_form .= '<span class="input-group-addon">';
-        	$html_form .= '<input id="item_edit_auto_url" name="url_auto" '.$s_checked.' value="true" type="checkbox">';
+        	$html_form .= '<input id="item_edit_auto_url" name="url_auto" '.$s_checked.' value="true" type="checkbox"> set url for me';
       		$html_form .= '</span>';
-      		$html_form .= '<input type="text" id="item_edit_url" class="form-control item_edit_url" placeholder="url" value="'.$s_url.'"'.$s_url_input_disabled.'>';
+      		$html_form .= '<input type="text" id="item_edit_url" class="form-control item_edit_url" placeholder="relative url" value="'.$s_url.'"'.$s_url_input_disabled.'>';
     		$html_form .= '</div><!-- /input-group -->';
 
 			# editor
