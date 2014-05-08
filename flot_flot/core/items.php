@@ -157,8 +157,6 @@
 			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar">';
 
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
-
-			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-refresh"></i><span class="small-hidden"> regenerate</span></a>';
 			
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 
