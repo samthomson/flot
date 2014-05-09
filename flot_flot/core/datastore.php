@@ -14,6 +14,7 @@
 		public $file_tags;
 
 		public $s_base_path;
+		public $b_user_is_admin = false;
 
 		function __construct() {
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';

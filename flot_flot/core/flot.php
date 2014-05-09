@@ -62,7 +62,7 @@
 			# validate credentials and then deal with user accordingly		
 			if(isset($_POST['email']) && isset($_POST['password'])){
 			    $user = $_POST['email'];
-			    $pass = $_POST['password'];
+			    $pass = sha1($_POST['password']);
 
 			    $o_user = $this->datastore->o_get_user_data($user);
 
