@@ -219,7 +219,7 @@
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
 			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "description":"", "keywords":"","url":"","url_auto":"true","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "date_modified": "01/01/3000"}';
-			$s_full_item_template = '{"content_html":"lol"}';
+			$s_full_item_template = '{"content_html":""}';
 
 			array_push($this->items, json_decode($s_item_template));
 			$this->oa_individual_items[$s_new_id] = json_decode($s_full_item_template);
@@ -249,12 +249,17 @@
 				if ($this->items[$c_item]->id === $s_id)
 					$i_kill_index = $c_item;
 			}
+			$this->_delete_full_item($s_id);
 			if($i_kill_index > -1){
 				unset($this->items[$i_kill_index]);
 				$this->items = array_values($this->items);
 			}
 
 			$this->b_save_datastore("items");
+		}
+		function _delete_full_item($s_id){
+			$s_file_path = $this->s_base_path.'flot_flot/datastore/'.$s_id.'.php';
+			unlink($s_file_path);
 		}
 		function _delete_menu($s_id){
 			$i_kill_index = -1;
