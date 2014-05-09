@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 function _set_url_from_title(){
     //var s_slug = encodeURIComponent('/' + $("#item_edit_title").val() + '/');
-    var s_slug = '/' + $("#item_edit_title").val() + '/';
+    var s_slug = '/' + $("#item_edit_title").val().toLowerCase() + '/';
     $(".item_edit_url").val(s_slug);
 }
 
