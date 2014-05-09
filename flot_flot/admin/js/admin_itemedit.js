@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
     $("#item_edit_url").keyup(function() {
         if(!$("#item_edit_auto_url").is(':checked')){
-            $(".item_edit_url").val($("#item_edit_url").val());
+            $("input[type=hidden].item_edit_url").val($("#item_edit_url").val());
         }
     });
     $("#item_edit_auto_url").change(function() {
