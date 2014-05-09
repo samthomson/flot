@@ -5,6 +5,7 @@
 
 		public $urls;
 		public $items;
+		public $oa_individual_items = [];
 		public $menus;
 		public $settings;
 		public $users;
@@ -35,6 +36,12 @@
 			else{
 				// $this->$s_datastore_name = ?
 				$this->_create_datestore_afresh($s_datastore_name);
+			}
+		}
+		function initiate_item($_id){
+			if($json_data = file_get_contents($this->s_base_path.'flot_flot/datastore/'.$_id.'.php')){
+				// including the datastore file worked, we have the datastores variable now set in memory
+				$this->oa_individual_items[$_id] = json_decode($json_data);
 			}
 		}
 
@@ -91,7 +98,8 @@
 					$this->oncologies = '[
 							{
 								"id":"page",
-								"elements": ["title", "content", "content_html", "keywords", "description", "url", "published", "url_auto"]
+								"elements": ["title", "keywords", "description", "url", "published", "url_auto"],
+								"full_elements": ["title", "keywords", "description", "url", "published", "url_auto", "content_html"]
 							}
 						]';
 					break;
@@ -128,6 +136,15 @@
 					return $item;
 			}
 			return false;
+		}
+		function o_get_full_item($item_id)
+		{
+			$this->initiate_item($item_id);
+
+			if(isset($this->oa_individual_items[$item_id])){
+				return $this->oa_individual_items[$item_id];
+			}
+			return null;
 		}
 		function get_menu_data($menu_id)
 		{
@@ -185,6 +202,7 @@
 		{
 			for($c_item = 0; $c_item < count($this->items); $c_item++) {
 				if ($this->items[$c_item]->id === $new_item->id){
+					// set some data in item and some in single full item object
 					$this->items[$c_item] = $new_item;
 				}
 			}
@@ -200,11 +218,15 @@
 		function s_new_item($s_oncology){
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
-			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "description":"", "keywords":"","url":"","url_auto":"true","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "content_html": "", "date_modified": "01/01/3000"}';
+			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "description":"", "keywords":"","url":"","url_auto":"true","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "date_modified": "01/01/3000"}';
+			$s_full_item_template = '{"content_html":"lol"}';
+
 			array_push($this->items, json_decode($s_item_template));
+			$this->oa_individual_items[$s_new_id] = json_decode($s_full_item_template);
 
 			# save it to datastore
 			$this->b_save_datastore("items");
+			$this->b_save_item($s_new_id);
 
 			# return its id
 			return $s_new_id;
@@ -306,6 +328,21 @@
 			}
 			return false;
 		}
+		function b_save_item($s_id)
+		{
+			// $this->oa_individual_items[$s_id]
+			$s_write_path = $this->s_base_path.'flot_flot/datastore/'.$s_id.'.php';
 
+			if(!isset($this->oa_individual_items[$s_id])){
+				echo "individual item not defined";
+			}
+			$s_new_content = json_encode($this->oa_individual_items[$s_id]);
+
+			if(file_put_contents($s_write_path, $s_new_content) > 0){
+				return true;
+			}
+			// still here? something went wrong, return false
+			return false;
+		}
 	}
 ?>

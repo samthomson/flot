@@ -24,6 +24,13 @@
 			$this->datastore = new DataStore;
 			$this->o_oncology = $this->datastore->get_oncology($o_item->oncology);
 		}
+		function _set_full_item($o_full_item){
+			// full item object will have stuff like content, keywords, description, etc
+			// loop through each property and add it to exisiting item object
+			foreach ($o_full_item as $key => $value) {
+			    $this->o_loaded_item_object->$key = $value;
+			}
+		}
 
 		function rebuild() {
 			# render, and rebuild dependent items
@@ -110,7 +117,6 @@
 
 			# persist the page to disk
 			$this->update();
-
 		}
 
 		#
@@ -308,10 +314,19 @@
 			$flot->b_is_user_admin();
 			// set url auto to false as a default, since it will only be posted if it was checked
 			$this->o_loaded_item_object->url_auto = "false";
+
 			foreach($this->o_oncology->elements as $element){
 				$s_new_value = $flot->s_post_var($element, false);
 				if($s_new_value){
 					$this->o_loaded_item_object->$element = urldecode($s_new_value);
+				}
+			}
+			$this->datastore->o_loaded_item_object->oa_individual_items[$this->o_loaded_item_object->id] = [];
+
+			foreach($this->o_oncology->full_elements as $element){
+				$s_new_value = $flot->s_post_var($element, false);
+				if($s_new_value){
+					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id]->$element = urldecode($s_new_value);
 				}
 			}
 			# update date and set author
@@ -321,6 +336,7 @@
 
 			$this->datastore->_set_item_data($this->o_loaded_item_object);
 			$this->datastore->b_save_datastore("items");
+			$this->datastore->b_save_item($this->o_loaded_item_object->id);
 		}
 	}
 ?>

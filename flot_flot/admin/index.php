@@ -41,12 +41,14 @@
 						# get the id, find the item, then try replacing the attributes
 						$item_id = $flot->s_post_var("item_id", false);
 						if($item_id){
-
+							// we have an item id, now we'll try and get the corresponding item information
 							$o_item = $flot->datastore->get_item_data($item_id);
+							$o_full_item = $flot->datastore->o_get_full_item($item_id);
 
-							if($o_item){
+							if($o_item && $o_full_item){
 								$Item = new Item($o_item);
 
+								$Item->_set_full_item($o_full_item);
 								$Item->update_from_post();
 
 								# persist (or not) the item
@@ -108,10 +110,13 @@
 							# get the item
 							$o_item = $flot->datastore->get_item_data($s_page_id);
 
+							$o_full_item = $flot->datastore->o_get_full_item($s_page_id);
+
 							# get the oncology
 
 							# render a form
 							$Item = new Item($o_item);
+							$Item->_set_full_item($o_full_item);
 
 							$html_main_admin_content .= $Item->html_edit_form();
 
