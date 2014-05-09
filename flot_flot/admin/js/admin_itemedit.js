@@ -27,6 +27,11 @@ $(document).ready(function() {
             _set_url_from_title();
         }
     });
+    $("#item_edit_url").keyup(function() {
+        if(!$("#item_edit_auto_url").is(':checked')){
+            $(".item_edit_url").val($("#item_edit_url").val());
+        }
+    });
     $("#item_edit_auto_url").change(function() {
         if($("#item_edit_auto_url").is(':checked')){
             // disable url input

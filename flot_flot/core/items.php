@@ -314,6 +314,7 @@
 			$flot->b_is_user_admin();
 			// set url auto to false as a default, since it will only be posted if it was checked
 			$this->o_loaded_item_object->url_auto = "false";
+			$this->o_loaded_item_object->url= "";
 
 			foreach($this->o_oncology->elements as $element){
 				$s_new_value = $flot->s_post_var($element, false);
