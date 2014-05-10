@@ -28,7 +28,9 @@
 
 		function initiate_datastore($s_datastore_name){
 			// if we could read in datastore file, initiate object to it
-			if($json_data = file_get_contents($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php')){
+			$s_filepath = $this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php';
+			clearstatcache(true, $s_filepath);
+			if($json_data = file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
 				$this->{$s_datastore_name} = json_decode($json_data);
 			}
@@ -38,7 +40,9 @@
 			}
 		}
 		function initiate_item($_id){
-			if($json_data = file_get_contents($this->s_base_path.'flot_flot/datastore/'.$_id.'.php')){
+			$s_filepath = $this->s_base_path.'flot_flot/datastore/'.$_id.'.php';
+			clearstatcache(true, $s_filepath);
+			if($json_data = file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
 				$this->oa_individual_items[$_id] = json_decode($json_data);
 			}

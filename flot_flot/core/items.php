@@ -328,6 +328,13 @@
 					$this->o_loaded_item_object->$element = urldecode($s_new_value);
 				}
 			}
+			# update date and set author
+			$this->o_loaded_item_object->date_modified = date("d-m-Y");
+			$this->o_loaded_item_object->author = $flot->s_current_user;
+			$this->datastore->_set_item_data($this->o_loaded_item_object);
+			$this->datastore->b_save_datastore("items");
+
+
 			$this->datastore->o_loaded_item_object->oa_individual_items[$this->o_loaded_item_object->id] = [];
 
 			foreach($this->o_oncology->full_elements as $element){
@@ -336,14 +343,15 @@
 					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id]->$element = urldecode($s_new_value);
 				}
 			}
-			# update date and set author
-			//$this->o_loaded_item_object->date_modified = date("D jS M Y");
-			$this->o_loaded_item_object->date_modified = date("d-m-Y");
-			$this->o_loaded_item_object->author = $flot->s_current_user;
 
-			$this->datastore->_set_item_data($this->o_loaded_item_object);
-			$this->datastore->b_save_datastore("items");
+			// save full item, which we just edited directly
 			$this->datastore->b_save_item($this->o_loaded_item_object->id);
+			// now save the item in amongst others, and messing up the newly set data on the high level item in the process (but we've saved that now)
+
+			// now we have updated the loaded item object, and the individual item object.
+
+			// lets bring the changes to the individual item object, across to the loaded item object, so that any future in memory calls to the item get the propogated changes
+			$this->_set_full_item($this->datastore->oa_individual_items[$this->o_loaded_item_object->id]);
 		}
 	}
 ?>

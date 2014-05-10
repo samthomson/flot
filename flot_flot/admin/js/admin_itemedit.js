@@ -20,6 +20,7 @@ $(document).ready(function() {
     CKEDITOR.config.autoGrow_onStartup = true;
     // ALLOW <i></i>
     CKEDITOR.config.protectedSource.push(/<i[^>]*><\/i>/g);
+    // allow span
     CKEDITOR.config.extraAllowedContent = 'span(*)';
 
     /*
