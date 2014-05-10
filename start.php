@@ -30,8 +30,8 @@
 					// delete this start.php page for security
 					$flot->_delete_start_page();
 
-					// redirect user to home page
-					$flot->_page_change("/");
+					// redirect user to login page
+					$flot->_page_change("/flot_flot/admin");
 				}else{
 					echo "error creating user.. :(";
 				}
