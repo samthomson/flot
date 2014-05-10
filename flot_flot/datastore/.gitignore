@@ -1,0 +1,4 @@
+# this file exists just so git will leave the dir in the source tree
+
+# don't put user generated data into source control
+*.php
