@@ -18,6 +18,8 @@ $(document).ready(function() {
     CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height]';
     CKEDITOR.config.extraPlugins = 'autogrow';
     CKEDITOR.config.autoGrow_onStartup = true;
+    // ALLOW <i></i>
+    CKEDITOR.config.protectedSource.push(/<i[^>]*><\/i>/g);
 
     /*
     url stuff, slug title into url if auto is checked
