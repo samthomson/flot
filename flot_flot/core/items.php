@@ -141,6 +141,7 @@
 			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
 			$s_keywords = urldecode($this->o_loaded_item_object->keywords);
 			$s_description = urldecode($this->o_loaded_item_object->description);
+			$s_template = urldecode($this->o_loaded_item_object->template);
 			$s_title = urldecode($this->o_loaded_item_object->title);
 			$b_published = urldecode($this->o_loaded_item_object->published);
 			$s_checked = urldecode($this->o_loaded_item_object->url_auto);
@@ -243,6 +244,11 @@
 			# description
 			$html_form .= '<div class="form-group input-group-sm">';
 			$html_form .= '<label for="item_description">Description</label><input type="text" class="form-control" name="description" id="item_description" placeholder="description" value="'.$s_description.'">';
+			$html_form .= '</div>';
+
+			# template
+			$html_form .= '<div class="form-group input-group-sm">';
+			$html_form .= '<label for="item_template">Template</label><input type="text" class="form-control" name="template" id="item_template" placeholder="template" value="'.$s_template.'">';
 			$html_form .= '</div>';
 
 			# end extra tab

@@ -51,7 +51,7 @@
 					$this->users = '[]';
 					break;
 				case 'items':
-					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"","url":"index.html","url_auto":"false","oncology":"page","author":"samt@samt.st","published":"true","date_modified":"10-05-2014","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}]';
+					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"samt@samt.st","published":"true","date_modified":"10-05-2014","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}]';
 					$this->oa_individual_items['pagestart'] = '{"title":"Welcome","url":"index.html","published":"true","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}';
 					break;
 				case 'menus':
@@ -98,7 +98,7 @@
 					$this->oncologies = '[
 							{
 								"id":"page",
-								"elements": ["title", "keywords", "description", "url", "published", "url_auto"],
+								"elements": ["title", "keywords", "description", "url", "published", "url_auto", "template"],
 								"full_elements": ["title", "keywords", "description", "url", "published", "url_auto", "content_html"]
 							}
 						]';
@@ -216,7 +216,7 @@
 		function s_new_item($s_oncology){
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
-			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "url":"","url_auto":"true","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "date_modified": "01/01/3000"}';
+			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "url":"","url_auto":"true", "template":"template.html","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "date_modified": "01/01/3000"}';
 			$s_full_item_template = '{"content_html":"","description":"", "keywords":""}';
 
 			array_push($this->items, json_decode($s_item_template));
