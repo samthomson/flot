@@ -27,8 +27,6 @@
 		}
 
 		function initiate_datastore($s_datastore_name){
-			// '@' to repress first read error before start has created settings files
-			;
 			// if we could read in datastore file, initiate object to it
 			if($json_data = file_get_contents($this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php')){
 				// including the datastore file worked, we have the datastores variable now set in memory
@@ -115,7 +113,6 @@
 		function get_current_url_data()
 		{
 			foreach ($this->urls as $url) {
-				#echo "compare '$url->url' with current '$_SERVER[REQUEST_URI]'";
 				if ($url->url == $_SERVER['REQUEST_URI'])
 					return $url;
 			}
@@ -124,7 +121,6 @@
 		function get_oncology($s_oncology_name)
 		{
 			foreach ($this->oncologies as $oncology) {
-				#echo "compare '$url->url' with current '$_SERVER[REQUEST_URI]'";
 				if ($oncology->id == $s_oncology_name)
 					return $oncology;
 			}
@@ -219,8 +215,8 @@
 		function s_new_item($s_oncology){
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
-			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "description":"", "keywords":"","url":"","url_auto":"true","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "date_modified": "01/01/3000"}';
-			$s_full_item_template = '{"content_html":""}';
+			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "url":"","url_auto":"true","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "date_modified": "01/01/3000"}';
+			$s_full_item_template = '{"content_html":"","description":"", "keywords":""}';
 
 			array_push($this->items, json_decode($s_item_template));
 			$this->oa_individual_items[$s_new_id] = json_decode($s_full_item_template);
