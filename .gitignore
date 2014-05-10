@@ -2,10 +2,7 @@
 
 *.html
 
-# but not flot stuff..
-
-!flot_flot/
-
 # apart from themes
 
-!flot_flot/themes
+flot_flot/datastore/*
+flot_flot/themes/*
