@@ -135,6 +135,9 @@
 		         		{
 		         			$hmtl_pages_ui .= '<table class="table table-hover"><thead><tr><th>page name</th><th>Url</th><th>last changed</th><th>author</th><th>published</th><th>delete</th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
+			         			//
+			         			// get data
+			         			//
 								$s_id = urldecode($o_page->id);
 								$s_title = urldecode($o_page->title);
 								$s_url = urldecode($o_page->url);
@@ -142,14 +145,27 @@
 								$s_date_modified = urldecode($o_page->date_modified);
 								$s_published = (urldecode($o_page->published) === "true" ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
 
+								$s_url_text = $s_url;
+
+								//
+								// sanaitise data if necessary
+								//
 								$s_date_modified = explode('-', $s_date_modified);
 
 								$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[0], $s_date_modified[1], $s_date_modified[2]));
+								if(substr($s_url, 0,1) !== '/')
+									$s_url = '/'.$s_url;
+								if($s_url === "/index.html"){
+									// homepage
+									$s_url = '/';
+									$s_url_text = ' <i class="glyphicon glyphicon-home"></i> Homepage';
+								}
+
 
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
-			         			$hmtl_pages_ui .= '</a></td><td><a target="_blank" href="'.$s_url.'">'.$s_url.'</a></td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td><a target="_blank" href="'.$s_url.'">'.$s_url_text.'</a></td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
