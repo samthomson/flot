@@ -13,15 +13,23 @@ $(document).ready(function() {
                 [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
                 [ 'Pictures' ],
                 [ 'Source' ],
-            ]
+            ],
+            allowedContent:
+                'div(*);' +
+                'h1 h2 h3 p blockquote strong em;' +
+                'a;' +
+                'img[src,alt,width,height];' +
+                'table tr th td caption;' +
+                'span(*);' +
+                'del ins'
         });
-    CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height],h1,h2,h3,h4,h5,h6,h7';
+    //CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height],h1,h2,h3,h4,h5,h6,h7,span(*)';
     CKEDITOR.config.extraPlugins = 'autogrow';
     CKEDITOR.config.autoGrow_onStartup = true;
     // ALLOW <i></i>
     CKEDITOR.config.protectedSource.push(/<i[^>]*><\/i>/g);
     // allow span
-    CKEDITOR.config.extraAllowedContent = 'span(*)';
+    //CKEDITOR.config.extraAllowedContent = 'span(*)';
 
     /*
     url stuff, slug title into url if auto is checked
