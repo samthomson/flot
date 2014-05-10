@@ -352,5 +352,14 @@
 			// still here? something went wrong, return false
 			return false;
 		}
+		function sa_templates_available(){
+			// look up all template files in theme dir
+			$sa_files = glob($this->s_base_path.'/flot_flot/themes/'.$this->settings->theme.'/*.html');
+
+			foreach ($sa_files as $key => $file) {
+				$sa_files[$key] = substr($file, strrpos($file, '/')+1, strlen($file));
+			}
+			return $sa_files;
+		}
 	}
 ?>

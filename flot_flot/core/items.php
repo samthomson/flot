@@ -248,7 +248,23 @@
 
 			# template
 			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_template">Template</label><input type="text" class="form-control" name="template" id="item_template" placeholder="template" value="'.$s_template.'">';
+			$html_form .= '<label for="item_template">Template</label>';
+
+			$html_form .= '<select name="template" class="form-control" id="item_template">';
+
+			$sa_files = $this->datastore->sa_templates_available();
+			foreach ($sa_files as $s_template_file) {
+				$s_selected = '';
+
+				if($s_template_file === $s_template){
+					$s_selected = 'selected ';
+				}
+				$html_form .= '<option '.$s_selected.'value="'.$s_template_file.'" >'.$s_template_file.'</option>';
+				
+			}
+			$html_form .= '</select>';
+
+			//$html_form .= '<input type="text" class="form-control" name="template" id="item_template" placeholder="template" value="'.$s_template.'">';
 			$html_form .= '</div>';
 
 			# end extra tab
