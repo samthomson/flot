@@ -15,11 +15,12 @@ $(document).ready(function() {
                 [ 'Source' ],
             ]
         });
-    CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height]';
+    CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height],h1,h2,h3,h4,h5,h6,h7';
     CKEDITOR.config.extraPlugins = 'autogrow';
     CKEDITOR.config.autoGrow_onStartup = true;
     // ALLOW <i></i>
     CKEDITOR.config.protectedSource.push(/<i[^>]*><\/i>/g);
+    CKEDITOR.config.extraAllowedContent = 'span(*)';
 
     /*
     url stuff, slug title into url if auto is checked
