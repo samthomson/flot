@@ -66,7 +66,7 @@
 		}
 		function render() {
 			# get template
-			$template = file_get_contents($this->s_base_path.'/flot_flot/themes/'.$this->datastore->settings->theme.'/template.html');
+			$template = file_get_contents($this->s_base_path.'/flot_flot/themes/'.$this->datastore->settings->theme.'/'.$this->o_loaded_item_object->template);
 
 			# parse in data
 			$sa_keys = array_keys(get_object_vars($this->o_loaded_item_object));

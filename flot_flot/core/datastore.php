@@ -69,7 +69,7 @@
 				case 'settings':
 					$this->settings = 
 						'{
-							"theme":"first_theme",
+							"theme":"html5",
 							"upload_dir":"flot_flot/uploads/",
 							"thumb_sizes":
 							[
