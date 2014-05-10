@@ -145,7 +145,7 @@
 								$s_date_modified = urldecode($o_page->date_modified);
 								$s_published = (urldecode($o_page->published) === "true" ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
 
-								$s_url_text = $s_url;
+
 
 								//
 								// sanaitise data if necessary
@@ -160,12 +160,17 @@
 									$s_url = '/';
 									$s_url_text = ' <i class="glyphicon glyphicon-home"></i> Homepage';
 								}
+								$s_url_text = $s_url;
+								$s_link_class = '';
+								if(urldecode($o_page->published) !== "true"){
+									$s_link_class = ' style="display:none;';
+								}
 
 
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
-			         			$hmtl_pages_ui .= '</a></td><td><a target="_blank" href="'.$s_url.'">'.$s_url_text.'</a></td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td><a target="_blank" href="'.$s_url.'" '.$s_link_class.'>'.$s_url_text.'</a></td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
