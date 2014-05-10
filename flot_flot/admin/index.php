@@ -151,6 +151,7 @@
 								$s_date_modified = explode('-', $s_date_modified);
 
 								$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[0], $s_date_modified[1], $s_date_modified[2]));
+								$s_url_text = $s_url;
 								if(substr($s_url, 0,1) !== '/')
 									$s_url = '/'.$s_url;
 								if($s_url === "/index.html"){
@@ -158,10 +159,9 @@
 									$s_url = '/';
 									$s_url_text = ' <i class="glyphicon glyphicon-home"></i> Homepage';
 								}
-								$s_url_text = $s_url;
 								$s_link_class = '';
 								if(urldecode($o_page->published) !== "true"){
-									$s_link_class = ' style="display:none;';
+									$s_link_class = ' style="display:none;"';
 								}
 
 
