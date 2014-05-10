@@ -145,8 +145,6 @@
 								$s_date_modified = urldecode($o_page->date_modified);
 								$s_published = (urldecode($o_page->published) === "true" ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
 
-
-
 								//
 								// sanaitise data if necessary
 								//
