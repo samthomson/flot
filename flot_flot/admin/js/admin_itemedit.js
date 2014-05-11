@@ -74,6 +74,7 @@ function s_make_slug(slugcontent)
     var slugcontent_hyphens = slugcontent.replace(/\s/g,'-');
     var finishedslug = slugcontent_hyphens.replace(/[^a-zA-Z0-9\-]/g,'');
     finishedslug = finishedslug.toLowerCase();
+    console.log("finished slug: "+finishedslug);
     return finishedslug;
 }
 

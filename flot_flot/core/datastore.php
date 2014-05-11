@@ -26,6 +26,7 @@
 			}
 		}
 
+
 		function initiate_datastore($s_datastore_name){
 			// if we could read in datastore file, initiate object to it
 			$s_filepath = $this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php';
@@ -55,7 +56,7 @@
 					$this->users = '[]';
 					break;
 				case 'items':
-					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"samt@samt.st","published":"true","date_modified":"10-05-2014","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}]';
+					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}]';
 					$this->oa_individual_items['pagestart'] = '{"title":"Welcome","url":"index.html","published":"true","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}';
 					$this->b_save_item('pagestart');
 					break;
@@ -165,6 +166,10 @@
 			}
 			return false;
 		}
+		function s_get_current_user($user_id)
+		{
+			return $this->o_get_user_data($_SESSION['admin_user']);
+		}
 
 		function oa_search_pictures($s_query){
 			$sa_matching_pictures = array();
@@ -221,7 +226,7 @@
 		function s_new_item($s_oncology){
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
-			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "url":"/new-'.$s_oncology.'/","url_auto":"true", "template":"template.html","oncology":"'.$s_oncology.'", "author":"", "published": "false", "date_modified": ""}';
+			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "url":"/new-'.$s_oncology.'/","url_auto":"true", "template":"template.html","oncology":"'.$s_oncology.'", "author":"'.$this->s_get_current_user()->user.'", "published": "false", "date_modified": ""}';
 			$s_full_item_template = '{"content_html":"","description":"", "keywords":""}';
 
 			array_push($this->items, json_decode($s_item_template));

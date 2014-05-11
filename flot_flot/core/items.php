@@ -164,9 +164,9 @@
 			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar">';
 
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
-			
+			/*
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
-
+			*/
 			$html_form .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
 
 			$html_form .= '<a target="_blank" '.$s_unpublished_class.'class="btn btn-default btn-sm" href="'.$s_url.'"><i class="glyphicon glyphicon-eye-open"></i><span class="small-hidden"> view</span></a>';
@@ -180,8 +180,8 @@
 
 
 			$html_form .= '<div class="btn-group" id="edit_item_publish_toolbar">';
-			$html_form .= '<a class="btn btn-default btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');"><i class="glyphicon glyphicon-cloud-download"></i> save & publish on the internet</a>';		
-			$html_form .= '<a class="btn btn-default btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');"><i class="glyphicon glyphicon-cloud-upload"></i> unpublish from the internet</a>';			
+			$html_form .= '<a class="btn btn-success btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');"><i class="glyphicon glyphicon-cloud-upload"></i> save & publish on the internet</a>';		
+			$html_form .= '<a class="btn btn-warning btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');"><i class="glyphicon glyphicon-cloud-download"></i> unpublish from the internet</a>';			
 			$html_form .= '</div><div id="publish_output"></div><hr/>';
 
 			$html_form .= '<form id="item_edit_form" role="form" method="post" action="index.php">';
