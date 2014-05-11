@@ -1,0 +1,4 @@
+# Ignore everything in this directory
+*
+# Except this file (so that the uploads dir stays in the repo, even when empty)
+!.gitignore
