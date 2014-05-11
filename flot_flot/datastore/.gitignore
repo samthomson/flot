@@ -1,4 +1,2 @@
-# this file exists just so git will leave the dir in the source tree
-
-# don't put user generated data into source control
-*.php
+# Ignore everything in this directory including the directory, so the start process can create it with its permissions, and of course to block user data going into source control
+*

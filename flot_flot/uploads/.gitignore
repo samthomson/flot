@@ -1,4 +1,2 @@
-# Ignore everything in this directory
+# Ignore everything in this directory including the directory, so the start process can create it with its permissions
 *
-# Except this file (so that the uploads dir stays in the repo, even when empty)
-!.gitignore
