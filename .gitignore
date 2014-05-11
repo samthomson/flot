@@ -5,3 +5,4 @@
 # apart from themes
 
 !flot_flot/themes/html5/*
+flot_flot/datastore/*

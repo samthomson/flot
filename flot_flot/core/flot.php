@@ -141,5 +141,10 @@
 
 			$o_ImageProcessor->process_and_tag_to_datastore();
 		}		
+		function _create_start_dirs(){
+			// make the uploads and datastore dir
+			mkdir($this->s_base_path.'/flot_flot/datastore');
+			mkdir($this->s_base_path.'/flot_flot/uploads');
+		}
 	}
 ?>

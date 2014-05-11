@@ -56,9 +56,9 @@
 			if(!$this->b_permissions($this->s_base_path, "0777")){
 				array_push($this->sa_instructions, "flot needs full write access to the web directory.");
 			}
-			// datastore
-			if(!$this->b_permissions($this->s_base_path.'flot_flot/datastore', "0777")){
-				array_push($this->sa_instructions, "flot needs full write access to its datastore directory.");
+			// flot_flot dir
+			if(!$this->b_permissions($this->s_base_path.'/flot_flot', "0777")){
+				array_push($this->sa_instructions, "flot needs full write access to the flot_flot directory.");
 			}
 
 			// still here, everything okay

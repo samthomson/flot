@@ -1,2 +1,0 @@
-# Ignore everything in this directory including the directory, so the start process can create it with its permissions, and of course to block user data going into source control
-*
