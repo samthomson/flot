@@ -19,7 +19,7 @@ $(document).ready(function() {
                 'h1 h2 h3 p blockquote strong em;' +
                 'a;' +
                 'img[src,alt,width,height];' +
-                'table tr th td caption;' +
+                'table tr th td caption hr;' +
                 'span(*);' +
                 'del ins'
         });
