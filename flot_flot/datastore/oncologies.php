@@ -1,1 +1,0 @@
-[{"id":"page","elements":["title","keywords","description","url","published","url_auto","template"],"full_elements":["title","keywords","description","url","published","url_auto","content_html"]}]
