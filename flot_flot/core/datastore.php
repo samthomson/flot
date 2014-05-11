@@ -221,7 +221,7 @@
 		function s_new_item($s_oncology){
 			# create a new item
 			$s_new_id = uniqid($s_oncology);
-			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "url":"/new-'.$s_oncology.'/","url_auto":"true", "template":"template.html","oncology":"'.$s_oncology.'", "author":"[current author?]", "published": "false", "date_modified": "01/01/3000"}';
+			$s_item_template = '{"id":"'.$s_new_id.'", "title":"new '.$s_oncology.'", "url":"/new-'.$s_oncology.'/","url_auto":"true", "template":"template.html","oncology":"'.$s_oncology.'", "author":"", "published": "false", "date_modified": ""}';
 			$s_full_item_template = '{"content_html":"","description":"", "keywords":""}';
 
 			array_push($this->items, json_decode($s_item_template));
