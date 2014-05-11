@@ -41,7 +41,7 @@ $(document).ready(function() {
     });
     $("#item_edit_url").keyup(function() {
         if(!$("#item_edit_auto_url").is(':checked')){
-            $("input[type=hidden].item_edit_url").val(s_make_slug($("#item_edit_url").val()));
+            $("input[type=hidden].item_edit_url").val($("#item_edit_url").val());
         }
     });
     $("#item_edit_auto_url").change(function() {
@@ -55,6 +55,8 @@ $(document).ready(function() {
             $('#item_edit_url').prop('disabled', false);
         }
     });
+
+
 });  
 
 function _set_url_from_title(){
