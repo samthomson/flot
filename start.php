@@ -18,7 +18,7 @@
 				// add username/pass, store to datastore
 				if($flot->datastore->b_add_user($_POST["email"], sha1($_POST["password"]))){
 					// log the user in too, with the same email and password that was posted as part of their registration
-					$flot->_handle_auth_attempt()
+					$flot->_handle_auth_attempt();
 
 					# at a later date, add some starter items
 					## web page oncology
