@@ -150,7 +150,7 @@
 								//
 								$s_date_modified = explode('-', $s_date_modified);
 
-								$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[0], $s_date_modified[1], $s_date_modified[2]));
+								$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[1], $s_date_modified[0], $s_date_modified[2]));
 								$s_url_text = $s_url;
 								if(substr($s_url, 0,1) !== '/')
 									$s_url = '/'.$s_url;
