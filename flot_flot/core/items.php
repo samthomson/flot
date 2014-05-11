@@ -163,12 +163,15 @@
 			# start button group
 			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar">';
 
+			// preview
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
 			/*
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 			*/
-			$html_form .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
+			// delete
+			$html_form .= '<a class="btn btn-danger btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
 
+			// view (open in new tab)
 			$html_form .= '<a target="_blank" '.$s_unpublished_class.'class="btn btn-default btn-sm" href="'.$s_url.'"><i class="glyphicon glyphicon-eye-open"></i><span class="small-hidden"> view</span></a>';
 
 			# end button group
