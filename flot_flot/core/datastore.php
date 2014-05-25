@@ -56,8 +56,8 @@
 					$this->users = '[]';
 					break;
 				case 'items':
-					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}]';
-					$this->oa_individual_items['pagestart'] = '{"title":"Welcome","url":"index.html","published":"true","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}';
+					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"", "parent":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}]';
+					$this->oa_individual_items['pagestart'] = '{"title":"Welcome", "parent":"","url":"index.html","published":"true","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}';
 					$this->b_save_item('pagestart');
 					break;
 				case 'menus':
@@ -104,8 +104,8 @@
 					$this->oncologies = '[
 							{
 								"id":"page",
-								"elements": ["title", "keywords", "description", "url", "published", "url_auto", "template"],
-								"full_elements": ["title", "keywords", "description", "url", "published", "url_auto", "content_html"]
+								"elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template"],
+								"full_elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "content_html"]
 							}
 						]';
 					break;
@@ -169,6 +169,17 @@
 		function s_get_current_user($user_id)
 		{
 			return $this->o_get_user_data($_SESSION['admin_user']);
+		}
+		function sa_get_pages_except($s_page_id){
+			$oa_pages = array();
+
+			foreach ($this->items as $o_item) {
+				if($o_item->id !== $s_page_id){
+					$oa_pages[$o_item->id] = $o_item->title;
+				}
+			}
+
+			return $oa_pages;
 		}
 
 		function oa_search_pictures($s_query){

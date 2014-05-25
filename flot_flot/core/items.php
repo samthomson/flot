@@ -137,6 +137,7 @@
 			$html_form = "";
 			$s_id = urldecode($this->o_loaded_item_object->id);
 			$s_title = urldecode($this->o_loaded_item_object->title);
+			$s_parent = urldecode($this->o_loaded_item_object->parent);
 			$s_url = urldecode($this->o_loaded_item_object->url);
 			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
 			$s_keywords = urldecode($this->o_loaded_item_object->keywords);
@@ -213,12 +214,6 @@
 			$html_form .= '</div>';
 
 			# url
-			/*
-			$html_form .= '<div class="form-group input-group-sm">';
-			$html_form .= '<label for="item_keywords">Web address (URL)</label><input type="text" class="form-control" name="url" placeholder="url" value="'.$s_url.'">';
-			$html_form .= '</div>';
-			*/
-
 			$html_form .= '<div class="input-group input-group-sm">';
 			$html_form .= '<span class="input-group-addon">';
         	$html_form .= '<input id="item_edit_auto_url" name="url_auto" '.$s_checked.' value="true" type="checkbox"> set url for me';
@@ -263,6 +258,26 @@
 					$s_selected = 'selected ';
 				}
 				$html_form .= '<option '.$s_selected.'value="'.$s_template_file.'" >'.$s_template_file.'</option>';
+				
+			}
+			$html_form .= '</select>';
+			$html_form .= '</div>';
+
+			# parent
+			$html_form .= '<div class="form-group input-group-sm">';
+			$html_form .= '<label for="item_parent">Parent</label>';
+
+			$html_form .= '<select name="parent" class="form-control" id="item_parent">';
+			$html_form .= '<option value=""></option>';
+
+			$oa_partial_items = $this->datastore->sa_get_pages_except($s_id);
+			foreach ($oa_partial_items as $item_id => $item_value) {
+				$s_selected = '';
+
+				if($item_id === $s_parent){
+					$s_selected = 'selected ';
+				}
+				$html_form .= '<option '.$s_selected.'value="'.$item_id.'" >'.$item_value.'</option>';
 				
 			}
 			$html_form .= '</select>';
