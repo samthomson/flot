@@ -89,13 +89,13 @@
 			$html_form .= '<h4>Settings</h4>';
 			$html_form .= '<p>settings can\'t be edited here just yet, only in the settings.php file in the datastore folder.</p><hr/>';
 
-			$html_form .= '<form role="form">';
+			$html_form .= '<form role="form" method="post" action="index.php">';
 
 			# upload dir
 			$html_form .= '<div class="form-group"><label for="setting_upload_dir">Upload folder (file path, relative from root)</label><input type="text" class="form-control input-sm" id="setting_upload_dir" placeholder="relative upload directory" disabled value="'.$jo_settings->upload_dir.'"></div>';
 
 			# theme
-			$html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control input-sm" id="setting_theme_name" disabled placeholder="theme" value="'.$jo_settings->theme.'"></div>';
+			$html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control input-sm" id="setting_theme_name" placeholder="theme" name="theme" value="'.$jo_settings->theme.'"></div>';
 
 			$html_form .= '<hr/>';
 			$html_form .= '<h5>Thumbnail sizes</h5>';
@@ -114,6 +114,15 @@
 
 				$html_form .= '<div class="row form-group"><div class="col-xs-12"><label>'.$o_thumb_size->name.'</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->name.'" disabled></div></div><div class="row form-group"><div class="col-xs-12 col-sm-6"><label>max width (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_width.'" disabled></div><div class="col-xs-12 col-sm-6"><label>max height (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_height.'" disabled></div></div>';
 			}
+
+			# save
+			$html_form .= '<div class="form-group">';
+
+			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
+			$html_form .= '</div>';
+
+			# hidden elements
+			$html_form .= '<input type="hidden" name="section" value="settings">';
 
 			$html_form .= '</form>';
 

@@ -33,7 +33,6 @@
 		$s_action = $flot->s_post_var_from_allowed("action", array("edit"), "edit");		
 		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
 
-
 		switch($s_section){
 			case "items":
 				switch ($s_action) {
@@ -84,6 +83,23 @@
 								$flot->_page_change("/flot_flot/admin/index.php?section=menus&action=list");
 							}
 						}
+						break;
+				}
+				break;
+			case "settings":
+				switch ($s_action) {
+					case 'edit':		
+						//print_r($datastore)				
+						foreach ($_POST as $param_name => $param_val) {
+							if(isset($flot->datastore->settings->{$param_name})){
+								// the posted variable already exists, so we'll update it
+								$flot->datastore->settings->{$param_name} = $param_val;
+								$flot->datastore->b_save_datastore("settings");
+							}
+						}
+
+						# change location to view the item
+						$flot->_page_change("/flot_flot/admin/index.php?section=settings");
 						break;
 				}
 				break;
