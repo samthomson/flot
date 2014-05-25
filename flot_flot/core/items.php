@@ -266,8 +266,6 @@
 				
 			}
 			$html_form .= '</select>';
-
-			//$html_form .= '<input type="text" class="form-control" name="template" id="item_template" placeholder="template" value="'.$s_template.'">';
 			$html_form .= '</div>';
 
 			# end extra tab

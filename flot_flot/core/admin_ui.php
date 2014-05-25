@@ -95,7 +95,32 @@
 			$html_form .= '<div class="form-group"><label for="setting_upload_dir">Upload folder (file path, relative from root)</label><input type="text" class="form-control input-sm" id="setting_upload_dir" placeholder="relative upload directory" disabled value="'.$jo_settings->upload_dir.'"></div>';
 
 			# theme
-			$html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control input-sm" id="setting_theme_name" placeholder="theme" name="theme" value="'.$jo_settings->theme.'"></div>';
+			// $html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control input-sm" id="setting_theme_name" placeholder="theme" name="theme" value="'.$jo_settings->theme.'"></div>';
+
+
+
+			# template
+			$html_form .= '<div class="form-group input-group-sm">';
+			$html_form .= '<label for="setting_theme_name">Theme</label>';
+
+			$html_form .= '<select name="theme" class="form-control" id="settings_theme">';
+
+			$file_utility = new FileBrowser;
+
+			$sa_dirs = $file_utility->sa_themes_available();
+			foreach ($sa_dirs as $s_theme_dir) {
+				$s_selected = '';
+
+				if($s_theme_dir === $jo_settings->theme){
+					$s_selected = 'selected ';
+				}
+				$html_form .= '<option '.$s_selected.'value="'.$s_theme_dir.'" >'.$s_theme_dir.'</option>';
+				
+			}
+			$html_form .= '</select>';
+			$html_form .= '</div>';
+
+
 
 			$html_form .= '<hr/>';
 			$html_form .= '<h5>Thumbnail sizes</h5>';
