@@ -46,13 +46,18 @@ $(document).ready(function() {
             $('#item_edit_url').prop('disabled', false);
         }
     });
-
-
+    $("#item_parent").change(function(){
+        _set_url_from_title();
+    });
 });  
 
 function _set_url_from_title(){
     //var s_slug = encodeURIComponent('/' + $("#item_edit_title").val() + '/');
-    var s_slug = '/' + s_make_slug($("#item_edit_title").val()) + '/';
+    var s_parent = $("#item_parent").val();
+    if(s_parent !== ""){
+        s_parent = s_make_slug(s_parent) + '/';
+    }
+    var s_slug = '/' + s_parent + s_make_slug($("#item_edit_title").val()) + '/';
     $(".item_edit_url").val(s_slug);
 }
 function s_make_slug(slugcontent)
