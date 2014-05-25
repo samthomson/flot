@@ -178,7 +178,7 @@
 
 
 			$html_form .= '<p>copy and paste the below code into your theme to use this menu</p>';
-			$html_form .= '<kbd>{{menu:'.$s_id.'}}</kbd>';
+			$html_form .= '<kbd>{{menu:'.$s_name.'}}</kbd>';
 
 
 			return $html_form;
