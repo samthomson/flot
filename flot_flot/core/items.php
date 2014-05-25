@@ -81,7 +81,7 @@
 			$template = preg_replace_callback("(\{{menu:(.*?)\}})is", 
 				function($m){
 					if(isset($m[1])){
-						$o_Menu = new Menu($this->datastore->get_menu_data($m[1]));
+						$o_Menu = new Menu($this->datastore->get_menu_data_from_name($m[1]));
 						return $o_Menu->render();
 					}
 				},

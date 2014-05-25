@@ -47,7 +47,7 @@
 
 					$o_Item = new Item($this->datastore->get_item_data($s_menu_item));
 
-					$s_return .= '<li><a href="/'.$o_Item->o_loaded_item_object->url.'">'.$o_Item->o_loaded_item_object->title.'</a>';
+					$s_return .= '<li><a href="'.$o_Item->o_loaded_item_object->url.'">'.$o_Item->o_loaded_item_object->title.'</a>';
 					$s_return .= $this->s_fill_out_menu($this->s_take_out_menu_items($s_menu_item, $sa_menus), $sa_menus);
 					$s_return .= "</li>";
 				}

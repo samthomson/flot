@@ -61,7 +61,7 @@
 					$this->b_save_item('pagestart');
 					break;
 				case 'menus':
-					$this->menus = '[]';
+					$this->menus = '[{"id":"top_menu","title":"top menu","serialisation":"root:pagestart"}]';
 					break;
 				case 'pictures':
 					$this->pictures = '[]';
@@ -154,6 +154,14 @@
 		{
 			foreach ($this->menus as $menu) {
 				if ($menu->id === $menu_id)
+					return $menu;
+			}
+			return false;
+		}
+		function get_menu_data_from_name($menu_name)
+		{
+			foreach ($this->menus as $menu) {
+				if ($menu->title === $menu_name)
 					return $menu;
 			}
 			return false;
