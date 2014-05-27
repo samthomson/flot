@@ -94,6 +94,9 @@
 			# upload dir
 			$html_form .= '<div class="form-group"><label for="setting_upload_dir">Upload folder (file path, relative from root)</label><input type="text" class="form-control input-sm" id="setting_upload_dir" placeholder="relative upload directory" disabled value="'.$jo_settings->upload_dir.'"></div>';
 
+			# website name
+			$html_form .= '<div class="form-group"><label for="setting_website_name">Website name</label><input type="text" name="site_name" class="form-control input-sm" id="setting_website_name" placeholder="website name" value="'.$jo_settings->site_name.'"></div>';
+
 			# theme
 			// $html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control input-sm" id="setting_theme_name" placeholder="theme" name="theme" value="'.$jo_settings->theme.'"></div>';
 

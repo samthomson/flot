@@ -76,6 +76,7 @@
 					$this->settings = 
 						'{
 							"theme":"html5",
+							"site_name":"website name",
 							"upload_dir":"flot_flot/uploads/",
 							"thumb_sizes":
 							[
