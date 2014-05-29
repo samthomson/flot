@@ -170,7 +170,34 @@
 		}
 		function s_errors(){
 			// return contents of error log file
-			return file_get_contents($this->s_error_log_path);
+			$html_errors = "";
+			$sa_error_types = array('PHP Warning' => 0,'PHP Error' => 0,'PHP Notice' => 0);
+			$sa_error_css_class = array('PHP Warning' => 'orange','PHP Error' => 'red','PHP Notice' => 'blue');
+
+
+			$handle = fopen($this->s_error_log_path, "r");
+			if ($handle) {
+			    while (($line = fgets($handle)) !== false) {
+			        // process the line read.
+			        foreach ($sa_error_types as $key => $value) {
+			        	if(strpos($line, $key) !== FALSE){
+			        		$sa_error_types[$key]++;
+			        		$html_errors .= '<div class="'.$sa_error_css_class[$key].'">'.$line.'</div>';
+			        	}
+			        }
+			        
+			    }
+			} else {
+			    // error opening the file.
+			} 
+			fclose($handle);
+
+			$html_error_summary = "";
+			foreach ($sa_error_types as $key => $value) {
+				$html_error_summary .= "$key: $value<br/>";
+	        }
+
+			return $html_error_summary.'<hr/>'.$html_errors;
 		}
 		function _wipe_errors(){
 			// empty error log file
