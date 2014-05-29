@@ -7,7 +7,8 @@
 	however we also need to show invalid post requests? maybe we could just do that client side.
 	*/
 
-	require_once('../core/flot.php');
+	$S_BASE_PATH = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+	require_once($S_BASE_PATH.'flot_flot/core/flot.php');
 
 
 	$flot = new Flot;
@@ -111,7 +112,7 @@
 		# no post vars, this is a GET request ?
 		#
 
-		$s_section = $flot->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
+		$s_section = $flot->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings", "errors"), "items");
 
 		switch($s_section){
 			case "items":
@@ -327,6 +328,9 @@
 				break;
 			case "settings":
 				$html_main_admin_content = $admin_ui->html_make_settings_form($flot->datastore->settings);
+				break;
+			case "errors":
+				$html_main_admin_content = $admin_ui->html_make_error_page();
 				break;
 		}
 	}

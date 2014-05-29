@@ -9,13 +9,21 @@
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 		}
 		function html_make_left_menu($s_active_section){
+			$html_left_menu = '';
 
-			return '<div id="admin_menu_left">
+			$fu_FileUtil = new FileUtilities;
+
+			$html_left_menu .= '<div id="admin_menu_left">
 					<a class="admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="/flot_flot/admin/index.php?section=items&amp;oncology=page"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> Webpages</span></a>
 					<a class="admin_menu_left'.$this->s_active_or_empty("pictures", $s_active_section).'" href="/flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
 					<a class="admin_menu_left'.$this->s_active_or_empty("menus", $s_active_section).'" href="/flot_flot/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="small-hidden condensed_hidden"> Menus</span></a>
-					<a class="admin_menu_left'.$this->s_active_or_empty("settings", $s_active_section).'" href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>
-				</div>';
+					<a class="admin_menu_left'.$this->s_active_or_empty("settings", $s_active_section).'" href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>';
+			if($fu_FileUtil->b_errors()){
+				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="/flot_flot/admin/index.php?section=errors"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>';
+			}
+			$html_left_menu .= '</div>';
+
+			return $html_left_menu;
 		}
 		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content, $html_make_admin_content_menu, $s_body_class){
 
@@ -54,8 +62,6 @@
 				# general admin js
 				$s_header .= $this->html_admin_headers_pictures();
 			}
-
-
 
 
 			$s_header .= '<title>flot - manage your site</title>';
@@ -155,6 +161,10 @@
 			$html_form .= '</form>';
 
 			return $html_form;
+		}
+		function html_make_error_page(){
+			$fu_FileUtil = new FileUtilities;
+			return $fu_FileUtil->s_errors();
 		}
 	}
 ?>

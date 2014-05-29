@@ -1,7 +1,6 @@
 <?php
 	# error handler
 
-
 	class ErrorHandler {
 
 		function __construct() {
@@ -149,6 +148,32 @@
 				$sa_dirs[$key] = substr($s_dir, strrpos($s_dir, '/')+1, strlen($s_dir));
 			}
 			return $sa_dirs;
+		}
+	}
+
+	class FileUtilities {
+
+
+		public $s_base_path;
+		public $s_error_log_path;
+
+		function __construct() {
+			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+			$this->s_error_log_path = $this->s_base_path."flot_flot/log/php_error.log";
+		}
+		function b_errors () {
+			// does error file have contents
+			if(filesize($this->s_error_log_path) > 0)
+				return true;
+			
+			return false;
+		}
+		function s_errors(){
+			// return contents of error log file
+			return file_get_contents($this->s_error_log_path);
+		}
+		function _wipe_errors(){
+			// empty error log file
 		}
 	}
 ?>

@@ -2,6 +2,8 @@
 	/* main class for everything flot.
 	used to handle app entry point
 	*/
+	$S_BASE_PATH = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+	require_once($S_BASE_PATH.'flot_flot/core/base.php');
 
 	class Flot {
 
@@ -145,6 +147,7 @@
 			// make the uploads and datastore dir
 			mkdir($this->s_base_path.'/flot_flot/datastore');
 			mkdir($this->s_base_path.'/flot_flot/uploads');
+			mkdir($this->s_base_path.'/flot_flot/log');
 		}
 	}
 ?>
