@@ -174,6 +174,11 @@
 		}
 		function _wipe_errors(){
 			// empty error log file
+			$f = @fopen($this->s_error_log_path, "r+");
+			if ($f !== false) {
+			    ftruncate($f, 0);
+			    fclose($f);
+			}
 		}
 	}
 ?>

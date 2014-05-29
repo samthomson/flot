@@ -330,7 +330,23 @@
 				$html_main_admin_content = $admin_ui->html_make_settings_form($flot->datastore->settings);
 				break;
 			case "errors":
-				$html_main_admin_content = $admin_ui->html_make_error_page();
+				$s_action = $flot->s_get_var_from_allowed("action", array("view", "clear"), "view");
+
+				switch($s_action){
+					case "clear":
+						// clear log
+						$fu_FileUtil = new FileUtilities;
+						$fu_FileUtil->_wipe_errors();
+
+						// reload to view						
+						$flot->_page_change("/flot_flot/admin/index.php?section=errors&action=view");
+
+						break;
+					case "view":
+						$html_main_admin_content = '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=errors&action=clear"><i class="glyphicon glyphicon-trash"></i> clear/delete log</a><hr/>';
+						$html_main_admin_content .= $admin_ui->html_make_error_page();
+						break;
+				}
 				break;
 		}
 	}
