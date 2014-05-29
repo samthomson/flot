@@ -1,3 +1,9 @@
+
+# prevent folder listing
+Options -Indexes
+
+DirectoryIndex /flot_flot/flot.php
+
 <IfModule mod_rewrite.c>
   RewriteEngine on
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -7,15 +13,6 @@
   RewriteRule ^([^?]*)$ /flot_flot/flot.php?path=$1 [NC,L,QSA]
   RewriteRule ^$ /flot_flot/flot.php [NC]
 </IfModule>
-
-# disable directory browsing
-Options -Indexes
-# prevent folder listing
-IndexIgnore *
-
-#DirectoryIndex /flot_flot/flot.php
-
-
 
 
 
