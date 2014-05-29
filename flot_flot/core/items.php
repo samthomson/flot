@@ -355,6 +355,7 @@
 			$this->o_loaded_item_object->url= "";
 
 			foreach($this->o_oncology->elements as $element){
+				// go through all items in oncology
 				$s_new_value = $flot->s_post_var($element, false);
 				if($s_new_value){
 					$this->o_loaded_item_object->$element = urldecode($s_new_value);

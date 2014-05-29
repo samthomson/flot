@@ -56,7 +56,7 @@
 					$this->users = '[]';
 					break;
 				case 'items':
-					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"", "parent":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}]';
+					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"", "parent":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014"}]';
 					$this->oa_individual_items['pagestart'] = '{"title":"Welcome", "parent":"","url":"index.html","published":"true","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}';
 					$this->b_save_item('pagestart');
 					break;
@@ -105,8 +105,8 @@
 					$this->oncologies = '[
 							{
 								"id":"page",
-								"elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template"],
-								"full_elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "content_html"]
+								"elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author", "date_modified", "oncology"],
+								"full_elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author"]
 							}
 						]';
 					break;
