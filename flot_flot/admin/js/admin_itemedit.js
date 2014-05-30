@@ -1,4 +1,5 @@
 
+
 $(document).ready(function() {
     /*
     set up wysiwyg editor
@@ -7,7 +8,7 @@ $(document).ready(function() {
     CKEDITOR.replace('wysiwyg_editor',
         {
             filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures&action=select',
-            extraPlugins : 'flot_pictures',
+            extraPlugins : 'flot_pictures,autogrow',
             toolbar :
             [
                 [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
@@ -16,8 +17,7 @@ $(document).ready(function() {
             ]
         });
     //CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height],h1,h2,h3,h4,h5,h6,h7,span(*)';
-    CKEDITOR.config.extraPlugins = 'autogrow';
-    CKEDITOR.config.autoGrow_onStartup = true;
+    //CKEDITOR.config.extraPlugins = 'autogrow';
     // ALLOW <i></i>
     CKEDITOR.config.protectedSource.push(/<i[^>]*><\/i>/g);
     CKEDITOR.config.allowedContent = true;
