@@ -104,6 +104,10 @@
 						break;
 				}
 				break;
+			default:
+				// keep alive - keep user logged in
+				// js posts here and sessions is checked keeping them logged in
+				break;
 		}
 
 		# location change to corresponding get

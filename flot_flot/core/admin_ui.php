@@ -109,6 +109,8 @@
 			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
 			# bootstrap js
 			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
+			# default flot admin js
+			$s_header .= '<script src="/flot_flot/admin/js/admin.js"></script>';
 			return $s_header;
 		}
 		function html_make_settings_form($jo_settings){
