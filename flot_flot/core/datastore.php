@@ -106,7 +106,12 @@
 							{
 								"id":"page",
 								"elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author", "date_modified", "oncology"],
-								"full_elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author"]
+								"full_elements": {"content_html":{
+						                "name": "content",
+						                "editable": "true",
+						                "tab": "1"
+						            }},
+								"tabs": {"1": "edit", "2": "extra"}
 							}
 						]';
 					break;
