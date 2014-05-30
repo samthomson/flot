@@ -23,7 +23,7 @@
 				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="/flot_flot/admin/index.php?section=errors"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>';
 			}
 			if(!$fr_FlotRequirements->b_ongoing_requirements_met()){
-				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="/flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Requirements</span></a>';
+				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("requirements", $s_active_section).'" href="/flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-exclamation-sign"></i><span class="small-hidden condensed_hidden"> Requirements</span></a>';
 			}
 			$html_left_menu .= '</div>';
 
@@ -41,7 +41,7 @@
 			}
 			$html_return = '';
 			foreach ($sa_reqs as $s_problem) {
-				$html_return .= $s_problem.'<br/>';
+				$html_return .= '<div class="alert alert-danger">'.$s_problem.'</div>';
 			}
 			return $html_return;
 		}
