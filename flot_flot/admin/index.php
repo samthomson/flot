@@ -187,7 +187,12 @@
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
-			         			$hmtl_pages_ui .= '</a></td><td><a target="_blank" href="'.$s_url.'" '.$s_link_class.'>'.$s_url_text.'</a></td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$s_url_link = '<a target="_blank" href="'.$s_url.'" '.$s_link_class.'>'.$s_url_text.'</a>';
+			         			if(urldecode($o_page->published) === "false"){
+			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
+			         			}
+
+			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
