@@ -25,16 +25,55 @@ $(document).ready(function() {
     /*
     url stuff, slug title into url if auto is checked
     */
-    $("#item_edit_title").keyup(function() {
-        if($("#item_edit_auto_url").is(':checked')){
-            _set_url_from_title();
-        }
+    // title text input
+    $('#item_edit_title').each(function() {
+        var elem = $(this);
+
+        // Save current value of element
+        elem.data('oldVal', elem.val());
+
+        // Look for changes in the value
+        elem.bind("propertychange keyup input paste", function(event){
+            // If value has changed...
+            if (elem.data('oldVal') != elem.val()) {
+                // Updated stored value
+                elem.data('oldVal', elem.val());
+
+                // Do action
+                if($("#item_edit_auto_url").is(':checked')){
+                    _set_url_from_title();
+                }
+            }
+        });
     });
+    // url text input
+    $('#item_edit_url').each(function() {
+        var elem = $(this);
+
+        // Save current value of element
+        elem.data('oldVal', elem.val());
+
+        // Look for changes in the value
+        elem.bind("propertychange keyup input paste", function(event){
+            // If value has changed...
+            if (elem.data('oldVal') != elem.val()) {
+                // Updated stored value
+                elem.data('oldVal', elem.val());
+
+                // Do action
+                if(!$("#item_edit_auto_url").is(':checked')){
+                    $("input[type=hidden].item_edit_url").val($("#item_edit_url").val());
+                }
+            }
+        });
+     });
     $("#item_edit_url").keyup(function() {
         if(!$("#item_edit_auto_url").is(':checked')){
             $("input[type=hidden].item_edit_url").val($("#item_edit_url").val());
         }
     });
+
+    // checkbox
     $("#item_edit_auto_url").change(function() {
         if($("#item_edit_auto_url").is(':checked')){
             // disable url input
@@ -46,6 +85,7 @@ $(document).ready(function() {
             $('#item_edit_url').prop('disabled', false);
         }
     });
+    // drop down parent select
     $("#item_parent").change(function(){
         _set_url_from_title();
     });
