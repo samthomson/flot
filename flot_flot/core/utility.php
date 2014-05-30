@@ -185,12 +185,12 @@
 		function __construct() {
 			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			$this->s_error_log_path = $this->s_base_path."flot_flot/log/php_error.log";
+			clearstatcache(true, $this->s_error_log_path);			
 		}
 		function b_errors () {
 			// does error file have contents
 			if(filesize($this->s_error_log_path) > 0)
-				return true;
-			
+				return true;			
 			return false;
 		}
 		function s_errors(){
