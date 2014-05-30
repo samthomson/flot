@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 function _set_url_from_title(){
     //var s_slug = encodeURIComponent('/' + $("#item_edit_title").val() + '/');
-    var s_parent = $("#item_parent").val();
+    var s_parent = $("#item_parent option:selected").text();
     if(s_parent !== ""){
         s_parent = s_make_slug(s_parent) + '/';
     }
