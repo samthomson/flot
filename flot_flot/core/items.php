@@ -166,7 +166,11 @@
 				#echo "$key<br/>";
 				#print_r($value);
 			}
-			$s_content_html = urldecode($this->o_full_item_object['content_html']);
+			$s_content_html = '';
+
+			if(isset($this->o_full_item_object['content_html'])){
+				$s_content_html = urldecode($this->o_full_item_object['content_html']);
+			}
 
 			$s_published_class = "";
 			$s_unpublished_class = "";
