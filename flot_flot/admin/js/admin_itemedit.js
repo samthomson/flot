@@ -19,6 +19,7 @@ $(document).ready(function() {
     //CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height],h1,h2,h3,h4,h5,h6,h7,span(*)';
     //CKEDITOR.config.extraPlugins = 'autogrow';
     // ALLOW <i></i>
+    //CKEDITOR.config.autoGrow_minHeight = 100;
     CKEDITOR.config.protectedSource.push(/<i[^>]*><\/i>/g);
     CKEDITOR.config.allowedContent = true;
 
