@@ -180,7 +180,7 @@
 			}
 			return false;
 		}
-		function s_get_current_user($user_id)
+		function s_get_current_user()
 		{
 			return $this->o_get_user_data($_SESSION['admin_user']);
 		}
@@ -376,8 +376,6 @@
 			}else{
 
 				$s_new_content = json_encode($this->oa_individual_items[$s_id]);
-				#$s_new_content = json_encode($o_blank_item);
-
 
 				if(file_put_contents($s_write_path, $s_new_content) > 0){
 					return true;

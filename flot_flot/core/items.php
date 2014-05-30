@@ -75,12 +75,12 @@
 
 			// render default item attributes
 			foreach ($this->o_oncology->elements as $key) {
-				if($this->o_loaded_item_object->$key !== null)
+				if(isset($this->o_loaded_item_object->$key))
 					$template = str_replace("{{item:".$key."}}", urldecode($this->o_loaded_item_object->$key), $template);
 			}
 			// render full item attributes
 			foreach ($this->o_oncology->full_elements as $key => $value) {
-				if($this->o_full_item_object[$key] !== null)
+				if(isset($this->o_full_item_object[$key]))
 					$template = str_replace("{{item:".$key."}}", urldecode($this->o_full_item_object[$key]), $template);
 			}
 
