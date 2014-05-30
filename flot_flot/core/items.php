@@ -383,12 +383,15 @@
 			$this->datastore->b_save_datastore("items");
 
 
-			$this->datastore->o_loaded_item_object->oa_individual_items[$this->o_loaded_item_object->id] = [];
+			//$this->datastore->o_loaded_item_object->oa_individual_items[$this->o_loaded_item_object->id] = [];
 
-			foreach($this->o_oncology->full_elements as $element){
+			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = [];
+
+
+			foreach($this->o_oncology->full_elements as $element => $properties){
 				$s_new_value = $flot->s_post_var($element, false);
 				if($s_new_value){
-					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id]->$element = urldecode($s_new_value);
+					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element] = urldecode($s_new_value);				
 				}
 			}
 

@@ -101,7 +101,7 @@
 			return $s_default_return;
 		}
 		function s_post_var($s_var, $s_default_return){
-			if(isset($_POST[$s_var]))
+			if(@isset($_POST[$s_var]))
 				return $_POST[$s_var];
 			return $s_default_return;
 		}
