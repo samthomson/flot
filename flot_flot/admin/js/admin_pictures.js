@@ -17,7 +17,7 @@ $(function () {
 	        _pic_search();
 		},
 		fail: function (e, data) {
-			console.log("upload failed: "+e+", "+data);
+			_log_failure(data.errorThrown + " (" + data.textStatus + ')');
 	        _pic_search();
 		},
 		progressall: function (e, data) {
@@ -29,7 +29,8 @@ $(function () {
 	        $("#upload_output").html("uploading.. "+progress+"%");
 	    }
 	});
-		console.log("init");
+
+
 	$("#file_browser_text_search").keyup(function() {
 		s_term = $("#file_browser_text_search").val();
 		_pic_search();
@@ -94,4 +95,9 @@ function insert_selected_pictures(s_upload_dir, s_size){
 	$('#file_browser_modal').modal('hide');
 	// reset selected
 	sa_selected = [];
+}
+function _log_failure(s_message){
+	//$("#upload_failure").html(s_message);
+	$("#upload_output").html('');
+	$("#upload_failure").html('<div class="alert alert-danger alert-dismissable">  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>  <strong>Upload error</strong> '+s_message+'</div>');
 }

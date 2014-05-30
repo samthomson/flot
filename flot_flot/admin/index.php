@@ -322,7 +322,6 @@
 				#
 				# top menu
 				#
-				$html_main_admin_content .= '';
 
 
 				$o_FileBrowser = new FileBrowser($s_action);
