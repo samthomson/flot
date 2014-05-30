@@ -39,7 +39,7 @@
 			if(empty($sa_reqs)){
 				return "no problems";
 			}
-			$html_return = '';
+			$html_return = '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-refresh"></i> re-check</a><hr/>';
 			foreach ($sa_reqs as $s_problem) {
 				$html_return .= '<div class="alert alert-danger">'.$s_problem.'</div>';
 			}
