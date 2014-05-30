@@ -37,7 +37,7 @@
 			$sa_reqs = $fr_FlotRequirements->sa_requirements_to_remedy();
 
 			if(empty($sa_reqs)){
-				return "no problems";
+				return '<div class="alert alert-success">no problems</div>';
 			}
 			$html_return = '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-refresh"></i> re-check</a><hr/>';
 			foreach ($sa_reqs as $s_problem) {
