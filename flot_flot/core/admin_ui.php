@@ -12,6 +12,7 @@
 			$html_left_menu = '';
 
 			$fu_FileUtil = new FileUtilities;
+			$fr_FlotRequirements = new FlotRequirements;
 
 			$html_left_menu .= '<div id="admin_menu_left">
 					<a class="admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="/flot_flot/admin/index.php?section=items&amp;oncology=page"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> Webpages</span></a>
@@ -21,9 +22,24 @@
 			if($fu_FileUtil->b_errors()){
 				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="/flot_flot/admin/index.php?section=errors"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>';
 			}
+			if(!$fr_FlotRequirements->b_ongoing_requirements_met()){
+				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="/flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Requirements</span></a>';
+			}
 			$html_left_menu .= '</div>';
 
 			return $html_left_menu;
+		}
+		function html_requirements_list(){			
+			$fr_FlotRequirements = new FlotRequirements;
+
+			$fr_FlotRequirements->b_ongoing_requirements_met();
+
+			$sa_reqs = $fr_FlotRequirements->sa_requirements_to_remedy();
+
+			if(empty($sa_reqs)){
+				return "no problems";
+			}
+			return $sa_reqs;
 		}
 		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content, $html_make_admin_content_menu, $s_body_class){
 

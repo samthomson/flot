@@ -21,7 +21,7 @@
 
 	class FlotRequirements {
 
-		public $sa_instructions;
+		public $sa_instructions = [];
 		public $s_base_path;
 
 		function __construct() {
@@ -41,6 +41,15 @@
 				return false;
 			else
 				return true;
+		}
+
+		function b_ongoing_requirements_met(){
+			// upload dir writable
+
+			// a/the theme exists
+
+			// flot has write permissions
+			return $this->b_requirements_met();
 		}
 		function sa_requirements_to_remedy(){
 			return $this->sa_instructions;
@@ -208,7 +217,7 @@
 			}
 		}
 	}
-	
+
 	class UrlStuff{
 		function s_format_url_from_item_url($s_item_url){
 			// returns a relative url
