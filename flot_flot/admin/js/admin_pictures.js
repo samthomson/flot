@@ -3,6 +3,8 @@ var s_term = "";
 var s_mode = "browse";
 var i_page = 1;
 
+var xhr_image_search_requst;
+
 
 $(function () {
 	$('#fileupload').fileupload({
@@ -36,7 +38,11 @@ $(function () {
 });
 
 function _pic_search(){
-	$.get('/flot_flot/admin/search_pics.php',{"term": s_term, "mode": s_mode}, function(data){
+	if(xhr_image_search_requst !== undefined){
+		// we don't want to handle the result of previous requests, if we're making a new one.
+		xhr_image_search_requst.abort();
+	}
+	xhr_image_search_requst = $.get('/flot_flot/admin/search_pics.php',{"term": s_term, "mode": s_mode}, function(data){
 		$("#picture_browser_results").html(data);
 	});
 }
