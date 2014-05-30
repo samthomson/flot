@@ -68,7 +68,7 @@
 					$this->pictures = '[]';
 					break;
 				case 'file_tags':
-					$this->file_tags = '[]';
+					$this->file_tags = '{}';
 					break;
 				case 'urls':
 					$this->urls = '[]';
@@ -330,15 +330,23 @@
 		}
 		function _add_file_tags($s_filename, $sa_tags){
 			// set each tag with the filename, if there are filename already, add this one
+			
+			echo "pre tags updating<br/>";
 			foreach ($sa_tags as $s_tag) {
 				$s_tag = strtolower($s_tag);
-				if(!isset($this->file_tags->$s_tag)){
-					// no tag yet, make it
-					$this->file_tags->$s_tag = array();
+				if(isset($this->file_tags)){
+					echo "file tags is set<br/>";
+					if(!isset($this->file_tags->$s_tag)){
+						$this->file_tags->$s_tag = array();
+						echo "file tags[$s_tag] wasn't an array, it is now<br/>";
+					}else{
+						echo "file tags[$s_tag] wasn an array already<br/>";
+					}
 				}
 				array_push($this->file_tags->$s_tag, $s_filename);
-				//$this->file_tags->$s_tag = $s_filename;
 			}	
+			echo "post tags updating<br/>";
+			print_r($this->file_tags);
 		}
 
 		

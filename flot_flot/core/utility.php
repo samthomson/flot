@@ -131,8 +131,14 @@
 
 			if(count($sa_tags_for_file)){
 				$o_Datastore->_add_file_tags($this->filename, $sa_tags_for_file);
+			}else{
+				echo "no tags<br/>";
 			}
-			$o_Datastore->_save_datastore("file_tags");
+			if(!$o_Datastore->b_save_datastore("file_tags")){
+				echo "saving file tags datastore failed..";
+			}else{
+				echo "succesfully saved datastore<br/>";
+			}
 		}
 		function _sa_tags_from_filename(){
 			$sa_tags = array();
