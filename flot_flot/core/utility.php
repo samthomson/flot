@@ -134,11 +134,7 @@
 			}else{
 				echo "no tags<br/>";
 			}
-			if(!$o_Datastore->b_save_datastore("file_tags")){
-				echo "saving file tags datastore failed..";
-			}else{
-				echo "succesfully saved datastore<br/>";
-			}
+			$o_Datastore->b_save_datastore("file_tags");
 		}
 		function _sa_tags_from_filename(){
 			$sa_tags = array();
