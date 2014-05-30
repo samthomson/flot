@@ -31,7 +31,7 @@
 			// if we could read in datastore file, initiate object to it
 			$s_filepath = $this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php';
 			clearstatcache(true, $s_filepath);
-			if($json_data = file_get_contents($s_filepath)){
+			if($json_data = @file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
 				$this->{$s_datastore_name} = json_decode($json_data);
 			}
@@ -57,7 +57,7 @@
 					break;
 				case 'items':
 					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"", "parent":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014"}]';
-					$this->oa_individual_items['pagestart'] = '{"title":"Welcome", "parent":"","url":"index.html","published":"true","content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}';
+					$this->oa_individual_items['pagestart'] = '{"content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}';
 					$this->b_save_item('pagestart');
 					break;
 				case 'menus':
@@ -374,7 +374,20 @@
 			if(!isset($this->oa_individual_items[$s_id])){
 				echo "individual item not defined";
 			}
+			/*
+			// get item oncologys full elements
+			$oi_item = $this->get_item_data($s_id);
+			$oo_oncology = $this->get_oncology($oi_item->oncology);
+			// use them as a base of what to store
+			$o_blank_item;
+			foreach ($oo_oncology->full_elements as $key => $value) {
+				$o_blank_item->{$key} = $this->oa_individual_items[$s_id]->{$key};
+			}
+			*/
+
 			$s_new_content = json_encode($this->oa_individual_items[$s_id]);
+			#$s_new_content = json_encode($o_blank_item);
+
 
 			if(file_put_contents($s_write_path, $s_new_content) > 0){
 				return true;

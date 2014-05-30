@@ -27,6 +27,7 @@
 		function _set_full_item($o_full_item){
 			// full item object will have stuff like content, keywords, description, etc
 			// loop through each property and add it to exisiting item object
+			print_r($o_full_item);
 			foreach ($o_full_item as $key => $value) {
 			    $this->o_loaded_item_object->$key = $value;
 			}
@@ -52,7 +53,7 @@
 				# write the file itself
 				file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
 			}else{
-				// the item is not marked as 'published' so we don't want it saved, or there to be a saved copy of the redndered webpage
+				// the item is not marked as 'published' so we don't want it saved, or there to be a saved copy of the rendered webpage
 				$this->delete();
 			}
 		}
@@ -134,18 +135,35 @@
 		# editing
 		#
 		function html_edit_form(){
+			/*
+			get the item id and oncology
+			build the ui form based on oncology and retrieved item data
+			*/
+			
+			
+
 			$html_form = "";
+
+			// get default item properties
 			$s_id = urldecode($this->o_loaded_item_object->id);
 			$s_title = urldecode($this->o_loaded_item_object->title);
-			$s_parent = urldecode($this->o_loaded_item_object->parent);
-			$s_url = urldecode($this->o_loaded_item_object->url);
-			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
 			$s_keywords = urldecode($this->o_loaded_item_object->keywords);
 			$s_description = urldecode($this->o_loaded_item_object->description);
-			$s_template = urldecode($this->o_loaded_item_object->template);
-			$s_title = urldecode($this->o_loaded_item_object->title);
+			$s_parent = urldecode($this->o_loaded_item_object->parent);
+			$s_url = urldecode($this->o_loaded_item_object->url);
 			$b_published = urldecode($this->o_loaded_item_object->published);
 			$s_checked = urldecode($this->o_loaded_item_object->url_auto);
+			$s_template = urldecode($this->o_loaded_item_object->template);
+
+			// get oncology object
+			$oo_oncology = $this->datastore->get_oncology($this->o_oncology);
+			echo "oncology: ".$this->o_oncology.'<br/>';
+			// iterate through oncologies 'full elements'
+			foreach($oo_oncology->full_elements as $key => $value){
+				echo "$key => $value<br/>";
+			}
+			echo "loaded item object: ".$this->o_loaded_item_object.'<br/>';
+			$s_content_html = urldecode($this->o_loaded_item_object->content_html);
 
 			$s_published_class = "";
 			$s_unpublished_class = "";
