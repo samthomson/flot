@@ -39,6 +39,10 @@
 			if(empty($sa_reqs)){
 				return "no problems";
 			}
+			$html_return = '';
+			foreach ($sa_reqs as $s_problem) {
+				$html_return .= $s_problem.'<br/>';
+			}
 			return $sa_reqs;
 		}
 		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content, $html_make_admin_content_menu, $s_body_class){
