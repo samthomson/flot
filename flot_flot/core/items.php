@@ -73,9 +73,15 @@
 			# parse in data
 			$sa_keys = array_keys(get_object_vars($this->o_loaded_item_object));
 
-			foreach ($sa_keys as $key) {
+			// render default item attributes
+			foreach ($this->o_oncology->elements as $key) {
 				if($this->o_loaded_item_object->$key !== null)
 					$template = str_replace("{{item:".$key."}}", urldecode($this->o_loaded_item_object->$key), $template);
+			}
+			// render full item attributes
+			foreach ($this->o_oncology->full_elements as $key => $value) {
+				if($this->o_full_item_object[$key] !== null)
+					$template = str_replace("{{item:".$key."}}", urldecode($this->o_full_item_object[$key]), $template);
 			}
 
 			# parse in menus
