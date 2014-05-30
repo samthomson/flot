@@ -44,12 +44,26 @@
 		}
 
 		function b_ongoing_requirements_met(){
+
+			$o_Datastore = new Datastore;
+			// flot pre-requisits
+			$this->b_requirements_met();
+
 			// upload dir writable
+			if(!$this->b_permissions($this->s_base_path.$o_Datastore->settings->upload_dir, "0777")){
+				array_push($this->sa_instructions, "flot needs full write access to the uploads directory.");
+			}
+
 
 			// a/the theme exists
 
 			// flot has write permissions
-			return $this->b_requirements_met();
+
+			# return true or false
+			if(count($this->sa_instructions) > 0)
+				return false;
+			else
+				return true;
 		}
 		function sa_requirements_to_remedy(){
 			return $this->sa_instructions;
