@@ -208,4 +208,17 @@
 			}
 		}
 	}
+	
+	class UrlStuff{
+		function s_format_url_from_item_url($s_item_url){
+			// returns a relative url
+			if(substr($s_item_url, 0,1) !== '/')
+				$s_item_url = '/'.$s_item_url;
+			if($s_item_url === "/index.html"){
+				// homepage
+				$s_item_url = '/';
+			}
+			return $s_item_url;
+		}
+	}
 ?>

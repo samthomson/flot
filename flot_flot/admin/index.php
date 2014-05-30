@@ -169,13 +169,15 @@
 
 								$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[1], $s_date_modified[0], $s_date_modified[2]));
 								$s_url_text = $s_url;
-								if(substr($s_url, 0,1) !== '/')
-									$s_url = '/'.$s_url;
-								if($s_url === "/index.html"){
+
+								$oUrlStuff = new UrlStuff;
+								$s_url = $oUrlStuff->s_format_url_from_item_url($s_url);
+
+								if($s_url === "/"){
 									// homepage
-									$s_url = '/';
 									$s_url_text = ' <i class="glyphicon glyphicon-home"></i> Homepage';
 								}
+
 								$s_link_class = '';
 								if(urldecode($o_page->published) !== "true"){
 									$s_link_class = ' style="display:none;"';
