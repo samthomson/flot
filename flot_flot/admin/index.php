@@ -45,7 +45,8 @@
 							$o_item = $flot->datastore->get_item_data($item_id);
 							$o_full_item = $flot->datastore->o_get_full_item($item_id);
 
-							if($o_item && $o_full_item){
+
+							if($o_item && isset($o_full_item)){
 								$Item = new Item($o_item);
 
 								$Item->_set_full_item($o_full_item);
@@ -53,10 +54,11 @@
 
 								# persist (or not) the item
 								$Item->save();
-
 								
 								# change location to view the item
 								$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
+							}else{
+								echo "no loaded item & full item";
 							}
 						}
 						break;
