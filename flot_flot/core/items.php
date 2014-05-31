@@ -227,9 +227,7 @@
 
 			$html_form .= '<div class="btn-group" id="edit_item_publish_toolbar">';
 			$html_form .= '<a class="btn btn-success btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');"><i class="glyphicon glyphicon-cloud-upload"></i> save &amp; publish</a>';		
-			$html_form .= '<a class="btn btn-warning btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');"><i class="glyphicon glyphicon-cloud-download"></i> unpublish</a>';			
-			// make home page
-			$html_form .= '<a class="btn btn-default btn-sm" href="javascript:_make_home_page();"><i class="glyphicon glyphicon-home"></i><span class="small-hidden"> make homepage</span></a>';
+			$html_form .= '<a class="btn btn-warning btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');"><i class="glyphicon glyphicon-cloud-download"></i> unpublish</a>';		
 			$html_form .= '</div><div id="publish_output"></div><hr/>';
 
 			$html_form .= '<form id="item_edit_form" role="form" method="post" action="index.php">';
@@ -263,7 +261,15 @@
         	$html_form .= '<input id="item_edit_auto_url" name="url_auto" '.$s_checked.' value="true" type="checkbox"> set url for me';
       		$html_form .= '</span>';
       		$html_form .= '<input type="text" id="item_edit_url" class="form-control item_edit_url" placeholder="relative url" value="'.$s_url.'"'.$s_url_input_disabled.'>';
+      		//$html_form .= '<span class="input-group-btn"><button class="btn btn-default" type="button"></button></span>';
+      		$s_make_home_page_disabled = '';
+      		if($s_url === "index.html"){
+	      		$s_make_home_page_disabled = '';
+	      	}
+      		$html_form .= '<span class="input-group-btn"><a class="btn btn-default btn-sm'.$s_make_home_page_disabled.'" href="javascript:_make_home_page();"><i class="glyphicon glyphicon-home"></i><span class="small-hidden"> make homepage</span></a></span>';
     		$html_form .= '</div><!-- /input-group -->';
+
+
 
 			# editor
 			$html_form .= '<hr/><label class="form-group">WYSIWYG editer</label><br/>';
