@@ -118,7 +118,6 @@ function s_make_slug(slugcontent)
 }
 
 function publish(s_publish_status){
-    console.log("set status to: " + s_publish_status);
     switch(s_publish_status){
         case "published":
             // set as published
@@ -129,5 +128,17 @@ function publish(s_publish_status){
             $("#published").val("false");
             break;
     }
+    $("#item_edit_form").submit();
+}
+function _make_home_page(){
+    // set form fields according to home page and submit form
+
+    // uncheck auto url    
+    $('#item_edit_auto_url').prop('checked', false);
+
+    // set url index
+    $('#item_edit_url').val('index.html');
+    $("input[type=hidden].item_edit_url").val($("#item_edit_url").val());
+
     $("#item_edit_form").submit();
 }
