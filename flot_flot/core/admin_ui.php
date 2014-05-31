@@ -117,7 +117,7 @@
 			$html_form = "";
 
 			$html_form .= '<h4>Settings</h4>';
-			$html_form .= '<p>settings can\'t be edited here just yet, only in the settings.php file in the datastore folder.</p><hr/>';
+			$html_form .= '<p>Only some settings can be edited at the moment, if you feel confident you can edit theme directly in the settings datastore.</p><hr/>';
 
 			$html_form .= '<form role="form" method="post" action="index.php">';
 
