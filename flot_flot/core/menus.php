@@ -18,11 +18,16 @@
 			# spit out ul
 			$html_menu = "";
 
-			$sa_menus = explode(';', urldecode($this->o_loaded_menu_object->serialisation));
+			if(isset($this->o_loaded_menu_object)){
+				$sa_menus = explode(';', urldecode($this->o_loaded_menu_object->serialisation));
 
-			
-			$s_seed_menu_items = $this->s_take_out_menu_items("root", $sa_menus);
-			$html_menu .= $this->s_fill_out_menu($s_seed_menu_items, $sa_menus);
+				
+				$s_seed_menu_items = $this->s_take_out_menu_items("root", $sa_menus);
+				$html_menu .= $this->s_fill_out_menu($s_seed_menu_items, $sa_menus);
+
+			}else{
+				error_log("tried to render a menu which doesn't exist, check the menu code in your theme matches that in the menu editor");
+			}
 
 			return $html_menu;
 		}
