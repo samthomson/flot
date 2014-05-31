@@ -1,7 +1,7 @@
 <?php
 	# log in and forward user to route admin section
 	$s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-	require($s_base_path.'/flot_flot/core/flot.php');
+	require($s_base_path.'flot_flot/core/flot.php');
 
 	$flot = new Flot;
 	$requirements = new FlotRequirements;
