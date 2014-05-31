@@ -96,8 +96,15 @@
 						foreach ($_POST as $param_name => $param_val) {
 							if(isset($flot->datastore->settings->{$param_name})){
 								// the posted variable already exists, so we'll update it
+								$s_old_theme = $flot->datastore->settings->theme;
 								$flot->datastore->settings->{$param_name} = $param_val;
 								$flot->datastore->b_save_datastore("settings");
+
+								$s_new_theme = $flot->datastore->settings->theme;
+
+								if($s_old_theme !== $s_new_theme){
+									$flot->_theme_changed();
+								}
 							}
 						}
 

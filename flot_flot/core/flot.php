@@ -149,5 +149,13 @@
 			mkdir($this->s_base_path.'/flot_flot/uploads');
 			mkdir($this->s_base_path.'/flot_flot/log');
 		}
+
+		//
+		// events
+		//
+		function _theme_changed(){
+			// regenerate all pages
+			$this->_render_all_pages();
+		}
 	}
 ?>
