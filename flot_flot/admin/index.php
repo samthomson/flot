@@ -230,7 +230,7 @@
 							$flot->datastore->_delete_item($s_page_id);
 
 							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&action=list";
-							$flot->_page_change($s_new_page);
+							//$flot->_page_change($s_new_page);
 						}
 						break;
 				}

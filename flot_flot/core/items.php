@@ -61,10 +61,21 @@
 		function delete() {
 			$item_url = new ItemURL($this->o_loaded_item_object);
 			# delete the file
-			if(file_exists($item_url->writing_file_path($this->s_base_path)))
-				unlink($item_url->writing_file_path($this->s_base_path));
+			$s_writing_file_path = $item_url->writing_file_path($this->s_base_path);
+			if(file_exists($s_writing_file_path))
+				unlink($s_writing_file_path);
 
 			# if it was the last file in folder, delete folder, repeat this recursively until back to root
+			$fu_FileUtility = new FileUtilities;
+			$s_directory_containing_file = $fu_FileUtility->s_lowest_directory_of_path($s_writing_file_path);
+			echo "lowest dir path: ".$s_directory_containing_file;
+			error_log("lowest dir path: ".$s_directory_containing_file);
+
+			// delete folder if it's empty
+			/*
+			if($fu_FileUtility->b_is_dir_empty($s_directory_containing_file)){
+				rmdir($s_directory_containing_file)
+			}*/
 		}
 		function render() {
 			# get template
