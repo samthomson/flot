@@ -9,7 +9,6 @@
 
 		function __construct($o_menu) {
 			$this->o_loaded_menu_object = $o_menu;
-			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			# set a reference to my oncology
 			$this->datastore = new DataStore;
 			$this->flot = new Flot;

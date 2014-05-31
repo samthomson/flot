@@ -1,8 +1,9 @@
 <?php
 	# search pics from datastore, render them with pagination
-	$s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+	$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 
-	include($s_base_path.'flot_flot/core/datastore.php');
+	include($s_b_p.'flot_flot/core/base.php');
+	include(S_BASE_PATH.'flot_flot/core/datastore.php');
 
 	$s_mode = "browse";
 	if(isset($_GET['mode']))

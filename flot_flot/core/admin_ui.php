@@ -3,10 +3,8 @@
 
 
 	class AdminUI {
-		public $s_base_path;
 
 		function __construct() {
-			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 		}
 		function html_make_left_menu($s_active_section){
 			$html_left_menu = '';
@@ -47,7 +45,7 @@
 		}
 		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content, $html_make_admin_content_menu, $s_body_class){
 
-			include($this->s_base_path.'flot_flot/admin/ui/template.php');
+			include(S_BASE_PATH.'flot_flot/admin/ui/template.php');
 			exit();
 		}
 		function s_active_or_empty($s_me, $s_current){

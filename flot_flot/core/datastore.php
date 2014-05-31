@@ -17,8 +17,6 @@
 		public $b_user_is_admin = false;
 
 		function __construct() {
-			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-
 			$sa_datastores_to_initiate = array('settings', 'urls', 'items', 'menus', 'users', 'oncologies', 'pictures', 'file_tags');
 
 			foreach ($sa_datastores_to_initiate as $s_datastore_to_initiate) {
@@ -29,7 +27,7 @@
 
 		function initiate_datastore($s_datastore_name){
 			// if we could read in datastore file, initiate object to it
-			$s_filepath = $this->s_base_path.'flot_flot/datastore/'.$s_datastore_name.'.php';
+			$s_filepath = S_BASE_PATH.'flot_flot/datastore/'.$s_datastore_name.'.php';
 			clearstatcache(true, $s_filepath);
 			if($json_data = @file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
@@ -41,7 +39,7 @@
 			}
 		}
 		function initiate_item($_id){
-			$s_filepath = $this->s_base_path.'flot_flot/datastore/'.$_id.'.php';
+			$s_filepath = S_BASE_PATH.'flot_flot/datastore/'.$_id.'.php';
 			clearstatcache(true, $s_filepath);
 			if($json_data = file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
@@ -292,7 +290,7 @@
 			$this->b_save_datastore("items");
 		}
 		function _delete_full_item($s_id){
-			$s_file_path = $this->s_base_path.'flot_flot/datastore/'.$s_id.'.php';
+			$s_file_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
 			unlink($s_file_path);
 		}
 		function _delete_menu($s_id){
@@ -356,7 +354,7 @@
 				$s_datastore === 'urls' ||
 				$s_datastore === 'oncologies'){
 
-				$s_write_path = $this->s_base_path.'flot_flot/datastore/'.$s_datastore.'.php';
+				$s_write_path = S_BASE_PATH.'flot_flot/datastore/'.$s_datastore.'.php';
 
 				$s_new_content = json_encode($this->{$s_datastore});
 
@@ -371,7 +369,7 @@
 		function b_save_item($s_id)
 		{
 			// $this->oa_individual_items[$s_id]
-			$s_write_path = $this->s_base_path.'flot_flot/datastore/'.$s_id.'.php';
+			$s_write_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
 
 			if(!isset($this->oa_individual_items[$s_id])){
 				echo "individual item not defined";
@@ -388,7 +386,7 @@
 		}
 		function sa_templates_available(){
 			// look up all template files in theme dir
-			$sa_files = glob($this->s_base_path.'/flot_flot/themes/'.$this->settings->theme.'/*.html');
+			$sa_files = glob(S_BASE_PATH.'/flot_flot/themes/'.$this->settings->theme.'/*.html');
 
 			foreach ($sa_files as $key => $file) {
 				$sa_files[$key] = substr($file, strrpos($file, '/')+1, strlen($file));

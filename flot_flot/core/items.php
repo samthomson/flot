@@ -14,13 +14,11 @@
 		public $o_loaded_item_object;
 		public $o_full_item_object;
 		public $html_page;
-		public $s_base_path;
 		public $o_oncology;
 		public $datastore;
 
 		function __construct($o_item) {
 			$this->o_loaded_item_object = $o_item;
-			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			# set a reference to my oncology
 			$this->datastore = new DataStore;
 			$this->o_oncology = $this->datastore->get_oncology($o_item->oncology);
@@ -47,13 +45,13 @@
 				# create any directories for the file if neccesary
 				if($item_url->has_dirs()){
 					# make dirs
-					if(!file_exists($this->s_base_path.$item_url->dir_path()))
-						mkdir($this->s_base_path.$item_url->dir_path(), 0777, true);
+					if(!file_exists(S_BASE_PATH.$item_url->dir_path()))
+						mkdir(S_BASE_PATH.$item_url->dir_path(), 0777, true);
 				}
 
 				# write the file itself
 				$fu_FileUtility = new FileUtilities;
-				if(!$fu_FileUtility->b_safely_write_file($item_url->writing_file_path($this->s_base_path), $this->html_page)){
+				if(!$fu_FileUtility->b_safely_write_file($item_url->writing_file_path(S_BASE_PATH), $this->html_page)){
 					// writing failed, set published status to false
 					$this->o_loaded_item_object->published = "false";
 					$this->datastore->b_save_datastore("items");
@@ -67,7 +65,7 @@
 		function delete() {
 			$item_url = new ItemURL($this->o_loaded_item_object);
 			# delete the file
-			$s_writing_file_path = $item_url->writing_file_path($this->s_base_path);
+			$s_writing_file_path = $item_url->writing_file_path(S_BASE_PATH);
 			if(file_exists($s_writing_file_path))
 				unlink($s_writing_file_path);
 
@@ -82,7 +80,7 @@
 		}
 		function render() {
 			# get template
-			$template = file_get_contents($this->s_base_path.'/flot_flot/themes/'.$this->datastore->settings->theme.'/'.$this->o_loaded_item_object->template);
+			$template = file_get_contents(S_BASE_PATH.'/flot_flot/themes/'.$this->datastore->settings->theme.'/'.$this->o_loaded_item_object->template);
 
 			# parse in data
 			$sa_keys = array_keys(get_object_vars($this->o_loaded_item_object));
