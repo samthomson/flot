@@ -53,14 +53,18 @@
 
 				$sa_menu_items = explode(",", $s_menu_items);
 				$s_return .= "<ul>";
-				foreach ($sa_menu_items as $s_menu_item) {
 
-					$o_Item = new Item($this->datastore->get_item_data($s_menu_item));
+				foreach ($sa_menu_items as $key => $s_menu_item) {
 
-					if(isset($o_Item) && isset($o_Item->o_loaded_item_object->url)){
-						$s_return .= '<li><a href="'.$o_Item->o_loaded_item_object->url.'">'.$o_Item->o_loaded_item_object->title.'</a>';
-						$s_return .= $this->s_fill_out_menu($this->s_take_out_menu_items($s_menu_item, $sa_menus), $sa_menus);
-						$s_return .= "</li>";
+					$o_looked_up_item = $this->datastore->get_item_data($s_menu_item);
+					if($o_looked_up_item){
+						$o_Item = new Item($o_looked_up_item);
+
+						if(isset($o_Item) && isset($o_Item->o_loaded_item_object->url)){
+							$s_return .= '<li><a href="'.$o_Item->o_loaded_item_object->url.'">'.$o_Item->o_loaded_item_object->title.'</a>';
+							$s_return .= $this->s_fill_out_menu($this->s_take_out_menu_items($s_menu_item, $sa_menus), $sa_menus);
+							$s_return .= "</li>";
+						}
 					}
 				}
 				$s_return .= "</ul>";

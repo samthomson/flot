@@ -46,10 +46,21 @@
 			    require_once($file);
 			}
 		}
+		function _safe_session_start(){
+			if(PHP_VERSION_ID >= 50400){
+				if (session_status() == PHP_SESSION_NONE) {
+				    session_start();
+				}
+			}else{
+				if(session_id() == '') {
+				    session_start();
+				}
+			}
+		}
 
 		function b_is_user_admin()
 		{
-			session_start();
+			$this->_safe_session_start();
 			# is the user logged in to back end?
 			if(isset($_SESSION['admin_user'])){
 				$this->s_current_user = $_SESSION['admin_user'];
@@ -70,7 +81,7 @@
 
 			    if($o_user){
 				    if($user === $o_user->user && $pass === $o_user->pass){
-				    	session_start();
+				    	$this->_safe_session_start();
 						$_SESSION['admin_user'] = $user;
 				    }
 				}
@@ -78,7 +89,7 @@
 		}
 		function _kill_session()
 		{
-			session_start();
+			$this->_safe_session_start();
 			session_destroy();
 		}
 		function _page_change($s_relative_page){
