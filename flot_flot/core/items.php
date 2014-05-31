@@ -226,8 +226,8 @@
 
 
 			$html_form .= '<div class="btn-group" id="edit_item_publish_toolbar">';
-			$html_form .= '<a class="btn btn-success btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');"><i class="glyphicon glyphicon-cloud-upload"></i> save & publish on the internet</a>';		
-			$html_form .= '<a class="btn btn-warning btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');"><i class="glyphicon glyphicon-cloud-download"></i> unpublish from the internet</a>';			
+			$html_form .= '<a class="btn btn-success btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');"><i class="glyphicon glyphicon-cloud-upload"></i> save &amp; publish</a>';		
+			$html_form .= '<a class="btn btn-warning btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');"><i class="glyphicon glyphicon-cloud-download"></i> unpublish</a>';			
 			// make home page
 			$html_form .= '<a class="btn btn-default btn-sm" href="javascript:_make_home_page();"><i class="glyphicon glyphicon-home"></i><span class="small-hidden"> make homepage</span></a>';
 			$html_form .= '</div><div id="publish_output"></div><hr/>';
