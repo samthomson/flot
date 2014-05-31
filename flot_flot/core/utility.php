@@ -259,12 +259,14 @@
 		function b_safely_write_file($s_path, $s_content){
 			/* checks filepath against some blacklisted routes before 
 			writing with file_put_contents */
-			$sa_blacklist_paths = ['flot_flot', '.htaccess'];
+			$sa_blacklist_paths = array('flot_flot', '.htaccess');
 			foreach ($sa_blacklist_paths as $s_not_allowed) {
-				if(strpos($s_path, $s_not_allowed))
+				if(strpos($s_path, $s_not_allowed) > -1){
+					error_log("you tried to publish a page containing '$s_not_allowed' in it's url, that's not allowed :(");
 					return false;
+				}
 			}
-			file_put_contents($item_url->writing_file_path($this->s_base_path), $this->html_page);
+			file_put_contents($s_path, $s_content);
 			return true;
 		}
 	}

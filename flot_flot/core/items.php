@@ -53,7 +53,11 @@
 
 				# write the file itself
 				$fu_FileUtility = new FileUtilities;
-				$fu_FileUtility->b_safely_write_file($item_url->writing_file_path($this->s_base_path), $this->html_page);
+				if(!$fu_FileUtility->b_safely_write_file($item_url->writing_file_path($this->s_base_path), $this->html_page)){
+					// writing failed, set published status to false
+					$this->o_loaded_item_object->published = "false";
+					$this->datastore->b_save_datastore("items");
+				}
 				
 			}else{
 				// the item is not marked as 'published' so we don't want it saved, or there to be a saved copy of the rendered webpage
@@ -134,7 +138,7 @@
 			$this->render();
 
 			# persist the page to disk
-			$this->update();
+			return $this->update();
 		}
 
 		#
