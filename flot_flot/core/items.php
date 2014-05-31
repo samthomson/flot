@@ -89,13 +89,19 @@
 
 			// render default item attributes
 			foreach ($this->o_oncology->elements as $key) {
-				if(isset($this->o_loaded_item_object->$key))
-					$template = str_replace("{{item:".$key."}}", urldecode($this->o_loaded_item_object->$key), $template);
+				$s_swap_in = '';
+				if(isset($this->o_loaded_item_object->$key)){
+					$s_swap_in = urldecode($this->o_loaded_item_object->$key);
+				}
+				$template = str_replace("{{item:".$key."}}", $s_swap_in, $template);
 			}
 			// render full item attributes
 			foreach ($this->o_oncology->full_elements as $key => $value) {
-				if(isset($this->o_full_item_object[$key]))
-					$template = str_replace("{{item:".$key."}}", urldecode($this->o_full_item_object[$key]), $template);
+				$s_swap_in = '';
+				if(isset($this->o_full_item_object[$key])){
+					$s_swap_in = urldecode($this->o_full_item_object[$key]);
+				}
+				$template = str_replace("{{item:".$key."}}", $s_swap_in, $template);
 			}
 
 			# parse in menus
