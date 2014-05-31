@@ -2,19 +2,17 @@
 	/* main class for everything flot.
 	used to handle app entry point
 	*/
-	$S_BASE_PATH = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-	require_once($S_BASE_PATH.'flot_flot/core/base.php');
+	$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+	require_once($s_b_p.'flot_flot/core/base.php');
 
 	class Flot {
 
 		public $datastore;
 		public $error_handler;
-		public $s_base_path;
 
 		public $s_current_user;
 
 		function __construct() {
-			$this->s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 			$this->load_all_dependencies();
 			$this->datastore = new DataStore;
 			$this->error_handler = new ErrorHandler;
@@ -27,7 +25,7 @@
 				// get the object representing the page requested
 				$item = $this->datastore->get_item_data($item->id);
 				
-				$o_item = new Item($item, $this->s_base_path);
+				$o_item = new Item($item, S_BASE_PATH);
 				$o_item->render();
 			}else{
 				$this->error_handler->throw_404();
@@ -42,7 +40,7 @@
 			# load plugins too?
 		}
 		function load_core_flot_dependencies() {
-			foreach(glob($this->s_base_path.'/flot_flot/core/*') as $file) {
+			foreach(glob(S_BASE_PATH.'/flot_flot/core/*') as $file) {
 			    require_once($file);
 			}
 		}
@@ -145,20 +143,20 @@
 			}
 		}
 		function _delete_start_page(){
-			$s_start_path = $this->s_base_path."start.php";
+			$s_start_path = S_BASE_PATH."start.php";
 			unlink($s_start_path);
 		}
 
 		function _process_file_upload($s_upload_dir, $s_filename){
-			$o_ImageProcessor = new ImageProcessor($this->s_base_path, $s_upload_dir, $s_filename);
+			$o_ImageProcessor = new ImageProcessor(S_BASE_PATH, $s_upload_dir, $s_filename);
 
 			$o_ImageProcessor->process_and_tag_to_datastore();
 		}		
 		function _create_start_dirs(){
 			// make the uploads and datastore dir
-			mkdir($this->s_base_path.'/flot_flot/datastore');
-			mkdir($this->s_base_path.'/flot_flot/uploads');
-			mkdir($this->s_base_path.'/flot_flot/log');
+			mkdir(S_BASE_PATH.'/flot_flot/datastore');
+			mkdir(S_BASE_PATH.'/flot_flot/uploads');
+			mkdir(S_BASE_PATH.'/flot_flot/log');
 		}
 
 		//

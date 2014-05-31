@@ -7,8 +7,8 @@
 	however we also need to show invalid post requests? maybe we could just do that client side.
 	*/
 
-	$S_BASE_PATH = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-	require_once($S_BASE_PATH.'flot_flot/core/flot.php');
+	$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+	require_once($s_b_p.'flot_flot/core/flot.php');
 
 
 	$flot = new Flot;
