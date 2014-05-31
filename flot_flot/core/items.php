@@ -201,15 +201,13 @@
 			}
 
 			# start button group
-			$html_form .= '<div class="btn-group" id="edit_item_general_toolbar">';
+			$html_form .= '<div class="btn-group edit_item_general_toolbar">';
 
 			// preview
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
 			/*
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 			*/
-			// delete
-			$html_form .= '<a class="btn btn-danger btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';
 
 			// view (open in new tab)
 			$oUrlStuff = new UrlStuff;
@@ -223,12 +221,19 @@
 
 
 			# published toggle
-
-
-			$html_form .= '<div class="btn-group" id="edit_item_publish_toolbar">';
+			$html_form .= '<div class="btn-group edit_item_general_toolbar">';
 			$html_form .= '<a class="btn btn-success btn-sm" '.$s_published_class.'href="javascript:publish(\'published\');"><i class="glyphicon glyphicon-cloud-upload"></i> save &amp; publish</a>';		
 			$html_form .= '<a class="btn btn-warning btn-sm" '.$s_unpublished_class.'href="javascript:publish(\'unpublished\');"><i class="glyphicon glyphicon-cloud-download"></i> unpublish</a>';		
-			$html_form .= '</div><div id="publish_output"></div><hr/>';
+			$html_form .= '</div>';
+
+			// delete button group
+			$html_form .= '<div class="btn-group">';
+			// delete
+			$html_form .= '<a class="btn btn-danger btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';		
+			$html_form .= '</div>';
+
+
+			$html_form .= '<div id="publish_output"></div><hr/>';
 
 			$html_form .= '<form id="item_edit_form" role="form" method="post" action="index.php">';
 
