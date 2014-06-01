@@ -358,9 +358,10 @@
 
 				$s_new_content = json_encode($this->{$s_datastore});
 
-				if(file_put_contents($s_write_path, $s_new_content) > 0){
+				if(@file_put_contents($s_write_path, $s_new_content) > 0){
 					return true;
 				}else{
+					error_log("flot couldn't write in the datastore.. :(");
 					return false;
 				}
 			}
