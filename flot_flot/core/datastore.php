@@ -5,7 +5,7 @@
 
 		public $urls;
 		public $items;
-		public $oa_individual_items = [];
+		public $oa_individual_items = array();
 		public $menus;
 		public $settings;
 		public $users;
@@ -43,7 +43,7 @@
 			clearstatcache(true, $s_filepath);
 			if($json_data = file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
-				$this->oa_individual_items[$_id] = [];
+				$this->oa_individual_items[$_id] = array();
 				$this->oa_individual_items[$_id] = json_decode($json_data);
 			}
 		}

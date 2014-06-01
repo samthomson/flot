@@ -21,7 +21,7 @@
 
 	class FlotRequirements {
 
-		public $sa_instructions = [];
+		public $sa_instructions = array();
 
 		function __construct() {
 			$this->sa_instructions = array();

@@ -427,11 +427,7 @@
 			$this->datastore->_set_item_data($this->o_loaded_item_object);
 			$this->datastore->b_save_datastore("items");
 
-
-			//$this->datastore->o_loaded_item_object->oa_individual_items[$this->o_loaded_item_object->id] = [];
-
-			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = [];
-
+			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = array();
 
 			foreach($this->o_oncology->full_elements as $element => $properties){
 				$s_new_value = $flot->s_post_var($element, false);
