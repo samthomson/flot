@@ -179,7 +179,7 @@
 		}
 		function b_errors () {
 			// does error file have contents
-			if(filesize(S_ERROR_LOG_PATH) > 0)
+			if(@filesize(S_ERROR_LOG_PATH) > 0)
 				return true;			
 			return false;
 		}
