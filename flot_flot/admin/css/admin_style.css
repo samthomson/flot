@@ -247,3 +247,34 @@ body#start #logo_container span#t{z-index: 10;margin-left: -3px;margin-top: 3px;
 #error_state{margin-right: 16px;display: inline-block;line-height: 100%;
 vertical-align: middle;}
 #error_state i.red{font-size: larger;}
+
+table#admin_table_list tr:hover i.view{
+  display: inline-block;
+}
+
+a.edit_button_page_list{
+  background-color:silver;
+  border-radius: 8px;
+  position: relative;
+}
+a.edit_button_page_list i{
+  display: none;
+  position: absolute;
+}
+a.edit_button_page_list:hover{
+  background-color:gray;
+}
+a.edit_button_page_list:hover i{
+  display: inline-block;
+}
+i.view{
+  display: none;
+}
+/*
+
+a.view_button_page_list:hover{
+}
+a.view_button_page_list:hover i.view{
+  display: inline-block;
+}
+*/
