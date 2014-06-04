@@ -165,7 +165,7 @@
 
 		         		if(count($oa_pages) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th>delete</th></tr></thead><tbody>';
+		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th><a class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a></th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
 			         			//
 			         			// get data
