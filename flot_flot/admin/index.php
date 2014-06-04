@@ -165,7 +165,7 @@
 
 		         		if(count($oa_pages) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>edit page</th><th>View page</th><th>last changed</th><th>author</th><th>published</th><th>delete</th></tr></thead><tbody>';
+		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th>delete</th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
 			         			//
 			         			// get data
@@ -200,9 +200,9 @@
 
 
 			         			# code...
-			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-default" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit"><i class="glyphicon glyphicon-edit"></i>&nbsp;';
+			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
-			         			$s_url_link = '<a target="_blank" href="'.$s_url.'" '.$s_link_class.' class="view_button_page_list">'.$s_url_text.'</a>&nbsp;<i class="glyphicon glyphicon-new-window view"></i>';
+			         			$s_url_link = '<a target="_blank" href="'.$s_url.'" '.$s_link_class.'>'.$s_url_text.'</a>';
 			         			if(urldecode($o_page->published) === "false"){
 			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
 			         			}

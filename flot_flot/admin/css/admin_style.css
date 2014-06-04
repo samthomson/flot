@@ -248,33 +248,13 @@ body#start #logo_container span#t{z-index: 10;margin-left: -3px;margin-top: 3px;
 vertical-align: middle;}
 #error_state i.red{font-size: larger;}
 
-table#admin_table_list tr:hover i.view{
-  display: inline-block;
+table#admin_table_list tr:hover .btn-view{
+  border-color:silver;
 }
-
-a.edit_button_page_list{
+a.btn-view{
+  background-color:#f5f5f5;
+}
+a.btn-view:hover{
   background-color:silver;
-  border-radius: 8px;
-  position: relative;
+  border-color: ;
 }
-a.edit_button_page_list i{
-  display: none;
-  position: absolute;
-}
-a.edit_button_page_list:hover{
-  background-color:gray;
-}
-a.edit_button_page_list:hover i{
-  display: inline-block;
-}
-i.view{
-  display: none;
-}
-/*
-
-a.view_button_page_list:hover{
-}
-a.view_button_page_list:hover i.view{
-  display: inline-block;
-}
-*/
