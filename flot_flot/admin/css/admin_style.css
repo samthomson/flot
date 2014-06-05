@@ -248,6 +248,7 @@ body#start #logo_container span#t{z-index: 10;margin-left: -3px;margin-top: 3px;
 vertical-align: middle;}
 #error_state i.red{font-size: larger;}
 
+/* view items */
 table#admin_table_list tr:hover .btn-view{
   border-color:silver;
 }
@@ -260,3 +261,6 @@ a.btn-view:hover{
 }
 
 a.view_link:hover{}
+
+.item_delete{display: none;}
+.item_delete_done{display: none;}

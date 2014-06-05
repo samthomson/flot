@@ -100,6 +100,38 @@
 	            $_SERVER['SERVER_PORT'] === 80 ? '' : ':'.$_SERVER['SERVER_PORT']))).
 	            substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
 		}
+		
+		function s_get_var($s_var, $s_default_return){
+			if(isset($_GET[$s_var]))
+				return $_GET[$s_var];
+			return $s_default_return;
+		}
+		function s_post_var($s_var, $s_default_return){
+			if(@isset($_POST[$s_var]))
+				return $_POST[$s_var];
+			return $s_default_return;
+		}
+		function s_get_var_from_allowed($s_var_name, $sa_allowed, $s_default){
+			$s_found = "";
+			if(isset($_GET[$s_var_name]))
+				$s_found = $_GET[$s_var_name];
+			if(in_array($s_found, $sa_allowed))
+				return $s_found;
+			return $s_default;
+		}
+		function s_post_var_from_allowed($s_var_name, $sa_allowed, $s_default){
+			$s_found = "";
+			if(isset($_POST[$s_var_name]))
+				$s_found = $_POST[$s_var_name];
+			if(in_array($s_found, $sa_allowed))
+				return $s_found;
+			return $s_default;
+		}
+		function b_post_vars(){
+			if($_SERVER['REQUEST_METHOD'] === "POST")
+				return true;
+			return false;
+		}
 	}
 
 	class ImageProcessor {

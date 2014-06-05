@@ -1,5 +1,4 @@
-
-
+// item edit document ready
 $(document).ready(function() {
     /*
     set up wysiwyg editor
@@ -91,6 +90,12 @@ $(document).ready(function() {
         _set_url_from_title();
     });
 });  
+
+
+
+//
+// item edit JS
+//
 
 function _set_url_from_title(){
     //var s_slug = encodeURIComponent('/' + $("#item_edit_title").val() + '/');

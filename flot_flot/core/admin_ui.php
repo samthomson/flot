@@ -60,13 +60,24 @@
 			$s_header .= $this->html_admin_headers_base();
 
 			if($s_section === "items"){
-				# ckeditor
-				$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
 
-				# general admin js
-				$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+				$ufUf = new UtilityFunctions;
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list"), "list");
 
-				$s_header .= $this->html_admin_headers_pictures();
+				switch($s_action){
+					case "edit":
+						# ckeditor
+						$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+
+						# general admin js
+						$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+
+						$s_header .= $this->html_admin_headers_pictures();
+						break;
+					case "list":
+						$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
+						break;
+				}
 			}
 
 			if($s_section === "menus"){
@@ -80,7 +91,6 @@
 				# general admin js
 				$s_header .= $this->html_admin_headers_pictures();
 			}
-
 
 			$s_header .= '<title>flot - manage your site</title>';
 

@@ -27,20 +27,22 @@
 	$s_body_class = "";
 
 	$s_section = "";
+
+	$ufUf = new UtilityFunctions;
 		
-	if($flot->b_post_vars()){
+	if($ufUf->b_post_vars()){
 		#
 		# handle post request
 		#
-		$s_action = $flot->s_post_var_from_allowed("action", array("edit"), "edit");		
-		$s_section = $flot->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
+		$s_action = $ufUf->s_post_var_from_allowed("action", array("edit"), "edit");		
+		$s_section = $ufUf->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
 
 		switch($s_section){
 			case "items":
 				switch ($s_action) {
 					case 'edit':
 						# get the id, find the item, then try replacing the attributes
-						$item_id = $flot->s_post_var("item_id", false);
+						$item_id = $ufUf->s_post_var("item_id", false);
 						if($item_id){
 							// we have an item id, now we'll try and get the corresponding item information
 							$o_item = $flot->datastore->get_item_data($item_id);
@@ -70,7 +72,7 @@
 				switch ($s_action) {
 					case 'edit':
 						# get the id, find the item, then try replacing the attributes
-						$menu_id = $flot->s_post_var("menu_id", false);
+						$menu_id = $ufUf->s_post_var("menu_id", false);
 						if($menu_id){
 
 							$o_menu = $flot->datastore->get_menu_data($menu_id);
@@ -127,15 +129,15 @@
 		# no post vars, this is a GET request ?
 		#
 
-		$s_section = $flot->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings", "errors", "requirements"), "items");
+		$s_section = $ufUf->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings", "errors", "requirements"), "items");
 
 		switch($s_section){
 			case "items":
-				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
 
 				switch ($s_action) {
 					case 'edit':
-						$s_page_id = $flot->s_get_var('item', false);
+						$s_page_id = $ufUf->s_get_var('item', false);
 						# menu items; purge from cache, preview, regenerate, delete
 						
 						if($s_page_id){
@@ -165,7 +167,7 @@
 
 		         		if(count($oa_pages) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th><a class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a></th></tr></thead><tbody>';
+		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
 			         			//
 			         			// get data
@@ -207,7 +209,7 @@
 			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
 			         			}
 
-			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
@@ -229,7 +231,7 @@
 					
 					case 'delete':
 						# create the new item, then do a page change to be editing it
-						$s_page_id = $flot->s_get_var('item', false);
+						$s_page_id = $ufUf->s_get_var('item', false);
 						if($s_page_id){
 							// delete 'physical' copy on disk
 							$o_item = $flot->datastore->get_item_data($s_page_id);
@@ -247,11 +249,11 @@
 	     		
 				break;
 			case "menus":
-				$s_action = $flot->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
 
 				switch ($s_action) {
 					case 'edit':
-						$s_menu_id = $flot->s_get_var('menu', false);
+						$s_menu_id = $ufUf->s_get_var('menu', false);
 						# menu items; purge from cache, preview, regenerate, delete
 						
 						if($s_menu_id){
@@ -314,7 +316,7 @@
 					case 'delete':
 						
 						# create the new item, then do a page change to be editing it
-						$s_menu_id = $flot->s_get_var('menu', false);
+						$s_menu_id = $ufUf->s_get_var('menu', false);
 						if($s_menu_id){
 							$flot->datastore->_delete_menu($s_menu_id);
 
@@ -328,7 +330,7 @@
 	     		
 				break;
 			case "pictures":
-				$s_action = $flot->s_get_var_from_allowed("action", array("select", "browse"), "browse");
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("select", "browse"), "browse");
 
 				#
 				# top menu
@@ -351,7 +353,7 @@
 				$html_main_admin_content = $admin_ui->html_make_settings_form($flot->datastore->settings);
 				break;
 			case "errors":
-				$s_action = $flot->s_get_var_from_allowed("action", array("view", "clear"), "view");
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("view", "clear"), "view");
 
 				switch($s_action){
 					case "clear":
@@ -370,7 +372,7 @@
 				}
 				break;
 			case "requirements":
-				$s_action = $flot->s_get_var_from_allowed("action", array("view"), "view");
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("view"), "view");
 
 				switch($s_action){
 					case "view":
