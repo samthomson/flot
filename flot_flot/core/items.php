@@ -408,6 +408,7 @@
 			# update the item from post variables
 			# we can find out what post variables to look for by checking our oncology
 			$flot = new Flot();
+			$ufUF = new UtilityFunctions;
 			$flot->b_is_user_admin();
 			// set url auto to false as a default, since it will only be posted if it was checked
 			$this->o_loaded_item_object->url_auto = "false";
@@ -415,7 +416,7 @@
 
 			foreach($this->o_oncology->elements as $element){
 				// go through all items in oncology
-				$s_new_value = $flot->s_post_var($element, false);
+				$s_new_value = $ufUF->s_post_var($element, false);
 				if($s_new_value){
 					$this->o_loaded_item_object->$element = urldecode($s_new_value);
 				}
@@ -430,7 +431,7 @@
 			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = array();
 
 			foreach($this->o_oncology->full_elements as $element => $properties){
-				$s_new_value = $flot->s_post_var($element, false);
+				$s_new_value = $ufUF->s_post_var($element, false);
 				if($s_new_value){
 					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element] = urldecode($s_new_value);				
 				}

@@ -182,9 +182,12 @@
 								//
 								// sanaitise data if necessary
 								//
-								$s_date_modified = explode('-', $s_date_modified);
+								if($s_date_modified !== ""){
+									$s_date_modified = explode('-', $s_date_modified);
+									$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[1], $s_date_modified[0], $s_date_modified[2]));
+								}
 
-								$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[1], $s_date_modified[0], $s_date_modified[2]));
+
 								$s_url_text = $s_url;
 
 								$oUrlStuff = new UrlStuff;
