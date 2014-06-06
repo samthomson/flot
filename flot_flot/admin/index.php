@@ -248,8 +248,6 @@
 						}
 						break;
 				}
-
-	     		
 				break;
 			case "menus":
 				$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
@@ -354,6 +352,130 @@
 				break;
 			case "settings":
 				$html_main_admin_content = $admin_ui->html_make_settings_form($flot->datastore->settings);
+				break;
+			case "oncologies":
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
+
+				switch ($s_action) {
+					case 'edit':
+					/*
+						$s_page_id = $ufUf->s_get_var('item', false);
+						# menu items; purge from cache, preview, regenerate, delete
+						
+						if($s_page_id){
+							# get the item
+							$o_item = $flot->datastore->get_item_data($s_page_id);
+
+							$o_full_item = $flot->datastore->o_get_full_item($s_page_id);
+
+							# get the oncology
+
+							# render a form
+							$Item = new Item($o_item);
+							$Item->_set_full_item($o_full_item);
+
+							$html_main_admin_content .= $Item->html_edit_form();
+
+							// make left menu smaller, to give more focus to editing
+							$s_body_class = "smaller_left";
+						}
+						*/
+						break;
+					
+					case 'list':
+					/*
+						# list all pages that can be edited (pagination ?)
+						$oa_pages = $flot->oa_pages();
+		         		$hmtl_pages_ui = "";
+						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a><hr/>';
+
+		         		if(count($oa_pages) > 0)
+		         		{
+		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';
+			         		foreach ($oa_pages as $o_page) {
+			         			//
+			         			// get data
+			         			//
+								$s_id = urldecode($o_page->id);
+								$s_title = urldecode($o_page->title);
+								$s_url = urldecode($o_page->url);
+								$s_author = urldecode($o_page->author);
+								$s_date_modified = urldecode($o_page->date_modified);
+								$s_published = (urldecode($o_page->published) === "true" ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
+
+								//
+								// sanaitise data if necessary
+								//
+								if($s_date_modified !== ""){
+									$s_date_modified = explode('-', $s_date_modified);
+									$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[1], $s_date_modified[0], $s_date_modified[2]));
+								}
+
+
+								$s_url_text = $s_url;
+
+								$oUrlStuff = new UrlStuff;
+								$s_url = $oUrlStuff->s_format_url_from_item_url($s_url);
+
+								if($s_url === "/"){
+									// homepage
+									$s_url_text = ' <i class="glyphicon glyphicon-home"></i> Homepage';
+								}
+
+								$s_link_class = '';
+								if(urldecode($o_page->published) !== "true"){
+									$s_link_class = ' style="display:none;"';
+								}
+
+
+			         			# code...
+			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
+			         			$hmtl_pages_ui .= $s_title;
+			         			$s_url_link = '<a target="_blank" href="'.$s_url.'" '.$s_link_class.' class="view_link">'.$s_url_text.'</a>';
+			         			if(urldecode($o_page->published) === "false"){
+			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
+			         			}
+
+			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         		}
+			         		$hmtl_pages_ui .= '</tbody></table>';
+			         	}else{
+			         		$hmtl_pages_ui .= "no pages..";
+			         	}
+
+			         	$html_main_admin_content = $hmtl_pages_ui;
+						break;
+					*/
+					case 'new':
+					/*
+						# create the new item, then do a page change to be editing it
+
+						$s_newitem_id = $flot->datastore->s_new_item("page");
+
+
+						$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&item=".$s_newitem_id."&action=edit";
+						$flot->_page_change($s_new_page);
+						*/
+						break;
+					
+					case 'delete':
+					/*
+						# create the new item, then do a page change to be editing it
+						$s_page_id = $ufUf->s_get_var('item', false);
+						if($s_page_id){
+							// delete 'physical' copy on disk
+							$o_item = $flot->datastore->get_item_data($s_page_id);
+							$Item = new Item($o_item);
+							$Item->delete();
+							// remove from datastore
+							$flot->datastore->_delete_item($s_page_id);
+
+							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&action=list";
+							$flot->_page_change($s_new_page);
+						}
+						*/
+						break;
+				}
 				break;
 			case "errors":
 				$s_action = $ufUf->s_get_var_from_allowed("action", array("view", "clear"), "view");
