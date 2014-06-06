@@ -6,8 +6,10 @@
 	$flot = new Flot;
 	$requirements = new FlotRequirements;
 
+	$ufUF = new UtilityFunctions;
+
 	# are we handling the form submission?
-	if($flot->b_post_vars()){
+	if($ufUF->b_post_vars()){
 		// user has entered an email and password okay
 		if(isset($_POST["email"]) && isset($_POST["password"])){
 			// are the requirements met?
@@ -41,7 +43,6 @@
 			}
 		}
 	}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,6 +55,18 @@
 		<script src="/flot_flot/admin/js/bootstrap.min.js"></script>
 	</head>
 	<body id="start">
+		<?php
+			echo '<style>.no_php{display:none;}</style>';
+		?>
+		<div class="container alert alert-danger no_php">
+			<h1>PHP is not enabled :(</h1>
+			<p>flot needs PHP to be enabled, it won't work without it.
+			</p>
+		</div>
+
+
+
+
 		<div id="start_container" class="container">
 			<!-- instruction, email, password, submit button -->
 			<form role="form" method="post" name="login" action="start.php">
