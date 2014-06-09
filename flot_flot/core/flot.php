@@ -100,6 +100,9 @@
 		function oa_pages(){
 			return $this->datastore->items;
 		}
+		function oa_oncologies(){
+			return $this->datastore->oncologies;
+		}
 		function oa_menus(){
 			return $this->datastore->menus;
 		}

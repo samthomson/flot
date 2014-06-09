@@ -35,7 +35,7 @@
 		# handle post request
 		#
 		$s_action = $ufUf->s_post_var_from_allowed("action", array("edit"), "edit");		
-		$s_section = $ufUf->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings"), "items");
+		$s_section = $ufUf->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings", "oncologies"), "items");
 
 		switch($s_section){
 			case "items":
@@ -129,7 +129,7 @@
 		# no post vars, this is a GET request ?
 		#
 
-		$s_section = $ufUf->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings", "errors", "requirements"), "items");
+		$s_section = $ufUf->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings", "errors", "requirements", "oncologies"), "items");
 
 		switch($s_section){
 			case "items":
@@ -383,69 +383,36 @@
 						break;
 					
 					case 'list':
-					/*
+					
 						# list all pages that can be edited (pagination ?)
-						$oa_pages = $flot->oa_pages();
+						$oa_oncologies = $flot->oa_oncologies();
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a><hr/>';
+						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page type</a><hr/>';
 
-		         		if(count($oa_pages) > 0)
+		         		if(count($oa_oncologies) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';
-			         		foreach ($oa_pages as $o_page) {
+		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page type&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>#Instances</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';
+			         		foreach ($oa_oncologies as $o_oncology) {
 			         			//
 			         			// get data
 			         			//
-								$s_id = urldecode($o_page->id);
-								$s_title = urldecode($o_page->title);
-								$s_url = urldecode($o_page->url);
-								$s_author = urldecode($o_page->author);
-								$s_date_modified = urldecode($o_page->date_modified);
-								$s_published = (urldecode($o_page->published) === "true" ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
-
-								//
-								// sanaitise data if necessary
-								//
-								if($s_date_modified !== ""){
-									$s_date_modified = explode('-', $s_date_modified);
-									$s_date_modified = date("D jS M Y", mktime(0, 0, 0, $s_date_modified[1], $s_date_modified[0], $s_date_modified[2]));
-								}
-
-
-								$s_url_text = $s_url;
-
-								$oUrlStuff = new UrlStuff;
-								$s_url = $oUrlStuff->s_format_url_from_item_url($s_url);
-
-								if($s_url === "/"){
-									// homepage
-									$s_url_text = ' <i class="glyphicon glyphicon-home"></i> Homepage';
-								}
-
-								$s_link_class = '';
-								if(urldecode($o_page->published) !== "true"){
-									$s_link_class = ' style="display:none;"';
-								}
-
+								$s_id = urldecode($o_oncology->id);
+								$s_title = urldecode($o_oncology->title);
 
 			         			# code...
-			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
+			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
-			         			$s_url_link = '<a target="_blank" href="'.$s_url.'" '.$s_link_class.' class="view_link">'.$s_url_text.'</a>';
-			         			if(urldecode($o_page->published) === "false"){
-			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
-			         			}
 
-			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td>?</td><td><a href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
-			         		$hmtl_pages_ui .= "no pages..";
+			         		$hmtl_pages_ui .= "no page types yet..";
 			         	}
 
 			         	$html_main_admin_content = $hmtl_pages_ui;
 						break;
-					*/
+					
 					case 'new':
 					/*
 						# create the new item, then do a page change to be editing it

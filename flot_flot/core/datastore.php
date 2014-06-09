@@ -104,6 +104,7 @@
 					$this->oncologies = '[
 							{
 								"id":"page",
+								"title":"webpage",
 								"elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author", "date_modified", "oncology"],
 								"full_elements": {"content_html":{
 						                "name": "content",
