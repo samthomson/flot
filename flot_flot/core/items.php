@@ -298,6 +298,9 @@
 					case 'text':
 						$html_form .= '<input type="text" class="form-control" name="'.$element->name.'" value="'.$s_value.'" placeholder="'.$element->name.'"'.$s_disabled_status.'/>';
 						break;
+					case 'text_multiline':
+						$html_form .= '<textarea rows="6" id="'.$element->type.$element->name.'" class="form-control" name="'.$element->name.'"'.$s_disabled_status.'>'.$s_value.'</textarea><br/>';
+						break;
 					
 					default:
 						$html_form .= "flot doesn't support this type :(<br/>";
@@ -457,7 +460,7 @@
 				$s_new_value = $ufUF->s_post_var($element->name, false);
 				
 				if($s_new_value){
-					if($element->editable === "false"){
+					if($element->editable === "true"){
 						$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);
 					}	
 				}
