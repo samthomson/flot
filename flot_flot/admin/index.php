@@ -445,21 +445,17 @@
 						break;
 					
 					case 'delete':
-					/*
-						# create the new item, then do a page change to be editing it
-						$s_page_id = $ufUf->s_get_var('item', false);
-						if($s_page_id){
-							// delete 'physical' copy on disk
-							$o_item = $flot->datastore->get_item_data($s_page_id);
-							$Item = new Item($o_item);
-							$Item->delete();
-							// remove from datastore
-							$flot->datastore->_delete_item($s_page_id);
+					
+						$s_oncology_id = $ufUf->s_get_var('id', false);
+						
+						if($s_oncology_id){
 
-							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&action=list";
+							// remove from datastore
+							$flot->datastore->_delete_oncology($s_oncology_id);
+
+							$s_new_page = "/flot_flot/admin/index.php?section=oncologies&action=list";
 							$flot->_page_change($s_new_page);
 						}
-						*/
 						break;
 				}
 				break;

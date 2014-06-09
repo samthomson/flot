@@ -325,6 +325,19 @@
 
 			$this->b_save_datastore("items");
 		}
+		function _delete_oncology($s_id){
+			$i_kill_index = -1;
+			for($c_oncology = 0; $c_oncology < count($this->oncologies); $c_oncology++) {
+				if ($this->oncologies[$c_oncology]->id === $s_id)
+					$i_kill_index = $c_oncology;
+			}
+			if($i_kill_index > -1){
+				unset($this->oncologies[$i_kill_index]);
+				$this->oncologies = array_values($this->oncologies);
+			}
+
+			$this->b_save_datastore("oncologies");
+		}
 		function _delete_full_item($s_id){
 			$s_file_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
 			unlink($s_file_path);
