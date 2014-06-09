@@ -438,7 +438,7 @@
 
 						$s_newitem_id = $flot->datastore->s_new_oncology();
 
-						$s_new_page = "/flot_flot/admin/index.php?section=oncologies&id=".$s_newitem_id."&action=edit";
+						$s_new_page = "/flot_flot/admin/index.php?section=oncologies&id=".$s_newitem_id."&action=edit";	
 						$flot->_page_change($s_new_page);
 						
 						break;
