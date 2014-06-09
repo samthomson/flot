@@ -106,11 +106,17 @@
 								"id":"page",
 								"title":"webpage",
 								"elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author", "date_modified", "oncology"],
-								"full_elements": {"content_html":{
+								"full_elements":
+								{
+									"content_html":
+									{
 						                "name": "content",
+						                "type": "html",
 						                "editable": "true",
-						                "tab": "1"
-						            }},
+						                "tab": "1",
+						                "position": "1"
+						            }
+						        },
 								"tabs": {"1": "edit", "2": "extra"}
 							}
 						]';

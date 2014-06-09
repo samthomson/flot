@@ -10,8 +10,8 @@
 	ini_set("error_log", S_ERROR_LOG_PATH);
 
 	if (!defined('PHP_VERSION_ID')) {
-    $version = explode('.', PHP_VERSION);
+    	$version = explode('.', PHP_VERSION);
 
-    define('PHP_VERSION_ID', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
-}
+    	define('PHP_VERSION_ID', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
+	}
 ?>
