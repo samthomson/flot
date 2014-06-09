@@ -60,7 +60,7 @@
 								$Item->save();
 								
 								# change location to view the item
-								$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
+								//$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
 							}else{
 								echo "no loaded item & full item";
 							}
