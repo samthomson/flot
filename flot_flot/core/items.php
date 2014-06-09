@@ -275,7 +275,7 @@
       		if($s_url === "index.html"){
 	      		$s_make_home_page_disabled = ' disabled';
 	      	}
-      		$html_form .= '<span class="input-group-btn"><a class="btn btn-default btn-sm'.$s_make_home_page_disabled.'" href="javascript:_make_home_page();"><i class="glyphicon glyphicon-home"></i><span class="small-hidden"> make homepage</span></a></span>';
+      		$html_form .= '<span class="input-group-btn"><a class="btn btn-default btn-sm'.$s_make_home_page_disabled.'" href="javascript:_make_home_page();"><i class="glyphicon glyphicon-home"></i><span class="small-hidden">&nbsp;make homepage</span></a></span>';
     		$html_form .= '</div><!-- /input-group -->';
 
 

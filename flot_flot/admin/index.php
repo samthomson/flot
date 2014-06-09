@@ -250,11 +250,16 @@
 					case 'new':
 						# create the new item, then do a page change to be editing it
 
-						$s_newitem_id = $flot->datastore->s_new_item("page");
+						$s_oncology = $ufUf->s_get_var("oncology", false);
 
+						if($s_oncology){
+							$s_newitem_id = $flot->datastore->s_new_item($s_oncology);
 
-						$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&item=".$s_newitem_id."&action=edit";
-						$flot->_page_change($s_new_page);
+							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=$s_oncology&item=".$s_newitem_id."&action=edit";
+							$flot->_page_change($s_new_page);
+						}else{
+							echo "no page type :(";
+						}
 						break;
 					
 					case 'delete':
