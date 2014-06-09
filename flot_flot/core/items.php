@@ -179,17 +179,7 @@
 			$s_checked = urldecode($this->o_loaded_item_object->url_auto);
 			$s_template = urldecode($this->o_loaded_item_object->template);
 
-			// iterate through oncologies 'full elements'
-			foreach($this->o_oncology->full_elements as $key => $value){
-				#echo "$key<br/>";
-				#print_r($value);
-			}
-			$s_content_html = '';
-
-			if(isset($this->o_full_item_object['content_html'])){
-				$s_content_html = urldecode($this->o_full_item_object['content_html']);
-			}
-
+			
 			$s_published_class = "";
 			$s_unpublished_class = "";
 			$s_url_input_disabled = "";
@@ -289,12 +279,19 @@
 
 			foreach ($this->o_oncology->full_elements as $element) {
 				$html_form .= '<label class="form-group">'.$element->name.'</label><br/>';
+
+				$s_value = '';
+				if(isset($this->o_full_item_object[$element->name])){
+					$s_value = urldecode($this->o_full_item_object[$element->name]);
+				}
+
+
 				switch ($element->type) {
 					case 'html':
-						$html_form .= '<textarea name="'.$element->name.'">'.$element->value.'</textarea><br/>';
+						$html_form .= '<textarea id="'.$element->type.$element->name.'" class="ckeditor" name="'.$element->name.'">'.$s_value.'</textarea><br/>';
 						break;
 					case 'text':
-						$html_form .= '<input type="text" class="form-control" name="'.$element->name.'" value="'.$element->value.'" placeholder="'.$element->name.'"/>';
+						$html_form .= '<input type="text" class="form-control" name="'.$element->name.'" value="'.$s_value.'" placeholder="'.$element->name.'"/>';
 						break;
 					
 					default:
@@ -305,7 +302,6 @@
 			}
 
 			
-
 
 			# end edit tab
 			$html_form .= '</div>';

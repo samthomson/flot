@@ -4,7 +4,8 @@ $(document).ready(function() {
     set up wysiwyg editor
     */
     CKEDITOR.config.removePlugins = 'forms, flash,iframe';
-    CKEDITOR.replace('wysiwyg_editor',
+    $('.ckeditor').each(function(){
+        CKEDITOR.replace($(this).attr('id'),
         {
             filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures&action=select',
             extraPlugins : 'flot_pictures,autogrow',
@@ -12,9 +13,10 @@ $(document).ready(function() {
             [
                 [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
                 [ 'Pictures' ],
-                [ 'Source' ],
+                [ 'Source' ]
             ]
         });
+    });
     //CKEDITOR.config.extraAllowedContent = 'img[src,alt,width,height],h1,h2,h3,h4,h5,h6,h7,span(*)';
     //CKEDITOR.config.extraPlugins = 'autogrow';
     // ALLOW <i></i>
