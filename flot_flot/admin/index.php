@@ -358,28 +358,23 @@
 
 				switch ($s_action) {
 					case 'edit':
-					/*
-						$s_page_id = $ufUf->s_get_var('item', false);
+					
+						$s_oncology_id = $ufUf->s_get_var('id', false);
 						# menu items; purge from cache, preview, regenerate, delete
 						
-						if($s_page_id){
-							# get the item
-							$o_item = $flot->datastore->get_item_data($s_page_id);
-
-							$o_full_item = $flot->datastore->o_get_full_item($s_page_id);
-
-							# get the oncology
+						if($s_oncology_id){
+							# get the oncology data
+							$json_oncology = $flot->datastore->get_oncology_data($s_oncology_id);
 
 							# render a form
-							$Item = new Item($o_item);
-							$Item->_set_full_item($o_full_item);
-
-							$html_main_admin_content .= $Item->html_edit_form();
+							$Oncology = new oncology($json_oncology);
+							
+							$html_main_admin_content .= $Oncology->html_edit_form();
 
 							// make left menu smaller, to give more focus to editing
 							$s_body_class = "smaller_left";
 						}
-						*/
+						
 						break;
 					
 					case 'list':
@@ -387,7 +382,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_oncologies = $flot->oa_oncologies();
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page type</a><hr/>';
+						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=oncologies&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page type</a><hr/>';
 
 		         		if(count($oa_oncologies) > 0)
 		         		{

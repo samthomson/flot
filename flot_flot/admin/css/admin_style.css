@@ -91,6 +91,9 @@ body.smaller_left .condensed_hidden{display: none;}
 
     border-bottom:1px solid #dddddd;
 }
+.admin_menu_left:last-of-type{
+  border-bottom-width:0px;
+}
 .admin_menu_left span{
     padding-left: 8px;
 }

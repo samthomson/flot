@@ -147,6 +147,14 @@
 			}
 			return false;
 		}
+		function get_oncology_data($id)
+		{
+			foreach ($this->oncologies as $oncology) {
+				if ($oncology->id === $id)
+					return $oncology;
+			}
+			return false;
+		}
 		function o_get_full_item($item_id)
 		{
 			$this->initiate_item($item_id);
