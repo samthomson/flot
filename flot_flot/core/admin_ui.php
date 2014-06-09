@@ -46,6 +46,8 @@
 		}
 		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content, $html_make_admin_content_menu, $s_body_class){
 
+			$html_add_content_button = $this->html_make_content_add_button();
+
 			include(S_BASE_PATH.'flot_flot/admin/ui/template.php');
 			exit();
 		}
@@ -212,6 +214,36 @@
 		function html_make_error_page(){
 			$fu_FileUtil = new FileUtilities;
 			return $fu_FileUtil->s_errors();
+		}
+		function html_make_content_add_button(){
+			$s_oncologies = '<li><a href="#" class="btn disabled">no page types :(</a></li>';
+
+			$odOD = new OncologyData;
+
+			$oa_oncologies_available = $odOD->oa_oncologies_available();
+
+			if(count($oa_oncologies_available) > 0){
+				$s_oncologies = '';
+				foreach ($oa_oncologies_available as $key => $value) {
+					$s_oncologies .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology='.$key.'&action=new">'.$value.'</a></li>';
+				}
+			}
+			
+			$html_add_content_button = '<div class="btn-group">
+				        <button id="" type="button" class="btn btn-default">Add content to your website</button>
+				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				          <span class="caret"></span>
+				          <span class="sr-only">Toggle Dropdown</span>
+				        </button>
+				        <ul class="dropdown-menu pull-right" role="menu">'.$s_oncologies.'
+				        	<li role="presentation" class="divider"></li>
+					        <li><a href="#">picture(s)</a></li>
+					        <li><a href="#">page type</a></li>
+					        <li><a href="#">menu</a></li>
+				        </ul>
+				      </div>';
+
+			return $html_add_content_button;
 		}
 	}
 ?>

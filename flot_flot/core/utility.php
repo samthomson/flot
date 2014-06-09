@@ -19,6 +19,28 @@
 		}
 	}
 
+	class OncologyData {
+		public $o_Datastore;
+		function __construct() {
+			$this->o_Datastore = new Datastore;
+			$this->o_Datastore->initiate_datastore('oncologies');
+		}
+
+		function oa_oncologies_available(){
+			#
+			# do all tests
+			#
+			# permission are all 777
+			$oa_oncologies_available = array();
+
+			foreach ($this->o_Datastore->oncologies as $oncology) {
+				$oa_oncologies_available[$oncology->id] = $oncology->title;
+			}
+
+			return $oa_oncologies_available;
+		}
+	}
+
 	class FlotRequirements {
 
 		public $sa_instructions = array();

@@ -18,6 +18,7 @@
 			</div>
 			<div class="right_col">
 				<div id="top_right_buttons" class="clearer">
+					<?php echo $html_add_content_button; ?>
 					<a class="btn btn-danger btn-sm" href="logout.php"><i class="glyphicon glyphicon-user"></i> logout</a>
 				</div>
 			</div>

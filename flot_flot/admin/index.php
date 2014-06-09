@@ -237,7 +237,7 @@
 			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
 			         			}
 
-			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_oncology.'</td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_oncology.'</td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
