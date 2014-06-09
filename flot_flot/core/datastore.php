@@ -254,6 +254,15 @@
 				}
 			}
 		}
+		function _set_oncology_data($new_oncology)
+		{
+			for($c_oncology = 0; $c_oncology < count($this->oncologies); $c_oncology++) {
+				if ($this->oncologies[$c_oncology]->id === $new_oncology->id){
+					// set some data in item and some in single full item object
+					$this->oncologies[$c_oncology] = $new_oncology;
+				}
+			}
+		}
 		function _set_menu_data($new_menu)
 		{
 			for($c_menu = 0; $c_menu < count($this->menus); $c_menu++) {

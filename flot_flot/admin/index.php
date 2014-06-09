@@ -83,9 +83,6 @@
 
 								$Oncology->update_from_post();
 
-								# persist (or not) the item
-								$Oncology->save();
-								
 								# change location to view the item
 								$flot->_page_change("/flot_flot/admin/index.php?section=oncologies&action=list");
 							}else{
