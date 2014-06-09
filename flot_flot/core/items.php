@@ -285,13 +285,18 @@
 					$s_value = urldecode($this->o_full_item_object[$element->name]);
 				}
 
+				$s_disabled_status = "";
+				if($element->editable === "false"){
+					$s_disabled_status = " disabled ";
+				}
+
 
 				switch ($element->type) {
 					case 'html':
-						$html_form .= '<textarea id="'.$element->type.$element->name.'" class="ckeditor" name="'.$element->name.'">'.$s_value.'</textarea><br/>';
+						$html_form .= '<textarea id="'.$element->type.$element->name.'" class="ckeditor" name="'.$element->name.'"'.$s_disabled_status.'>'.$s_value.'</textarea><br/>';
 						break;
 					case 'text':
-						$html_form .= '<input type="text" class="form-control" name="'.$element->name.'" value="'.$s_value.'" placeholder="'.$element->name.'"/>';
+						$html_form .= '<input type="text" class="form-control" name="'.$element->name.'" value="'.$s_value.'" placeholder="'.$element->name.'"'.$s_disabled_status.'/>';
 						break;
 					
 					default:
