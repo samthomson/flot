@@ -230,7 +230,7 @@
 			}
 			
 			$html_add_content_button = '<div class="btn-group">
-				        <button id="" type="button" class="btn btn-default">Add content to your website</button>
+				        <button id="" type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add content to your website</button>
 				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 				          <span class="caret"></span>
 				          <span class="sr-only">Toggle Dropdown</span>

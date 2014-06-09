@@ -301,7 +301,7 @@
 		}
 		function s_new_oncology(){
 			# create a new oncology
-			$s_new_id = uniqid("menu");
+			$s_new_id = uniqid("oncology");
 			$s_oncology_template = '{"id":"'.$s_new_id.'", "title":"new oncology"}';
 			array_push($this->oncologies, json_decode($s_oncology_template));
 
