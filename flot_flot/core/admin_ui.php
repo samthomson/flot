@@ -60,37 +60,48 @@
 
 			$s_header .= $this->html_admin_headers_base();
 
-			if($s_section === "items"){
 
-				$ufUf = new UtilityFunctions;
-				$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list"), "list");
+			switch ($s_section){
+				case "items":
+					$ufUf = new UtilityFunctions;
+					$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list"), "list");
 
-				switch($s_action){
-					case "edit":
-						# ckeditor
-						$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+					switch($s_action){
+						case "edit":
+							# ckeditor
+							$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
 
-						# general admin js
-						$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+							# general admin js
+							$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
 
-						$s_header .= $this->html_admin_headers_pictures();
-						break;
-					case "list":
-						$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
-						break;
-				}
-			}
+							$s_header .= $this->html_admin_headers_pictures();
+							break;
+						case "list":
+							$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
+							break;
+					}
+					break;
+				case "oncologies":
+					$ufUf = new UtilityFunctions;
+					$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list"), "list");
 
-			if($s_section === "menus"){
-				# jquery ui, for sortables
-				$s_header .= '<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>';
-				// admin js for menus
-				$s_header .= '<script src="/flot_flot/admin/js/admin_menus.js"></script>';
-			}
+					switch($s_action){
+						case "list":
+							$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
+							break;
+					}
+					break;
+				case "menus":
+					# jquery ui, for sortables
+					$s_header .= '<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>';
+					// admin js for menus
+					$s_header .= '<script src="/flot_flot/admin/js/admin_menus.js"></script>';
+					break;
+				case "pictures":
+					# general admin js
+					$s_header .= $this->html_admin_headers_pictures();
+					break;
 
-			if($s_section === "pictures"){
-				# general admin js
-				$s_header .= $this->html_admin_headers_pictures();
 			}
 
 			$s_header .= '<title>flot - manage your site</title>';
