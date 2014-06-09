@@ -457,7 +457,9 @@
 				$s_new_value = $ufUF->s_post_var($element->name, false);
 				
 				if($s_new_value){
-					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);	
+					if($element->editable === "false"){
+						$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);
+					}	
 				}
 			}
 
