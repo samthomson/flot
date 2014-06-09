@@ -29,7 +29,12 @@
 
 			$html_part .= '<div class="col-xs-5"><input type="text" class="form-control element_name" placeholder="name" value="'.$s_name.'" name="name[]"></div>';
 			$html_part .= '<div class="col-xs-5"><select class="form-control" placeholder="type" value="'.$s_type.'" name="type[]">'.$s_selected_type_options.'</select></div>';
-			$html_part .= '<div class="col-xs-2"><div class="checkbox"><label><input type="checkbox" name="editable[]"> editable</label></div></div>';
+
+			$s_checked = '';
+			if($s_editable === "true"){
+				$s_checked = ' checked';
+			}
+			$html_part .= '<div class="col-xs-2"><div class="checkbox"><label><input class="oncology_element_editable" type="checkbox" name="editable[]"'.$s_checked.' " value="true"> editable</label></div></div>';
 
 			$html_part .= '</div>';
 			$html_part .= '</div>';
@@ -103,7 +108,6 @@
 			if($s_oncology_title){
 				$this->json_oncology_instance->title = $s_oncology_title;
 			}
-			
 
 			//
 			// full elements
@@ -112,7 +116,7 @@
 
 				$s_name = $ufUF->s_post_array_var('name', $c_element, '');
 				$s_type = $ufUF->s_post_array_var('type', $c_element, '');
-				$s_editable = $ufUF->s_post_array_var('editable', $c_element, false);
+				$s_editable = $ufUF->s_post_array_var('editable', $c_element, "false");
 				$s_position = $ufUF->s_post_array_var('position', $c_element, 0);
 
 				$oa_element = array(

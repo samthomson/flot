@@ -1,6 +1,13 @@
 // oncology edit document ready
 $(document).ready(function() {
     $('#oncology_edit_submit').click(function(){
+        $("#oncology_edit_form .oncology_element_editable").each(function(){
+            if(!$(this).is(':checked')){
+                $(this).val("false");
+                $(this).prop('checked', true);
+            }
+        });
+
         // submit form
         $("#oncology_edit_form").submit();
     });

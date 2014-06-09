@@ -280,8 +280,18 @@
 
 
 
-			# editor
-			$html_form .= '<hr/><label class="form-group">WYSIWYG editer</label><br/>';
+			
+			$html_form .= '<hr/>';
+
+			//
+			// oncology specific elements
+			//
+
+			foreach ($this->o_oncology->full_elements as $element) {
+				$html_form .= "name: ".$element->name.'<br/>';
+			}
+
+			$html_form .= '<label class="form-group">WYSIWYG editer</label><br/>';
 			$html_form .= '<textarea id="wysiwyg_editor" name="content_html">'.$s_content_html.'</textarea><br/>';
 
 
