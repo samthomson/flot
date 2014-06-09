@@ -111,6 +111,11 @@
 				return $_POST[$s_var];
 			return $s_default_return;
 		}
+		function s_post_array_var($s_var, $i_index, $s_default_return){
+			if(@isset($_POST[$s_var][$i_index]))
+				return $_POST[$s_var][$i_index];
+			return $s_default_return;
+		}
 		function s_get_var_from_allowed($s_var_name, $sa_allowed, $s_default){
 			$s_found = "";
 			if(isset($_GET[$s_var_name]))

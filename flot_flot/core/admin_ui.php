@@ -89,6 +89,9 @@
 						case "list":
 							$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
 							break;
+						case "edit":
+							$s_header .= '<script src="/flot_flot/admin/js/admin_oncology_edit.js"></script>';
+							break;
 					}
 					break;
 				case "menus":

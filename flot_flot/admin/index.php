@@ -68,6 +68,33 @@
 						break;
 				}
 				break;
+			case "oncologies":
+				switch ($s_action) {
+					case 'edit':
+						# get the id, find the item, then try replacing the attributes
+						$s_oncology_id = $ufUf->s_post_var("oncology_id", false);
+						if($s_oncology_id){
+							// we have an item id, now we'll try and get the corresponding item information
+							$json_oncology = $flot->datastore->get_oncology_data($s_oncology_id);
+							
+
+							if($json_oncology){
+								$Oncology = new Oncology($json_oncology);
+
+								$Oncology->update_from_post();
+
+								# persist (or not) the item
+								$Oncology->save();
+								
+								# change location to view the item
+								$flot->_page_change("/flot_flot/admin/index.php?section=oncologies&action=list");
+							}else{
+								echo "no loaded page type";
+							}
+						}
+						break;
+				}
+				break;
 			case "menus":
 				switch ($s_action) {
 					case 'edit':
