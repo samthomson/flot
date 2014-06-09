@@ -449,13 +449,11 @@
 			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = array();
 
 			foreach($this->o_oncology->full_elements as $element){
-
 				$s_new_value = $ufUF->s_post_var($element->name, false);
 				
 				if($s_new_value){
-					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);
-					//print_r($this->datastore->oa_individual_items);		
-				}else{echo "no item ($s_new_value) to set";}
+					$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);	
+				}
 			}
 
 			// save full item, which we just edited directly

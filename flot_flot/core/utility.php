@@ -39,6 +39,14 @@
 
 			return $oa_oncologies_available;
 		}
+		function s_oncology_name_from_id($s_id){
+			foreach ($this->o_Datastore->oncologies as $oncology) {
+				if($oncology->id === $s_id){
+					return $oncology->title;
+				}
+			}
+			return 'unknown page type :(';
+		}
 	}
 
 	class FlotRequirements {
@@ -124,22 +132,26 @@
 		}
 		
 		function s_get_var($s_var, $s_default_return){
+			$s_var = $this->s_dot_space_var_name($s_var);
 			if(isset($_GET[$s_var]))
 				return $_GET[$s_var];
 			return $s_default_return;
 		}
 		function s_post_var($s_var, $s_default_return){
+			$s_var = $this->s_dot_space_var_name($s_var);
 			if(@isset($_POST[$s_var]))
-				return $_POST[$s_var];
+				return urldecode($_POST[$s_var]);
 			return $s_default_return;
 		}
 		function s_post_array_var($s_var, $i_index, $s_default_return){
+			$s_var = $this->s_dot_space_var_name($s_var);
 			if(@isset($_POST[$s_var][$i_index]))
 				return $_POST[$s_var][$i_index];
 			return $s_default_return;
 		}
 		function s_get_var_from_allowed($s_var_name, $sa_allowed, $s_default){
 			$s_found = "";
+			$s_var_name = $this->s_dot_space_var_name($s_var_name);
 			if(isset($_GET[$s_var_name]))
 				$s_found = $_GET[$s_var_name];
 			if(in_array($s_found, $sa_allowed))
@@ -147,6 +159,7 @@
 			return $s_default;
 		}
 		function s_post_var_from_allowed($s_var_name, $sa_allowed, $s_default){
+			$s_var_name = $this->s_dot_space_var_name($s_var_name);
 			$s_found = "";
 			if(isset($_POST[$s_var_name]))
 				$s_found = $_POST[$s_var_name];
@@ -158,6 +171,9 @@
 			if($_SERVER['REQUEST_METHOD'] === "POST")
 				return true;
 			return false;
+		}
+		function s_dot_space_var_name($s_original){
+			return str_replace(' ', '_', str_replace('.', '_', $s_original));
 		}
 	}
 

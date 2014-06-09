@@ -24,17 +24,20 @@
 
 			$s_selected_type_options = str_replace('value="'.$s_type.'"', 'value="'.$s_type.'" selected ', $s_type_options);
 
-			$html_part .= '<div class="well well-sm oncology_full_element">';
+			$html_part .= '<div class="well well-sm oncology_full_element" id="oncology_part_edit_'.$s_type.$s_name.'">';
 			$html_part .= '<div class="row">';
 
-			$html_part .= '<div class="col-xs-5"><input type="text" class="form-control element_name" placeholder="name" value="'.$s_name.'" name="name[]"></div>';
-			$html_part .= '<div class="col-xs-5"><select class="form-control" placeholder="type" value="'.$s_type.'" name="type[]">'.$s_selected_type_options.'</select></div>';
+			$html_part .= '<div class="col-xs-4"><input type="text" class="form-control element_name" placeholder="name" value="'.$s_name.'" name="name[]"></div>';
+			$html_part .= '<div class="col-xs-4"><select class="form-control" placeholder="type" value="'.$s_type.'" name="type[]">'.$s_selected_type_options.'</select></div>';
 
 			$s_checked = '';
 			if($s_editable === "true"){
 				$s_checked = ' checked';
 			}
 			$html_part .= '<div class="col-xs-2"><div class="checkbox"><label><input class="oncology_element_editable" type="checkbox" name="editable[]"'.$s_checked.' " value="true"> editable</label></div></div>';
+
+			//$html_part .= '<div class="col-xs-1"><a class="disabled"><i class=""></i></a></div>';
+			$html_part .= '<div class="col-xs-2"><a class="btn btn-danger" href="javascript:_remove_part_from_oncology(\'oncology_part_edit_'.$s_type.$s_name.'\');"><i class="glyphicon glyphicon-trash"></i></a></div>';
 
 			$html_part .= '</div>';
 			$html_part .= '</div>';

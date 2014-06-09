@@ -26,3 +26,6 @@ $(document).ready(function() {
 function _new_oncology_part(){
     $("form #full_element_parts").append($('#new_oncology_part_clone').html());
 }
+function _remove_part_from_oncology(s_id){
+    $("div[id='"+s_id+"']").remove();
+}
