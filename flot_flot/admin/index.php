@@ -191,13 +191,14 @@
 
 		         		if(count($oa_pages) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>last changed</th><th>author</th><th>published</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';
+		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th>page type</th><th>last changed</th><th>author</th><th>published</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';
 			         		foreach ($oa_pages as $o_page) {
 			         			//
 			         			// get data
 			         			//
 								$s_id = urldecode($o_page->id);
 								$s_title = urldecode($o_page->title);
+								$s_oncology = urldecode($o_page->oncology);
 								$s_url = urldecode($o_page->url);
 								$s_author = urldecode($o_page->author);
 								$s_date_modified = urldecode($o_page->date_modified);
@@ -229,14 +230,14 @@
 
 
 			         			# code...
-			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=edit">';
+			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=items&item='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
 			         			$s_url_link = '<a target="_blank" href="'.$s_url.'" '.$s_link_class.' class="view_link">'.$s_url_text.'</a>';
 			         			if(urldecode($o_page->published) === "false"){
 			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
 			         			}
 
-			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td>'.$s_oncology.'</td>'.$s_date_modified.'</td><td>'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
