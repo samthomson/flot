@@ -288,11 +288,23 @@
 			//
 
 			foreach ($this->o_oncology->full_elements as $element) {
-				$html_form .= "name: ".$element->name.'<br/>';
+				$html_form .= '<label class="form-group">'.$element->name.'</label><br/>';
+				switch ($element->type) {
+					case 'html':
+						$html_form .= '<textarea name="'.$element->name.'">'.$element->value.'</textarea><br/>';
+						break;
+					case 'text':
+						$html_form .= '<input type="text" class="form-control" name="'.$element->name.'" value="'.$element->value.'" placeholder="'.$element->name.'"/>';
+						break;
+					
+					default:
+						$html_form .= "flot doesn't support this type :(<br/>";
+						break;
+				}
+
 			}
 
-			$html_form .= '<label class="form-group">WYSIWYG editer</label><br/>';
-			$html_form .= '<textarea id="wysiwyg_editor" name="content_html">'.$s_content_html.'</textarea><br/>';
+			
 
 
 			# end edit tab
