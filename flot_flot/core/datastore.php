@@ -299,6 +299,18 @@
 			# return its id
 			return $s_new_id;
 		}
+		function s_new_oncology(){
+			# create a new oncology
+			$s_new_id = uniqid("menu");
+			$s_oncology_template = '{"id":"'.$s_new_id.'", "title":"new oncology"}';
+			array_push($this->oncologies, json_decode($s_oncology_template));
+
+			# save it to datastore
+			$this->b_save_datastore("oncologies");
+
+			# return its id
+			return $s_new_id;
+		}
 		function _delete_item($s_id){
 			$i_kill_index = -1;
 			for($c_item = 0; $c_item < count($this->items); $c_item++) {
