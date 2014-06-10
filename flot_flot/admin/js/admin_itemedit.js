@@ -13,7 +13,8 @@ $(document).ready(function() {
             [
                 [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
                 [ 'Pictures' ],
-                [ 'Source' ]
+                [ 'Source' ],
+                ['Format']
             ]
         });
     });
