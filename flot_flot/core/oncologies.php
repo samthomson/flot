@@ -89,7 +89,7 @@
 
 			// form save button
 			$html_edit_form .= '<div class="form-group">';
-			$html_edit_form .= '<input id="oncology_edit_submit" value="save" class="form-control btn btn-success">';
+			$html_edit_form .= '<button id="oncology_edit_submit" type="submit" class="form-control btn btn-success"><i class="glyphicon glyphicon-floppy-disk"></i> save</button>';
 			$html_edit_form .= '</div>';
 
 			$html_edit_form .= '</form>';

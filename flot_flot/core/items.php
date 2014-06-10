@@ -422,7 +422,7 @@
 			# save
 			$html_form .= '<div class="form-group">';
 
-			$html_form .= '<input value="save" type="submit" class="form-control btn btn-success">';
+			$html_form .= '<button type="submit" class="form-control btn btn-success"><i class="glyphicon glyphicon-floppy-disk"></i> save</button>';
 			$html_form .= '</div>';
 
 			$html_form .= '</form>';
