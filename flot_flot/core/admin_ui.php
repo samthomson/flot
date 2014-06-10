@@ -230,7 +230,7 @@
 			}
 			
 			$html_add_content_button = '<div class="btn-group">
-				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add content to your website
+				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add content<span class="hidden-xs"> to your website</span>
 				          <span class="caret"></span>
 				        </button>
 				        <ul class="dropdown-menu pull-right" role="menu">'.$s_oncologies.'
