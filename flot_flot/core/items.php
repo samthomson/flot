@@ -94,12 +94,13 @@
 				$template = str_replace("{{item:".$key."}}", $s_swap_in, $template);
 			}
 			// render full item attributes
-			foreach ($this->o_oncology->full_elements as $key => $value) {
+			foreach ($this->o_oncology->full_elements as $element) {
 				$s_swap_in = '';
-				if(isset($this->o_full_item_object[$key])){
-					$s_swap_in = urldecode($this->o_full_item_object[$key]);
+
+				if(isset($this->o_full_item_object[$element->name])){
+					$s_swap_in = urldecode($this->o_full_item_object[$element->name]);
 				}
-				$template = str_replace("{{item:".$key."}}", $s_swap_in, $template);
+				$template = str_replace("{{item:".$element->name."}}", $s_swap_in, $template);
 			}
 
 			# parse in menus
