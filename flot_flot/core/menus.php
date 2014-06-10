@@ -203,15 +203,16 @@
 			# update the item from post variables
 			# we can find out what post variables to look for by checking our oncology
 			$flot = new Flot;
+			$ufUF = new UtilityFunctions;
 
-			$s_id = $flot->s_post_var("menu_id", false);
+			$s_id = $ufUF->s_post_var("menu_id", false);
 
 			if($s_id){
-				$s_name = $flot->s_post_var("name", false);
+				$s_name = $ufUF->s_post_var("name", false);
 				if($s_name !== false)
 					$this->o_loaded_menu_object->title = urldecode($s_name);
 
-				$s_serialisation = $flot->s_post_var("serialisation", false);
+				$s_serialisation = $ufUF->s_post_var("serialisation", false);
 				if($s_serialisation !== false)
 					$this->o_loaded_menu_object->serialisation = urldecode($s_serialisation);
 
