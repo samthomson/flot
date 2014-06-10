@@ -237,8 +237,9 @@
 
 			# tab menu
 			$html_form .= '<ul class="nav nav-tabs">';
-			$html_form .= '<li class="active"><a href="#edit" data-toggle="tab">edit</a></li>';
+			$html_form .= '<li class="active"><a href="#edit" data-toggle="tab">Edit</a></li>';
 			$html_form .= '<li><a href="#extra" data-toggle="tab">Extra</a></li>';    
+			$html_form .= '<li><a href="#codes" data-toggle="tab">Embed codes</a></li>';    
 			$html_form .= '</ul>';
 
 			# tabs
@@ -306,10 +307,8 @@
 						$html_form .= "flot doesn't support this type :(<br/>";
 						break;
 				}
-
 			}
 
-			
 
 			# end edit tab
 			$html_form .= '</div>';
@@ -370,6 +369,45 @@
 
 			# end extra tab
 			$html_form .= '</div>';
+
+
+			#
+			# 'codes' tab
+			#
+			$html_form .= '<div class="tab-pane" id="codes">';
+
+			// info
+			$html_form .= '<div class="alert alert-info"><strong>Embed codes</strong> can be placed in your websites theme, they will be replaced with the pages actual content, which can be set by editing a page.</div>';
+
+			// default types
+			$html_form .= '<h4>Title</h4>';
+			$html_form .= '<kbd>{{item:title}}</kbd>';
+
+			$html_form .= '<h4>Description</h4>';
+			$html_form .= '<kbd>{{item:description}}</kbd>';
+
+			$html_form .= '<h4>Keywords</h4>';
+			$html_form .= '<kbd>{{item:keywords}}</kbd>';
+
+
+			$html_form .= '<hr/>';
+
+			// custom types
+			if(count($this->o_oncology->full_elements) > 0){
+				foreach ($this->o_oncology->full_elements as $element) {
+					$html_form .= '<h4>'.ucfirst($element->name).' ('.$element->type.')</h4>';
+					$html_form .= '<kbd>{{item:'.$element->name.'}}</kbd>';
+				}
+			}else{
+				$html_form .= '<p>this page type has no custom elements.</p>';
+
+			}
+			$html_form .= '<hr/>';
+
+
+			# end extra tab
+			$html_form .= '</div>';
+
 
 			# end tabs
 			$html_form .= '</div>';
