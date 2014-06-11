@@ -38,7 +38,7 @@
 		$zip = new ZipArchive;
 		$res = $zip->open($s_download_to);
 		if ($res === TRUE) {
-		  //$zip->extractTo($s_unzip_to);
+		  $zip->extractTo($s_unzip_to);
 		  $zip->close();
 		  echo 'unpacked flot<br/>';
 		} else {
