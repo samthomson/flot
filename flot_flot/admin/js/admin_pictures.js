@@ -91,7 +91,9 @@ function insert_selected_pictures(s_upload_dir, s_size){
 	for(var cSelected = 0; cSelected < sa_selected.length; cSelected++){
 		html_selected_images += '<img src="/'+s_upload_dir+'/'+s_size+'/'+sa_selected[cSelected]+'" />';
 	}
-	CKEDITOR.instances.wysiwyg_editor.insertHtml(html_selected_images);
+	if(o_active_ckeditor !== null){
+		o_active_ckeditor.insertHtml(html_selected_images);
+	}
 	$('#file_browser_modal').modal('hide');
 	// reset selected
 	sa_selected = [];

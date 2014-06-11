@@ -6,7 +6,9 @@ CKEDITOR.plugins.add( 'flot_pictures',
 		editor.addCommand( 'insert_picture',
 		{
 			exec : function( editor )
-			{    
+			{
+				// store the editor which the user clicked on, for when we have multiple editors
+				o_active_ckeditor = editor;
 				$('#file_browser_modal').modal('show');				
 			}
 		});

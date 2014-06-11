@@ -1,8 +1,10 @@
+var o_active_ckeditor = null;
 // item edit document ready
 $(document).ready(function() {
     /*
     set up wysiwyg editor
     */
+    CKEDITOR.timestamp = "1";
     CKEDITOR.config.removePlugins = 'forms, flash,iframe';
     $('.ckeditor').each(function(){
         CKEDITOR.replace($(this).attr('id'),
