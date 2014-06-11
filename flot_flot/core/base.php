@@ -15,10 +15,10 @@
     	define('PHP_VERSION_ID', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 	}
 
-	define('FLOT_VERSION_MAJOR', 0);
-	define('FLOT_VERSION_MINOR', 3);
-	define('FLOT_VERSION_BUILD', 10);
+	@define('FLOT_VERSION_MAJOR', 0);
+	@define('FLOT_VERSION_MINOR', 3);
+	@define('FLOT_VERSION_BUILD', 11);
 
 
-	define('FLOT_DOWNLOAD_URL', 'https://github.com/samthomson/flot/archive/master.zip');
+	@define('FLOT_DOWNLOAD_URL', 'https://github.com/samthomson/flot/archive/master.zip');
 ?>
