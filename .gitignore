@@ -6,3 +6,5 @@
 
 !flot_flot/themes/html5/*
 flot_flot/datastore/*
+flot_flot/temp/
+flot_flot/temp/*

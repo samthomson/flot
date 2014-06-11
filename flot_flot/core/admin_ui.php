@@ -247,9 +247,9 @@
 			$html_form .= '</tbody></table>';
 
 			$html_form .= '<hr/>';
-			$html_form .= '<a class="btn btn-info"><i class="glyphicon glyphicon-cloud-download"></i> update flot</a>';
+			$html_form .= '<a class="btn btn-info" href="/flot_flot/admin/update.php" target="_blank"><i class="glyphicon glyphicon-cloud-download"></i> update flot</a>';
 			$html_form .= '<hr/>';
-			
+
 
 
 			$html_form .= '</div>';

@@ -126,9 +126,10 @@
 		}		
 		function _create_start_dirs(){
 			// make the uploads and datastore dir
-			mkdir(S_BASE_PATH.'/flot_flot/datastore');
-			mkdir(S_BASE_PATH.'/flot_flot/uploads');
-			mkdir(S_BASE_PATH.'/flot_flot/log');
+			@mkdir(S_BASE_PATH.'/flot_flot/datastore');
+			@mkdir(S_BASE_PATH.'/flot_flot/uploads');
+			@mkdir(S_BASE_PATH.'/flot_flot/log');
+			@mkdir(S_BASE_PATH.'/flot_flot/temp');
 		}
 
 		//
