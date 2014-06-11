@@ -103,12 +103,12 @@
 		function full_write_permissions(){
 
 			// root dir
-			if(!$this->b_permissions(S_BASE_PATH, FLOT_REQUIRED_PERMISSIONS)){
-				array_push($this->sa_instructions, "flot needs full write access to the web directory.");
+			if(!$this->b_permissions(S_BASE_PATH, FLOT_REQUIRED_PERMISSIONS_DIRS)){
+				array_push($this->sa_instructions, "flot needs full write access (".FLOT_REQUIRED_PERMISSIONS_DIRS.") to the web directory.");
 			}
 			// flot_flot dir
 			if(!$this->b_permissions(S_BASE_PATH.'/flot_flot', FLOT_REQUIRED_PERMISSIONS)){
-				array_push($this->sa_instructions, "flot needs full write access to the flot_flot directory.");
+				array_push($this->sa_instructions, "flot needs full write access (".FLOT_REQUIRED_PERMISSIONS.") to the flot_flot directory.");
 			}
 
 			// still here, everything okay
@@ -116,7 +116,7 @@
 		}
 		function b_permissions($s_dir, $s_perms){
 			clearstatcache();
-			return substr(sprintf('%o', fileperms($s_dir)), -4) >= $s_perms;
+			return substr(sprintf('%o', fileperms($s_dir)), -4) === $s_perms;
 		}
 	}
 	class UtilityFunctions {
