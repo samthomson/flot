@@ -57,6 +57,8 @@
 		// delete new start page
 		//$flot->_delete_start_page();
 
+		// reload base
+
 		$s_end_version = $sfSF->s_literal_flot_version();
 
 		// output

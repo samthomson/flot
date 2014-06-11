@@ -228,7 +228,7 @@
 			$html_form .= '<table class="table table-condensed"><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody>';
 			
 			// flot version
-			$html_form .= '<tr><td>flot version</td><td>'.$suSU->s_literal_flot_version().'</td></tr>';
+			$html_form .= '<tr><td>flot version</td><td><span class="label label-primary">'.$suSU->s_literal_flot_version().'</span></td></tr>';
 			
 			// max execution time
 			$html_form .= '<tr><td>PHP max execution time (seconds)</td><td>'.$suSU->i_max_execution_time().'</td></tr>';
