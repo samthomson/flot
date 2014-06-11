@@ -140,6 +140,7 @@
 		}
 		function html_make_settings_form($jo_settings){
 			$html_form = "";
+			$suSU = new SettingsUtilities;
 
 			$html_form .= '<h4>Settings</h4>';
 			$html_form .= '<p>Only some settings can be edited at the moment, if you feel confident you can edit theme directly in the settings datastore.</p><hr/>';
@@ -224,8 +225,29 @@
 			# flot tab
 			#
 			$html_form .= '<div class="tab-pane" id="flot">';
-			$html_form .= '</div>';
+			$html_form .= '<table class="table table-condensed"><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody>';
+			
+			// flot version
+			$html_form .= '<tr><td>flot version</td><td>'.$suSU->s_literal_flot_version().'</td></tr>';
+			
+			// max execution time
+			$html_form .= '<tr><td>PHP max execution time (seconds)</td><td>'.$suSU->i_max_execution_time().'</td></tr>';
+			
+			// max input post time
+			$html_form .= '<tr><td>PHP max input time (seconds)</td><td>'.$suSU->i_max_input_time().'</td></tr>';
+			
+			// post_max_size
+			$html_form .= '<tr><td>PHP post max size</td><td>'.$suSU->i_post_max_size().'</td></tr>';
+			
+			// upload_max_filesize
+			$html_form .= '<tr><td>PHP upload max filesize</td><td>'.$suSU->i_upload_max_filesize().'</td></tr>';
 
+
+
+			$html_form .= '</tbody></table>';
+
+
+			$html_form .= '</div>';
 
 			$html_form .= '</div>';
 

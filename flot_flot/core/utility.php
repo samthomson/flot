@@ -402,4 +402,29 @@
 			return $s_path;
 		}
 	}
+	class SettingsUtilities {
+		public $s_relative_url;
+
+		function __construct() {
+		}
+
+		function s_literal_flot_version() {
+			return FLOT_VERSION_MAJOR.'.'.FLOT_VERSION_MINOR.'.'.FLOT_VERSION_BUILD;
+		}
+		function i_max_execution_time() {
+			return ini_get('max_execution_time');
+		}
+		function i_max_input_time() {
+			return ini_get('max_input_time');
+		}
+		function i_post_max_size() {
+			return ini_get('post_max_size');
+		}
+		function i_upload_max_filesize() {
+			return ini_get('upload_max_filesize');
+		}
+
+
+		
+	}
 ?>
