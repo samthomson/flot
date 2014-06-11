@@ -60,7 +60,7 @@
 			    if(!copy($filename, $s_new_path)){
 			    	// delete destination (this update file?) and try again
 			    	unlink($s_new_path);
-			    	@copy($filename, $s_new_path)
+			    	@copy($filename, $s_new_path);
 			    }
 
 			    $c_files++;
