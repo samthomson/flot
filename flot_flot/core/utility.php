@@ -334,6 +334,13 @@
 			file_put_contents($s_path, $s_content);
 			return true;
 		}
+		function _run_if_exists_then_delete($s_path){
+			// if the file exists, run it (include it), then delete it
+			if(file_exists($s_path)){
+				include_once($s_path);
+				unlink($s_path);
+			}
+		}
 	}
 
 	class UrlStuff{

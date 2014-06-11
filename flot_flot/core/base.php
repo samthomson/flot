@@ -17,5 +17,5 @@
 
 	define('FLOT_VERSION_MAJOR', 0);
 	define('FLOT_VERSION_MINOR', 3);
-	define('FLOT_VERSION_BUILD', 4);
+	define('FLOT_VERSION_BUILD', 5);
 ?>
