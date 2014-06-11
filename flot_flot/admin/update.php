@@ -60,7 +60,7 @@
 			    if(!copy($filename, $s_new_path)){
 			    	// delete destination (this update file?) and try again
 			    	unlink($s_new_path);
-			    	copy($filename, $s_new_path)
+			    	@copy($filename, $s_new_path)
 			    }
 
 			    $c_files++;
@@ -89,11 +89,12 @@
 		$s_end_version = $sfSF->s_literal_flot_version();
 
 		// output
+		/*
 		if($s_start_version !== $s_end_version){
 			echo "flot was updated from version <strong>$s_start_version</strong> to <strong>$s_end_version</strong>";
 		}else{
 			echo "flot didn't update, flot is version <strong>$s_end_version</strong>";
 		}
-
+		*/
 	}
 ?>
