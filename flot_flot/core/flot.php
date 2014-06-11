@@ -116,7 +116,7 @@
 		}
 		function _delete_start_page(){
 			$s_start_path = S_BASE_PATH."start.php";
-			unlink($s_start_path);
+			@unlink($s_start_path);
 		}
 
 		function _process_file_upload($s_upload_dir, $s_filename){
