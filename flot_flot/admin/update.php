@@ -29,7 +29,7 @@
 
 		// download new flot
 		$s_download_to = S_BASE_PATH.'flot_flot/temp/new_flot.zip';
-		$s_unzip_to = S_BASE_PATH.'flot_flot/temp/new_flot';
+		$s_unzip_to = S_BASE_PATH.'flot_flot/temp/new_flot/';
 		echo "download to: ".$s_download_to."<br/>";
 		echo "download from: ".FLOT_DOWNLOAD_URL."<br/>";
 		file_put_contents($s_download_to, fopen(FLOT_DOWNLOAD_URL, 'r'));
@@ -51,6 +51,8 @@
 		$s_zip_flot_base = $s_unzip_to.'flot-master';
 		$c_files = 0;
 		$c_dirs = 0;
+
+		echo "ready to update flot from: $s_zip_flot_base<br/>";
 
 		$directory_iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($s_zip_flot_base));
 		foreach($directory_iterator as $filename => $path_object)
