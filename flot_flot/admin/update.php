@@ -1,7 +1,7 @@
 <?php
 	// include core
 	$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-	require_once($s_b_p.'flot_flot/core/base.php');;
+	require($s_b_p.'flot_flot/core/base.php');
 	require_once(S_BASE_PATH.'flot_flot/core/flot.php');
 
 	$flot = new Flot;
@@ -17,10 +17,6 @@
 
 
 		$s_start_version = $sfSF->s_literal_flot_version();
-
-		// run update_before
-		$fuFU->_run_if_exists_then_delete(S_BASE_PATH.'update_before.php');
-
 		
 
 		//
