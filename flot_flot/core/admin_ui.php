@@ -146,15 +146,31 @@
 
 			$html_form .= '<form role="form" method="post" action="index.php">';
 
+			#
+			# make tabs
+			#
+
+			# tab menu
+			$html_form .= '<ul class="nav nav-tabs">';
+			$html_form .= '<li class="active"><a href="#general" data-toggle="tab">General</a></li>';
+			$html_form .= '<li><a href="#images" data-toggle="tab">Images</a></li>';    
+			$html_form .= '<li><a href="#flot" data-toggle="tab">Flot</a></li>';    
+			$html_form .= '</ul>';
+
+
+			# tabs
+			$html_form .= '<div class="tab-content">';
+
+			# 
+			# general tab
+			#
+			$html_form .= '<div class="tab-pane active" id="general">';
+
 			# upload dir
 			$html_form .= '<div class="form-group"><label for="setting_upload_dir">Upload folder (file path, relative from root)</label><input type="text" class="form-control input-sm" id="setting_upload_dir" placeholder="relative upload directory" disabled value="'.$jo_settings->upload_dir.'"></div>';
 
 			# website name
 			$html_form .= '<div class="form-group"><label for="setting_website_name">Website name</label><input type="text" name="site_name" class="form-control input-sm" id="setting_website_name" placeholder="website name" value="'.$jo_settings->site_name.'"></div>';
-
-			# theme
-			// $html_form .= '<div class="form-group"><label for="setting_theme_name">Theme</label><input type="text" class="form-control input-sm" id="setting_theme_name" placeholder="theme" name="theme" value="'.$jo_settings->theme.'"></div>';
-
 
 
 			# template
@@ -179,12 +195,17 @@
 			$html_form .= '</div>';
 
 
+			$html_form .= '</div>';
 
-			$html_form .= '<hr/>';
-			$html_form .= '<h5>Thumbnail sizes</h5>';
+			# 
+			# images tab
 			#
+			$html_form .= '<div class="tab-pane" id="images">';
+
 			# thumbs
-			#
+
+			$html_form .= '<h5>Thumbnail sizes</h5>';
+
 			foreach ($jo_settings->thumb_sizes as $o_thumb_size) {
 				/*
 				# name
@@ -194,9 +215,21 @@
 				# height
 				$html_form .= $o_thumb_size->max_height;
 				*/
-
+				
 				$html_form .= '<div class="row form-group"><div class="col-xs-12"><label>'.$o_thumb_size->name.'</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->name.'" disabled></div></div><div class="row form-group"><div class="col-xs-12 col-sm-6"><label>max width (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_width.'" disabled></div><div class="col-xs-12 col-sm-6"><label>max height (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_height.'" disabled></div></div>';
 			}
+			$html_form .= '</div>';
+
+			# 
+			# flot tab
+			#
+			$html_form .= '<div class="tab-pane" id="flot">';
+			$html_form .= '</div>';
+
+
+			$html_form .= '</div>';
+
+			
 
 			# save
 			$html_form .= '<div class="form-group">';
