@@ -116,7 +116,7 @@
 		}
 		function b_permissions($s_dir, $s_perms){
 			clearstatcache();
-			return substr(sprintf('%o', fileperms($s_dir)), -4) === $s_perms;
+			return substr(sprintf('%o', fileperms($s_dir)), -4) >= $s_perms;
 		}
 	}
 	class UtilityFunctions {
@@ -331,8 +331,7 @@
 					return false;
 				}
 			}
-			file_put_contents($s_path, $s_content);
-			return true;
+			return file_put_contents($s_path, $s_content);
 		}
 		function _run_if_exists_then_delete($s_path){
 			// if the file exists, run it (include it), then delete it
