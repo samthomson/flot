@@ -46,7 +46,7 @@
 				if($item_url->has_dirs()){
 					# make dirs
 					if(!file_exists(S_BASE_PATH.$item_url->dir_path()))
-						mkdir(S_BASE_PATH.$item_url->dir_path(), 0777, true);
+						mkdir(S_BASE_PATH.$item_url->dir_path(), FLOT_REQUIRED_PERMISSIONS, true);
 				}
 
 				# write the file itself

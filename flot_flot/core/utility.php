@@ -30,7 +30,7 @@
 			#
 			# do all tests
 			#
-			# permission are all 777
+			# permission are all (as defined in base)
 			$oa_oncologies_available = array();
 
 			foreach ($this->o_Datastore->oncologies as $oncology) {
@@ -61,7 +61,7 @@
 			#
 			# do all tests
 			#
-			# permission are all 777
+			# permission are all (as defined in base)
 			$this->full_write_permissions();
 
 			# return true or false
@@ -78,7 +78,7 @@
 			$this->b_requirements_met();
 
 			// upload dir writable
-			if(!$this->b_permissions(S_BASE_PATH.$o_Datastore->settings->upload_dir, "0777")){
+			if(!$this->b_permissions(S_BASE_PATH.$o_Datastore->settings->upload_dir, FLOT_REQUIRED_PERMISSIONS)){
 				array_push($this->sa_instructions, "flot needs full write access to the uploads directory: <strong>".S_BASE_PATH.$o_Datastore->settings->upload_dir."</strong>");
 			}
 
@@ -103,11 +103,11 @@
 		function full_write_permissions(){
 
 			// root dir
-			if(!$this->b_permissions(S_BASE_PATH, "0777")){
+			if(!$this->b_permissions(S_BASE_PATH, FLOT_REQUIRED_PERMISSIONS)){
 				array_push($this->sa_instructions, "flot needs full write access to the web directory.");
 			}
 			// flot_flot dir
-			if(!$this->b_permissions(S_BASE_PATH.'/flot_flot', "0777")){
+			if(!$this->b_permissions(S_BASE_PATH.'/flot_flot', FLOT_REQUIRED_PERMISSIONS)){
 				array_push($this->sa_instructions, "flot needs full write access to the flot_flot directory.");
 			}
 
