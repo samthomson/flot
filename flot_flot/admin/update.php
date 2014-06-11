@@ -89,6 +89,7 @@
 		$s_end_version = $sfSF->s_literal_flot_version();
 
 		// output
+		echo "<br/><br/>update complete ..";
 		/*
 		if($s_start_version !== $s_end_version){
 			echo "flot was updated from version <strong>$s_start_version</strong> to <strong>$s_end_version</strong>";
