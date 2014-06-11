@@ -65,8 +65,8 @@
 		echo "$c_dirs new dirs<br/>";
 
 		// clean up; delete download and unzipped folder
-		unlink($s_download_to);
-		unlink($s_unzip_to);
+		@unlink($s_download_to);
+		@unlink($s_unzip_to);
 
 		echo "delete download: $s_download_to<br/>";
 		echo "delete unzipped download: $s_unzip_to<br/>";
