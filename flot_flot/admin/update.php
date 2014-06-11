@@ -29,11 +29,21 @@
 
 		// download new flot
 		$s_download_to = S_BASE_PATH.'/flot_flot/temp/new_flot.zip';
+		$s_unzip_to = S_BASE_PATH.'/flot_flot/temp/new_flot/';
 		echo "download to: ".$s_download_to."<br/>";
 		echo "download from: ".FLOT_DOWNLOAD_URL."<br/>";
 		file_put_contents($s_download_to, fopen(FLOT_DOWNLOAD_URL, 'r'));
 
 		// unpack
+		$zip = new ZipArchive;
+		$res = $zip->open($s_download_to);
+		if ($res === TRUE) {
+		  $zip->extractTo($s_unzip_to);
+		  $zip->close();
+		  echo 'unpacked flot<br/>';
+		} else {
+		  echo "couldn't unpack new flot<br/>";
+		}
 
 		// copy each file in it to corresponding location
 
