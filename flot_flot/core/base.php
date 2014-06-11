@@ -23,4 +23,5 @@
 	@define('FLOT_DOWNLOAD_URL', 'https://github.com/samthomson/flot/archive/master.zip');
 
 	@define('FLOT_REQUIRED_PERMISSIONS', 0755);
+	@define('FLOT_REQUIRED_PERMISSIONS_DIRS', 0777);
 ?>
