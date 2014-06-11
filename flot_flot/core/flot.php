@@ -126,10 +126,10 @@
 		}		
 		function _create_start_dirs(){
 			// make the uploads and datastore dir
-			@mkdir(S_BASE_PATH.'/flot_flot/datastore', FLOT_REQUIRED_PERMISSIONS_DIRS);
-			@mkdir(S_BASE_PATH.'/flot_flot/uploads', FLOT_REQUIRED_PERMISSIONS_DIRS);
-			mkdir(S_BASE_PATH.'/flot_flot/log', FLOT_REQUIRED_PERMISSIONS_DIRS);
-			@mkdir(S_BASE_PATH.'/flot_flot/temp', FLOT_REQUIRED_PERMISSIONS_DIRS);
+			@mkdir(S_BASE_PATH.'flot_flot/datastore', FLOT_REQUIRED_PERMISSIONS);
+			@mkdir(S_BASE_PATH.'flot_flot/uploads', FLOT_REQUIRED_PERMISSIONS);
+			mkdir(S_BASE_PATH.'flot_flot/log', FLOT_REQUIRED_PERMISSIONS);
+			@mkdir(S_BASE_PATH.'flot_flot/temp', FLOT_REQUIRED_PERMISSIONS);
 		}
 
 		//
