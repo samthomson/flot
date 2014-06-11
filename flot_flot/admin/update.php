@@ -48,7 +48,7 @@
 		// copy each file in it to corresponding location
 
 		$sa_all_new_files = array();
-		$s_zip_flot_base = $s_unzip_to.'flot-master/';
+		$s_zip_flot_base = $s_unzip_to.'flot-master';
 		$c_files = 0;
 		$c_dirs = 0;
 
