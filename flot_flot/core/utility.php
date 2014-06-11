@@ -78,7 +78,7 @@
 			$this->b_requirements_met();
 
 			// upload dir writable
-			if(!$this->b_permissions(S_BASE_PATH.$o_Datastore->settings->upload_dir, FLOT_REQUIRED_PERMISSIONS)){
+			if(!$this->b_permissions(S_BASE_PATH.$o_Datastore->settings->upload_dir, FLOT_REQUIRED_PERMISSIONS_DIRS)){
 				array_push($this->sa_instructions, "flot needs full write access to the uploads directory: <strong>".S_BASE_PATH.$o_Datastore->settings->upload_dir."</strong>");
 			}
 
@@ -115,8 +115,11 @@
 			return true;
 		}
 		function b_permissions($s_dir, $s_perms){
+			/*
 			clearstatcache();
 			return substr(sprintf('%o', fileperms($s_dir)), -4) === $s_perms;
+			*/
+			return is_writable($s_dir);
 		}
 	}
 	class UtilityFunctions {
