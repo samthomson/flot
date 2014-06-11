@@ -57,7 +57,12 @@
 				$c_dirs++;
 			}else{
 			    $s_new_path = str_replace('flot_flot/temp/new_flot/flot-master/', '', $filename);
-			    copy($filename, $s_new_path);
+			    if(!copy($filename, $s_new_path)){
+			    	// delete destination (this update file?) and try again
+			    	unlink($s_new_path);
+			    	copy($filename, $s_new_path)
+			    }
+
 			    $c_files++;
 			}
 		}
