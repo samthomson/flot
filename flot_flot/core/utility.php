@@ -79,7 +79,7 @@
 
 			// upload dir writable
 			if(!$this->b_permissions(S_BASE_PATH.$o_Datastore->settings->upload_dir, "0777")){
-				array_push($this->sa_instructions, "flot needs full write access to the uploads directory.");
+				array_push($this->sa_instructions, "flot needs full write access to the uploads directory: <strong>".S_BASE_PATH.$o_Datastore->settings->upload_dir."</strong>");
 			}
 
 
@@ -340,6 +340,10 @@
 				include_once($s_path);
 				unlink($s_path);
 			}
+		}
+		function _delete_update_files(){
+			@unlink(S_BASE_PATH.'update_before.php');
+			@unlink(S_BASE_PATH.'update_after.php');
 		}
 	}
 

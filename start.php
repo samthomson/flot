@@ -7,6 +7,7 @@
 	$requirements = new FlotRequirements;
 
 	$ufUF = new UtilityFunctions;
+	$fuFU = new FileUtilities;
 
 	# are we handling the form submission?
 	if($ufUF->b_post_vars()){
@@ -34,6 +35,7 @@
 
 					// delete this start.php page for security
 					$flot->_delete_start_page();
+					$fuFU->_delete_update_files();
 
 					// redirect user to home page
 					$flot->_page_change("/");
