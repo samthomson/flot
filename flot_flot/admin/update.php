@@ -19,7 +19,7 @@
 		$s_start_version = $sfSF->s_literal_flot_version();
 
 		// run update_before
-		//$fuFU->_run_if_exists_then_delete(S_BASE_PATH.'update_before.php');
+		$fuFU->_run_if_exists_then_delete(S_BASE_PATH.'update_before.php');
 
 		
 
@@ -32,7 +32,7 @@
 		$s_unzip_to = S_BASE_PATH.'flot_flot/temp/new_flot';
 		echo "download to: ".$s_download_to."<br/>";
 		echo "download from: ".FLOT_DOWNLOAD_URL."<br/>";
-		//file_put_contents($s_download_to, fopen(FLOT_DOWNLOAD_URL, 'r'));
+		file_put_contents($s_download_to, fopen(FLOT_DOWNLOAD_URL, 'r'));
 
 		// unpack
 		$zip = new ZipArchive;
@@ -58,11 +58,7 @@
 			if(is_dir($filename)){
 				$c_dirs++;
 			}else{
-			    #echo $filename.'<br/>';
-
 			    $s_new_path = str_replace('flot_flot/temp/new_flot/flot-master/', '', $filename);
-			    #echo $s_new_path.'<br/><br/>';
-
 			    copy($filename, $s_new_path);
 			    $c_files++;
 			}
@@ -81,12 +77,12 @@
 
 
 		// run update_after
-		//$fuFU->_run_if_exists_then_delete(S_BASE_PATH.'update_after.php');
+		$fuFU->_run_if_exists_then_delete(S_BASE_PATH.'update_after.php');
 		// delete new start page
-		//$flot->_delete_start_page();
+		$flot->_delete_start_page();
 
 		// reload base
-
+		include($s_b_p.'flot_flot/core/base.php');
 		$s_end_version = $sfSF->s_literal_flot_version();
 
 		// output
