@@ -46,7 +46,7 @@
 				if($item_url->has_dirs()){
 					# make dirs
 					if(!file_exists(FLOT_CACHE_PATH.$item_url->dir_path()))
-						mkdir(FLOT_CACHE_PATH.$item_url->dir_path(), FLOT_REQUIRED_PERMISSIONS, true);
+						mkdir(FLOT_CACHE_PATH.$item_url->dir_path());
 				}
 
 				# write the file itself

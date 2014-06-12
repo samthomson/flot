@@ -1,20 +1,21 @@
 
-# prevent folder listing
-Options -Indexes
+Options -Indexes +SymLinksIfOwnerMatch
 
-DirectoryIndex /flot_flot/flot.php
+DirectoryIndex /flot_flot/www/index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine on
+  RewriteBase /
+
+  RewriteCond %{REQUEST_URI} !^/flot_flot/www/
+
+  # Don't apply to URLs that go to existing files or folders
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  #RewriteRule ^(.*)$ /flot_flot/flot.php [L,QSA]
-  #RewriteRule ^/?$ /flot_flot/flot.php [L]
-  RewriteRule ^([^?]*)$ /flot_flot/flot.php?path=$1 [NC,L,QSA]
-  RewriteRule ^$ /flot_flot/flot.php [NC]
+
+  # Rewrite all those to insert /folder
+  RewriteRule ^(.*)$ /flot_flot/www/$1 [L]
 </IfModule>
-
-
 
 
 # BEGIN EXPIRES

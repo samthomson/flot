@@ -328,6 +328,7 @@
 			/* checks filepath against some blacklisted routes before 
 			writing with file_put_contents */
 			$sa_blacklist_paths = array('flot_flot', '.htaccess');
+			$sa_blacklist_paths = array();
 			foreach ($sa_blacklist_paths as $s_not_allowed) {
 				if(strpos($s_path, $s_not_allowed) > -1){
 					error_log("you tried to publish a page containing '$s_not_allowed' in it's url, that's not allowed :(");
