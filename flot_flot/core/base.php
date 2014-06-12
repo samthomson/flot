@@ -24,4 +24,6 @@
 
 	@define('FLOT_REQUIRED_PERMISSIONS', 0644);
 	@define('FLOT_REQUIRED_PERMISSIONS_DIRS', 0755);
+
+	@define('FLOT_CACHE_PATH', S_BASE_PATH.'flot_flot/www');
 ?>

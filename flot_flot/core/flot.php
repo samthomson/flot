@@ -130,7 +130,7 @@
 			@mkdir(S_BASE_PATH.'flot_flot/uploads', FLOT_REQUIRED_PERMISSIONS_DIRS);
 			@mkdir(S_BASE_PATH.'flot_flot/log', FLOT_REQUIRED_PERMISSIONS_DIRS);
 			@mkdir(S_BASE_PATH.'flot_flot/temp', FLOT_REQUIRED_PERMISSIONS_DIRS);
-			@mkdir(S_BASE_PATH.'flot_flot/www', FLOT_REQUIRED_PERMISSIONS_DIRS);
+			@mkdir(FLOT_CACHE_PATH, FLOT_REQUIRED_PERMISSIONS_DIRS);
 		}
 
 		//

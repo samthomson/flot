@@ -45,13 +45,13 @@
 				# create any directories for the file if neccesary
 				if($item_url->has_dirs()){
 					# make dirs
-					if(!file_exists(S_BASE_PATH.$item_url->dir_path()))
-						mkdir(S_BASE_PATH.$item_url->dir_path(), FLOT_REQUIRED_PERMISSIONS, true);
+					if(!file_exists(FLOT_CACHE_PATH.$item_url->dir_path()))
+						mkdir(FLOT_CACHE_PATH.$item_url->dir_path(), FLOT_REQUIRED_PERMISSIONS, true);
 				}
 
 				# write the file itself
 				$fu_FileUtility = new FileUtilities;
-				if(!$fu_FileUtility->b_safely_write_file($item_url->writing_file_path(S_BASE_PATH), $this->html_page)){
+				if(!$fu_FileUtility->b_safely_write_file($item_url->writing_file_path(FLOT_CACHE_PATH), $this->html_page)){
 					// writing failed, set published status to false
 					$this->o_loaded_item_object->published = "false";
 					$this->datastore->b_save_datastore("items");
@@ -65,7 +65,7 @@
 		function delete() {
 			$item_url = new ItemURL($this->o_loaded_item_object);
 			# delete the file
-			$s_writing_file_path = $item_url->writing_file_path(S_BASE_PATH);
+			$s_writing_file_path = $item_url->writing_file_path(FLOT_CACHE_PATH);
 			if(file_exists($s_writing_file_path))
 				unlink($s_writing_file_path);
 
