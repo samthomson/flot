@@ -102,14 +102,18 @@
 		#
 		function full_write_permissions(){
 
+			/*
+			don't need these anymore..
+
 			// root dir
 			if(!$this->b_permissions(S_BASE_PATH, FLOT_REQUIRED_PERMISSIONS_DIRS)){
-				array_push($this->sa_instructions, "flot needs full write access (".FLOT_REQUIRED_PERMISSIONS_DIRS.") to the web directory.");
+				array_push($this->sa_instructions, "flot needs full write access to the web directory.");
 			}
-			// flot_flot dir
-			if(!$this->b_permissions(S_BASE_PATH.'/flot_flot', FLOT_REQUIRED_PERMISSIONS)){
+			// flot cac
+			if(!$this->b_permissions(S_BASE_PATH.'/flot_flot/www', FLOT_REQUIRED_PERMISSIONS)){
 				array_push($this->sa_instructions, "flot needs full write access (".FLOT_REQUIRED_PERMISSIONS.") to the flot_flot directory.");
 			}
+			*/
 
 			// still here, everything okay
 			return true;
