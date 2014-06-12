@@ -1,9 +1,15 @@
 
 Options -Indexes +SymLinksIfOwnerMatch
 
-DirectoryIndex index.php /flot_flot/www/index.html
+#DirectoryIndex index.php /flot_flot/www/index.html
 
 <IfModule mod_rewrite.c>
+
+
+
+
+
+
   RewriteEngine on
   RewriteBase /
 
@@ -15,6 +21,7 @@ DirectoryIndex index.php /flot_flot/www/index.html
 
   # Rewrite all those to insert /folder
   RewriteRule ^(.*)$ /flot_flot/www/$1 [L]
+  RewriteRule ^(/)?$ /flot_flot/www/$1 [L]
 </IfModule>
 
 
