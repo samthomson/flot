@@ -8,3 +8,5 @@
 flot_flot/datastore/*
 flot_flot/temp/
 flot_flot/temp/*
+flot_flot/log/
+flot_flot/log/*

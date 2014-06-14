@@ -9,6 +9,18 @@
 	
 	# call its render method
 
+	
+
+	function s_menu_replace(array $matches){
+		if(isset($matches[1])){
+			$dD = new DataStore;
+			
+
+			$o_Menu = new Menu($dD->get_menu_data_from_name($matches[1]));
+			return $o_Menu->render();
+		}
+	}
+
 	class Item {
 
 		public $o_loaded_item_object;
@@ -78,6 +90,7 @@
 				rmdir($s_directory_containing_file);
 			}
 		}
+
 		function render() {
 			# get template
 			$template = file_get_contents(S_BASE_PATH.'/flot_flot/themes/'.$this->datastore->settings->theme.'/'.$this->o_loaded_item_object->template);
@@ -103,8 +116,11 @@
 				$template = str_replace("{{item:".$element->name."}}", $s_swap_in, $template);
 			}
 
+
+
 			# parse in menus
 			// look for {{menu:[menu_id]}}
+			/*
 			$template = preg_replace_callback("(\{{menu:(.*?)\}})is", 
 				function($m){
 					if(isset($m[1])){
@@ -113,9 +129,14 @@
 					}
 				},
 				$template);
+*/
+			$template = preg_replace_callback("(\{{menu:(.*?)\}})is", "s_menu_replace", $template);
+
+
 
 			# general parsing
 			$template = str_replace("{{flot:theme_dir}}", '/flot_flot/themes/'.$this->datastore->settings->theme.'/', $template);
+
 
 			# minify etc
 			$search = array(
