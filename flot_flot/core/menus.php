@@ -58,9 +58,13 @@
 					$o_looked_up_item = $this->datastore->get_item_data($s_menu_item);
 					if($o_looked_up_item){
 						$o_Item = new Item($o_looked_up_item);
+						
+						$oUrlStuff = new UrlStuff;
 
 						if(isset($o_Item) && isset($o_Item->o_loaded_item_object->url)){
-							$s_return .= '<li><a href="'.$o_Item->o_loaded_item_object->url.'">'.$o_Item->o_loaded_item_object->title.'</a>';
+							$s_url = $oUrlStuff->s_format_url_from_item_url($o_Item->o_loaded_item_object->url);
+
+							$s_return .= '<li><a href="'.$s_url.'">'.$o_Item->o_loaded_item_object->title.'</a>';
 							$s_return .= $this->s_fill_out_menu($this->s_take_out_menu_items($s_menu_item, $sa_menus), $sa_menus);
 							$s_return .= "</li>";
 						}
