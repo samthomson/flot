@@ -109,7 +109,8 @@
 
 		function _render_all_pages(){
 			foreach ($this->datastore->items as $item) {
-				$item_to_render = new Item($item);
+				$item_to_render = new Item($item);				
+				$item_to_render->_set_full_item($this->datastore->o_get_full_item($item->id));
 				$item_to_render->render();
 				$item_to_render->update();
 			}
