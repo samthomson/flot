@@ -247,6 +247,7 @@
 			$s_write_perms = ($b_write_perms ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
 			$html_form .= '<tr><td>www write permission</td><td>'.$s_write_perms.'</td></tr>';
 
+
 			$html_form .= '</tbody></table>';
 
 			$html_form .= '<hr/>';
@@ -254,6 +255,8 @@
 			$s_update_enabled = ($b_write_perms ? '' : ' disabled');
 
 			$html_form .= '<a class="btn btn-info" href="/flot_flot/admin/update.php" target="_blank" '.$s_update_enabled.'><i class="glyphicon glyphicon-cloud-download"></i> update flot</a>';
+
+
 			$html_form .= '<hr/>';
 
 			$html_form .= '</div>';
