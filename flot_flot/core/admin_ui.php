@@ -241,8 +241,10 @@
 			
 			// upload_max_filesize
 			$html_form .= '<tr><td>PHP upload max filesize</td><td>'.$suSU->i_upload_max_filesize().'</td></tr>';
-
-
+			
+			// www write perms
+			$s_write_perms = ($suSU->b_root_write_permission() ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
+			$html_form .= '<tr><td>www write permission</td><td>'.$s_write_perms.'</td></tr>';
 
 			$html_form .= '</tbody></table>';
 

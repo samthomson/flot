@@ -433,6 +433,9 @@
 		function i_upload_max_filesize() {
 			return ini_get('upload_max_filesize');
 		}
+		function b_root_write_permission(){
+			return is_writable(S_BASE_PATH);
+		}
 
 
 		
