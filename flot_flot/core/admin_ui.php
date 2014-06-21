@@ -130,6 +130,10 @@
 			# google font
 			$s_header .= "<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>";
 
+			# angular js
+			$s_header .= '<script src="/flot_flot/admin/js/angular/angular.min.js"></script>';
+			# angular ui bootstrap js
+			$s_header .= '<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>';
 			# jquery js
 			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
 			# bootstrap js

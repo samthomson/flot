@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="flot">
 	<head>
 		<?php
 			echo $html_header;
 		?>
 	</head>
 	<body class="<?php echo $s_body_class; ?>">
-
 		<div id="admin_header" class="clearer">
 			<div class="left_col clearer">
 				<a href="/flot_flot/admin/">
