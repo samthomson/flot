@@ -451,7 +451,5 @@
 			return is_writable(S_BASE_PATH);
 		}
 
-
-		
 	}
 ?>

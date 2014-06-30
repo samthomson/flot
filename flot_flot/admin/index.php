@@ -153,7 +153,7 @@
 		# no post vars, this is a GET request ?
 		#
 
-		$s_section = $ufUf->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings", "errors", "requirements", "oncologies"), "items");
+		$s_section = $ufUf->s_get_var_from_allowed("section", array("items", "pictures", "menus", "settings", "errors", "requirements", "oncologies", "flot"), "items");
 
 		switch($s_section){
 			case "items":
@@ -187,7 +187,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_pages = $flot->oa_pages();
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a><hr/>';
+						$hmtl_pages_ui .= '<div class="btn-group edit_item_general_toolbar"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a></div><div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=flot&action=regenerate"><i class="glyphicon glyphicon-refresh"></i> regenerate all pages</a></div><hr/>';
 
 		         		if(count($oa_pages) > 0)
 		         		{
@@ -491,6 +491,19 @@
 				switch($s_action){
 					case "view":
 						$html_main_admin_content .= $admin_ui->html_requirements_list();
+						break;
+				}
+				break;
+			case "flot":
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("regenerate"), false);
+
+				switch($s_action){
+					case "regenerate":
+						$flot->_render_all_pages();
+						
+						// back to same page
+						$s_new_page = "/flot_flot/admin/index.php?section=items&message=".urlencode("Flot has regenerated all pages");
+						$flot->_page_change($s_new_page);
 						break;
 				}
 				break;
