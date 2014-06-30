@@ -63,6 +63,7 @@
 			#
 			# permission are all (as defined in base)
 			$this->full_write_permissions();
+			$this->mod_rewrite_enabled();
 
 			# return true or false
 			if(count($this->sa_instructions) > 0)
@@ -109,6 +110,19 @@
 
 			// still here, everything okay
 			return true;
+		}
+		function mod_rewrite_enabled(){
+			$mod_rewrite = true;
+			if (function_exists('apache_get_modules')) {
+				$modules = apache_get_modules();
+				$mod_rewrite = in_array('mod_rewrite', $modules);
+			} else {
+				$mod_rewrite =  getenv('HTTP_MOD_REWRITE')=='On' ? true : false ;
+			}
+
+			if(!$mod_rewrite){
+				array_push($this->sa_instructions, "mod_rewrite is not enabled.");
+			}
 		}
 		function b_permissions($s_dir, $s_perms){
 			/*
