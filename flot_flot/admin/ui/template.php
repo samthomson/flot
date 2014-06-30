@@ -31,6 +31,8 @@
 				<?php echo $html_left_menu; ?>
 			</div>
 			<div class="right_col clearer" id="right_admin_section">
+				<?php echo $html_message_alert; ?>
+				
 				<!-- main 'content' section -->
 				<?php echo $html_make_admin_content; ?>
 			</div>

@@ -48,6 +48,14 @@
 
 			$html_add_content_button = $this->html_make_content_add_button();
 
+
+			$ufUF = new UtilityFunctions;
+
+			$html_message_alert = $ufUF->s_get_var('message', '');
+			if($html_message_alert !== ''){
+				$html_message_alert = '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'.$html_message_alert.'</div>';
+			}
+
 			include(S_BASE_PATH.'flot_flot/admin/ui/template.php');
 			exit();
 		}
@@ -131,9 +139,9 @@
 			$s_header .= "<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>";
 
 			# angular js
-			$s_header .= '<script src="/flot_flot/admin/js/angular/angular.min.js"></script>';
+			//$s_header .= '<script src="/flot_flot/admin/js/angular/angular.min.js"></script>';
 			# angular ui bootstrap js
-			$s_header .= '<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>';
+			//$s_header .= '<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>';
 			# jquery js
 			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
 			# bootstrap js
