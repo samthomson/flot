@@ -418,19 +418,20 @@
 
 		         		if(count($oa_oncologies) > 0)
 		         		{
-		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page type&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>#Instances</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';
+		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page type&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>#Instances</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th><th>editable</th></tr></thead><tbody>';
 			         		foreach ($oa_oncologies as $o_oncology) {
 			         			//
 			         			// get data
 			         			//
 								$s_id = urldecode($o_oncology->id);
 								$s_title = urldecode($o_oncology->title);
+								$s_editable = urldecode($o_oncology->editable);
 
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
 
-			         			$hmtl_pages_ui .= '</a></td><td>?</td><td><a href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td>?</td><td><a href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a></td><td>'.$s_editable.'</td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
