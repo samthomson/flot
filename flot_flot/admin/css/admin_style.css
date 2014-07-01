@@ -123,6 +123,12 @@ body.smaller_left .condensed_hidden{display: none;}
 .page_type{
   padding-left: 16px;
 }
+.page_type.active{
+  font-weight: bold;
+  border:none;
+  background-color: transparent;
+  border-right: 4px solid silver;
+}
 .page_type:last-of-type{
   margin-bottom: 8px;
 }

@@ -26,7 +26,7 @@
 					$s_id = urldecode($o_oncology->id);
 					$s_title = urldecode($o_oncology->title);
 
-					$html_left_menu .= '<a class="admin_menu_left page_type" href="/flot_flot/admin/index.php?section=items&oncology='.$s_id.'"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> '.$s_title.'</span></a>';
+					$html_left_menu .= '<a class="admin_menu_left page_type'.$this->s_active_oncology($s_id).'" href="/flot_flot/admin/index.php?section=items&oncology='.$s_id.'"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> '.$s_title.'</span></a>';
 				}
 			}
 
@@ -80,6 +80,17 @@
 		}
 		function s_active_or_empty($s_me, $s_current){
 			if($s_me === $s_current)
+				return " active";
+			else
+				return "";
+		}
+		function s_active_oncology($s_me){
+			$ufUF = new UtilityFunctions;
+			$s_oncology = $ufUF->s_get_var('oncology', '');
+
+
+
+			if($s_me === $s_oncology)
 				return " active";
 			else
 				return "";
