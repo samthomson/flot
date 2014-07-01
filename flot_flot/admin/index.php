@@ -185,7 +185,23 @@
 					
 					case 'list':
 						# list all pages that can be edited (pagination ?)
+						$odOD = new OncologyData;
+						$s_oncology_filter = $ufUf->s_get_var('oncology', false);
 						$oa_pages = $flot->oa_pages();
+
+
+						if($s_oncology_filter !== false){
+							// filter pages retrieved to be of the right page type
+							$oa_filtered_pages = array();
+							foreach ($oa_pages as $page) {
+								$s_oncology_id = urldecode($page->oncology);
+								if($s_oncology_id === $s_oncology_filter){
+									array_push($oa_filtered_pages, $page);
+								}
+							}
+							$oa_pages = $oa_filtered_pages;
+						}
+
 		         		$hmtl_pages_ui = "";
 						$hmtl_pages_ui .= '<div class="btn-group edit_item_general_toolbar"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a></div><div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=flot&action=regenerate"><i class="glyphicon glyphicon-refresh"></i> regenerate all pages</a></div><hr/>';
 
@@ -193,7 +209,7 @@
 		         		{
 		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>View page&nbsp;<i class="glyphicon glyphicon-new-window"></i></th><th class="hidden-xs hidden-sm">page type</th><th class="hidden-xs hidden-sm">last changed</th><th class="hidden-xs hidden-sm">author</th><th>published</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i><span class="hidden-xs">&nbsp;Delete</span></a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i><span class="hidden-xs">&nbsp;Done</span></a></th></tr></thead><tbody>';
 
-		         			$odOD = new OncologyData;
+		         			
 			         		foreach ($oa_pages as $o_page) {
 			         			//
 			         			// get data
