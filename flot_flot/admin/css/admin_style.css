@@ -120,6 +120,14 @@ body.smaller_left .condensed_hidden{display: none;}
     border-bottom-left-radius: 5px;
 }
 
+.page_type{
+  padding-left: 16px;
+}
+.page_type:last-of-type{
+  margin-bottom: 8px;
+}
+
+
 .tab-pane{
     /* start each tab with a little gap, so the tab headers don't rub the tab content */
     padding-top: 16px;

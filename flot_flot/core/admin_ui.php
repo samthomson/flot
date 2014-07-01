@@ -11,10 +11,29 @@
 
 			$fu_FileUtil = new FileUtilities;
 			$fr_FlotRequirements = new FlotRequirements;
+			$dD = new DataStore;
+
+			$oa_oncologies = $dD->oncologies;
+			
+
 
 			$html_left_menu .= '<div id="admin_menu_left">
-					<a class="admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="/flot_flot/admin/index.php?section=items"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> Webpages</span></a>
-					<a class="admin_menu_left'.$this->s_active_or_empty("pictures", $s_active_section).'" href="/flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
+					<a class="admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="/flot_flot/admin/index.php?section=items"><i class="glyphicon glyphicon-folder-open"></i><span class="small-hidden condensed_hidden"> Contents</span></a>';
+
+			// make a submenu item for each page type
+			if(count($oa_oncologies) > 0){
+				foreach ($oa_oncologies as $o_oncology) {
+					$s_id = urldecode($o_oncology->id);
+					$s_title = urldecode($o_oncology->title);
+
+					$html_left_menu .= '<a class="admin_menu_left page_type" href="/flot_flot/admin/index.php?section=items&oncology='.$s_id.'"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> '.$s_title.'</span></a>';
+				}
+			}
+
+
+
+
+			$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("pictures", $s_active_section).'" href="/flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
 					<a class="admin_menu_left'.$this->s_active_or_empty("menus", $s_active_section).'" href="/flot_flot/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="small-hidden condensed_hidden"> Menus</span></a>
 					<a class="admin_menu_left'.$this->s_active_or_empty("oncologies", $s_active_section).'" href="/flot_flot/admin/index.php?section=oncologies"><i class="glyphicon glyphicon-list-alt"></i><span class="small-hidden condensed_hidden"> Page types</span></a>
 					<a class="admin_menu_left'.$this->s_active_or_empty("settings", $s_active_section).'" href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>';
