@@ -49,6 +49,15 @@
 				$this->oa_individual_items[$_id] = json_decode($json_data);
 			}
 		}
+		function initiate_element($_id){
+			$s_filepath = S_BASE_PATH.'flot_flot/datastore/'.$_id.'.php';
+			clearstatcache(true, $s_filepath);
+			if($json_data = file_get_contents($s_filepath)){
+				// including the datastore file worked, we have the datastores variable now set in memory
+				$this->oa_individual_elements[$_id] = array();
+				$this->oa_individual_elements[$_id] = json_decode($json_data);
+			}
+		}
 
 		function _create_datestore_afresh($s_name){
 			

@@ -125,6 +125,7 @@
 			// get default item properties
 			$s_id = urldecode($this->o_loaded_element_object->id);
 			$s_title = urldecode($this->o_loaded_element_object->title);
+			$s_value = urldecode($this->o_full_element_object['content_html']);
 
 			$b_published = urldecode($this->o_loaded_element_object->published);
 
@@ -174,9 +175,6 @@
 			$html_form .= '<label for="item_keywords">Title</label><input type="text" class="form-control" name="title" placeholder="page title" value="'.$s_title.'" id="item_edit_title">';
 			$html_form .= '</div>';
 
-
-
-
 			
 			$html_form .= '<hr/>';
 
@@ -184,19 +182,13 @@
 			// oncology specific elements
 			//
 
-
-			$s_value = '';
-			if(isset($this->o_full_item_object[$element->name])){
-				$s_value = urldecode($this->o_full_item_object[$element->name]);
-			}
-
 			$html_form .= '<textarea id="element_value" class="ckeditor" name="element_value">'.$s_value.'</textarea><br/>';
 
 
 
 			// default types
 			$html_form .= '<h4>Embed</h4>';
-			$html_form .= '<kbd>{{PUT CODE IN HERE}}</kbd>';
+			$html_form .= '<kbd>{{element:'.$s_id.'}}</kbd>';
 
 
 			$html_form .= '<hr/>';
@@ -259,49 +251,32 @@
 			return $html_form;
 		}
 		function update_from_post(){
-			# update the item from post variables
-			# we can find out what post variables to look for by checking our oncology
 			$flot = new Flot();
 			$ufUF = new UtilityFunctions;
 			$flot->b_is_user_admin();
-			// set url auto to false as a default, since it will only be posted if it was checked
-			$this->o_loaded_item_object->url_auto = "false";
-			$this->o_loaded_item_object->url= "";
 
-			foreach($this->o_oncology->elements as $element){
-				// go through all items in oncology
-				$s_new_value = $ufUF->s_post_var($element, false);
-				if($s_new_value){
-					$this->o_loaded_item_object->$element = urldecode($s_new_value);
-				}
-			}
+			
+			$s_new_title = $ufUF->s_post_var("title", false);
+			$s_new_value = $ufUF->s_post_var("content_html", false);
+			
 			
 			# update date and set author
-			$this->o_loaded_item_object->date_modified = date("d-m-Y");
-			$this->o_loaded_item_object->author = $flot->s_current_user;
-			$this->datastore->_set_item_data($this->o_loaded_item_object);
-			$this->datastore->b_save_datastore("items");
+			$this->o_loaded_element_object->title = $s_new_title;
+			$this->o_loaded_element_object->date_modified = date("d-m-Y");
+			$this->o_loaded_element_object->author = $flot->s_current_user;
+			$this->datastore->_set_element_data($this->o_loaded_element_object);
+			$this->datastore->b_save_datastore("elements");
 
-			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = array();
+			$this->datastore->oa_individual_element[$this->o_loaded_element_object->id] = array();
 
-			foreach($this->o_oncology->full_elements as $element){
-				$s_new_value = $ufUF->s_post_var($element->name, false);
-				
-				if($s_new_value){
-					if($element->editable === "true"){
-						$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);
-					}	
-				}
-			}
+			$this->o_full_element_object['content_html'] = $s_new_value;
+
+			
 
 			// save full item, which we just edited directly
-			$this->datastore->b_save_item($this->o_loaded_item_object->id);
-			// now save the item in amongst others, and messing up the newly set data on the high level item in the process (but we've saved that now)
+			$this->datastore->b_save_element($this->o_loaded_element_object->id);
 
-			// now we have updated the loaded item object, and the individual item object.
-
-			// lets bring the changes to the individual item object, across to the loaded item object, so that any future in memory calls to the item get the propogated changes
-			$this->_set_full_item($this->datastore->oa_individual_items[$this->o_loaded_item_object->id]);
+			$this->_set_full_element($this->datastore->oa_individual_elements[$this->o_loaded_element_object->id]);
 		}
 	}
 ?>

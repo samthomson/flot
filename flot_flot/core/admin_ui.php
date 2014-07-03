@@ -122,6 +122,19 @@
 							break;
 					}
 					break;
+				case "elements":
+					$ufUf = new UtilityFunctions;
+					$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list"), "list");
+
+					switch($s_action){
+						case "edit":
+							# ckeditor
+							$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+
+							$s_header .= $this->html_admin_headers_pictures();
+							break;
+					}
+					break;
 				case "oncologies":
 					$ufUf = new UtilityFunctions;
 					$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list"), "list");

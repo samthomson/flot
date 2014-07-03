@@ -316,7 +316,7 @@
 							$o_full_element = $flot->datastore->o_get_full_element($s_element_id);
 
 							# render a form
-							$Element = new $Element($o_element);
+							$Element = new Element($o_element);
 							$Element->_set_full_element($o_full_element);
 
 							$html_main_admin_content .= $Element->html_edit_form();
@@ -368,7 +368,7 @@
 			         			$hmtl_pages_ui .= $s_title;
 			         			
 			         			
-			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td class="hidden-xs hidden-sm">'.$s_date_modified.'</td><td class="hidden-xs hidden-sm">'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=elements&element='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i><span class="hidden-xs">&nbsp;delete</span></a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td class="hidden-xs hidden-sm">'.$s_date_modified.'</td><td class="hidden-xs hidden-sm">'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=elements&element='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i><span class="hidden-xs">&nbsp;delete</span></a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
