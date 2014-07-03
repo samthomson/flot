@@ -162,6 +162,14 @@
 			}
 			return false;
 		}
+		function get_element_data($element_id)
+		{
+			foreach ($this->elements as $element) {
+				if ($element->id === $element_id)
+					return $element;
+			}
+			return false;
+		}
 		function get_oncology_data($id)
 		{
 			foreach ($this->oncologies as $oncology) {
@@ -176,6 +184,15 @@
 
 			if(isset($this->oa_individual_items[$item_id])){
 				return $this->oa_individual_items[$item_id];
+			}
+			return null;
+		}
+		function o_get_full_element($element_id)
+		{
+			$this->initiate_element($element_id);
+
+			if(isset($this->oa_individual_elements[$element_id])){
+				return $this->oa_individual_elements[$element_id];
 			}
 			return null;
 		}

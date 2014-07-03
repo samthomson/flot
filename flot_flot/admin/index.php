@@ -304,30 +304,28 @@
 				$s_action = $ufUf->s_get_var_from_allowed("action", array("edit", "list", "new", "delete"), "list");
 
 				switch ($s_action) {
-					/*
+					
 					case 'edit':
-						$s_page_id = $ufUf->s_get_var('item', false);
+						$s_element_id = $ufUf->s_get_var('element', false);
 						# menu items; purge from cache, preview, regenerate, delete
 						
-						if($s_page_id){
+						if($s_element_id){
 							# get the item
-							$o_item = $flot->datastore->get_item_data($s_page_id);
+							$o_element = $flot->datastore->get_element_data($s_element_id);
 
-							$o_full_item = $flot->datastore->o_get_full_item($s_page_id);
-
-							# get the oncology
+							$o_full_element = $flot->datastore->o_get_full_element($s_element_id);
 
 							# render a form
-							$Item = new Item($o_item);
-							$Item->_set_full_item($o_full_item);
+							$Element = new $Element($o_element);
+							$Element->_set_full_element($o_full_element);
 
-							$html_main_admin_content .= $Item->html_edit_form();
+							$html_main_admin_content .= $Element->html_edit_form();
 
 							// make left menu smaller, to give more focus to editing
 							$s_body_class = "smaller_left";
 						}
 						break;
-					*/
+					
 					case 'list':
 						# list all elements 		
 						$oa_elements = $flot->oa_elements();
