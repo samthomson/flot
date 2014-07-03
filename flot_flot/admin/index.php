@@ -35,7 +35,7 @@
 		# handle post request
 		#
 		$s_action = $ufUf->s_post_var_from_allowed("action", array("edit"), "edit");		
-		$s_section = $ufUf->s_post_var_from_allowed("section", array("items", "pictures", "menus", "settings", "oncologies"), "items");
+		$s_section = $ufUf->s_post_var_from_allowed("section", array("items", "elements", "pictures", "menus", "settings", "oncologies"), "items");
 
 		switch($s_section){
 			case "items":
@@ -63,6 +63,33 @@
 								$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
 							}else{
 								echo "no loaded item & full item";
+							}
+						}
+						break;
+				}
+				break;
+			case "elements":
+				switch ($s_action) {
+					case 'edit':
+						# get the id, find the item, then try replacing the attributes
+						$element_id = $ufUf->s_post_var("element_id", false);
+						if($element_id){
+							// we have an item id, now we'll try and get the corresponding item information
+							$o_element = $flot->datastore->get_element_data($element_id);
+							
+							$o_full_element = $flot->datastore->o_get_full_element($element_id);
+
+
+							if($o_element && isset($o_full_element)){
+								$Element = new Element($o_element);
+
+								$Element->_set_full_element($o_full_element);
+								$Element->update_from_post();
+								
+								# change location to view the item
+								$flot->_page_change("/flot_flot/admin/index.php?section=elements&action=list");
+							}else{
+								echo "no loaded element & full element";
 							}
 						}
 						break;

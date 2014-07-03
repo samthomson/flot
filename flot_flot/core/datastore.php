@@ -289,6 +289,15 @@
 				}
 			}
 		}
+		function _set_element_data($new_element)
+		{
+			for($c_element = 0; $c_element < count($this->elements); $c_element++) {
+				if ($this->elements[$c_element]->id === $new_element->id){
+					// set some data in item and some in single full item object
+					$this->elements[$c_element] = $new_element;
+				}
+			}
+		}
 		function _set_oncology_data($new_oncology)
 		{
 			for($c_oncology = 0; $c_oncology < count($this->oncologies); $c_oncology++) {
