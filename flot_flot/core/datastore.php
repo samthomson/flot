@@ -119,24 +119,6 @@
 						        },
 								"tabs": {"1": "edit", "2": "extra"},
 								"editable": "false"
-							},
-							{
-								"id":"element",
-								"title":"element",
-								"elements": ["published", "template", "author", "date_modified", "oncology"],
-								"full_elements":
-								{
-									"content_html":
-									{
-						                "name": "element",
-						                "type": "html",
-						                "editable": "true",
-						                "tab": "1",
-						                "position": "1"
-						            }
-						        },
-								"tabs": {"1": "edit", "2": "extra"},
-								"editable": "false"
 							}
 						]';
 					break;
