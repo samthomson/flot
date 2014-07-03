@@ -6,6 +6,8 @@
 		public $urls;
 		public $items;
 		public $oa_individual_items = array();
+		public $elements;
+		public $oa_individual_elements = array();
 		public $menus;
 		public $settings;
 		public $users;
@@ -17,7 +19,7 @@
 		public $b_user_is_admin = false;
 
 		function __construct() {
-			$sa_datastores_to_initiate = array('settings', 'urls', 'items', 'menus', 'users', 'oncologies', 'pictures', 'file_tags');
+			$sa_datastores_to_initiate = array('settings', 'urls', 'items', 'elements', 'menus', 'users', 'oncologies', 'pictures', 'file_tags');
 
 			foreach ($sa_datastores_to_initiate as $s_datastore_to_initiate) {
 				$this->initiate_datastore($s_datastore_to_initiate);
@@ -58,6 +60,12 @@
 					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"", "parent":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014"}]';
 					$this->oa_individual_items['pagestart'] = json_decode('{"content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}');
 					$this->b_save_item('pagestart');
+					break;
+				case 'elements':
+					$s_footer_id = uniqid("element");
+					$this->elements = '[{"id":"'.$s_footer_id.'","title":"Footer","author":"flot","published":"true","date_modified":"10-05-2014"}]';
+					$this->oa_individual_elements[$s_footer_id] = json_decode('{"content_html":"a <a href=\"http:\/\/flot.io\">flot<\/a> website | <a href=\"\/flot_flot\/admin\/\">login<\/a>"}');
+					$this->b_save_element($s_footer_id);
 					break;
 				case 'menus':
 					$this->menus = '[{"id":"top_menu","title":"top menu","serialisation":"root:pagestart"}]';
@@ -398,6 +406,7 @@
 		#
 		function b_save_datastore($s_datastore){
 			if($s_datastore === 'items' ||
+				$s_datastore === 'elements' ||
 				$s_datastore === 'menus' ||
 				$s_datastore === 'users' ||
 				$s_datastore === 'pictures' ||
@@ -428,6 +437,27 @@
 			}else{
 
 				$s_new_content = json_encode($this->oa_individual_items[$s_id]);
+
+				if(@file_put_contents($s_write_path, $s_new_content) > 0){
+					return true;
+				}else{
+					//error_log("flot couldn't write in the datastore.. :(");
+					return false;
+				}
+			}
+			// still here? something went wrong, return false
+			return false;
+		}
+		function b_save_element($s_id)
+		{
+			// $this->oa_individual_items[$s_id]
+			$s_write_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
+
+			if(!isset($this->oa_individual_elements[$s_id])){
+				echo "individual element not defined";
+			}else{
+
+				$s_new_content = json_encode($this->oa_individual_elements[$s_id]);
 
 				if(@file_put_contents($s_write_path, $s_new_content) > 0){
 					return true;
