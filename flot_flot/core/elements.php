@@ -54,24 +54,6 @@
 		}
 		*/
 
-		/*
-		function delete() {
-			$item_url = new ItemURL($this->o_loaded_item_object);
-			# delete the file
-			$s_writing_file_path = $item_url->writing_file_path(FLOT_CACHE_PATH);
-			if(file_exists($s_writing_file_path))
-				unlink($s_writing_file_path);
-
-			# if it was the last file in folder, delete folder, repeat this recursively until back to root
-			$fu_FileUtility = new FileUtilities;
-			$s_directory_containing_file = $fu_FileUtility->s_lowest_directory_of_path($s_writing_file_path);
-			
-			// delete folder if it's empty			
-			if($fu_FileUtility->b_is_dir_empty($s_directory_containing_file)){
-				rmdir($s_directory_containing_file);
-			}
-		}
-		*/
 
 		function render() {
 			if($this->o_loaded_element_object->published === "false"){

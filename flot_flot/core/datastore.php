@@ -371,6 +371,20 @@
 
 			$this->b_save_datastore("items");
 		}
+		function _delete_element($s_id){
+			$i_kill_index = -1;
+			for($c_element = 0; $c_element < count($this->elements); $c_element++) {
+				if ($this->elements[$c_element]->id === $s_id)
+					$i_kill_index = $c_element;
+			}
+			$this->_delete_full_item($s_id);
+			if($i_kill_index > -1){
+				unset($this->elements[$i_kill_index]);
+				$this->elements = array_values($this->elements);
+			}
+
+			$this->b_save_datastore("elements");
+		}
 		function _delete_oncology($s_id){
 			$i_kill_index = -1;
 			for($c_oncology = 0; $c_oncology < count($this->oncologies); $c_oncology++) {
@@ -386,7 +400,7 @@
 		}
 		function _delete_full_item($s_id){
 			$s_file_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
-			unlink($s_file_path);
+			@unlink($s_file_path);
 		}
 		function _delete_menu($s_id){
 			$i_kill_index = -1;
