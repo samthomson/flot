@@ -75,17 +75,18 @@
 
 		function render() {
 
-			$template = urldecode($this->o_loaded_item_object->content_html);
+			$template = urldecode($this->o_full_element_object['content_html']);
 
 
-			$template = preg_replace_callback("(\{{menu:(.*?)\}})is", "s_menu_replace", $template);
+			//$template = preg_replace_callback("(\{{menu:(.*?)\}})is", "s_menu_replace", $template);
 
 
 
-		    $template = preg_replace($search, $replace, $template);
+		    //$template = preg_replace($search, $replace, $template);
 
 			# serve
 			$this->html_page = $template;
+			return $this->html_page;
 		}
 
 /*

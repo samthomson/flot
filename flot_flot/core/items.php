@@ -20,6 +20,16 @@
 			return $o_Menu->render();
 		}
 	}
+	function s_element_replace(array $matches){
+		if(isset($matches[1])){
+			$dD = new DataStore;
+			
+			$o_Element = new Element($dD->get_element_data($matches[1]));
+			$o_Element->_set_full_element($dD->o_get_full_element($matches[1]));
+
+			return $o_Element->render();
+		}
+	}
 
 	class Item {
 
@@ -118,19 +128,12 @@
 
 
 
-			# parse in menus
-			// look for {{menu:[menu_id]}}
-			/*
-			$template = preg_replace_callback("(\{{menu:(.*?)\}})is", 
-				function($m){
-					if(isset($m[1])){
-						$o_Menu = new Menu($this->datastore->get_menu_data_from_name($m[1]));
-						return $o_Menu->render();
-					}
-				},
-				$template);
-*/
+			# parse in menus			
 			$template = preg_replace_callback("(\{{menu:(.*?)\}})is", "s_menu_replace", $template);
+
+			# parse in elements
+			$template = preg_replace_callback("(\{{element:(.*?)\}})is", "s_element_replace", $template);
+
 
 
 
