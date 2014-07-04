@@ -333,6 +333,24 @@
 			# return its id
 			return $s_new_id;
 		}
+		function s_new_element(){
+			# create a new item
+			$s_new_id = uniqid("element");
+
+
+			$s_element_template = '{"id":"'.$s_new_id.'", "title":"new element", "author":"'.$this->s_get_current_user()->user.'", "published": "true", "date_modified": ""}';
+			$s_full_element_template = '{"content_html":""}';
+
+			array_push($this->elements, json_decode($s_element_template));
+			$this->oa_individual_elements[$s_new_id] = json_decode($s_full_element_template);
+
+			# save it to datastore
+			$this->b_save_datastore("elements");
+			$this->b_save_element($s_new_id);
+
+			# return its id
+			return $s_new_id;
+		}
 		function s_new_menu(){
 			# create a new item
 			$s_new_id = uniqid("menu");

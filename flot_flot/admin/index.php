@@ -359,7 +359,7 @@
 
 
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<div class="btn-group edit_item_general_toolbar"><a class="disabled btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a></div><hr/>';
+						$hmtl_pages_ui .= '<div class="btn-group edit_item_general_toolbar"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=elements&action=new"><i class="glyphicon glyphicon-plus"></i> add a new element</a></div><hr/>';
 
 		         		if(count($oa_elements) > 0)
 		         		{
@@ -405,22 +405,16 @@
 			         	$html_main_admin_content = $hmtl_pages_ui;
 			         	
 						break;
-					/*
+					
 					case 'new':
-						# create the new item, then do a page change to be editing it
 
-						$s_oncology = $ufUf->s_get_var("oncology", false);
+						$s_newelement_id = $flot->datastore->s_new_element();
 
-						if($s_oncology){
-							$s_newitem_id = $flot->datastore->s_new_item($s_oncology);
-
-							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=$s_oncology&item=".$s_newitem_id."&action=edit";
-							$flot->_page_change($s_new_page);
-						}else{
-							echo "no page type :(";
-						}
+						$s_new_page = "/flot_flot/admin/index.php?section=elements&element=".$s_newelement_id."&action=edit";
+						$flot->_page_change($s_new_page);
+						
 						break;
-					*/
+					
 
 					
 					case 'delete':
