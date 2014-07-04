@@ -125,10 +125,10 @@
 			// get default item properties
 			$s_id = urldecode($this->o_loaded_element_object->id);
 			$s_title = urldecode($this->o_loaded_element_object->title);
-			$s_value = urldecode($this->o_full_element_object['content_html']);
-
 			$b_published = urldecode($this->o_loaded_element_object->published);
-
+			
+			$s_value = urldecode($this->o_full_element_object['content_html']);
+			
 			
 			$s_published_class = "";
 			$s_unpublished_class = "";
@@ -182,7 +182,7 @@
 			// oncology specific elements
 			//
 
-			$html_form .= '<textarea id="element_value" class="ckeditor" name="element_value">'.$s_value.'</textarea><br/>';
+			$html_form .= '<textarea id="element_value" class="ckeditor" name="content_html">'.$s_value.'</textarea><br/>';
 
 
 
@@ -258,6 +258,7 @@
 			
 			$s_new_title = $ufUF->s_post_var("title", false);
 			$s_new_value = $ufUF->s_post_var("content_html", false);
+
 			
 			
 			# update date and set author
@@ -267,16 +268,14 @@
 			$this->datastore->_set_element_data($this->o_loaded_element_object);
 			$this->datastore->b_save_datastore("elements");
 
-			$this->datastore->oa_individual_element[$this->o_loaded_element_object->id] = array();
+			$this->datastore->oa_individual_elements[$this->o_loaded_element_object->id] = array();
 
-			$this->o_full_element_object['content_html'] = $s_new_value;
+			$this->datastore->oa_individual_elements[$this->o_loaded_element_object->id]['content_html'] = $s_new_value;
 
-			
+			$this->_set_full_element($this->datastore->oa_individual_elements[$this->o_loaded_element_object->id]);
 
 			// save full item, which we just edited directly
 			$this->datastore->b_save_element($this->o_loaded_element_object->id);
-
-			$this->_set_full_element($this->datastore->oa_individual_elements[$this->o_loaded_element_object->id]);
 		}
 	}
 ?>
