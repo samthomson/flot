@@ -133,6 +133,9 @@
 
 							$s_header .= $this->html_admin_headers_pictures();
 							break;
+						case "list":
+							$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
+							break;
 					}
 					break;
 				case "oncologies":

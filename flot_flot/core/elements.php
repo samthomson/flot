@@ -74,6 +74,9 @@
 		*/
 
 		function render() {
+			if($this->o_loaded_element_object->published === "false"){
+				return '';
+			}
 
 			$template = urldecode($this->o_full_element_object['content_html']);
 
