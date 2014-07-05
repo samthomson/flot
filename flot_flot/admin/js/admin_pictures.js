@@ -53,7 +53,6 @@ var s_file_size = "medium";
 
 function selected_picture(s_filename){
 	s_file_selected = "/" + s_upload_dir + "/" + s_file_size + "/" + s_filename;
-	console.log(s_filename);
 	chooseFile();
 }
 

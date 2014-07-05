@@ -661,7 +661,7 @@
 				}
 				break;
 			case "flot":
-				$s_action = $ufUf->s_get_var_from_allowed("action", array("regenerate"), false);
+				$s_action = $ufUf->s_get_var_from_allowed("action", array("regenerate", "list_pages"), false);
 
 				switch($s_action){
 					case "regenerate":
@@ -670,6 +670,13 @@
 						// back to same page
 						$s_new_page = "/flot_flot/admin/index.php?section=items&message=".urlencode("Flot has regenerated all pages");
 						$flot->_page_change($s_new_page);
+						break;
+
+					case "list_pages":
+						// return json of all pages
+						header('Content-Type: application/json');
+						echo json_encode($flot->oa_pages());
+						exit();
 						break;
 				}
 				break;

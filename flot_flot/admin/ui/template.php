@@ -6,6 +6,32 @@
 		?>
 	</head>
 	<body class="<?php echo $s_body_class; ?>">
+
+
+		<!-- Reusable Modal -->
+		<!-- functions for controlling can be found in admin.js #_reusable_modal_stuff -->
+		<div class="modal fade" id="flot_modal" tabindex="-1" role="dialog" aria-labelledby="flot_modal_label" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="flot_modal_label"></h4>
+					</div>
+					<div class="modal-body">
+		  				<div class="" id="flot_modal_body">
+
+		  				</div>
+		  			</div>
+					<div class="modal-footer" id="flot_modal_footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
 		<div id="admin_header" class="clearer">
 			<div class="left_col clearer">
 				<a href="/flot_flot/admin/">

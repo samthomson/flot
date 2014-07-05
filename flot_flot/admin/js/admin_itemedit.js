@@ -4,16 +4,16 @@ $(document).ready(function() {
     /*
     set up wysiwyg editor
     */
-    CKEDITOR.timestamp = "1";
+    CKEDITOR.timestamp = "2";
     CKEDITOR.config.removePlugins = 'forms, flash,iframe';
     $('.ckeditor').each(function(){
         CKEDITOR.replace($(this).attr('id'),
         {
             filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures&action=select',
-            extraPlugins : 'flot_pictures,autogrow',
+            extraPlugins : 'flot_pictures,flot_links,autogrow',
             toolbar :
             [
-                [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
+                [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Links', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
                 [ 'Pictures' ],
                 [ 'Source' ],
                 ['Format']
