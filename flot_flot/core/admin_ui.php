@@ -130,6 +130,8 @@
 						case "edit":
 							# ckeditor
 							$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+							
+							$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
 
 							$s_header .= $this->html_admin_headers_pictures();
 							break;
