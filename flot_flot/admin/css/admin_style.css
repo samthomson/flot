@@ -1,6 +1,5 @@
 
 body{
-  background: rgb(238, 238, 238);
   font-family: 'Lato', sans-serif;
   word-wrap:break-word;
 }
@@ -90,6 +89,7 @@ body.smaller_left .condensed_hidden{display: none;}
     padding: 8px;
 
     border-bottom:1px solid #dddddd;
+    border-right:1px solid #dddddd;
 }
 .admin_menu_left:last-of-type{
   border-bottom-width:0px;
@@ -111,13 +111,14 @@ body.smaller_left .condensed_hidden{display: none;}
     margin-right: -1px;
     background: #fff;
     color:#666;
+    font-weight: bold;
 
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
 
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .page_type{
@@ -161,13 +162,6 @@ body.smaller_left .condensed_hidden{display: none;}
     margin-bottom: 36px;
     margin-top:9px;
     margin-right:16px;
-    border: 1px solid #ddd;
-
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;   
-
-    box-shadow: rgb(187, 187, 187) 1px 1px 1px 0px;
 }
 
 .edit_item_general_toolbar{

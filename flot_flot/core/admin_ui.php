@@ -1,6 +1,4 @@
 <?php
-	# error handler
-
 
 	class AdminUI {
 
@@ -15,8 +13,6 @@
 
 			$oa_oncologies = $dD->oncologies;
 			
-
-
 			$html_left_menu .= '<div id="admin_menu_left">
 					<a class="admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="/flot_flot/admin/index.php?section=items"><i class="glyphicon glyphicon-folder-open"></i><span class="small-hidden condensed_hidden"> Contents</span></a>';
 
@@ -29,8 +25,6 @@
 					$html_left_menu .= '<a class="admin_menu_left page_type'.$this->s_active_oncology($s_id).'" href="/flot_flot/admin/index.php?section=items&oncology='.$s_id.'"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> '.$s_title.'</span></a>';
 				}
 			}
-
-
 
 
 			$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("elements", $s_active_section).'" href="/flot_flot/admin/index.php?section=elements"><i class="glyphicon glyphicon-paperclip"></i><span class="small-hidden condensed_hidden"> Elements</span></a>
@@ -89,8 +83,6 @@
 			$ufUF = new UtilityFunctions;
 			$s_oncology = $ufUF->s_get_var('oncology', '');
 
-
-
 			if($s_me === $s_oncology)
 				return " active";
 			else
@@ -112,6 +104,10 @@
 							# ckeditor
 							$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
 
+							# text angular
+							$s_header .= '<script src="/flot_flot/external_integrations/text_angular/textAngular-sanitize.min.js"></script>';
+							$s_header .= '<script src="/flot_flot/external_integrations/text_angular/textAngular.min.js"></script>';
+
 							# general admin js
 							$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
 
@@ -129,6 +125,7 @@
 					switch($s_action){
 						case "edit":
 							# ckeditor
+
 							$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
 							
 							$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
@@ -186,17 +183,19 @@
 			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/admin_style.css">';
 			# google font
 			$s_header .= "<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>";
+			# font awesome
+			$s_header .= '<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">';
+    
 
-			# angular js
-			//$s_header .= '<script src="/flot_flot/admin/js/angular/angular.min.js"></script>';
-			# angular ui bootstrap js
-			//$s_header .= '<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>';
 			# jquery js
 			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
 			# bootstrap js
 			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
 			# default flot admin js
 			$s_header .= '<script src="/flot_flot/admin/js/admin.js"></script>';
+
+			# rangy (for textangular)
+			$s_header .= '<script src="http://rangy.googlecode.com/svn/trunk/currentrelease/rangy-core.js" type="text/javascript"></script>';
 			return $s_header;
 		}
 		function html_make_settings_form($jo_settings){
@@ -319,11 +318,8 @@
 
 
 			$html_form .= '<hr/>';
-
 			$html_form .= '</div>';
-
 			$html_form .= '</div>';
-
 			
 
 			# save
