@@ -16,7 +16,7 @@ CKEDITOR.plugins.add( 'flot_pictures',
 		{
 			label: 'Insert Picture',
 			command: 'insert_picture',
-			icon: this.path + 'image.PNG'
+			icon: this.path + '../icons.png'
 		} );
 	}
 } );

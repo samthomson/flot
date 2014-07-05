@@ -4,8 +4,8 @@ $(document).ready(function() {
     /*
     set up wysiwyg editor
     */
-    CKEDITOR.timestamp = "2";
-    CKEDITOR.config.removePlugins = 'forms, flash,iframe';
+    CKEDITOR.timestamp = "6";
+    CKEDITOR.config.removePlugins = 'forms, flash,iframe,image,link';
     $('.ckeditor').each(function(){
         CKEDITOR.replace($(this).attr('id'),
         {
@@ -51,6 +51,8 @@ $(document).ready(function() {
             }
         });
     });
+    CKEDITOR.config.skin= 'flot';
+
     // url text input
     $('#item_edit_url').each(function() {
         var elem = $(this);
