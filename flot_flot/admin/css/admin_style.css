@@ -275,3 +275,28 @@ a.view_link:hover{}
 
 .item_delete{display: none;}
 .item_delete_done{display: none;}
+
+
+.btn-danger{
+  border-color: #d9534f;
+  color: #d9534f;
+  background-color: transparent;
+}
+.btn-success{
+  border-color: #47a447;
+  color: #47a447;
+  background-color: transparent;
+}
+.btn-warning{
+  border-color: #f0ad4e;
+  color: #f0ad4e;
+  background-color: transparent;
+}
+
+.btn[disabled]{
+  background-color: transparent;
+  border-color: #ccc;
+  color: #ccc;
+}
+
+label.form-group{text-transform:capitalize;}
