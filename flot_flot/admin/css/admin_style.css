@@ -383,3 +383,13 @@ label.form-group{text-transform:capitalize;}
 
 .modal-dialog {max-width: 60%;width:auto;}
 .modal-body img{max-width: 100%;height: auto;}
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+table tr td a{
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
