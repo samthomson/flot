@@ -14,7 +14,7 @@
 			$oa_oncologies = $dD->oncologies;
 			
 			$html_left_menu .= '<div id="admin_menu_left">
-					<a class="admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="/flot_flot/admin/index.php?section=items"><i class="glyphicon glyphicon-folder-open"></i><span class="small-hidden condensed_hidden"> Contents</span></a>';
+					<a class="items admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="/flot_flot/admin/index.php?section=items"><i class="glyphicon glyphicon-folder-open"></i><span class="small-hidden condensed_hidden"> Contents</span></a>';
 
 			// make a submenu item for each page type
 			if(count($oa_oncologies) > 0){
@@ -27,16 +27,16 @@
 			}
 
 
-			$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("elements", $s_active_section).'" href="/flot_flot/admin/index.php?section=elements"><i class="glyphicon glyphicon-paperclip"></i><span class="small-hidden condensed_hidden"> Elements</span></a>
-			<a class="admin_menu_left'.$this->s_active_or_empty("pictures", $s_active_section).'" href="/flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
-					<a class="admin_menu_left'.$this->s_active_or_empty("menus", $s_active_section).'" href="/flot_flot/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="small-hidden condensed_hidden"> Menus</span></a>
-					<a class="admin_menu_left'.$this->s_active_or_empty("oncologies", $s_active_section).'" href="/flot_flot/admin/index.php?section=oncologies"><i class="glyphicon glyphicon-list-alt"></i><span class="small-hidden condensed_hidden"> Page types</span></a>
-					<a class="admin_menu_left'.$this->s_active_or_empty("settings", $s_active_section).'" href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>';
+			$html_left_menu .= '<a class="elements admin_menu_left'.$this->s_active_or_empty("elements", $s_active_section).'" href="/flot_flot/admin/index.php?section=elements"><i class="glyphicon glyphicon-paperclip"></i><span class="small-hidden condensed_hidden"> Elements</span></a>
+			<a class="pictures admin_menu_left'.$this->s_active_or_empty("pictures", $s_active_section).'" href="/flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
+					<a class="menus admin_menu_left'.$this->s_active_or_empty("menus", $s_active_section).'" href="/flot_flot/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="small-hidden condensed_hidden"> Menus</span></a>
+					<a class="oncologies admin_menu_left'.$this->s_active_or_empty("oncologies", $s_active_section).'" href="/flot_flot/admin/index.php?section=oncologies"><i class="glyphicon glyphicon-list-alt"></i><span class="small-hidden condensed_hidden"> Page types</span></a>
+					<a class="settings admin_menu_left'.$this->s_active_or_empty("settings", $s_active_section).'" href="/flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>';
 			if($fu_FileUtil->b_errors()){
-				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="/flot_flot/admin/index.php?section=errors"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>';
+				$html_left_menu .= '<a class="errors admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="/flot_flot/admin/index.php?section=errors"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>';
 			}
 			if(!$fr_FlotRequirements->b_ongoing_requirements_met()){
-				$html_left_menu .= '<a class="admin_menu_left'.$this->s_active_or_empty("requirements", $s_active_section).'" href="/flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-exclamation-sign"></i><span class="small-hidden condensed_hidden"> Requirements</span></a>';
+				$html_left_menu .= '<a class="requirements admin_menu_left'.$this->s_active_or_empty("requirements", $s_active_section).'" href="/flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-exclamation-sign"></i><span class="small-hidden condensed_hidden"> Requirements</span></a>';
 			}
 			$html_left_menu .= '</div>';
 

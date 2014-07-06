@@ -94,6 +94,8 @@ body.smaller_left .condensed_hidden{display: none;}
 
     border-bottom:1px solid #dddddd;
     border-right:1px solid #dddddd;
+
+    border-left: 4px solid white;
 }
 .admin_menu_left:last-of-type{
   border-bottom-width:0px;
@@ -112,6 +114,7 @@ body.smaller_left .condensed_hidden{display: none;}
 .admin_menu_left.active{
     border:1px solid #ddd;
     border-right:1px solid white;
+    border-left:4px solid;
     margin-right: -1px;
     background: #fff;
     color:#666;
@@ -124,6 +127,14 @@ body.smaller_left .condensed_hidden{display: none;}
     -moz-border-radius-bottomleft: 4px;
     border-bottom-left-radius: 4px;
 }
+.admin_menu_left.active.items{border-left-color:#00adef;}
+.admin_menu_left.active.elements{border-left-color:#f60;}
+.admin_menu_left.active.menus{border-left-color:#38b248;}
+.admin_menu_left.active.pictures{border-left-color:#fc0;}
+.admin_menu_left.active.oncologies{border-left-color:#f39;}
+.admin_menu_left.active.settings{border-left-color:#148996;}
+.admin_menu_left.active.requirements{border-left-color:#b2162c;}
+.admin_menu_left.active.errors{border-left-color:#ed1a3b;}
 
 .page_type{
   padding-left: 16px;

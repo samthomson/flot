@@ -71,7 +71,7 @@
 			$html_edit_form .= '<div class="form-group"><label for="page_type_name">Page type name</label><input type="text" class="form-control" id="page_type_name" placeholder="Page type name" name="page_type_name" value="'.$s_title.'"></div>';
 
 
-			$html_edit_form .= '<h4>Elements</h4>';
+			$html_edit_form .= '<h4>Parts</h4>';
 
 			foreach ($this->json_oncology_instance->full_elements as $element) {
 				$s_name = $element->name;
@@ -81,6 +81,9 @@
 
 				$html_edit_form .= $this->s_part_html($s_name, $s_type, $s_editable, $s_order, $s_type_options);
 			}
+
+			$html_edit_form .= '<div class="alert alert-info">Click the "<i class="glyphicon glyphicon-plus"></i> add part" button above to add parts to this page type.</div>';
+
 			$html_edit_form .= '</div>';
 
 			//$html_edit_form .= '<input type="hidden" id="oncology_value" name="oncology_value">';
