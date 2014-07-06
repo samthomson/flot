@@ -199,10 +199,21 @@ body.smaller_left .condensed_hidden{display: none;}
   border-radius: 12px; 
 
   margin:0 8px 8px 0;
+  border:2px solid transparent;
+  padding: 4px;
+}
+#picture_browser_results img:hover{
+  border-color:silver;
 }
 #picture_browser_results img.selected{
-  border:2px solid blue;
+  border-color:red;
 }
+
+#picture_browser_results img.selected{
+  border-color:#00adef;
+}
+
+#file_browser_selected img{margin-left: 8px;}
 
 ul.menu_items_pages{
   padding-left: 0px;

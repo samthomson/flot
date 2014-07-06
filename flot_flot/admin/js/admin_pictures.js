@@ -7,6 +7,7 @@ var xhr_image_search_requst;
 
 
 $(function () {
+	
 	$('#fileupload').fileupload({
 		dataType: 'json',
 		done: function (e, data) {
@@ -45,6 +46,13 @@ function _pic_search(){
 	}
 	xhr_image_search_requst = $.get('/flot_flot/admin/search_pics.php',{"term": s_term, "mode": s_mode}, function(data){
 		$("#picture_browser_results").html(data);
+		$("#picture_browser_results img").click(function(){
+			if($(this).hasClass("selected")){
+				$(this).removeClass('selected');
+			}else{
+				$(this).addClass('selected');
+			}
+		});
 	});
 }
 
@@ -53,6 +61,7 @@ var s_file_size = "medium";
 
 function selected_picture(s_filename){
 	s_file_selected = "/" + s_upload_dir + "/" + s_file_size + "/" + s_filename;
+	console.log(s_filename);
 	chooseFile();
 }
 
@@ -66,6 +75,7 @@ function select_picture(s_filename){
 		// add to selected
 		sa_selected.push(s_filename);
 	}
+
 	show_selected_pics();
 }
 function show_selected_pics(){
@@ -102,3 +112,4 @@ function _log_failure(s_message){
 	$("#upload_output").html('');
 	$("#upload_failure").html('<div class="alert alert-danger alert-dismissable">  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>  <strong>Upload error</strong> '+s_message+'</div>');
 }
+
