@@ -24,7 +24,7 @@
 	foreach ($oa_search_results as $o_image) {
 		$s_file_url = "/".$s_upload_dir."small/".$o_image;
 		$s_file_name = $o_image;
-		$s_onclick = "console.log('lightbox: $s_file_url');";
+		$s_onclick = "_lightbox('$s_file_url');";
 		if($s_mode === "select"){
 			$s_onclick = "select_picture('$s_file_name');";
 		}

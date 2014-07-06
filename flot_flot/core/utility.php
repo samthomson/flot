@@ -245,7 +245,7 @@
 			$this->s_mode = $s_mode;
 		}
 		function html_make_browser () {
-			$s_return_html = '<input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple class="btn btn-info"><div id="upload_output"></div><div id="upload_progress_bar"><div class="bar" style="width: 50%;"></div></div><div id="upload_failure"></div><hr/><input type="text" class="form-control" id="file_browser_text_search" placeholder="search.."><hr/><div id="picture_browser_results">loading pics..<script>s_mode = "'.$this->s_mode.'";_pic_search();</script></div>';
+			$s_return_html = '<div class="alert alert-info">Upload pictures via the button, or by drag dropping them onto this page.</div><span class="btn btn-default fileinput-button"><input id="fileupload" type="file" name="files[]" data-url="/flot_flot/external_integrations/blueimp/index.php" multiple class=""><i class="glyphicon glyphicon-cloud-upload"></i> Select files to upload from your computer/device</span><div id="upload_output"></div><div id="upload_progress_bar"><div class="bar" style="width: 50%;"></div></div><div id="upload_failure"></div><hr/><input type="text" class="form-control" id="file_browser_text_search" placeholder="search.."><hr/><div id="picture_browser_results">loading pics..<script>s_mode = "'.$this->s_mode.'";_pic_search();</script></div>';
 
 			return $s_return_html;
 		}

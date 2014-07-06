@@ -56,6 +56,12 @@ function _pic_search(){
 	});
 }
 
+function _lightbox(s_image){
+	//_modal_set_title("flo");
+	_modal_set_body('<img src="'+s_image.replace('small','large')+'" />');
+	_modal_show();
+}
+
 var s_file_selected = "";
 var s_file_size = "medium";
 
