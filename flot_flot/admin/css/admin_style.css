@@ -204,6 +204,7 @@ body.smaller_left .condensed_hidden{display: none;}
 }
 #picture_browser_results img:hover{
   border-color:silver;
+  cursor: pointer;
 }
 #picture_browser_results img.selected{
   border-color:red;
