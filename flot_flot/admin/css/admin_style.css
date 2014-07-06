@@ -65,12 +65,12 @@ body.smaller_left .condensed_hidden{display: none;}
 .blue {
   color: #0074d9; }
 .green {
-  color: #2ecc40; }
+  color: #38b248; }
 .olive{
   color: #3D9970;}
 .yellow {
   color: #ffdc00; }
-.red {color: #ff4136; }
+.red {color: #ed1a3b; }
 .orange {color: #FF851B; }
 .gray {color: #AAAAAA; }
 
@@ -321,6 +321,9 @@ a.view_link:hover{}
   background-color: transparent;
   border-color: #ccc;
   color: #ccc;
+}
+.btn, .dropdown-menu a{
+  text-transform: capitalize;
 }
 
 label.form-group{text-transform:capitalize;}
