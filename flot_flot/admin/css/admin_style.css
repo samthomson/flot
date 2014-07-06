@@ -313,3 +313,5 @@ a.view_link:hover{}
 }
 
 label.form-group{text-transform:capitalize;}
+
+.alert-info{background-color: transparent;border-color: #31708f;}

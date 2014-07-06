@@ -366,7 +366,7 @@
 		function s_new_oncology(){
 			# create a new oncology
 			$s_new_id = uniqid("oncology");
-			$s_oncology_template = '{"id":"'.$s_new_id.'", "title":"new oncology", "elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author", "date_modified", "oncology"], "editable": "true"}';
+			$s_oncology_template = '{"id":"'.$s_new_id.'", "title":"new page type", "elements": ["title", "keywords", "description", "parent", "url", "published", "url_auto", "template", "author", "date_modified", "oncology"], "editable": "true"}';
 			array_push($this->oncologies, json_decode($s_oncology_template));
 
 			# save it to datastore
