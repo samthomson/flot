@@ -585,11 +585,15 @@
 			         			$s_link = $s_title;
 			         			$s_deletable_link = '';
 
+			         			$s_disabled = ' disabled';
+
 			         			if($s_editable === "true"){
-			         				$s_link = '<a class="btn btn-view" href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=edit">'.$s_link.'</a>';
+			         				$s_disabled = '';
 
 			         				$s_deletable_link = '<a href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a>';
 			         			}
+
+		         				$s_link = '<a class="btn btn-view'.$s_disabled.'" href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=edit">'.$s_link.'</a>';
 
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td>';
