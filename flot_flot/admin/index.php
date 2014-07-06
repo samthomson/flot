@@ -474,7 +474,7 @@
 								$s_title = urldecode($o_menu->title);
 
 			         			# code...
-			         			$hmtl_menus_ui .= '<tr><td><a href="/flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=edit">';
+			         			$hmtl_menus_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=edit">';
 			         			$hmtl_menus_ui .= $s_title;
 			         			$hmtl_menus_ui .= '</a></td>';
 
