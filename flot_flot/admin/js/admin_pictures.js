@@ -23,11 +23,7 @@ $(function () {
 		},
 		progressall: function (e, data) {
 	        var progress = parseInt(data.loaded / data.total * 100, 10);
-	        $('#progress .bar').css(
-	            'width',
-	            progress + '%'
-	        );
-	        $("#upload_output").html("uploading.. "+progress+"%");
+	     	$("#upload_output").html('<div class="progress"><div class="progress-bar" role="progressbar" aria-valuenow="'+progress+'" aria-valuemin="0" aria-valuemax="100" style="width: '+progress+'%;"> '+progress+'% </div></div>');
 	    }
 	});
 
