@@ -60,7 +60,7 @@
 
 			$html_edit_form .= '<hr/>';
 
-			$html_edit_form .= '<div class="alert alert-info"><strong>Page types</strong> are for defining custom webpages which follow a particular format, so that making those pages will be easier.</div>';
+			$html_edit_form .= '<div class="alert alert-info">Add and remove Parts to a page type, choosing what kind of part you want. A page type can have many parts.</div>';
 
 			// main form content
 

@@ -570,6 +570,8 @@
 		         		$hmtl_pages_ui = "";
 						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=oncologies&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page type</a><hr/>';
 
+						$hmtl_pages_ui .= '<div class="alert alert-info">Page types are individually defined templates to make webpages from.</div>';
+
 		         		if(count($oa_oncologies) > 0)
 		         		{
 		         			$hmtl_pages_ui .= '<table id="admin_table_list" class="table table-hover"><thead><tr><th>Edit page type&nbsp;<i class="glyphicon glyphicon-edit"></i></th><th>#Instances</th><th><a class="btn btn-danger btn-xs item_delete_start"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a><a class="btn btn-success btn-xs item_delete_done"><i class="glyphicon glyphicon-ok"></i>&nbsp;Done</a></th></tr></thead><tbody>';

@@ -148,6 +148,8 @@
 
 			$html_form .= '<div id="publish_output"></div><hr/>';
 
+			$html_form .= '<div class="alert alert-info">Elements can be made and edited in one place, but used throughout your site on multiple pages or put directly in the template. Copy paste the embed code below and flot will replace it with the entered content.</div>';
+
 			$html_form .= '<form id="element_edit_form" role="form" method="post" action="index.php">';
 
 			

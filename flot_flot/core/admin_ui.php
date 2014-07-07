@@ -203,7 +203,8 @@
 			$suSU = new SettingsUtilities;
 
 			$html_form .= '<h4>Settings</h4>';
-			$html_form .= '<p>Only some settings can be edited at the moment, if you feel confident you can edit theme directly in the settings datastore.</p><hr/>';
+			$html_form .= '<div class="alert alert-info">Only some settings can be edited at the moment, if you feel confident you can edit theme directly in the settings datastore.</div><hr/>';
+
 
 			$html_form .= '<form role="form" method="post" action="index.php">';
 

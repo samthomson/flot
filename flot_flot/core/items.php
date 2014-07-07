@@ -254,6 +254,8 @@
 
 			$html_form .= '<div id="publish_output"></div><hr/>';
 
+			$html_form .= '<div class="alert alert-info">Edit the fields on this page and save for them to be visible on your site. There are settings for SEO on the Extra tab. You can copy paste the embed codes from the Embed tab, into your template, if you haven\'t already</div>';
+
 			$html_form .= '<form id="item_edit_form" role="form" method="post" action="index.php">';
 
 			#
