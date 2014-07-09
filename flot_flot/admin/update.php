@@ -50,11 +50,16 @@
 
 		echo "ready to update flot from: $s_zip_flot_base<br/>";
 
+		// iterate through every file in the newly downloaded version of flot
 		$directory_iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($s_zip_flot_base));
 		foreach($directory_iterator as $filename => $path_object)
 		{
 			if(is_dir($filename)){
 				$c_dirs++;
+				// make sure destination folder exists
+				if(!file_exists($filename)){
+					mkdir($filename);
+				}
 			}else{
 			    $s_new_path = str_replace('flot_flot/temp/new_flot/flot-master/', '', $filename);
 			    if(!copy($filename, $s_new_path)){
