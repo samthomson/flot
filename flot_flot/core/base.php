@@ -8,6 +8,8 @@
 
 	ini_set("log_errors", 1);
 	ini_set("error_log", S_ERROR_LOG_PATH);
+	// don't display errors to screen, just write them to our log
+	ini_set('display_errors', 'Off');
 
 	if (!defined('PHP_VERSION_ID')) {
     	$version = explode('.', PHP_VERSION);
@@ -17,7 +19,7 @@
 
 	@define('FLOT_VERSION_MAJOR', 0);
 	@define('FLOT_VERSION_MINOR', 7);
-	@define('FLOT_VERSION_BUILD', 1);
+	@define('FLOT_VERSION_BUILD', 2);
 
 
 	@define('FLOT_DOWNLOAD_URL', 'https://github.com/samthomson/flot/archive/master.zip');
