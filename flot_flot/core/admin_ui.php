@@ -311,6 +311,12 @@
 
 			$html_form .= '</tbody></table>';
 
+			if(!$b_write_perms){
+				foreach ($suSU->sa_unwritable_dirs as $s_path) {
+					$html_form .= $s_path.'<br/>';
+				}				
+			}
+
 			$html_form .= '<hr/>';
 
 			$s_update_enabled = ($b_write_perms ? '' : ' disabled');

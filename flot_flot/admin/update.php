@@ -24,8 +24,8 @@
 		//
 
 		// download new flot
-		$s_download_to = S_BASE_PATH.'flot_flot/temp/new_flot.zip';
-		$s_unzip_to = S_BASE_PATH.'flot_flot/temp/new_flot/';
+		$s_download_to = S_BASE_PATH.'flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot.zip';
+		$s_unzip_to = S_BASE_PATH.'flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'';
 		echo "download to: ".$s_download_to."<br/>";
 		echo "download from: ".FLOT_DOWNLOAD_URL."<br/>";
 		file_put_contents($s_download_to, fopen(FLOT_DOWNLOAD_URL, 'r'));
@@ -52,23 +52,34 @@
 
 		// iterate through every file in the newly downloaded version of flot
 		$directory_iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($s_zip_flot_base));
-		foreach($directory_iterator as $filename => $path_object)
+		foreach($directory_iterator as $filename)
 		{
-			if(is_dir($filename)){
-				$c_dirs++;
-				// make sure destination folder exists
-				if(!file_exists($filename)){
-					mkdir($filename);
-				}
-			}else{
-			    $s_new_path = str_replace('flot_flot/temp/new_flot/flot-master/', '', $filename);
-			    if(!copy($filename, $s_new_path)){
-			    	// delete destination (this update file?) and try again
-			    	unlink($s_new_path);
-			    	@copy($filename, $s_new_path);
-			    }
+			$s_new_path = str_replace('flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'flot-master'.DIRECTORY_SEPARATOR.'', '', $filename);
 
-			    $c_files++;
+			#echo "OLD: $filename<br/>NEW: $s_new_path<br/>CUT: ".'flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'flot-master'.DIRECTORY_SEPARATOR.''."<br/><br/>";
+			    
+		    if(is_dir($filename) || is_file($filename)){
+				if(is_dir($filename)){
+					$c_dirs++;
+					// make sure destination folder exists
+					if(!file_exists($s_new_path)){
+						mkdir($s_new_path);
+				    	#echo "<br/><br/>make new dir: <strong>$s_new_path</strong><br/><br/>";
+					}else{
+				    	#echo "<br/><br/>destination dir existed: <strong>$s_new_path</strong><br/><br/>";
+					}
+				}else{
+				    if(!copy($filename, $s_new_path)){
+				    	// delete destination (this update file?) and try again
+				    	unlink($s_new_path);
+				    	copy($filename, $s_new_path);
+				    	#echo "copy from <strong>$filename</strong> to <strong>$s_new_path</strong><br/>";
+				    }else{
+				    	#echo "copy was succesful!!!!!!!<br/>";
+				    }
+
+				    $c_files++;
+				}
 			}
 		}
 		echo "<br/>$c_files new files<br/>";
@@ -76,7 +87,7 @@
 
 		// clean up; delete download and unzipped folder
 		@unlink($s_download_to);
-		@unlink($s_unzip_to);
+		@unlink(substr($s_unzip_to,0,-1));
 
 		echo "delete download: $s_download_to<br/>";
 		echo "delete unzipped download: $s_unzip_to<br/>";
