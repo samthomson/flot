@@ -112,6 +112,10 @@ $(document).ready(function() {
         data.push({name: 'item_id', value: s_item_id});
         data.push({name: 'preview', value: true});
 
+        $("textarea.ckeditor").each(function(){
+            data.push({name: $(this).attr("name"), value: CKEDITOR.instances[$(this).attr("id")].getData()});
+        });
+
         $.post('/flot_flot/admin/', data, function(data){
             var html_preview = 'There was a problem generating the preview.';
 
@@ -188,4 +192,3 @@ function _make_home_page(){
 
     $("#item_edit_form").submit();
 }
-
