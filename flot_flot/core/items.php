@@ -283,7 +283,7 @@
 			$html_form .= '</div>';
 
 			# url
-			$html_form .= '<div class="input-group input-group-sm">';
+			$html_form .= '<div id="url_input" class="input-group input-group-sm">';
 			$html_form .= '<span class="input-group-addon">';
         	$html_form .= '<input id="item_edit_auto_url" name="url_auto" '.$s_checked.' value="true" type="checkbox"> set url for me';
       		$html_form .= '</span>';

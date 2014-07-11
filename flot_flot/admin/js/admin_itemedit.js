@@ -111,6 +111,15 @@ function _set_url_from_title(){
         s_parent = s_make_slug(s_parent) + '/';
     }
     var s_slug = '/' + s_parent + s_make_slug($("#item_edit_title").val()) + '/';
+
+    if(sa_page_urls.indexOf(s_slug) > -1){
+        s_slug = s_slug.slice(0, -1);
+        s_slug += "-2/";
+        $("#url_input").addClass("has-error");
+    }else{
+        $("#url_input").removeClass("has-error");
+    }
+
     $(".item_edit_url").val(s_slug);
 }
 function s_make_slug(slugcontent)
@@ -125,7 +134,6 @@ function s_make_slug(slugcontent)
     var slugcontent_hyphens = slugcontent.replace(/\s/g,'-');
     var finishedslug = slugcontent_hyphens.replace(/[^a-zA-Z0-9\-]/g,'');
     finishedslug = finishedslug.toLowerCase();
-    console.log("finished slug: "+finishedslug);
     return finishedslug;
 }
 
