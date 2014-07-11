@@ -467,7 +467,8 @@
 
 	}
 	class JSInjector{
-		$dDatastore;
+		public $dDatastore;
+
 		function __construct() {
 		}
 		function _set_datastore($datastore){
@@ -475,11 +476,19 @@
 			$this->dDatastore = $datastore;
 		}
 
+		function s_start_script(){
+			return '<script>';
+		}
+		function s_end_script(){
+			return '</script>';
+		}
+
 		function s_page_urls(){
-			$s_js = '';
+			$s_js = 'var sa_page_urls = [';
 			foreach ($this->dDatastore as $items => $item) {
-				$s_js .= $item->url;
+				$s_js .= '"'.$item->url.'"';
 			}
+			return $s_js.'];';
 		}
 	}
 ?>

@@ -493,6 +493,13 @@
 			  </div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->';
 
+			$jsiJSI = new JSInjector;
+			$jsiJSI->_set_datastore($this->datastore);
+
+			$html_form .= $jsiJSI->s_start_script();
+			$html_form .= $jsiJSI->s_page_urls();
+			$html_form .= $jsiJSI->s_end_script();
+
 			return $html_form;
 		}
 		function update_from_post(){
