@@ -466,4 +466,20 @@
 		}
 
 	}
+	class JSInjector{
+		$dDatastore;
+		function __construct() {
+		}
+		function _set_datastore($datastore){
+			// pass in datastore to be used, to save initialising it twice
+			$this->dDatastore = $datastore;
+		}
+
+		function s_page_urls(){
+			$s_js = '';
+			foreach ($this->dDatastore as $items => $item) {
+				$s_js .= $item->url;
+			}
+		}
+	}
 ?>
