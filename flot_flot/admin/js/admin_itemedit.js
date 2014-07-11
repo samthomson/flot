@@ -99,9 +99,11 @@ $(document).ready(function() {
 
     /* preview page changes */
     $("#preview_edits").click(function(){
+        
         _modal_set_title("Preview");
         _modal_set_body('<i class="glyphicon glyphicon-refresh spinning"></i> Loading');
         _modal_show();
+        
 
         var s_item_id = '';
         s_item_id = $("[name=item_id]").val();
