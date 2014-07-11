@@ -56,11 +56,25 @@
 								$Item->_set_full_item($o_full_item);
 								$Item->update_from_post();
 
-								# persist (or not) the item
-								$Item->save();
+
+
+								$s_preview = $ufUf->s_post_var_from_allowed("preview", array("true", "false"), "false");
 								
-								# change location to view the item
-								$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
+
+								if($s_preview === "true"){
+									ob_clean();
+									$Item->render();
+									echo $Item->html_page;
+									exit();
+								}else{
+									$Item->persist_after_update_from_post();
+
+									# persist (or not) the item
+									$Item->save();
+									
+									# change location to view the item
+									$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
+								}
 							}else{
 								echo "no loaded item & full item";
 							}

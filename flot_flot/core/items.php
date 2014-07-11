@@ -45,14 +45,6 @@
 			$this->datastore = new DataStore;
 			$this->o_oncology = $this->datastore->get_oncology($o_item->oncology);
 		}
-		function _set_full_item($o_full_item){
-			// full item object will have item specific properties, not shared with default items
-			// loop through each property and add it to exisiting item object
-			$this->o_full_item_object = array();
-			foreach ($o_full_item as $key => $value) {
-			    $this->o_full_item_object[$key] = $value;
-			}
-		}
 
 		function rebuild() {
 			# render, and rebuild dependent items
@@ -223,7 +215,7 @@
 			$html_form .= '<div class="btn-group edit_item_general_toolbar">';
 
 			// preview
-			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
+			$html_form .= '<a class="btn btn-default btn-sm" href="#" id="preview_edits"><i class="glyphicon glyphicon-expand"></i><span class="small-hidden"> preview</span></a>';
 			/*
 			$html_form .= '<a disabled class="btn btn-default btn-sm" href="#"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden"> purge from cache</span></a>';
 			*/
@@ -523,29 +515,38 @@
 			# update date and set author
 			$this->o_loaded_item_object->date_modified = date("d-m-Y");
 			$this->o_loaded_item_object->author = $flot->s_current_user;
-			$this->datastore->_set_item_data($this->o_loaded_item_object);
-			$this->datastore->b_save_datastore("items");
 
-			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = array();
 
+			$oa_full_elements = array();
 			foreach($this->o_oncology->full_elements as $element){
 				$s_new_value = $ufUF->s_post_var($element->name, false);
 				
 				if($s_new_value){
 					if($element->editable === "true"){
-						$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);
+						//$this->datastore->oa_individual_items[$this->o_loaded_item_object->id][$element->name] = urldecode($s_new_value);
+						$oa_full_elements[$element->name] = urldecode($s_new_value);
 					}	
 				}
 			}
+			$this->_set_full_item($oa_full_elements);
 
 			// save full item, which we just edited directly
+		}
+		function persist_after_update_from_post(){
+			$this->datastore->_set_item_data($this->o_loaded_item_object);
+			$this->datastore->b_save_datastore("items");
 			$this->datastore->b_save_item($this->o_loaded_item_object->id);
-			// now save the item in amongst others, and messing up the newly set data on the high level item in the process (but we've saved that now)
+			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = $this->o_full_item_object;
+		}
 
-			// now we have updated the loaded item object, and the individual item object.
 
-			// lets bring the changes to the individual item object, across to the loaded item object, so that any future in memory calls to the item get the propogated changes
-			$this->_set_full_item($this->datastore->oa_individual_items[$this->o_loaded_item_object->id]);
+		function _set_full_item($o_full_item){
+			// full item object will have item specific properties, not shared with default items
+			// loop through each property and add it to exisiting item object
+			$this->o_full_item_object = array();
+			foreach ($o_full_item as $key => $value) {
+			    $this->o_full_item_object[$key] = $value;
+			}
 		}
 	}
 ?>

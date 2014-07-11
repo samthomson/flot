@@ -51,7 +51,7 @@ $(document).ready(function() {
             }
         });
     });
-    CKEDITOR.config.skin= 'flot';
+    CKEDITOR.config.skin = 'flot';
 
     // url text input
     $('#item_edit_url').each(function() {
@@ -95,6 +95,32 @@ $(document).ready(function() {
     // drop down parent select
     $("#item_parent").change(function(){
         _set_url_from_title();
+    });
+
+    /* preview page changes */
+    $("#preview_edits").click(function(){
+        _modal_set_title("Preview");
+        _modal_set_body('<i class="glyphicon glyphicon-refresh spinning"></i> Loading');
+        _modal_show();
+
+        var s_item_id = '';
+        s_item_id = $("[name=item_id]").val();
+
+        var data = $('#item_edit_form').serializeArray();
+        data.push({name: 'section', value: "items"});
+        data.push({name: 'action', value: "edit"});
+        data.push({name: 'item_id', value: s_item_id});
+        data.push({name: 'preview', value: true});
+
+        $.post('/flot_flot/admin/', data, function(data){
+            var html_preview = 'There was a problem generating the preview.';
+
+            if(data.length){
+                html_preview = data;
+            }
+
+            _modal_set_body(html_preview);
+        }); 
     });
 });  
 
@@ -162,3 +188,4 @@ function _make_home_page(){
 
     $("#item_edit_form").submit();
 }
+

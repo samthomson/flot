@@ -19,7 +19,7 @@
 
 	@define('FLOT_VERSION_MAJOR', 0);
 	@define('FLOT_VERSION_MINOR', 9);
-	@define('FLOT_VERSION_BUILD', 1);
+	@define('FLOT_VERSION_BUILD', 2);
 
 
 	@define('FLOT_DOWNLOAD_URL', 'https://github.com/samthomson/flot/archive/master.zip');
