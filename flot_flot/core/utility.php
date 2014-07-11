@@ -485,9 +485,12 @@
 
 		function s_page_urls(){
 			$s_js = 'var sa_page_urls = [';
-			foreach ($this->dDatastore as $items => $item) {
-				$s_js .= '"'.$item->url.'"';
+
+			$sa_urls = array();
+			foreach ($this->dDatastore->items as $items => $item) {
+				array_push($sa_urls, '"'.$item->url.'"');
 			}
+			$s_js .= implode(",", $sa_urls);
 			return $s_js.'];';
 		}
 	}
