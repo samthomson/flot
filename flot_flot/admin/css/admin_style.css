@@ -22,14 +22,11 @@ body.smaller_left .condensed_hidden{display: none;}
 */
 
 #admin_header{
-  border-bottom: silver 1px solid;
   height: auto;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 16px;
   background: #fff;
-
-  box-shadow: 0px 1px 5px silver;
 }
 #top_right_buttons{
   float:right;
@@ -96,6 +93,7 @@ body.smaller_left .condensed_hidden{display: none;}
     border-right:1px solid #dddddd;
 
     border-left: 4px solid white;
+    text-transform: capitalize;
 }
 .admin_menu_left:last-of-type{
   border-bottom-width:0px;
