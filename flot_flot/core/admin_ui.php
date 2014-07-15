@@ -60,8 +60,7 @@
 		}
 		function html_make_admin_page($html_header, $html_left_menu, $html_make_admin_content, $html_make_admin_content_menu, $s_body_class){
 
-			$html_add_content_button = $this->html_make_content_add_button();
-
+			$html_add_content_button = '';
 
 			$ufUF = new UtilityFunctions;
 
@@ -346,7 +345,7 @@
 			$fu_FileUtil = new FileUtilities;
 			return $fu_FileUtil->s_errors();
 		}
-		function html_make_content_add_button(){
+		function html_make_page_add_button(){
 			$s_oncologies = '<li><a href="#" class="btn disabled">no page types :(</a></li>';
 
 			$odOD = new OncologyData;
@@ -360,16 +359,11 @@
 				}
 			}
 			
-			$html_add_content_button = '<div class="btn-group">
-				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add content<span class="hidden-xs"> to your website</span>
+			$html_add_content_button = '<div class="btn-group edit_item_general_toolbar">
+				        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add <span class="hidden-xs"> a page</span>
 				          <span class="caret"></span>
 				        </button>
-				        <ul class="dropdown-menu pull-right" role="menu">'.$s_oncologies.'
-				        	<li role="presentation" class="divider"></li>
-					        <li><a href="#">picture(s)</a></li>
-					        <li><a href="#">page type</a></li>
-					        <li><a href="#">menu</a></li>
-				        </ul>
+				        <ul class="dropdown-menu pull-right" role="menu">'.$s_oncologies.'</ul>
 				      </div>';
 
 			return $html_add_content_button;

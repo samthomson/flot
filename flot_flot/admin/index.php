@@ -244,7 +244,7 @@
 						}
 
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<div class="btn-group edit_item_general_toolbar"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page</a></div><div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=flot&action=regenerate"><i class="glyphicon glyphicon-refresh"></i> regenerate all pages</a></div><hr/>';
+						$hmtl_pages_ui .= ''.$admin_ui->html_make_page_add_button().'<div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=flot&action=regenerate"><i class="glyphicon glyphicon-refresh"></i> regenerate all pages</a></div><hr/>';
 
 		         		if(count($oa_pages) > 0)
 		         		{

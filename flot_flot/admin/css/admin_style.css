@@ -101,6 +101,9 @@ body.smaller_left .condensed_hidden{display: none;}
 .admin_menu_left span{
     padding-left: 8px;
 }
+.admin_menu_left i.glyphicon{
+  color: #999;
+}
 .admin_menu_left:hover,.admin_menu_left:visited{
     background: #f2f2f2;
     text-decoration: none;
@@ -115,7 +118,7 @@ body.smaller_left .condensed_hidden{display: none;}
     border-left:4px solid;
     margin-right: -1px;
     background: #fff;
-    color:#666;
+    color:#777;
     font-weight: bold;
 
     -webkit-border-top-left-radius: 4px;
@@ -146,7 +149,6 @@ body.smaller_left .condensed_hidden{display: none;}
 .page_type:last-of-type{
   margin-bottom: 8px;
 }
-
 
 .tab-pane{
     /* start each tab with a little gap, so the tab headers don't rub the tab content */
