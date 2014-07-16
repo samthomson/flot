@@ -23,7 +23,7 @@ Flot is open source, which means totally free.
 
 For now, flot is still being developed, but coming together quickly. Check out the <a href="http://flot.io">flot website</a>, or follow <a href="https://twitter.com/flot_io">flot on twitter</a> to stay updated.
 
-[![Trello Development Board](https://trello.com/b/RnHlRqoI.png)](https://trello.com/b/RnHlRqoI)
+[![Flot CMS UI](https://pbs.twimg.com/media/BsrxrNsIMAEIFfH.jpg:large)](https://pbs.twimg.com/media/BsrxrNsIMAEIFfH.jpg:large)
 
 License
 =======
