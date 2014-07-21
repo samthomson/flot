@@ -111,6 +111,11 @@
 				<div class="form-group">
 					<button type="submit" name="submit" class="btn btn-success form-control" id="login_button">try again</button>
 				</div>
+				<p>Or if you think the errors are wrong, you can force start flot.</p>
+				<div class="form-group">
+					<button type="submit" name="submit" class="btn btn-warning form-control" id="login_button"><i class="glyphicon glyphicon-warning-sign"></i> force start flot</button>
+				</div>
+
 
 					<?php }  ?>
 
