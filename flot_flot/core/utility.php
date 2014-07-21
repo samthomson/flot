@@ -112,15 +112,10 @@
 			return true;
 		}
 		function mod_rewrite_enabled(){
-			$mod_rewrite = true;
-			if (function_exists('apache_get_modules')) {
-				$modules = apache_get_modules();
-				$mod_rewrite = in_array('mod_rewrite', $modules);
-			} else {
-				$mod_rewrite =  getenv('HTTP_MOD_REWRITE')=='On' ? true : false ;
-			}
+			$suSU = new SettingsUtilities;
+			$b_mod_rewrite = $suSU->b_mod_rewrite_enabled();
 
-			if(!$mod_rewrite){
+			if(!$b_mod_rewrite){
 				array_push($this->sa_instructions, "mod_rewrite is not enabled.");
 			}
 		}
@@ -463,6 +458,16 @@
 				return false;
 			}
 			return true;
+		}
+		function b_mod_rewrite_enabled(){
+			$b_mod_rewrite = true;
+			if (function_exists('apache_get_modules')) {
+				$sa_modules = apache_get_modules();
+				$b_mod_rewrite = in_array('mod_rewrite', $sa_modules);
+			} else {
+				$b_mod_rewrite =  getenv('HTTP_MOD_REWRITE') ==='On' ? true : false ;
+			}
+			return $b_mod_rewrite;
 		}
 
 	}

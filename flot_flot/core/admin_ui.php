@@ -307,14 +307,21 @@
 			$s_write_perms = ($b_write_perms ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
 			$html_form .= '<tr><td>www write permission</td><td>'.$s_write_perms.'</td></tr>';
 
-
-			$html_form .= '</tbody></table>';
-
+			/*
 			if(!$b_write_perms){
 				foreach ($suSU->sa_unwritable_dirs as $s_path) {
 					$html_form .= $s_path.'<br/>';
 				}				
 			}
+			*/
+
+			// mod_rewrite enabled
+			$b_mod_rewrite = $suSU->b_mod_rewrite_enabled();
+			$s_mod_rewrite = ($b_mod_rewrite ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
+			$html_form .= '<tr><td>mod_rewrite enabled</td><td>'.$s_mod_rewrite.'</td></tr>';
+
+			$html_form .= '</tbody></table>';
+
 
 			$html_form .= '<hr/>';
 
