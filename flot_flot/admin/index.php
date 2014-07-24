@@ -59,11 +59,10 @@
 
 
 								$s_preview = $ufUf->s_post_var_from_allowed("preview", array("true", "false"), "false");
-								
+								ob_clean();
+								$Item->render();
 
-								if($s_preview === "true"){
-									ob_clean();
-									$Item->render();
+								if($s_preview === "true"){						
 									echo $Item->html_page;
 									exit();
 								}else{
