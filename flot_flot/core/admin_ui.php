@@ -370,7 +370,7 @@
 				        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add <span class="hidden-xs"> a page</span>
 				          <span class="caret"></span>
 				        </button>
-				        <ul class="dropdown-menu pull-right" role="menu">'.$s_oncologies.'</ul>
+				        <ul class="dropdown-menu" role="menu">'.$s_oncologies.'</ul>
 				      </div>';
 
 			return $html_add_content_button;
