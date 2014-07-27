@@ -75,9 +75,10 @@ body.smaller_left .condensed_hidden{display: none;}
   hr {margin-top: 10px;margin-bottom: 10px;}
 
 #left_admin_menu_col{
-    bottom: 0px;
-    top: 71px;
-    padding-left: 8px;
+  position: relative;
+  bottom: 0px;
+  top: 0px;
+  padding-left: 8px;
 }
 #admin_menu_left{
     height: 100%;
@@ -172,7 +173,6 @@ body.smaller_left .condensed_hidden{display: none;}
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 16px;
-    padding-top: 10px;
     background: #fff;
     margin-bottom: 36px;
     margin-top:9px;
