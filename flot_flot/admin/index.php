@@ -54,12 +54,7 @@
 								$Item = new Item($o_item);
 
 								$Item->_set_full_item($o_full_item);
-								print_r($o_item);
-								print_r($o_full_item);
 								$Item->update_from_post();
-								echo "<br/><br/><br/>";
-								print_r($o_item);
-								print_r($o_full_item);
 
 								$s_preview = $ufUf->s_post_var_from_allowed("preview", array("true", "false"), "false");
 
@@ -69,11 +64,14 @@
 									$Item->render();
 									exit();
 								}else{
+									// save datastore
 									$Item->persist_after_update_from_post();
 
 									# persist (or not) the item
-									// save does a render and update (datastore)
+									// save does a render and update wbepage render
 									$Item->save();
+
+									print_r($Item->o_full_item_object);
 									
 									# change location to view the item
 									//$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");

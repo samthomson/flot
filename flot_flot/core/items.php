@@ -534,9 +534,11 @@
 		}
 		function persist_after_update_from_post(){
 			$this->datastore->_set_item_data($this->o_loaded_item_object);
+
+			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = $this->o_full_item_object;
+			
 			$this->datastore->b_save_datastore("items");
 			$this->datastore->b_save_item($this->o_loaded_item_object->id);
-			$this->datastore->oa_individual_items[$this->o_loaded_item_object->id] = $this->o_full_item_object;
 		}
 
 
