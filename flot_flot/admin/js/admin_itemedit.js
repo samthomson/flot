@@ -4,7 +4,7 @@ $(document).ready(function() {
     /*
     set up wysiwyg editor
     */
-    CKEDITOR.timestamp = "6";
+    CKEDITOR.timestamp = "7";
     CKEDITOR.config.removePlugins = 'forms, flash,iframe,image,link';
     $('.ckeditor').each(function(){
         CKEDITOR.replace($(this).attr('id'),
@@ -15,8 +15,9 @@ $(document).ready(function() {
             [
                 [ 'Bold', 'Underline', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Links', 'Unlink', '-', 'Blockquote', 'CreateDiv', 'Table', 'HorizontalRule', 'TextColor' ],
                 [ 'Pictures' ],
-                [ 'Source' ],
-                ['Format']
+                ['Format'],
+                ['Source' ],
+                ['Maximize']
             ]
         });
     });

@@ -54,25 +54,29 @@
 								$Item = new Item($o_item);
 
 								$Item->_set_full_item($o_full_item);
+								print_r($o_item);
+								print_r($o_full_item);
 								$Item->update_from_post();
-
-
+								echo "<br/><br/><br/>";
+								print_r($o_item);
+								print_r($o_full_item);
 
 								$s_preview = $ufUf->s_post_var_from_allowed("preview", array("true", "false"), "false");
-								ob_clean();
-								$Item->render();
 
 								if($s_preview === "true"){						
 									echo $Item->html_page;
+									//ob_clean();
+									$Item->render();
 									exit();
 								}else{
 									$Item->persist_after_update_from_post();
 
 									# persist (or not) the item
+									// save does a render and update (datastore)
 									$Item->save();
 									
 									# change location to view the item
-									$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
+									//$flot->_page_change("/flot_flot/admin/index.php?section=items&oncology=page&action=list");
 								}
 							}else{
 								echo "no loaded item & full item";
