@@ -321,7 +321,9 @@ a.view_link:hover{}
 }
 .btn:hover, .btn:active, .btn:visited{
   border-color:transparent;
-  color: white;  
+}
+.btn-info:hover, .btn-info:active, .btn-info:visited{
+  color:#fff;
 }
 
 .btn-danger,.btn-danger:visited{
