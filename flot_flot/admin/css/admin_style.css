@@ -74,8 +74,11 @@ body.smaller_left .condensed_hidden{display: none;}
 
   hr {margin-top: 10px;margin-bottom: 10px;}
 
-#left_admin_menu_col{
+#left_right_container{
   position: relative;
+}
+
+#left_admin_menu_col{
   bottom: 0px;
   top: 0px;
   padding-left: 8px;

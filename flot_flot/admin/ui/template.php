@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div id="left_right_container">
 			<!-- tabs left -->
 			<div class="left_col" id="left_admin_menu_col">
 				<!-- render left menu, one item should be 'active' -->
