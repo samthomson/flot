@@ -312,6 +312,14 @@ a.view_link:hover{}
 .item_delete{display: none;}
 .item_delete_done{display: none;}
 
+.btn, .btn:hover, .btn:active, .btn:visited{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn:hover, .btn:active, .btn:visited{
+  border-color:transparent;
+  color: white;  
+}
 
 .btn-danger,.btn-danger:visited{
   border-color: #d9534f;
