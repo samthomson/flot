@@ -1,8 +1,7 @@
 <?php
 	# search pics from datastore, render them with pagination
-	$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 
-	include($s_b_p.'flot_flot/core/base.php');
+	include('../../flot_flot/core/base.php');
 	include(S_BASE_PATH.'flot_flot/core/datastore.php');
 
 	$s_mode = "browse";
@@ -22,7 +21,7 @@
 	$oa_search_results = $o_Datastore->oa_search_pictures($s_query);
 	
 	foreach ($oa_search_results as $o_image) {
-		$s_file_url = "/".$s_upload_dir."small/".$o_image;
+		$s_file_url = substr(S_BASE_EXTENSION, 0, -1)."/".$s_upload_dir."small/".$o_image;
 		$s_file_name = $o_image;
 		$s_onclick = "_lightbox('$s_file_url');";
 		if($s_mode === "select"){

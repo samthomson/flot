@@ -2,7 +2,7 @@
 	/*
 	initial setup, shared vars used by all of flot
 	*/
-	@define('S_BASE_EXTENSION', '/sub/');
+	@define('S_BASE_EXTENSION', '/');
 	@define('S_BASE_PATH', str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).S_BASE_EXTENSION);	
 	@define('S_ERROR_LOG_PATH', S_BASE_PATH."flot_flot/log/php_error.log");
 
@@ -20,7 +20,7 @@
 
 	@define('FLOT_VERSION_MAJOR', 0);
 	@define('FLOT_VERSION_MINOR', 9);
-	@define('FLOT_VERSION_BUILD', 8);
+	@define('FLOT_VERSION_BUILD', 9);
 
 
 	@define('FLOT_DOWNLOAD_URL', 'https://github.com/samthomson/flot/archive/master.zip');

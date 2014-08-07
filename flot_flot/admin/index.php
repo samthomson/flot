@@ -312,7 +312,7 @@
 						if($s_oncology){
 							$s_newitem_id = $flot->datastore->s_new_item($s_oncology);
 
-							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=$s_oncology&item=".$s_newitem_id."&action=edit";
+							$s_new_page = "'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items&oncology=$s_oncology&item=".$s_newitem_id."&action=edit";
 							$flot->_page_change($s_new_page);
 						}else{
 							echo "no page type :(";
@@ -330,7 +330,7 @@
 							// remove from datastore
 							$flot->datastore->_delete_item($s_page_id);
 
-							$s_new_page = "/flot_flot/admin/index.php?section=items&oncology=page&action=list";
+							$s_new_page = "'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items&oncology=page&action=list";
 							$flot->_page_change($s_new_page);
 						}
 						break;
@@ -371,7 +371,7 @@
 
 
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<div class="btn-group edit_item_general_toolbar"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=elements&action=new"><i class="glyphicon glyphicon-plus"></i> add a new element</a></div><hr/>';
+						$hmtl_pages_ui .= '<div class="btn-group edit_item_general_toolbar"><a class="btn btn-default btn-sm" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements&action=new"><i class="glyphicon glyphicon-plus"></i> add a new element</a></div><hr/>';
 
 		         		if(count($oa_elements) > 0)
 		         		{
@@ -403,11 +403,11 @@
 								}
 
 			         			# code...
-			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view btn-xs" href="/flot_flot/admin/index.php?section=elements&element='.$s_id.'&action=edit">';
+			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view btn-xs" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements&element='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
 			         			
 			         			
-			         			$hmtl_pages_ui .= '</a></td><td class="hidden-xs hidden-sm">'.$s_date_modified.'</td><td class="hidden-xs hidden-sm">'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=elements&element='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i><span class="hidden-xs">&nbsp;delete</span></a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td class="hidden-xs hidden-sm">'.$s_date_modified.'</td><td class="hidden-xs hidden-sm">'.$s_author.'</td><td>'.$s_published.'</td><td><a href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements&element='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i><span class="hidden-xs">&nbsp;delete</span></a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{
@@ -422,7 +422,7 @@
 
 						$s_newelement_id = $flot->datastore->s_new_element();
 
-						$s_new_page = "/flot_flot/admin/index.php?section=elements&element=".$s_newelement_id."&action=edit";
+						$s_new_page = "'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements&element=".$s_newelement_id."&action=edit";
 						$flot->_page_change($s_new_page);
 						
 						break;
@@ -438,7 +438,7 @@
 							// remove from datastore
 							$flot->datastore->_delete_element($s_element_id);
 
-							$s_new_page = "/flot_flot/admin/index.php?section=elements&action=list";
+							$s_new_page = "'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements&action=list";
 							$flot->_page_change($s_new_page);
 						}
 						break;
@@ -476,7 +476,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_menus = $flot->oa_menus();
 		         		$hmtl_menus_ui = "";
-						$hmtl_menus_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=menus&action=new"><i class="glyphicon glyphicon-plus"></i> add a new menu</a><hr/>';
+						$hmtl_menus_ui .= '<a class="btn btn-default btn-sm" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=menus&action=new"><i class="glyphicon glyphicon-plus"></i> add a new menu</a><hr/>';
 
 		         		if(count($oa_menus) > 0)
 		         		{
@@ -486,11 +486,11 @@
 								$s_title = urldecode($o_menu->title);
 
 			         			# code...
-			         			$hmtl_menus_ui .= '<tr><td><a class="btn btn-view" href="/flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=edit">';
+			         			$hmtl_menus_ui .= '<tr><td><a class="btn btn-view" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=edit">';
 			         			$hmtl_menus_ui .= $s_title;
 			         			$hmtl_menus_ui .= '</a></td>';
 
-								$hmtl_menus_ui .= '<td><a href="/flot_flot/admin/index.php?section=menus&menu='.$o_menu->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
+								$hmtl_menus_ui .= '<td><a href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=menus&menu='.$o_menu->id.'&action=delete" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> delete</a></td></tr>';
 			         		}
 			         		$hmtl_menus_ui .= '</tbody></table>';
 			         	}else{
@@ -507,7 +507,7 @@
 						$s_new_menu_id = $flot->datastore->s_new_menu();
 
 
-						$s_new_menu = "/flot_flot/admin/index.php?section=menus&menu=".$s_new_menu_id."&action=edit";
+						$s_new_menu = "'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=menus&menu=".$s_new_menu_id."&action=edit";
 						$flot->_page_change($s_new_menu);
 						
 						break;
@@ -519,7 +519,7 @@
 						if($s_menu_id){
 							$flot->datastore->_delete_menu($s_menu_id);
 
-							$s_new_page = "/flot_flot/admin/index.php?section=menus&action=list";
+							$s_new_page = "'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=menus&action=list";
 							$flot->_page_change($s_new_page);
 						}
 						
@@ -580,7 +580,7 @@
 						# list all pages that can be edited (pagination ?)
 						$oa_oncologies = $flot->oa_oncologies();
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=oncologies&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page type</a><hr/>';
+						$hmtl_pages_ui .= '<a class="btn btn-default btn-sm" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=oncologies&action=new"><i class="glyphicon glyphicon-plus"></i> add a new page type</a><hr/>';
 
 						$hmtl_pages_ui .= '<div class="alert alert-info">Page types are individually defined templates to make webpages from.</div>';
 
@@ -604,10 +604,10 @@
 			         			if($s_editable === "true"){
 			         				$s_disabled = '';
 
-			         				$s_deletable_link = '<a href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a>';
+			         				$s_deletable_link = '<a href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i> delete</a>';
 			         			}
 
-		         				$s_link = '<a class="btn btn-view'.$s_disabled.'" href="/flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=edit">'.$s_link.'</a>';
+		         				$s_link = '<a class="btn btn-view'.$s_disabled.'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=oncologies&id='.$s_id.'&action=edit">'.$s_link.'</a>';
 
 			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td>';
@@ -664,7 +664,7 @@
 
 						break;
 					case "view":
-						$html_main_admin_content = '<a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=errors&action=clear"><i class="glyphicon glyphicon-trash"></i> clear/delete log</a><hr/>';
+						$html_main_admin_content = '<a class="btn btn-default btn-sm" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=errors&action=clear"><i class="glyphicon glyphicon-trash"></i> clear/delete log</a><hr/>';
 						$html_main_admin_content .= $admin_ui->html_make_error_page();
 						break;
 				}

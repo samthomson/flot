@@ -10,9 +10,9 @@
  * http://www.opensource.org/licenses/MIT
  */
 
-$s_base_path = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
 
-require_once($s_base_path.'/flot_flot/core/flot.php');
+require_once('../../../flot_flot/core/base.php');
+require_once(S_BASE_PATH.'flot_flot/core/flot.php');
 
 $flot = new Flot;
 //$util = new UtilityFunctions;
@@ -42,7 +42,7 @@ foreach ($flot->datastore->settings->thumb_sizes as $image_size) {
 #print_r($oa_image_sizes);
 
 $a_options = array(
-	'upload_dir' => $s_base_path.$flot->datastore->settings->upload_dir,
+	'upload_dir' => S_BASE_PATH.$flot->datastore->settings->upload_dir,
 	'image_versions' => $oa_image_sizes,
 	'accept_file_types' => '/\.(gif|jpe?g|png)$/i'
 );
@@ -59,7 +59,7 @@ class CustomUploadHandler extends UploadHandler {
 	            $uploaded_file, $name, $size, $type, $error, $index, $content_range
 	        );
 	        if (empty($file->error)) {
-	            $o_ImageProcessor = new ImageProcessor(S_BASE_PATH, $this->flot->datastore->settings->upload_dir, $file->name);
+	            $o_ImageProcessor = new ImageProcessor(S_BASE_PATH, S_BASE_EXTENSION.$this->flot->datastore->settings->upload_dir, $file->name);
 	            $o_ImageProcessor->process_and_tag_to_datastore();
 	        }else{
 	        	echo $file->error;
