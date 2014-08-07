@@ -92,7 +92,7 @@
 		}
 		function _page_change($s_relative_page){
 			$s_new_page = "Location: ";
-			$s_new_page .= S_BASE_EXTENSION.$s_relative_page;
+			$s_new_page .= substr(S_BASE_EXTENSION, 0, -1).$s_relative_page;
 			header($s_new_page);
 			exit();
 		}

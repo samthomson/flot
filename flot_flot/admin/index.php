@@ -242,7 +242,7 @@
 						}
 
 		         		$hmtl_pages_ui = "";
-						$hmtl_pages_ui .= ''.$admin_ui->html_make_page_add_button().'<div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=flot&action=regenerate"><i class="glyphicon glyphicon-refresh"></i> regenerate all pages</a></div><hr/>';
+						$hmtl_pages_ui .= ''.$admin_ui->html_make_page_add_button().'<div class="btn-group"><a class="btn btn-default btn-sm" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=flot&action=regenerate"><i class="glyphicon glyphicon-refresh"></i> regenerate all pages</a></div><hr/>';
 
 		         		if(count($oa_pages) > 0)
 		         		{
@@ -287,14 +287,14 @@
 
 
 			         			# code...
-			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view btn-xs" href="/flot_flot/admin/index.php?section=items&item='.$s_id.'&action=edit">';
+			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view btn-xs" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items&item='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
 			         			$s_url_link = '<a target="_blank" href="'.$s_url.'" '.$s_link_class.' class="view_link">'.$s_url_text.'</a>';
 			         			if(urldecode($o_page->published) === "false"){
 			         				$s_url_link = '<span class="gray"><i class="glyphicon glyphicon-eye-close"></i> unpublished</span>';
 			         			}
 
-			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td class="hidden-xs hidden-sm">'.$odOD->s_oncology_name_from_id($s_oncology).'</td><td class="hidden-xs hidden-sm">'.$s_date_modified.'</td><td class="hidden-xs hidden-sm">'.$s_author.'</td><td>'.$s_published.'</td><td><a href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i><span class="hidden-xs">&nbsp;delete</span></a></td></tr>';
+			         			$hmtl_pages_ui .= '</a></td><td>'.$s_url_link.'</td><td class="hidden-xs hidden-sm">'.$odOD->s_oncology_name_from_id($s_oncology).'</td><td class="hidden-xs hidden-sm">'.$s_date_modified.'</td><td class="hidden-xs hidden-sm">'.$s_author.'</td><td>'.$s_published.'</td><td><a href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items&oncology=page&item='.$o_page->id.'&action=delete" class="btn btn-danger btn-xs item_delete"><i class="glyphicon glyphicon-trash"></i><span class="hidden-xs">&nbsp;delete</span></a></td></tr>';
 			         		}
 			         		$hmtl_pages_ui .= '</tbody></table>';
 			         	}else{

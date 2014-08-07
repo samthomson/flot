@@ -364,7 +364,7 @@
 				// homepage
 				$s_item_url = '/';
 			}
-			return $s_item_url;
+			return substr(S_BASE_EXTENSION, 0, -1).$s_item_url;
 		}
 	}
 
