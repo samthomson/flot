@@ -36,7 +36,7 @@
 			<div class="left_col clearer">
 				<a href="/flot_flot/admin/">
 					<?php $suSU = new SettingsUtilities; ?>
-					<img src="/flot_flot/admin/images/flot.png" style="
+					<img src="<?php echo S_BASE_EXTENSION; ?>flot_flot/admin/images/flot.png" style="
 					    max-height: 35px;
 					    margin-left: 20px;
 					" alt="flot version <?php echo $suSU->s_literal_flot_version(); ?>" title="flot version <?php echo $suSU->s_literal_flot_version(); ?>"/>

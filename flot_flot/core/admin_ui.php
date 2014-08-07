@@ -101,19 +101,19 @@
 					switch($s_action){
 						case "edit":
 							# ckeditor
-							$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
 
 							# text angular
-							$s_header .= '<script src="/flot_flot/external_integrations/text_angular/textAngular-sanitize.min.js"></script>';
-							$s_header .= '<script src="/flot_flot/external_integrations/text_angular/textAngular.min.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/text_angular/textAngular-sanitize.min.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/text_angular/textAngular.min.js"></script>';
 
 							# general admin js
-							$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_itemedit.js"></script>';
 
 							$s_header .= $this->html_admin_headers_pictures();
 							break;
 						case "list":
-							$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_item_list.js"></script>';
 							break;
 					}
 					break;
@@ -125,14 +125,14 @@
 						case "edit":
 							# ckeditor
 
-							$s_header .= '<script src="/flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
 							
-							$s_header .= '<script src="/flot_flot/admin/js/admin_itemedit.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_itemedit.js"></script>';
 
 							$s_header .= $this->html_admin_headers_pictures();
 							break;
 						case "list":
-							$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_item_list.js"></script>';
 							break;
 					}
 					break;
@@ -142,10 +142,10 @@
 
 					switch($s_action){
 						case "list":
-							$s_header .= '<script src="/flot_flot/admin/js/admin_item_list.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_item_list.js"></script>';
 							break;
 						case "edit":
-							$s_header .= '<script src="/flot_flot/admin/js/admin_oncology_edit.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_oncology_edit.js"></script>';
 							break;
 					}
 					break;
@@ -153,7 +153,7 @@
 					# jquery ui, for sortables
 					$s_header .= '<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>';
 					// admin js for menus
-					$s_header .= '<script src="/flot_flot/admin/js/admin_menus.js"></script>';
+					$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_menus.js"></script>';
 					break;
 				case "pictures":
 					# general admin js
@@ -168,18 +168,18 @@
 		}
 		function html_admin_headers_pictures(){
 			$s_header = "";
-			$s_header .= '<script src="/flot_flot/admin/js/jquery.ui.widget.js"></script>';
-			$s_header .= '<script src="/flot_flot/admin/js/jquery.iframe-transport.js"></script>';
-			$s_header .= '<script src="/flot_flot/admin/js/jquery.fileupload.js"></script>';
-			$s_header .= '<script src="/flot_flot/admin/js/admin_pictures.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.ui.widget.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.iframe-transport.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.fileupload.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_pictures.js"></script>';
 			return $s_header;
 		}
 		function html_admin_headers_base(){
 			$s_header = "";
 			# bootstrap css
-			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/bootstrap.min.css">';
+			$s_header .= '<link rel="stylesheet" href="'.S_BASE_EXTENSION.'flot_flot/admin/css/bootstrap.min.css">';
 			# admin css
-			$s_header .= '<link rel="stylesheet" href="/flot_flot/admin/css/admin_style.css">';
+			$s_header .= '<link rel="stylesheet" href="'.S_BASE_EXTENSION.'flot_flot/admin/css/admin_style.css">';
 			# google font
 			$s_header .= "<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>";
 			# font awesome
@@ -187,11 +187,11 @@
     
 
 			# jquery js
-			$s_header .= '<script src="/flot_flot/admin/js/jquery.min.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.min.js"></script>';
 			# bootstrap js
-			$s_header .= '<script src="/flot_flot/admin/js/bootstrap.min.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/bootstrap.min.js"></script>';
 			# default flot admin js
-			$s_header .= '<script src="/flot_flot/admin/js/admin.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin.php"></script>';
 
 			# rangy (for textangular)
 			$s_header .= '<script src="http://rangy.googlecode.com/svn/trunk/currentrelease/rangy-core.js" type="text/javascript"></script>';
@@ -327,7 +327,7 @@
 
 			$s_update_enabled = ($b_write_perms ? '' : ' disabled');
 
-			$html_form .= '<a class="btn btn-info" href="/flot_flot/admin/update.php" target="_blank" '.$s_update_enabled.'><i class="glyphicon glyphicon-cloud-download"></i> update flot</a>';
+			$html_form .= '<a class="btn btn-info" href="'.S_BASE_EXTENSION.'flot_flot/admin/update.php" target="_blank" '.$s_update_enabled.'><i class="glyphicon glyphicon-cloud-download"></i> update flot</a>';
 
 
 			$html_form .= '<hr/>';
@@ -362,7 +362,7 @@
 			if(count($oa_oncologies_available) > 0){
 				$s_oncologies = '';
 				foreach ($oa_oncologies_available as $key => $value) {
-					$s_oncologies .= '<li><a href="/flot_flot/admin/index.php?section=items&oncology='.$key.'&action=new">'.$value.'</a></li>';
+					$s_oncologies .= '<li><a href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items&oncology='.$key.'&action=new">'.$value.'</a></li>';
 				}
 			}
 			

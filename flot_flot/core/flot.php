@@ -2,8 +2,8 @@
 	/* main class for everything flot.
 	used to handle app entry point
 	*/
-	$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-	require_once($s_b_p.'flot_flot/core/base.php');
+	//$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
+	require_once(S_BASE_PATH.'flot_flot/core/base.php');
 
 	class Flot {
 
@@ -92,7 +92,7 @@
 		}
 		function _page_change($s_relative_page){
 			$s_new_page = "Location: ";
-			$s_new_page .= $s_relative_page;
+			$s_new_page .= S_BASE_EXTENSION.$s_relative_page;
 			header($s_new_page);
 			exit();
 		}

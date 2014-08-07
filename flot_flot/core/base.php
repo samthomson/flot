@@ -2,7 +2,8 @@
 	/*
 	initial setup, shared vars used by all of flot
 	*/
-	@define('S_BASE_PATH', str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/');
+	@define('S_BASE_EXTENSION', '/sub/');
+	@define('S_BASE_PATH', str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).S_BASE_EXTENSION);	
 	@define('S_ERROR_LOG_PATH', S_BASE_PATH."flot_flot/log/php_error.log");
 
 
