@@ -3,7 +3,7 @@
 	used to handle app entry point
 	*/
 	//$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-	require_once(S_BASE_PATH.'flot_flot/core/base.php');
+	require_once('base.php');
 
 	class Flot {
 
