@@ -402,7 +402,6 @@
 									$s_link_class = ' style="display:none;"';
 								}
 
-			         			# code...
 			         			$hmtl_pages_ui .= '<tr><td><a class="btn btn-view btn-xs" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements&element='.$s_id.'&action=edit">';
 			         			$hmtl_pages_ui .= $s_title;
 			         			
@@ -422,7 +421,7 @@
 
 						$s_newelement_id = $flot->datastore->s_new_element();
 
-						$s_new_page = "'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements&element=".$s_newelement_id."&action=edit";
+						$s_new_page = S_BASE_EXTENSION."flot_flot/admin/index.php?section=elements&element=".$s_newelement_id."&action=edit";
 						$flot->_page_change($s_new_page);
 						
 						break;
