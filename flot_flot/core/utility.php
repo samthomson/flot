@@ -421,6 +421,7 @@
 			return $s_path;
 		}
 	}
+
 	class SettingsUtilities {
 		public $s_relative_url;
 		public $sa_unwritable_dirs;
@@ -444,7 +445,9 @@
 			return ini_get('upload_max_filesize');
 		}
 		function b_root_write_permission(){
+			
 			$directory_iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(S_BASE_PATH));
+			
 
 			$this->sa_unwritable_dirs = array();
 
@@ -455,6 +458,7 @@
 				}
 			}
 			if(count($this->sa_unwritable_dirs) > 0){
+				print_r($this->sa_unwritable_dirs);
 				return false;
 			}
 			return true;
