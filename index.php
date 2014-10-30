@@ -71,7 +71,7 @@
 
 		<div id="start_container" class="container">
 			<!-- instruction, email, password, submit button -->
-			<form role="form" method="post" name="login" action="start.php">
+			<form role="form" method="post" name="login" action="index.php">
 				<div class="form-group">
 					<div id="logo_container" class="clearfix">
 						<span id="f" class="blue">flot</span>
