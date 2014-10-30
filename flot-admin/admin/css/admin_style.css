@@ -383,9 +383,14 @@ a.btn-view:hover {
   color: #fff; }
 
 .btn-danger, .btn-danger:visited {
-  border-color: #d9534f;
-  color: #d9534f;
+  border-color: #c0392b;
+  color: #c0392b;
   background-color: transparent; }
+
+.btn-danger:hover {
+  border-color: #c0392b;
+  color: #fff;
+  background-color: #c0392b; }
 
 .btn-success, .btn-success:visited {
   border-color: #27ae60;

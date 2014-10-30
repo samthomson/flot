@@ -4,6 +4,9 @@
 $save_color: #27ae60;
 $save_inverse_color: #fff;
 
+$delete_color: #c0392b;
+$delete_inverse_color: #fff;
+
 body{
   font-family: 'Lato', sans-serif;
   word-wrap:break-word;
@@ -336,10 +339,16 @@ a.view_link:hover{}
 }
 
 .btn-danger,.btn-danger:visited{
-  border-color: #d9534f;
-  color: #d9534f;
+  border-color: $delete_color;
+  color: $delete_color;
   background-color: transparent;
 }
+.btn-danger:hover{
+  border-color: $delete_color;
+  color: $delete_inverse_color;
+  background-color: $delete_color;
+}
+
 .btn-success,.btn-success:visited{
   border-color: $save_color;
   color: $save_color;
