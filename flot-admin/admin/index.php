@@ -159,7 +159,6 @@
 			case "settings":
 				switch ($s_action) {
 					case 'edit':		
-						//print_r($datastore)				
 						foreach ($_POST as $param_name => $param_val) {
 							if(isset($flot->datastore->settings->{$param_name})){
 								// the posted variable already exists, so we'll update it
