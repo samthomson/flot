@@ -1,15 +1,15 @@
 <?php
 	// include core
 	$s_b_p = str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).'/';
-	require($s_b_p.'flot_flot/core/base.php');
-	require_once(S_BASE_PATH.'flot_flot/core/flot.php');
+	require($s_b_p.'flot-admin/core/base.php');
+	require_once(S_BASE_PATH.'flot-admin/core/flot.php');
 
 	$flot = new Flot;
 
 	// if authorized
 	if(!$flot->b_is_user_admin()){
 		# forward them to login page
-		$flot->_page_change("/flot_flot/admin/login.php");
+		$flot->_page_change("/flot-admin/admin/login.php");
 	}else{
 
 		$sfSF = new SettingsUtilities;
@@ -24,8 +24,8 @@
 		//
 
 		// download new flot
-		$s_download_to = S_BASE_PATH.'flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot.zip';
-		$s_unzip_to = S_BASE_PATH.'flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'';
+		$s_download_to = S_BASE_PATH.'flot-admin'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot.zip';
+		$s_unzip_to = S_BASE_PATH.'flot-admin'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'';
 		echo "download to: ".$s_download_to."<br/>";
 		echo "download from: ".FLOT_DOWNLOAD_URL."<br/>";
 		file_put_contents($s_download_to, fopen(FLOT_DOWNLOAD_URL, 'r'));
@@ -54,9 +54,9 @@
 		$directory_iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($s_zip_flot_base));
 		foreach($directory_iterator as $filename)
 		{
-			$s_new_path = str_replace('flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'flot-master'.DIRECTORY_SEPARATOR.'', '', $filename);
+			$s_new_path = str_replace('flot-admin'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'flot-master'.DIRECTORY_SEPARATOR.'', '', $filename);
 
-			#echo "OLD: $filename<br/>NEW: $s_new_path<br/>CUT: ".'flot_flot'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'flot-master'.DIRECTORY_SEPARATOR.''."<br/><br/>";
+			#echo "OLD: $filename<br/>NEW: $s_new_path<br/>CUT: ".'flot-admin'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'new_flot'.DIRECTORY_SEPARATOR.'flot-master'.DIRECTORY_SEPARATOR.''."<br/><br/>";
 			    
 		    if(is_dir($filename) || is_file($filename)){
 				if(is_dir($filename)){
@@ -101,7 +101,7 @@
 		$flot->_delete_start_page();
 
 		// reload base
-		include($s_b_p.'flot_flot/core/base.php');
+		include($s_b_p.'flot-admin/core/base.php');
 		$s_end_version = $sfSF->s_literal_flot_version();
 
 		// output

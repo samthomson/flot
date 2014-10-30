@@ -14,7 +14,7 @@ CKEDITOR.plugins.add( 'flot_links',
 				_modal_set_body('<i class="glyphicon glyphicon-refresh spinning"></i> Loading');
 				_modal_show();
 
-				$.get('/flot_flot/admin/?section=flot&action=list_pages', function(data){
+				$.get('/flot-admin/admin/?section=flot&action=list_pages', function(data){
 						var html_link_choice = '<h3>Insert a web url</h3><div class="input-group">      <input type="text" class="form-control" id="insert_external_link">      <span class="input-group-btn">        <button class="btn btn-default" type="button" onclick="insert_external_link()">Insert</button></span></div>';
 
 						if(data.length){

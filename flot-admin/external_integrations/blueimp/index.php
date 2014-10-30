@@ -11,8 +11,8 @@
  */
 
 
-require_once('../../../flot_flot/core/base.php');
-require_once(S_BASE_PATH.'flot_flot/core/flot.php');
+require_once('../../../flot-admin/core/base.php');
+require_once(S_BASE_PATH.'flot-admin/core/flot.php');
 
 $flot = new Flot;
 //$util = new UtilityFunctions;

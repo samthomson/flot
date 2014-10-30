@@ -1,5 +1,5 @@
 <?php
-    require_once('../../../flot_flot/core/base.php');
+    require_once('../../../flot-admin/core/base.php');
     // spit out correct mime type
     header('Content-type: text/javascript');
 
@@ -45,7 +45,7 @@ function _pic_search(){
 		// we don't want to handle the result of previous requests, if we're making a new one.
 		xhr_image_search_requst.abort();
 	}
-	xhr_image_search_requst = $.get('<?php echo S_BASE_EXTENSION; ?>flot_flot/admin/search_pics.php',{"term": s_term, "mode": s_mode}, function(data){
+	xhr_image_search_requst = $.get('<?php echo S_BASE_EXTENSION; ?>flot-admin/admin/search_pics.php',{"term": s_term, "mode": s_mode}, function(data){
 		$("#picture_browser_results").html(data);
 		$("#picture_browser_results img").click(function(){
 			if($(this).hasClass("selected")){
@@ -89,7 +89,7 @@ function show_selected_pics(){
 	var html_selected_images = "";
 
 	for(var cSelected = 0; cSelected < sa_selected.length; cSelected++){
-		html_selected_images += '<img src="<?php echo S_BASE_EXTENSION; ?>flot_flot/uploads/tiny/'+sa_selected[cSelected]+'" />';
+		html_selected_images += '<img src="<?php echo S_BASE_EXTENSION; ?>flot-admin/uploads/tiny/'+sa_selected[cSelected]+'" />';
 	}
 
 	$("#file_browser_selected").html(html_selected_images);

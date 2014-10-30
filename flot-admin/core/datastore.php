@@ -29,7 +29,7 @@
 
 		function initiate_datastore($s_datastore_name){
 			// if we could read in datastore file, initiate object to it
-			$s_filepath = S_BASE_PATH.'flot_flot/datastore/'.$s_datastore_name.'.php';
+			$s_filepath = S_BASE_PATH.'flot-admin/datastore/'.$s_datastore_name.'.php';
 			clearstatcache(true, $s_filepath);
 			if($json_data = @file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
@@ -41,7 +41,7 @@
 			}
 		}
 		function initiate_item($_id){
-			$s_filepath = S_BASE_PATH.'flot_flot/datastore/'.$_id.'.php';
+			$s_filepath = S_BASE_PATH.'flot-admin/datastore/'.$_id.'.php';
 			clearstatcache(true, $s_filepath);
 			if($json_data = file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
@@ -50,7 +50,7 @@
 			}
 		}
 		function initiate_element($_id){
-			$s_filepath = S_BASE_PATH.'flot_flot/datastore/'.$_id.'.php';
+			$s_filepath = S_BASE_PATH.'flot-admin/datastore/'.$_id.'.php';
 			clearstatcache(true, $s_filepath);
 			if($json_data = file_get_contents($s_filepath)){
 				// including the datastore file worked, we have the datastores variable now set in memory
@@ -67,13 +67,13 @@
 					break;
 				case 'items':
 					$this->items = '[{"id":"pagestart","title":"Welcome","description":"","keywords":"", "parent":"","url":"index.html","template":"template.html","url_auto":"false","oncology":"page","author":"flot","published":"true","date_modified":"10-05-2014"}]';
-					$this->oa_individual_items['pagestart'] = json_decode('{"content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot_flot\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}');
+					$this->oa_individual_items['pagestart'] = json_decode('{"content_html":"<p>Hello, welcome to flot<\/p>\r\n\r\n<p>To get started, <a href=\"\/flot-admin\/admin\/\">\/log in<\/a> with the email and password you used to start flot.<\/p>\r\n\r\n<p>Once logged in you can delete or change this page, and add more.<\/p>\r\n"}');
 					$this->b_save_item('pagestart');
 					break;
 				case 'elements':
 					$s_footer_id = uniqid("element");
 					$this->elements = '[{"id":"'.$s_footer_id.'","title":"Footer","author":"flot","published":"true","date_modified":"10-05-2014"}]';
-					$this->oa_individual_elements[$s_footer_id] = json_decode('{"content_html":"a <a href=\"http:\/\/flot.io\">flot<\/a> website | <a href=\"\/flot_flot\/admin\/\">login<\/a>"}');
+					$this->oa_individual_elements[$s_footer_id] = json_decode('{"content_html":"a <a href=\"http:\/\/flot.io\">flot<\/a> website | <a href=\"\/flot-admin\/admin\/\">login<\/a>"}');
 					$this->b_save_element($s_footer_id);
 					break;
 				case 'menus':
@@ -93,7 +93,7 @@
 						'{
 							"theme":"html5",
 							"site_name":"website name",
-							"upload_dir":"flot_flot/uploads/",
+							"upload_dir":"flot-admin/uploads/",
 							"thumb_sizes":
 							[
 								{
@@ -417,7 +417,7 @@
 			$this->b_save_datastore("oncologies");
 		}
 		function _delete_full_item($s_id){
-			$s_file_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
+			$s_file_path = S_BASE_PATH.'flot-admin/datastore/'.$s_id.'.php';
 			@unlink($s_file_path);
 		}
 		function _delete_menu($s_id){
@@ -482,7 +482,7 @@
 				$s_datastore === 'urls' ||
 				$s_datastore === 'oncologies'){
 
-				$s_write_path = S_BASE_PATH.'flot_flot/datastore/'.$s_datastore.'.php';
+				$s_write_path = S_BASE_PATH.'flot-admin/datastore/'.$s_datastore.'.php';
 
 				$s_new_content = json_encode($this->{$s_datastore});
 
@@ -497,7 +497,7 @@
 		function b_save_item($s_id)
 		{
 			// $this->oa_individual_items[$s_id]
-			$s_write_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
+			$s_write_path = S_BASE_PATH.'flot-admin/datastore/'.$s_id.'.php';
 
 			if(!isset($this->oa_individual_items[$s_id])){
 				echo "individual item not defined";
@@ -518,7 +518,7 @@
 		function b_save_element($s_id)
 		{
 			// $this->oa_individual_items[$s_id]
-			$s_write_path = S_BASE_PATH.'flot_flot/datastore/'.$s_id.'.php';
+			$s_write_path = S_BASE_PATH.'flot-admin/datastore/'.$s_id.'.php';
 
 			if(!isset($this->oa_individual_elements[$s_id])){
 				echo "individual element not defined";
@@ -538,7 +538,7 @@
 		}
 		function sa_templates_available(){
 			// look up all template files in theme dir
-			$sa_files = glob(S_BASE_PATH.'/flot_flot/themes/'.$this->settings->theme.'/*.html');
+			$sa_files = glob(S_BASE_PATH.'/flot-admin/themes/'.$this->settings->theme.'/*.html');
 
 			foreach ($sa_files as $key => $file) {
 				$sa_files[$key] = substr($file, strrpos($file, '/')+1, strlen($file));

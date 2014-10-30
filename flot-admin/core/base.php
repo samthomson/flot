@@ -4,7 +4,7 @@
 	*/
 	@define('S_BASE_EXTENSION', '/');
 	@define('S_BASE_PATH', str_replace($_SERVER['SCRIPT_NAME'],"",str_replace("\\","/",$_SERVER['SCRIPT_FILENAME'])).S_BASE_EXTENSION);	
-	@define('S_ERROR_LOG_PATH', S_BASE_PATH."flot_flot/log/php_error.log");
+	@define('S_ERROR_LOG_PATH', S_BASE_PATH."flot-admin/log/php_error.log");
 
 
 	ini_set("log_errors", 1);
@@ -28,5 +28,5 @@
 	@define('FLOT_REQUIRED_PERMISSIONS', 0644);
 	@define('FLOT_REQUIRED_PERMISSIONS_DIRS', 0777);
 
-	@define('FLOT_CACHE_PATH', S_BASE_PATH.'flot_flot/www/');
+	@define('FLOT_CACHE_PATH', S_BASE_PATH.'flot-admin/www/');
 ?>

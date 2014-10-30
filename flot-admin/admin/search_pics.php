@@ -1,8 +1,8 @@
 <?php
 	# search pics from datastore, render them with pagination
 
-	include('../../flot_flot/core/base.php');
-	include(S_BASE_PATH.'flot_flot/core/datastore.php');
+	include('../../flot-admin/core/base.php');
+	include(S_BASE_PATH.'flot-admin/core/datastore.php');
 
 	$s_mode = "browse";
 	if(isset($_GET['mode']))

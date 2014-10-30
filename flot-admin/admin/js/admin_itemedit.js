@@ -9,7 +9,7 @@ $(document).ready(function() {
     $('.ckeditor').each(function(){
         CKEDITOR.replace($(this).attr('id'),
         {
-            filebrowserBrowseUrl: '/flot_flot/admin/?section=pictures&action=select',
+            filebrowserBrowseUrl: '/flot-admin/admin/?section=pictures&action=select',
             extraPlugins : 'flot_pictures,flot_links,autogrow',
             toolbar :
             [
@@ -119,7 +119,7 @@ $(document).ready(function() {
             data.push({name: $(this).attr("name"), value: CKEDITOR.instances[$(this).attr("id")].getData()});
         });
 
-        $.post('/flot_flot/admin/', data, function(data){
+        $.post('/flot-admin/admin/', data, function(data){
             var html_preview = 'There was a problem generating the preview.';
 
             if(data.length){

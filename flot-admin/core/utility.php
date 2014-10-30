@@ -103,9 +103,9 @@
 		#
 		function full_write_permissions(){
 
-			// flot_flot dir
-			if(!$this->b_permissions(S_BASE_PATH.'/flot_flot', FLOT_REQUIRED_PERMISSIONS)){
-				array_push($this->sa_instructions, "flot needs write access to the flot_flot directory.");
+			// flot-admin dir
+			if(!$this->b_permissions(S_BASE_PATH.'/flot-admin', FLOT_REQUIRED_PERMISSIONS)){
+				array_push($this->sa_instructions, "flot needs write access to the flot-admin directory.");
 			}
 
 			// still here, everything okay
@@ -240,13 +240,13 @@
 			$this->s_mode = $s_mode;
 		}
 		function html_make_browser () {
-			$s_return_html = '<div class="alert alert-info">Upload pictures via the button, or by drag dropping them onto this page.</div><span class="btn btn-default fileinput-button"><input id="fileupload" type="file" name="files[]" data-url="'.S_BASE_EXTENSION.'flot_flot/external_integrations/blueimp/index.php" multiple class=""><i class="glyphicon glyphicon-cloud-upload"></i> Select files to upload from your computer/device</span><div id="upload_output"></div><div id="upload_progress_bar"><div class="bar" style="width: 50%;"></div></div><div id="upload_failure"></div><hr/><input type="text" class="form-control" id="file_browser_text_search" placeholder="search.."><hr/><div id="picture_browser_results">loading pics..<script>s_mode = "'.$this->s_mode.'";_pic_search();</script></div>';
+			$s_return_html = '<div class="alert alert-info">Upload pictures via the button, or by drag dropping them onto this page.</div><span class="btn btn-default fileinput-button"><input id="fileupload" type="file" name="files[]" data-url="'.S_BASE_EXTENSION.'flot-admin/external_integrations/blueimp/index.php" multiple class=""><i class="glyphicon glyphicon-cloud-upload"></i> Select files to upload from your computer/device</span><div id="upload_output"></div><div id="upload_progress_bar"><div class="bar" style="width: 50%;"></div></div><div id="upload_failure"></div><hr/><input type="text" class="form-control" id="file_browser_text_search" placeholder="search.."><hr/><div id="picture_browser_results">loading pics..<script>s_mode = "'.$this->s_mode.'";_pic_search();</script></div>';
 
 			return $s_return_html;
 		}
 		function sa_themes_available(){
 			// look up all template files in theme dir
-			$sa_dirs = array_filter(glob(S_BASE_PATH.'/flot_flot/themes/*'), 'is_dir');
+			$sa_dirs = array_filter(glob(S_BASE_PATH.'/flot-admin/themes/*'), 'is_dir');
 
 			foreach ($sa_dirs as $key => $s_dir) {
 				$sa_dirs[$key] = substr($s_dir, strrpos($s_dir, '/')+1, strlen($s_dir));
@@ -332,7 +332,7 @@
 		function b_safely_write_file($s_path, $s_content){
 			/* checks filepath against some blacklisted routes before 
 			writing with file_put_contents */
-			$sa_blacklist_paths = array('flot_flot', '.htaccess');
+			$sa_blacklist_paths = array('flot-admin', '.htaccess');
 			$sa_blacklist_paths = array();
 			foreach ($sa_blacklist_paths as $s_not_allowed) {
 				if(strpos($s_path, $s_not_allowed) > -1){

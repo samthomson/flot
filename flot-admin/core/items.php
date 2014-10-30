@@ -95,7 +95,7 @@
 
 		function render() {
 			# get template
-			$template = file_get_contents(S_BASE_PATH.'/flot_flot/themes/'.$this->datastore->settings->theme.'/'.$this->o_loaded_item_object->template);
+			$template = file_get_contents(S_BASE_PATH.'/flot-admin/themes/'.$this->datastore->settings->theme.'/'.$this->o_loaded_item_object->template);
 
 			# parse in data
 			$sa_keys = array_keys(get_object_vars($this->o_loaded_item_object));
@@ -130,7 +130,7 @@
 
 
 			# general parsing
-			$template = str_replace("{{flot:theme_dir}}", '/flot_flot/themes/'.$this->datastore->settings->theme.'/', $template);
+			$template = str_replace("{{flot:theme_dir}}", '/flot-admin/themes/'.$this->datastore->settings->theme.'/', $template);
 
 
 			# minify etc
@@ -240,7 +240,7 @@
 			// delete button group
 			$html_form .= '<div class="btn-group">';
 			// delete
-			$html_form .= '<a class="btn btn-danger btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';		
+			$html_form .= '<a class="btn btn-danger btn-sm" href="/flot-admin/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';		
 			$html_form .= '</div>';
 
 

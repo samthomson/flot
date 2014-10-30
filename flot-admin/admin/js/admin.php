@@ -1,5 +1,5 @@
 <?php
-    require_once('../../../flot_flot/core/base.php');
+    require_once('../../../flot-admin/core/base.php');
     // spit out correct mime type
     header('Content-type: text/javascript');
 
@@ -7,7 +7,7 @@
 // start a periodic post to keep users session alive
 (function worker() {
   $.ajax({
-    url: '<?php echo S_BASE_EXTENSION; ?>flot_flot/admin/', 
+    url: '<?php echo S_BASE_EXTENSION; ?>flot-admin/admin/', 
     type: "POST",
     success: function(data) {
     },

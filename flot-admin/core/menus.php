@@ -136,7 +136,7 @@
 
 
 
-			$html_form .= '<div class="btn-group"><a class="btn btn-default btn-sm" href="/flot_flot/admin/index.php?section=menus&menu='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
+			$html_form .= '<div class="btn-group"><a class="btn btn-default btn-sm" href="/flot-admin/admin/index.php?section=menus&menu='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>';
 
 			$html_form .= '<hr/>';
 

@@ -4,13 +4,13 @@
 
 # apart from themes
 
-!flot_flot/themes/html5/*
+!flot-admin/themes/html5/*
 
-flot_flot/themes/test/*
-flot_flot/datastore/*
-flot_flot/temp/
-flot_flot/temp/*
-flot_flot/log/
-flot_flot/log/*
-flot_flot/uploads/
-flot_flot/uploads/*
+flot-admin/themes/test/*
+flot-admin/datastore/*
+flot-admin/temp/
+flot-admin/temp/*
+flot-admin/log/
+flot-admin/log/*
+flot-admin/uploads/
+flot-admin/uploads/*

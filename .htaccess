@@ -1,7 +1,7 @@
 
 Options -Indexes +SymLinksIfOwnerMatch
 
-#DirectoryIndex index.php /flot_flot/www/index.html
+#DirectoryIndex index.php /flot-admin/www/index.html
 
 <IfModule mod_rewrite.c>
 
@@ -12,15 +12,15 @@ Options -Indexes +SymLinksIfOwnerMatch
   RewriteEngine on
   RewriteBase /
 
-  RewriteCond %{REQUEST_URI} !^/flot_flot/www/
+  RewriteCond %{REQUEST_URI} !^/flot-admin/www/
 
   # Don't apply to URLs that go to existing files or folders
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
 
   # Rewrite all those to insert /folder
-  RewriteRule ^(.*)$ /flot_flot/www/$1 [L]
-  RewriteRule ^(/)?$ /flot_flot/www/$1 [L]
+  RewriteRule ^(.*)$ /flot-admin/www/$1 [L]
+  RewriteRule ^(/)?$ /flot-admin/www/$1 [L]
 </IfModule>
 
 

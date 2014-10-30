@@ -142,7 +142,7 @@
 			// delete button group
 			$html_form .= '<div class="btn-group">';
 			// delete
-			$html_form .= '<a class="disabled btn btn-danger btn-sm" href="/flot_flot/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';		
+			$html_form .= '<a class="disabled btn btn-danger btn-sm" href="/flot-admin/admin/index.php?section=items&oncology=page&item='.$s_id.'&action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a>';		
 			$html_form .= '</div>';
 
 

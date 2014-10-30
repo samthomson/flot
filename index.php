@@ -1,7 +1,7 @@
 <?php
 	# log in and forward user to route admin section
-	require_once('flot_flot/core/base.php');
-	require(S_BASE_PATH.'flot_flot/core/flot.php');
+	require_once('flot-admin/core/base.php');
+	require(S_BASE_PATH.'flot-admin/core/flot.php');
 
 	$flot = new Flot;
 	$requirements = new FlotRequirements;
@@ -49,12 +49,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="<?php echo S_BASE_EXTENSION; ?>flot_flot/admin/css/bootstrap.min.css">
-		<link rel="stylesheet" href="<?php echo S_BASE_EXTENSION; ?>flot_flot/admin/css/admin_style.css">
+		<link rel="stylesheet" href="<?php echo S_BASE_EXTENSION; ?>flot-admin/admin/css/bootstrap.min.css">
+		<link rel="stylesheet" href="<?php echo S_BASE_EXTENSION; ?>flot-admin/admin/css/admin_style.css">
 		
 		<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 
-		<script src="<?php echo S_BASE_EXTENSION; ?>flot_flot/admin/js/bootstrap.min.js"></script>
+		<script src="<?php echo S_BASE_EXTENSION; ?>flot-admin/admin/js/bootstrap.min.js"></script>
 	</head>
 	<body id="start">
 		<?php

@@ -14,7 +14,7 @@
 			$oa_oncologies = $dD->oncologies;
 			
 			$html_left_menu .= '<div id="admin_menu_left">
-					<a class="items admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items"><i class="glyphicon glyphicon-folder-open"></i><span class="small-hidden condensed_hidden"> Contents</span></a>';
+					<a class="items admin_menu_left'.$this->s_active_or_empty("items", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=items"><i class="glyphicon glyphicon-folder-open"></i><span class="small-hidden condensed_hidden"> Contents</span></a>';
 
 			// make a submenu item for each page type
 			if(count($oa_oncologies) > 0){
@@ -22,21 +22,21 @@
 					$s_id = urldecode($o_oncology->id);
 					$s_title = urldecode($o_oncology->title);
 
-					$html_left_menu .= '<a class="admin_menu_left page_type'.$this->s_active_oncology($s_id).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items&oncology='.$s_id.'"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> '.$s_title.'</span></a>';
+					$html_left_menu .= '<a class="admin_menu_left page_type'.$this->s_active_oncology($s_id).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=items&oncology='.$s_id.'"><i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> '.$s_title.'</span></a>';
 				}
 			}
 
 
-			$html_left_menu .= '<a class="elements admin_menu_left'.$this->s_active_or_empty("elements", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=elements"><i class="glyphicon glyphicon-paperclip"></i><span class="small-hidden condensed_hidden"> Elements</span></a>
-			<a class="pictures admin_menu_left'.$this->s_active_or_empty("pictures", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
-					<a class="menus admin_menu_left'.$this->s_active_or_empty("menus", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="small-hidden condensed_hidden"> Menus</span></a>
-					<a class="oncologies admin_menu_left'.$this->s_active_or_empty("oncologies", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=oncologies"><i class="glyphicon glyphicon-list-alt"></i><span class="small-hidden condensed_hidden"> Page types</span></a>
-					<a class="settings admin_menu_left'.$this->s_active_or_empty("settings", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>';
+			$html_left_menu .= '<a class="elements admin_menu_left'.$this->s_active_or_empty("elements", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=elements"><i class="glyphicon glyphicon-paperclip"></i><span class="small-hidden condensed_hidden"> Elements</span></a>
+			<a class="pictures admin_menu_left'.$this->s_active_or_empty("pictures", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=pictures"><i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
+					<a class="menus admin_menu_left'.$this->s_active_or_empty("menus", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=menus"><i class="glyphicon glyphicon-list"></i><span class="small-hidden condensed_hidden"> Menus</span></a>
+					<a class="oncologies admin_menu_left'.$this->s_active_or_empty("oncologies", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=oncologies"><i class="glyphicon glyphicon-list-alt"></i><span class="small-hidden condensed_hidden"> Page types</span></a>
+					<a class="settings admin_menu_left'.$this->s_active_or_empty("settings", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=settings"><i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>';
 			if($fu_FileUtil->b_errors()){
-				$html_left_menu .= '<a class="errors admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=errors"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>';
+				$html_left_menu .= '<a class="errors admin_menu_left'.$this->s_active_or_empty("errors", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=errors"><i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>';
 			}
 			if(!$fr_FlotRequirements->b_ongoing_requirements_met()){
-				$html_left_menu .= '<a class="requirements admin_menu_left'.$this->s_active_or_empty("requirements", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-exclamation-sign"></i><span class="small-hidden condensed_hidden"> Requirements</span></a>';
+				$html_left_menu .= '<a class="requirements admin_menu_left'.$this->s_active_or_empty("requirements", $s_active_section).'" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=requirements"><i class="glyphicon glyphicon-exclamation-sign"></i><span class="small-hidden condensed_hidden"> Requirements</span></a>';
 			}
 			$html_left_menu .= '</div>';
 
@@ -52,7 +52,7 @@
 			if(empty($sa_reqs)){
 				return '<div class="alert alert-success">no problems</div>';
 			}
-			$html_return = '<a class="btn btn-default btn-sm" href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=requirements"><i class="glyphicon glyphicon-refresh"></i> re-check</a><hr/>';
+			$html_return = '<a class="btn btn-default btn-sm" href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=requirements"><i class="glyphicon glyphicon-refresh"></i> re-check</a><hr/>';
 			foreach ($sa_reqs as $s_problem) {
 				$html_return .= '<div class="alert alert-danger">'.$s_problem.'</div>';
 			}
@@ -69,7 +69,7 @@
 				$html_message_alert = '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'.$html_message_alert.'</div>';
 			}
 
-			include(S_BASE_PATH.'flot_flot/admin/ui/template.php');
+			include(S_BASE_PATH.'flot-admin/admin/ui/template.php');
 			exit();
 		}
 		function s_active_or_empty($s_me, $s_current){
@@ -101,19 +101,19 @@
 					switch($s_action){
 						case "edit":
 							# ckeditor
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/external_integrations/ckeditor/ckeditor.js"></script>';
 
 							# text angular
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/text_angular/textAngular-sanitize.min.js"></script>';
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/text_angular/textAngular.min.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/external_integrations/text_angular/textAngular-sanitize.min.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/external_integrations/text_angular/textAngular.min.js"></script>';
 
 							# general admin js
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_itemedit.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_itemedit.js"></script>';
 
 							$s_header .= $this->html_admin_headers_pictures();
 							break;
 						case "list":
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_item_list.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_item_list.js"></script>';
 							break;
 					}
 					break;
@@ -125,14 +125,14 @@
 						case "edit":
 							# ckeditor
 
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/external_integrations/ckeditor/ckeditor.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/external_integrations/ckeditor/ckeditor.js"></script>';
 							
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_itemedit.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_itemedit.js"></script>';
 
 							$s_header .= $this->html_admin_headers_pictures();
 							break;
 						case "list":
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_item_list.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_item_list.js"></script>';
 							break;
 					}
 					break;
@@ -142,10 +142,10 @@
 
 					switch($s_action){
 						case "list":
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_item_list.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_item_list.js"></script>';
 							break;
 						case "edit":
-							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_oncology_edit.js"></script>';
+							$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_oncology_edit.js"></script>';
 							break;
 					}
 					break;
@@ -153,7 +153,7 @@
 					# jquery ui, for sortables
 					$s_header .= '<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>';
 					// admin js for menus
-					$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_menus.js"></script>';
+					$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_menus.js"></script>';
 					break;
 				case "pictures":
 					# general admin js
@@ -168,18 +168,18 @@
 		}
 		function html_admin_headers_pictures(){
 			$s_header = "";
-			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.ui.widget.js"></script>';
-			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.iframe-transport.js"></script>';
-			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.fileupload.js"></script>';
-			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin_pictures.php"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/jquery.ui.widget.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/jquery.iframe-transport.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/jquery.fileupload.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin_pictures.php"></script>';
 			return $s_header;
 		}
 		function html_admin_headers_base(){
 			$s_header = "";
 			# bootstrap css
-			$s_header .= '<link rel="stylesheet" href="'.S_BASE_EXTENSION.'flot_flot/admin/css/bootstrap.min.css">';
+			$s_header .= '<link rel="stylesheet" href="'.S_BASE_EXTENSION.'flot-admin/admin/css/bootstrap.min.css">';
 			# admin css
-			$s_header .= '<link rel="stylesheet" href="'.S_BASE_EXTENSION.'flot_flot/admin/css/admin_style.css">';
+			$s_header .= '<link rel="stylesheet" href="'.S_BASE_EXTENSION.'flot-admin/admin/css/admin_style.css">';
 			# google font
 			$s_header .= "<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>";
 			# font awesome
@@ -187,11 +187,11 @@
     
 
 			# jquery js
-			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/jquery.min.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/jquery.min.js"></script>';
 			# bootstrap js
-			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/bootstrap.min.js"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/bootstrap.min.js"></script>';
 			# default flot admin js
-			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot_flot/admin/js/admin.php"></script>';
+			$s_header .= '<script src="'.S_BASE_EXTENSION.'flot-admin/admin/js/admin.php"></script>';
 
 			return $s_header;
 		}
@@ -325,7 +325,7 @@
 
 			$s_update_enabled = ($b_write_perms ? '' : ' disabled');
 
-			$html_form .= '<a class="btn btn-info" href="'.S_BASE_EXTENSION.'flot_flot/admin/update.php" target="_blank" '.$s_update_enabled.'><i class="glyphicon glyphicon-cloud-download"></i> update flot</a>';
+			$html_form .= '<a class="btn btn-info" href="'.S_BASE_EXTENSION.'flot-admin/admin/update.php" target="_blank" '.$s_update_enabled.'><i class="glyphicon glyphicon-cloud-download"></i> update flot</a>';
 
 
 			$html_form .= '<hr/>';
@@ -360,7 +360,7 @@
 			if(count($oa_oncologies_available) > 0){
 				$s_oncologies = '';
 				foreach ($oa_oncologies_available as $key => $value) {
-					$s_oncologies .= '<li><a href="'.S_BASE_EXTENSION.'flot_flot/admin/index.php?section=items&oncology='.$key.'&action=new">'.$value.'</a></li>';
+					$s_oncologies .= '<li><a href="'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=items&oncology='.$key.'&action=new">'.$value.'</a></li>';
 				}
 			}
 			
