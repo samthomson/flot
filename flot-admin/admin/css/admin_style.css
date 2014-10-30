@@ -471,4 +471,12 @@ table tr td a {
   overflow: hidden;
   text-overflow: ellipsis; }
 
+/*
+bootstrap overloads
+*/
+.alert.alert-danger {
+  background: #fff;
+  border-color: #e74c3c;
+  color: #e74c3c; }
+
 /*# sourceMappingURL=admin_style.css.map */

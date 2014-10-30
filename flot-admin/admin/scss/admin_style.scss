@@ -4,6 +4,9 @@
 $save_color: #27ae60;
 $save_inverse_color: #fff;
 
+$error_color: #e74c3c;
+$error_inverse_color: #fff;
+
 $delete_color: #c0392b;
 $delete_inverse_color: #fff;
 
@@ -428,4 +431,13 @@ table tr td a{
   max-width: 100%;
   overflow: hidden;
   text-overflow:ellipsis;
+}
+
+/*
+bootstrap overloads
+*/
+.alert.alert-danger{
+  background:$error_inverse_color;
+  border-color: $error_color;
+  color: $error_color;
 }

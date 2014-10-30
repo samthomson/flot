@@ -1,7 +1,8 @@
 
 Options -Indexes +SymLinksIfOwnerMatch
 
-#DirectoryIndex index.php /flot-admin/www/index.html
+#DirectoryIndex start.php /flot-admin/www/index.html
+#DirectoryIndex start.php index.html /flot-admin/www/index.html
 
 <IfModule mod_rewrite.c>
 

@@ -311,7 +311,7 @@
 						if($s_oncology){
 							$s_newitem_id = $flot->datastore->s_new_item($s_oncology);
 
-							$s_new_page = "'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=items&oncology=$s_oncology&item=".$s_newitem_id."&action=edit";
+							$s_new_page = S_BASE_EXTENSION."flot-admin/admin/index.php?section=items&oncology=$s_oncology&item=".$s_newitem_id."&action=edit";
 							$flot->_page_change($s_new_page);
 						}else{
 							echo "no page type :(";
@@ -329,7 +329,7 @@
 							// remove from datastore
 							$flot->datastore->_delete_item($s_page_id);
 
-							$s_new_page = "'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=items&oncology=page&action=list";
+							$s_new_page = S_BASE_EXTENSION."flot-admin/admin/index.php?section=items&oncology=page&action=list";
 							$flot->_page_change($s_new_page);
 						}
 						break;
@@ -436,7 +436,7 @@
 							// remove from datastore
 							$flot->datastore->_delete_element($s_element_id);
 
-							$s_new_page = "'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=elements&action=list";
+							$s_new_page = S_BASE_EXTENSION."flot-admin/admin/index.php?section=elements&action=list";
 							$flot->_page_change($s_new_page);
 						}
 						break;
@@ -505,7 +505,7 @@
 						$s_new_menu_id = $flot->datastore->s_new_menu();
 
 
-						$s_new_menu = "'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=menus&menu=".$s_new_menu_id."&action=edit";
+						$s_new_menu = S_BASE_EXTENSION."flot-admin/admin/index.php?section=menus&menu=".$s_new_menu_id."&action=edit";
 						$flot->_page_change($s_new_menu);
 						
 						break;
@@ -517,7 +517,7 @@
 						if($s_menu_id){
 							$flot->datastore->_delete_menu($s_menu_id);
 
-							$s_new_page = "'.S_BASE_EXTENSION.'flot-admin/admin/index.php?section=menus&action=list";
+							$s_new_page = S_BASE_EXTENSION."flot-admin/admin/index.php?section=menus&action=list";
 							$flot->_page_change($s_new_page);
 						}
 						
