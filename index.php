@@ -99,17 +99,17 @@
 					<?php }else{ ?>
 
 					<div class="alert alert-danger">
-					<h4><i class="glyphicon glyphicon-flag"></i> flot can't be installed until the following steps are taken</h4>
-					<ul>
-					<?php
-						foreach ($requirements->sa_requirements_to_remedy() as $req) {
-							echo "<li>$req</li>";
-						}
-					?>
-					</ul>
+						<h4><i class="glyphicon glyphicon-flag"></i> flot can't be installed until the following steps are taken</h4>
+						<ul>
+						<?php
+							foreach ($requirements->sa_requirements_to_remedy() as $req) {
+								echo "<li>$req</li>";
+							}
+						?>
+						</ul>
 					</div>
 				<div class="form-group">
-					<button type="submit" name="submit" class="btn btn-success form-control" id="login_button">try again</button>
+					<button type="submit" name="submit" class="btn btn-success form-control" id="login_button"><i class="glyphicon glyphicon-refresh"></i> try again</button>
 				</div>
 				<p>Or if you think the errors are wrong, you can force start flot.</p>
 				<div class="form-group">
