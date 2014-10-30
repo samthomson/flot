@@ -458,7 +458,6 @@
 				}
 			}
 			if(count($this->sa_unwritable_dirs) > 0){
-				print_r($this->sa_unwritable_dirs);
 				return false;
 			}
 			return true;

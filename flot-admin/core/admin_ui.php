@@ -255,7 +255,6 @@
 
 
 			$html_form .= '</div>';
-
 			# 
 			# images tab
 			#
@@ -265,18 +264,12 @@
 
 			$html_form .= '<h5>Thumbnail sizes</h5>';
 
+			
 			foreach ($jo_settings->thumb_sizes as $o_thumb_size) {
-				/*
-				# name
-				$html_form .= $o_thumb_size->name;
-				# width
-				$html_form .= $o_thumb_size->max_width;
-				# height
-				$html_form .= $o_thumb_size->max_height;
-				*/
 				
 				$html_form .= '<div class="row form-group"><div class="col-xs-12"><label>'.$o_thumb_size->name.'</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->name.'" disabled></div></div><div class="row form-group"><div class="col-xs-12 col-sm-6"><label>max width (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_width.'" disabled></div><div class="col-xs-12 col-sm-6"><label>max height (blank for none)</label><input type="text" class="form-control" placeholder="" value="'.$o_thumb_size->max_height.'" disabled></div></div>';
 			}
+
 			$html_form .= '</div>';
 
 			# 
@@ -302,6 +295,7 @@
 			
 			// www write perms
 			$b_write_perms = $suSU->b_root_write_permission();
+			
 			$s_write_perms = ($b_write_perms ? '<i class="green glyphicon glyphicon-ok"></i>' : '<i class="red glyphicon glyphicon-remove"></i>');
 			$html_form .= '<tr><td>www write permission</td><td>'.$s_write_perms.'</td></tr>';
 
@@ -332,7 +326,6 @@
 			$html_form .= '</div>';
 			$html_form .= '</div>';
 			
-
 			# save
 			$html_form .= '<div class="form-group">';
 
