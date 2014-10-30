@@ -105,7 +105,7 @@
 
 			// flot-admin dir
 			if(!$this->b_permissions(S_BASE_PATH.'/flot-admin', FLOT_REQUIRED_PERMISSIONS)){
-				array_push($this->sa_instructions, "flot needs write access to the flot-admin directory.");
+				array_push($this->sa_instructions, "flot needs write access to the <strong>flot-admin</strong> directory.");
 			}
 
 			// still here, everything okay
