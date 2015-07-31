@@ -1,3 +1,9 @@
+WARNING - this is a development branch!
+=======================================
+
+Flot is being re-wrote completely, in this branch. It will take over from master once feature parity is reached.
+
+
 flot
 ====
 
