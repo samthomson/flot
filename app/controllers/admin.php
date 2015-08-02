@@ -21,7 +21,18 @@
 
 			$o = new View();
 
-    		return $o->render("admin", ["section" => "items"]);
+			$htmlBody = "";
+
+			switch($sAction){
+				case 'edit':
+					$htmlBody = "edit buttons<hr/>edit ui";
+					break;
+				default:
+					$htmlBody = "overview buttons<hr/>list of items?";
+					break;
+			}
+
+    		return $o->render("admin", ["section" => "items", "body" => $htmlBody]);
 
 		}
 

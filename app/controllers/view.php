@@ -13,7 +13,7 @@
 				array(
 					'flot_admin_base_url' => $GLOBALS['admin.flot_admin_base_url'],
 					'section' => $maParams['section'],
-					'body' => $body
+					'body' => $maParams['body']
 				)
 			);
 		}
