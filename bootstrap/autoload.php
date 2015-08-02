@@ -1,5 +1,9 @@
 <?php
 
+	// vendor packages that add to the autoloader
+	require __DIR__.'../../vendor/autoload.php';
+
+	// load our own
 	$saAutoLoadDirectories = [
 		'controllers'
 	];
