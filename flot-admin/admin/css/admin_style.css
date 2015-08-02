@@ -1,0 +1,482 @@
+/* colours */
+body {
+  font-family: 'Lato', sans-serif;
+  word-wrap: break-word; }
+
+.left_col {
+  float: left;
+  width: 140px;
+  position: absolute; }
+
+.right_col {
+  margin-left: 140px; }
+
+@media only screen and (max-width: 600px) {
+  .left_col {
+    width: 50px; }
+
+  .right_col {
+    margin-left: 50px; }
+
+  .small-hidden {
+    display: none; } }
+a, a:visited {
+  color: #191919; }
+
+a:hover, a:active {
+  color: #0093cc;
+  text-decoration: none; }
+
+/*
+body.smaller_left .left_col{width:50px;}
+body.smaller_left .right_col{margin-left:50px;}
+body.smaller_left .condensed_hidden{display: none;}
+*/
+#admin_header {
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
+  background: #fff; }
+
+#top_right_buttons {
+  float: right; }
+
+.clearer:before,
+.clearer:after {
+  content: "";
+  display: table; }
+
+.clearer:after {
+  clear: both; }
+
+.clearer {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */ }
+
+#logo_container {
+  font-family: 'Nunito', sans-serif !important;
+  padding-left: 15px; }
+
+#logo_container span {
+  position: absolute;
+  font-size: 36px;
+  line-height: 36px;
+  height: 48px; }
+
+#logo_container span#f {
+  z-index: 13; }
+
+#logo_container span#l {
+  z-index: 12;
+  margin-left: -1px;
+  margin-top: -2px; }
+
+#logo_container span#o {
+  z-index: 11;
+  margin-left: 2px;
+  margin-top: -1px; }
+
+#logo_container span#t {
+  z-index: 10;
+  margin-left: -1px;
+  margin-top: 2px; }
+
+.blue {
+  color: #0074d9; }
+
+.green {
+  color: #38b248; }
+
+.olive {
+  color: #3D9970; }
+
+.yellow {
+  color: #ffdc00; }
+
+.red {
+  color: #ed1a3b; }
+
+.orange {
+  color: #FF851B; }
+
+.gray {
+  color: #AAAAAA; }
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+#left_right_container {
+  position: relative; }
+
+#left_admin_menu_col {
+  bottom: 0px;
+  top: 0px;
+  padding-left: 8px; }
+
+#admin_menu_left {
+  height: 100%;
+  background-image: linear-gradient(to left, #f6f6f6 0%, #fff 24px); }
+
+.admin_menu_left {
+  color: #aaaaaa;
+  display: block;
+  padding: 8px;
+  border-bottom: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-left: 4px solid white;
+  text-transform: capitalize; }
+
+.admin_menu_left:last-of-type {
+  border-bottom-width: 0px; }
+
+.admin_menu_left span {
+  padding-left: 8px; }
+
+.admin_menu_left i.glyphicon {
+  color: #999; }
+
+.admin_menu_left:hover, .admin_menu_left:visited {
+  background: #f2f2f2;
+  text-decoration: none;
+  color: #666; }
+
+.admin_menu_left:hover span {
+  text-shadow: 1px 1px 2px #fff, -1px -1px 2px #fff; }
+
+.admin_menu_left.active {
+  border: 1px solid #ddd;
+  border-right: 1px solid white;
+  border-left: 4px solid;
+  margin-right: -1px;
+  background: #fff;
+  color: #777;
+  font-weight: bold;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-bottom-left-radius: 4px; }
+
+.admin_menu_left.active.items {
+  border-left-color: #00adef; }
+
+.admin_menu_left.active.elements {
+  border-left-color: #f60; }
+
+.admin_menu_left.active.menus {
+  border-left-color: #38b248; }
+
+.admin_menu_left.active.pictures {
+  border-left-color: #fc0; }
+
+.admin_menu_left.active.oncologies {
+  border-left-color: #f39; }
+
+.admin_menu_left.active.settings {
+  border-left-color: #148996; }
+
+.admin_menu_left.active.requirements {
+  border-left-color: #b2162c; }
+
+.admin_menu_left.active.errors {
+  border-left-color: #ed1a3b; }
+
+.page_type {
+  padding-left: 16px; }
+
+.page_type.active {
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  border-right: 4px solid silver; }
+
+.page_type:last-of-type {
+  margin-bottom: 8px; }
+
+.tab-pane {
+  /* start each tab with a little gap, so the tab headers don't rub the tab content */
+  padding-top: 16px; }
+
+#medium_editor {
+  padding: 8px;
+  margin-bottom: 16px;
+  /* double padding, to counter negative vertical offsetting */
+  box-shadow: 3px 3px 10px 0px #aaa, -3px -3px 10px 0px #aaa;
+  -webkit-box-shadow: 3px 3px 10px 0px #aaa, -3px -3px 10px 0px #aaa;
+  -moz-box-shadow: 3px 3px 10px 0px #aaa, -3px -3px 10px 0px #aaa; }
+
+#medium_editor:focus {
+  /* no glow */
+  outline: none; }
+
+#right_admin_section {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  background: #fff;
+  margin-bottom: 36px;
+  margin-top: 9px;
+  margin-right: 16px; }
+
+.edit_item_general_toolbar {
+  margin-right: 16px; }
+
+#upload_output {
+  height: 24px;
+  display: block; }
+
+#upload_progress_bar {
+  width: 100%; }
+
+#upload_progress_bar .bar {
+  height: 8px;
+  margin-top: 4px;
+  background: #2ECC40;
+  display: block; }
+
+#picture_browser_results img {
+  /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+  -webkit-border-radius: 12px;
+  /* Firefox 1-3.6 */
+  -moz-border-radius: 12px;
+  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+  border-radius: 12px;
+  margin: 0 8px 8px 0;
+  border: 2px solid transparent;
+  padding: 4px; }
+
+#picture_browser_results img:hover {
+  border-color: silver;
+  cursor: pointer; }
+
+#picture_browser_results img.selected {
+  border-color: red; }
+
+#picture_browser_results img.selected {
+  border-color: #00adef; }
+
+#file_browser_selected img {
+  margin-left: 8px; }
+
+ul.menu_items_pages {
+  padding-left: 0px; }
+
+ul.menu_items_pages li {
+  list-style: none;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 8px;
+  cursor: move;
+  background-color: #fff; }
+
+ul.menu_items_pages li:hover {
+  background: #ebebeb;
+  /* thicker border */ }
+
+ul.menu_items_pages li .btn.pull-right {
+  margin-left: 8px; }
+
+ul.menu_items_pages li i.resize-move-drag-icon, ul.menu_items_pages li span.title {
+  padding-top: 6px;
+  padding-bottom: 9px; }
+
+.resize-move-drag-icon {
+  color: #A9A9A9; }
+
+ul.menu_items_pages li:hover .resize-move-drag-icon {
+  color: gray; }
+
+#menu_order_area {
+  border-radius: 8px;
+  height: auto;
+  min-height: 200px; }
+
+.menu_item_dragging {
+  /* shadow & minor rotation */
+  -moz-box-shadow: 2px 2px 0px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px 0px #ccc;
+  box-shadow: 2px 2px 0px 0px #ccc;
+  transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  /* IE 9 */
+  -webkit-transform: rotate(6deg);
+  /* Opera, Chrome, and Safari */ }
+
+.item_hovering {
+  background-color: #ebebeb;
+  -moz-box-shadow: 2px 2px 0px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px 0px #ccc;
+  box-shadow: 2px 2px 0px 0px #ccc; }
+
+/*
+login form
+*/
+body#start #logo_container {
+  display: block;
+  height: 180px;
+  width: 250px;
+  padding-left: 0px; }
+
+body#start #logo_container span {
+  position: absolute;
+  font-size: 160px;
+  line-height: 160px; }
+
+body#start #start_container {
+  max-width: 300px;
+  margin-top: 50px; }
+
+body#start #logo_container span#f {
+  z-index: 13; }
+
+body#start #logo_container span#l {
+  z-index: 12;
+  margin-left: -3px;
+  margin-top: -3px; }
+
+body#start #logo_container span#o {
+  z-index: 11;
+  margin-left: 4px;
+  margin-top: -2px; }
+
+body#start #logo_container span#t {
+  z-index: 10;
+  margin-left: -3px;
+  margin-top: 3px; }
+
+#error_state {
+  margin-right: 16px;
+  display: inline-block;
+  line-height: 100%;
+  vertical-align: middle; }
+
+#error_state i.red {
+  font-size: larger; }
+
+/* view items */
+table#admin_table_list tr:hover .btn-view {
+  border-color: silver; }
+
+a.btn-view {
+  background-color: #f5f5f5; }
+
+a.btn-view:hover {
+  background-color: silver; }
+
+.item_delete {
+  display: none; }
+
+.item_delete_done {
+  display: none; }
+
+.btn, .btn:hover, .btn:active, .btn:visited {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.btn:hover, .btn:active, .btn:visited {
+  border-color: transparent; }
+
+.btn-info:hover, .btn-info:active, .btn-info:visited {
+  color: #fff; }
+
+.btn-danger, .btn-danger:visited {
+  border-color: #c0392b;
+  color: #c0392b;
+  background-color: transparent; }
+
+.btn-danger:hover {
+  border-color: #c0392b;
+  color: #fff;
+  background-color: #c0392b; }
+
+.btn-success, .btn-success:visited {
+  border-color: #27ae60;
+  color: #27ae60;
+  background-color: transparent; }
+
+.btn-success:hover {
+  border-color: #27ae60;
+  color: #fff;
+  background-color: #27ae60; }
+
+.btn-warning, .btn-warning:visited {
+  border-color: #f0ad4e;
+  color: #f0ad4e;
+  background-color: transparent; }
+
+.btn[disabled] {
+  background-color: transparent;
+  border-color: #ccc;
+  color: #ccc; }
+
+.btn, .dropdown-menu a {
+  text-transform: capitalize; }
+
+label.form-group {
+  text-transform: capitalize; }
+
+.alert-info {
+  background-color: transparent;
+  border-color: #31708f; }
+
+/*
+ * jQuery File Upload Plugin CSS 1.3.0
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+/* blueim file uploader overrides from github */
+.fileinput-button {
+  position: relative;
+  overflow: hidden; }
+
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer; }
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%; } }
+.modal-dialog {
+  max-width: 60%;
+  width: auto; }
+
+.modal-body img {
+  max-width: 100%;
+  height: auto; }
+
+table {
+  table-layout: fixed;
+  word-wrap: break-word; }
+
+table tr td a {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+/*
+bootstrap overloads
+*/
+.alert.alert-danger {
+  background: #fff;
+  border-color: #e74c3c;
+  color: #e74c3c; }
+
+/*# sourceMappingURL=admin_style.css.map */

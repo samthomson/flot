@@ -1,3 +1,6 @@
+
+
+
 DirectoryIndex index.html /app/storage/www/index.html
 
 RewriteEngine on

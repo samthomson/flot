@@ -1,1 +1,76 @@
-flot {{name}} page?
+<!DOCTYPE html>
+<html >
+	<head>
+		<link rel="stylesheet" href="/flot-admin/admin/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/flot-admin/admin/css/admin_style.css">
+		<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+		<script src="/flot-admin/admin/js/jquery.min.js"></script>
+		<script src="/flot-admin/admin/js/bootstrap.min.js"></script>
+		<script src="/flot-admin/admin/js/admin.php"></script>
+		<script src="/flot-admin/admin/js/admin_item_list.js"></script>
+
+		<title>flot - manage your site</title>
+	</head>
+
+	<body class="">
+
+
+		<!-- Reusable Modal -->
+		<!-- functions for controlling can be found in admin.js #_reusable_modal_stuff -->
+		<div class="modal fade" id="flot_modal" tabindex="-1" role="dialog" aria-labelledby="flot_modal_label" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="flot_modal_label"></h4>
+					</div>
+					<div class="modal-body">
+		  				<div class="" id="flot_modal_body">
+
+		  				</div>
+		  			</div>
+					<div class="modal-footer" id="flot_modal_footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div id="admin_header" class="clearer">
+			<div class="left_col clearer">
+				<a href="/flot-admin/admin/">
+					<img src="flot-admin/admin/images/flot.png" style="
+					    max-height: 35px;
+					    margin-left: 20px;
+					" alt="flot version " title="flot version "/>
+				</a>
+			</div>
+			<div class="right_col">
+				<div id="top_right_buttons" class="clearer">
+					<!--php echo $html_add_content_button; -->
+					<a class="btn btn-danger btn-sm" href="logout.php"><i class="glyphicon glyphicon-user"></i> logout</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="left_right_container">
+			<!-- tabs left -->
+			<div class="left_col" id="left_admin_menu_col">
+				<!-- render left menu, one item should be 'active' -->
+				<!-- echo $html_left_menu; -->
+				{% include 'left_admin_menu.html' %}
+			</div>
+			<div class="right_col clearer" id="right_admin_section">
+				<!-- echo $html_message_alert; -->
+				
+				<!-- main 'content' section -->
+				<!-- echo $html_make_admin_content; -->
+			</div>
+		</div>
+	</body>
+</html>
