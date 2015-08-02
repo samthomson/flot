@@ -4,7 +4,10 @@
 	require __DIR__.'../../vendor/autoload.php';
 
 	// load our own
+
+
 	$saAutoLoadDirectories = [
+		'config',
 		'controllers'
 	];
 
