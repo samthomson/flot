@@ -16,12 +16,12 @@ Options -Indexes +SymLinksIfOwnerMatch
   RewriteCond %{REQUEST_URI} !^/flot-admin/www/
 
   # Don't apply to URLs that go to existing files or folders
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+  ##RewriteCond %{REQUEST_FILENAME} !-f
+  ##RewriteCond %{REQUEST_FILENAME} !-d
 
   # Rewrite all those to insert /folder
-  RewriteRule ^(.*)$ /flot-admin/www/$1 [L]
-  RewriteRule ^(/)?$ /flot-admin/www/$1 [L]
+  ##RewriteRule ^(.*)$ /flot-admin/www/$1 [L]
+  ##RewriteRule ^(/)?$ /flot-admin/www/$1 [L]
 </IfModule>
 
 
