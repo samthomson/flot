@@ -1,6 +1,6 @@
 {
     "require": {
     	"nesbot/carbon" : "1.20.0",
-    	"phroute/phroute" : "2.0.0"
+    	"klein/klein" : "2.1.0"
     }
 }

@@ -112,49 +112,61 @@
         ]
     },
     {
-        "name": "phroute/phroute",
-        "version": "v2.0.0",
-        "version_normalized": "2.0.0.0",
+        "name": "klein/klein",
+        "version": "v2.1.0",
+        "version_normalized": "2.1.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/mrjgreen/phroute.git",
-            "reference": "7361875389c0969e3cd6322478719b125c3adc27"
+            "url": "https://github.com/chriso/klein.php.git",
+            "reference": "5dc073f05adb67ee09680545b4cc7b0590d2559e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mrjgreen/phroute/zipball/7361875389c0969e3cd6322478719b125c3adc27",
-            "reference": "7361875389c0969e3cd6322478719b125c3adc27",
+            "url": "https://api.github.com/repos/chriso/klein.php/zipball/5dc073f05adb67ee09680545b4cc7b0590d2559e",
+            "reference": "5dc073f05adb67ee09680545b4cc7b0590d2559e",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.4.0"
+            "php": ">=5.3.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "*",
-            "satooshi/php-coveralls": "dev-master"
+            "phpunit/php-code-coverage": "1.2.x",
+            "phpunit/phpunit": "3.7.x",
+            "squizlabs/php_codesniffer": "1.4.8"
         },
-        "time": "2015-01-09 12:52:02",
+        "time": "2014-11-07 07:35:23",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Phroute\\Phroute\\": "src/Phroute"
+                "Klein\\": "src/Klein/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "BSD-3-Clause"
+            "MIT"
         ],
         "authors": [
             {
-                "name": "Joe Green",
-                "email": "joe.green.0991@gmail.com"
+                "name": "Chris O'Hara",
+                "email": "cohara87@gmail.com",
+                "homepage": "http://chris6f.com/",
+                "role": "Creator/Developer"
+            },
+            {
+                "name": "Trevor Suarez",
+                "email": "rican7@gmail.com",
+                "homepage": "http://about.me/tnsuarez",
+                "role": "Contributor/Developer"
             }
         ],
-        "description": "Fast, fully featured restful request router for PHP",
+        "description": "A lightning fast router for PHP",
+        "homepage": "https://github.com/chriso/klein.php",
         "keywords": [
+            "boilerplate",
             "router",
-            "routing"
+            "routing",
+            "sinatra"
         ]
     }
 ]

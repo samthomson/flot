@@ -6,11 +6,14 @@ require __DIR__.'../../vendor/autoload.php';
 
 use Carbon\Carbon as Carbon;
 use Phroute\Phroute\RouteCollector;
+use Klein\Klein as Klein;
 
 
-$router = new RouteCollector();
+$klein = new Klein();
 
-
-$router->get('/', function(){
-    return 'This route responds to requests with the GET method at the path /example';
+$klein->respond('GET', '/flot-admin', function () {
+    return 'Hello World!';
 });
+
+
+$klein->dispatch();
