@@ -11,19 +11,20 @@ use Phroute\Phroute\RouteCollector;
 use Klein\Klein as Router;
 
 
-
-
 $oRouter = new Router();
 
 /*
 admin ui
 */
-$oRouter->respond('GET', '/flot-manage/.[:section]?', function ($request) {
+$oRouter->respond('GET', '/flot-manage/.[:section]?.[:action]?', function ($request) {
+	/*
+    
+    */
+    $o = new Admin();
 
-    $o = new View();
-
-    return $o->render("admin", ["request" => $request]);
+    $o->makeUI(["request" => $request]);
 });
+
 /*
 account stuff
 */
