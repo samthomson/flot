@@ -1,19 +1,19 @@
 <div id="admin_menu_left">
-    <a class="items admin_menu_left active" href="{{flot_admin_base_url}}?section=items">
+    <a class="items admin_menu_left {% if section == 'items' %} active{% endif%}" href="{{flot_admin_base_url}}?section=items">
         <i class="glyphicon glyphicon-folder-open"></i><span class="small-hidden condensed_hidden"> Contents</span>
     </a>
     <a class="admin_menu_left page_type" href="{{flot_admin_base_url}}?section=items&amp;oncology=page">
         <i class="glyphicon glyphicon-file"></i><span class="small-hidden condensed_hidden"> webpage</span></a>
-    <a class="elements admin_menu_left" href="{{flot_admin_base_url}}?section=elements">
+    <a class="elements admin_menu_left {% if section == 'elements' %} active{% endif%}" href="{{flot_admin_base_url}}?section=elements">
         <i class="glyphicon glyphicon-paperclip"></i><span class="small-hidden condensed_hidden"> Elements</span></a>
-    <a class="pictures admin_menu_left" href="{{flot_admin_base_url}}?section=pictures">
+    <a class="pictures admin_menu_left {% if section == 'pictures' %} active{% endif%}" href="{{flot_admin_base_url}}?section=pictures">
         <i class="glyphicon glyphicon-picture"></i><span class="small-hidden condensed_hidden"> Pictures</span></a>
-    <a class="menus admin_menu_left" href="{{flot_admin_base_url}}?section=menus">
+    <a class="menus admin_menu_left {% if section == 'menus' %} active{% endif%}" href="{{flot_admin_base_url}}?section=menus">
         <i class="glyphicon glyphicon-list"></i><span class="small-hidden condensed_hidden"> Menus</span></a>
-    <a class="oncologies admin_menu_left" href="{{flot_admin_base_url}}?section=oncologies">
+    <a class="oncologies admin_menu_left {% if section == 'oncologies' %} active{% endif%}" href="{{flot_admin_base_url}}?section=oncologies">
         <i class="glyphicon glyphicon-list-alt"></i><span class="small-hidden condensed_hidden"> Page types</span></a>
-    <a class="settings admin_menu_left" href="{{flot_admin_base_url}}?section=settings">
+    <a class="settings admin_menu_left {% if section == 'settings' %} active{% endif%}" href="{{flot_admin_base_url}}?section=settings">
         <i class="glyphicon glyphicon-cog"></i><span class="small-hidden condensed_hidden"> Settings</span></a>
-    <a class="errors admin_menu_left" href="{{flot_admin_base_url}}?section=errors">
+    <a class="errors admin_menu_left {% if section == 'errors' %} active{% endif%}" href="{{flot_admin_base_url}}?section=errors">
         <i class="glyphicon glyphicon-fire"></i><span class="small-hidden condensed_hidden"> Errors</span></a>
 </div>
