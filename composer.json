@@ -1,6 +1,5 @@
 {
     "require": {
-    	"monolog/monolog" : "1.15.0",
     	"nesbot/carbon" : "1.20.0"
     }
 }

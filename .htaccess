@@ -1,0 +1,15 @@
+DirectoryIndex index.html /app/storage/www/index.html
+
+  RewriteEngine on
+  RewriteBase /
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/app/storage/www/$1 !-f
+RewriteCond %{DOCUMENT_ROOT}/app/storage/www/$1 !-d
+RewriteRule ^(.*)$ /app/router.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /app/storage/www/$1 [L]

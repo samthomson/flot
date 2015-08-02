@@ -1,0 +1,52 @@
+
+Options -Indexes +SymLinksIfOwnerMatch
+
+#DirectoryIndex start.php /flot-admin/www/index.html
+#DirectoryIndex start.php index.html /flot-admin/www/index.html
+
+DirectoryIndex index.html /app/storage/www/index.html
+
+<IfModule mod_rewrite.c>
+
+  SetEnv HTTP_MOD_REWRITE On
+
+
+
+
+  RewriteEngine on
+  RewriteBase /
+
+
+
+  #RewriteCond %{REQUEST_URI} !^/app/storage/www/
+
+  
+  # Don't apply to URLs that go to existing files or folders
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /app/storage/www/$1
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^app/storage/www/ /app/router.php [L]
+
+
+
+
+
+
+
+
+  #RewriteRule ^(.*)$ /app/storage/www/$1 [L]
+  #RewriteRule ^(/)?$ /app/storage/www/$1 [L]
+
+  # serve requested paths from cache
+
+
+  # still here? serve dynamically...
+  #RewriteCond %{REQUEST_FILENAME} !-f
+  #RewriteCond %{REQUEST_FILENAME} !-d
+  #RewriteRule ^(.*)$ app/router.php [L]
+
+
+</IfModule>

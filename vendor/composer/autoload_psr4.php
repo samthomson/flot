@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
-    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
 );
