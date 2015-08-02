@@ -9,6 +9,10 @@
 			    /*'cache' => '/path/to/compilation_cache',*/
 			));
 
-			echo $twig->render($sViewName.'.html', array('name' => 'Fabien'));
+			echo $twig->render($sViewName.'.html',
+				array(
+					'flot_admin_base_url' => '/flot-manage/'
+				)
+			);
 		}
 	}

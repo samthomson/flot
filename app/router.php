@@ -15,7 +15,7 @@ use Klein\Klein as Klein;
 
 $klein = new Klein();
 
-$klein->respond('GET', '/flot-manage', function () {
+$klein->respond('GET', '/flot-manage/', function () {
 
     $o = new View();
 
