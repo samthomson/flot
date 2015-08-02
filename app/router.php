@@ -16,19 +16,10 @@ use Klein\Klein as Klein;
 $klein = new Klein();
 
 $klein->respond('GET', '/flot-admin', function () {
-    //include __DIR__.'/views/admin.html';
 
-    //$o = new View();
+    $o = new View();
 
-    //return $o->render("admin");
-
-    $loader = new Twig_Loader_Array(array(
-    'index' => 'Hello {{ name }}!',
-));
-$twig = new Twig_Environment($loader);
-
-echo $twig->render('index', array('name' => 'Fabien'));
-
+    return $o->render("admin");
 });
 
 
