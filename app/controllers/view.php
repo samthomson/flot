@@ -2,7 +2,7 @@
 
 	class View{
 
-		function make($sViewName = "default"){
+		function render($sViewName = "default"){
 			return $sViewName;
 		}
 	}

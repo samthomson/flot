@@ -1,6 +1,7 @@
 {
     "require": {
     	"nesbot/carbon" : "1.20.0",
-    	"klein/klein" : "2.1.0"
+    	"klein/klein" : "2.1.0",
+    	"twig/twig" : "1.19.0"
     }
 }
