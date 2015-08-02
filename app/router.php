@@ -15,11 +15,11 @@ use Klein\Klein as Klein;
 
 $klein = new Klein();
 
-$klein->respond('GET', '/flot-manage/', function () {
+$klein->respond('GET', '/flot-manage/.[:section]?', function ($request) {
 
     $o = new View();
 
-    return $o->render("admin");
+    return $o->render("admin", ["request" => $request]);
 });
 
 
