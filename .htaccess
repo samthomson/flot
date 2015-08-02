@@ -1,8 +1,9 @@
 DirectoryIndex index.html /app/storage/www/index.html
 
-  RewriteEngine on
-  RewriteBase /
+RewriteEngine on
+RewriteBase /
 
+# the site should be served from the www cache director, so map all requests in there, if they didn't exist, we let the app handle them dynamically
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

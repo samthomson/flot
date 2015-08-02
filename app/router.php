@@ -5,12 +5,12 @@ require __DIR__.'../../vendor/autoload.php';
 // define our aliases
 
 use Carbon\Carbon as Carbon;
+use Phroute\Phroute\RouteCollector;
 
-echo "flot admin<br/>";
+
+$router = new RouteCollector();
 
 
-// try carbon dates, can it be added to psr autoloader
-
-printf("Right now is %s", Carbon::now()->toDateTimeString());
-
-print_r($_GET);
+$router->get('/', function(){
+    return 'This route responds to requests with the GET method at the path /example';
+});

@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
+    'Phroute\\Phroute\\' => array($vendorDir . '/phroute/phroute/src/Phroute'),
 );

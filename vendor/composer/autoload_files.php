@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $vendorDir . '/nikic/fast-route/src/functions.php',
+    $vendorDir . '/illuminate/support/Illuminate/Support/helpers.php',
 );
