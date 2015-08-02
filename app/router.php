@@ -8,19 +8,29 @@ require __DIR__.'../../bootstrap/autoload.php';
 
 use Carbon\Carbon as Carbon;
 use Phroute\Phroute\RouteCollector;
-use Klein\Klein as Klein;
+use Klein\Klein as Router;
 
 
 
 
-$klein = new Klein();
+$oRouter = new Router();
 
-$klein->respond('GET', '/flot-manage/.[:section]?', function ($request) {
+/*
+admin ui
+*/
+$oRouter->respond('GET', '/flot-manage/.[:section]?', function ($request) {
 
     $o = new View();
 
     return $o->render("admin", ["request" => $request]);
 });
+/*
+account stuff
+*/
+$oRouter->respond('GET', '/flot-manage/logout/', function () {
+
+    echo "logout lol";
+});
 
 
-$klein->dispatch();
+$oRouter->dispatch();
