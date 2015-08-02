@@ -4,35 +4,39 @@
 
 		function makeUI($maParams)
 		{
-			switch ($maParams['request']->section) {
-				case 'contents':
-					self::makeContentsPage($maParams['request']->action);
+
+			$htmlBody = '';
+
+
+			$o = new View();
+
+			$htmlBody = "";
+
+			switch($maParams['request']->section){
+				case 'items':
+					switch($maParams['request']->action){
+						case 'edit':
+							$htmlBody = "edit buttons<hr/>edit ui";
+							break;
+						default:
+							$htmlBody = "overview buttons<hr/>list??";
+							break;
+					}
 					break;
-				
 				default:
-					self::makeContentsPage($maParams['request']->action);
+					$htmlBody = $maParams['request']->section;
 					break;
 			}
+
+
+			return $o->render("admin", ["section" => $maParams['request']->section, "body" => $htmlBody]);
 		}
 
 		function makeContentsPage($sAction = "list"){
 
 			// depending on the action construct a different content menu
 
-			$o = new View();
-
-			$htmlBody = "";
-
-			switch($sAction){
-				case 'edit':
-					$htmlBody = "edit buttons<hr/>edit ui";
-					break;
-				default:
-					$htmlBody = "overview buttons<hr/>list of items?";
-					break;
-			}
-
-    		return $o->render("admin", ["section" => "items", "body" => $htmlBody]);
+    		
 
 		}
 
