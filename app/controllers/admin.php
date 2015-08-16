@@ -16,10 +16,14 @@
 				case 'items':
 					switch($maParams['request']->action){
 						case 'edit':
-							$htmlBody = "edit buttons<hr/>edit ui";
+							$htmlBody .= "edit buttons";
+							$htmlBody .= "<hr/>";
+							$htmlBody .= "edit ui";
 							break;
 						default:
-							$htmlBody = "overview buttons<hr/>list??";
+							$htmlBody .= "overview buttons";
+							$htmlBody .= "<hr/>";
+							$htmlBody .= "list??";
 							break;
 					}
 					break;
