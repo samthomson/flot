@@ -13,6 +13,8 @@ use Klein\Klein as Router;
 
 $oRouter = new Router();
 
+/* klein routing */
+
 /*
 admin ui
 */
