@@ -9,20 +9,39 @@
 
 			$htmlBody = "";
 
+			$sSection = "items";
+			$sAction = "overview";
+
+
+			switch($maParams['request']->section){
+				case 'items':
+				case 'elements':
+				case 'pictures':
+				case 'menus':
+				case 'oncologies':
+				case 'settings':
+				case 'errors':
+					$sSection = $maParams['request']->section;
+					break;
+			}
+
+			switch($maParams['request']->action){
+				case 'overview':
+				case 'new':
+				case 'edit':
+					$sAction = $maParams['request']->action;
+					break;
+			}
+
+			/*
+
 			switch($maParams['request']->section){
 				case 'items':
 					switch($maParams['request']->action){
-						case 'edit':
+						case 'new':
 							$htmlBody .= "edit buttons";
 							$htmlBody .= "<hr/>";
 							$htmlBody .= "edit ui";
-							break;
-						default:
-							return View::render("pages\\admin\\contents-overview");
-							
-							$htmlBody .= View::render("partials\\admin\\contents-overview-buttons");
-							$htmlBody .= "<hr/>";
-							$htmlBody .= "list??";
 							break;
 					}
 					break;
@@ -30,9 +49,9 @@
 					$htmlBody = $maParams['request']->section;
 					break;
 			}
+			*/
 
-
-			return View::render("templates\admin", ["section" => $maParams['request']->section, "body" => $htmlBody]);
+			return View::render("pages\\admin\\$sSection-$sAction", ['section' => $sSection]);
 		}
 
 		function makeContentsPage($sAction = "list"){
