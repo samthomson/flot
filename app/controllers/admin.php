@@ -33,7 +33,7 @@
 			}
 
 
-			return $o->render("admin", ["section" => $maParams['request']->section, "body" => $htmlBody]);
+			return $o->render("templates\admin", ["section" => $maParams['request']->section, "body" => $htmlBody]);
 		}
 
 		function makeContentsPage($sAction = "list"){
