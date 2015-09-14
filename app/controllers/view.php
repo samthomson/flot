@@ -20,6 +20,6 @@
 					$aPassOn[$sVarKey] = $maParams[$sVarKey];
 			}
 
-			echo $twig->render($sViewName.'.html', $aPassOn);
+			return $twig->render($sViewName.'.html', $aPassOn);
 		}
 	}

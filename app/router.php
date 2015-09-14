@@ -23,7 +23,7 @@ $oRouter->respond('GET', '/flot-manage/.[:section]?.[:action]?', function ($requ
     */
     $o = new Admin();
 
-    $o->makeUI(["request" => $request]);
+    return $o->makeUI(["request" => $request]);
 });
 
 /*
@@ -31,7 +31,7 @@ account stuff
 */
 $oRouter->respond('GET', '/flot-manage/logout/', function () {
 
-    echo "logout lol";
+    return "logout lol";
 });
 
 
