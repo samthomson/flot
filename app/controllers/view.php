@@ -1,8 +1,11 @@
 <?php
 
+	
+	#namespace FlotCMS;
+
 	class View{
 
-		function render($sViewName = "index", $maParams = []){
+		public static function render($sViewName = "index", $maParams = []){
 
 			$loader = new Twig_Loader_Filesystem(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR .'views');
 			$twig = new Twig_Environment($loader);

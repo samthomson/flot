@@ -1,14 +1,11 @@
 <?php
 
+	#namespace FlotCMS;
+
 	class Admin{
 
-		function makeUI($maParams)
+		public static function makeUI($maParams)
 		{
-
-			$htmlBody = '';
-
-
-			$o = new View();
 
 			$htmlBody = "";
 
@@ -21,7 +18,9 @@
 							$htmlBody .= "edit ui";
 							break;
 						default:
-							$htmlBody .= "overview buttons";
+							return View::render("pages\\admin\\contents-overview");
+							
+							$htmlBody .= View::render("partials\\admin\\contents-overview-buttons");
 							$htmlBody .= "<hr/>";
 							$htmlBody .= "list??";
 							break;
@@ -33,7 +32,7 @@
 			}
 
 
-			return $o->render("templates\admin", ["section" => $maParams['request']->section, "body" => $htmlBody]);
+			return View::render("templates\admin", ["section" => $maParams['request']->section, "body" => $htmlBody]);
 		}
 
 		function makeContentsPage($sAction = "list"){

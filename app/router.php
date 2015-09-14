@@ -1,5 +1,7 @@
 <?php
 
+#namespace FlotCMS;
+
 require __DIR__.'../../bootstrap/autoload.php';
 
 
@@ -21,9 +23,7 @@ admin ui
 $oRouter->respond('GET', '/flot-manage/.[:section]?.[:action]?', function ($request) {
 	/*
     */
-    $o = new Admin();
-
-    return $o->makeUI(["request" => $request]);
+    return Admin::makeUI(["request" => $request]);
 });
 
 /*
@@ -36,6 +36,17 @@ $oRouter->respond('GET', '/flot-manage/logout/', function () {
 
 
 /*
+test
+*/
+$oRouter->respond('GET', '/test/', function () {
+
+	/*
+	*/
+	return TestController::test();
+});
+
+
+/*
 app/http boilerplate
 */
 
@@ -43,13 +54,9 @@ $oRouter->onHttpError(function ($code, $router) {
     switch ($code) {
         case 404:
 
-			$o = new View();
-
-			$htmlBody = $o->render("partials\\404", []);
-
-
-
-            $router->response()->body($htmlBody);
+            $router->response()->body(
+        		View::render("pages\\general\\404", [])
+        	);
             break;
         case 405:
             $router->response()->body(

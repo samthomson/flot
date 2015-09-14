@@ -17,8 +17,8 @@
 	<body class="">
 
 
-		<!-- Reusable Modal -->
-		<!-- functions for controlling can be found in admin.js #_reusable_modal_stuff -->
+		{# Reusable Modal #}
+		{# functions for controlling can be found in admin.js #_reusable_modal_stuff #}
 		<div class="modal fade" id="flot_modal" tabindex="-1" role="dialog" aria-labelledby="flot_modal_label" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -52,26 +52,26 @@
 			</div>
 			<div class="right_col">
 				<div id="top_right_buttons" class="clearer">
-					<!--php echo $html_add_content_button; -->
+					{#php echo $html_add_content_button; #}
 					<a class="btn btn-danger btn-sm" href="{{flot_admin_base_url}}logout/"><i class="glyphicon glyphicon-user"></i> logout</a>
 				</div>
 			</div>
 		</div>
 
 		<div id="left_right_container">
-			<!-- tabs left -->
+			{# tabs left #}
 			<div class="left_col" id="left_admin_menu_col">
-				<!-- render left menu, one item should be 'active' -->
-				<!-- echo $html_left_menu; -->
+				{# render left menu, one item should be 'active' #}
+				{# echo $html_left_menu; #}
 				{% include 'templates\\left_admin_menu.html' %}
+
 			</div>
 			<div class="right_col clearer" id="right_admin_section">
-				<!-- echo $html_message_alert; -->
+				{# echo $html_message_alert; #}
 				
-				<!-- main 'content' section -->
-				<!-- echo $html_make_admin_content; -->
-
-				{{body|raw}}
+				{# main 'content' section #}
+				{# echo $html_make_admin_content; #}
+				{% block body %}{% endblock %}
 			</div>
 		</div>
 	</body>
