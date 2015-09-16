@@ -8,7 +8,8 @@
 
 	$saAutoLoadDirectories = [
 		'config',
-		'controllers'
+		'controllers',
+		'models'
 	];
 
 

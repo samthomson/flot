@@ -25,6 +25,11 @@ $oRouter->respond('GET', '/flot-manage/.[:section]?.[:action]?', function ($requ
     */
     return Admin::makeUI(["request" => $request]);
 });
+$oRouter->respond('POST', '/flot-manage/[:section]/[:action]', function ($request) {
+	/*
+    */
+    return "$action $section";
+});
 
 /*
 account stuff
@@ -42,7 +47,8 @@ $oRouter->respond('GET', '/test/', function () {
 
 	/*
 	*/
-	return TestController::test();
+	TestController::makeItem();
+	return FileController::getModels();
 });
 
 
@@ -60,7 +66,7 @@ $oRouter->onHttpError(function ($code, $router) {
             break;
         case 405:
             $router->response()->body(
-                'You can\'t do that!'
+                'FlotCMS :|'
             );
             break;
         default:
