@@ -15,14 +15,13 @@
 			$aPassOn = [
 				'flot_admin_base_url' => $GLOBALS['admin.flot_admin_base_url']
 			];
-			$saPassOnIfSet = ['section', 'body'];
+			$saPassOnIfSet = ['section', 'body', 'items'];
 
 			foreach($saPassOnIfSet as $sVarKey)
 			{
 				if(isset($maParams[$sVarKey]))
 					$aPassOn[$sVarKey] = $maParams[$sVarKey];
 			}
-
-			return $twig->render($sViewName.'.html', $aPassOn);
+			return $twig->render($sViewName.'.html', $maParams);
 		}
 	}

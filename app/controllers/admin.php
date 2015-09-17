@@ -12,6 +12,8 @@
 			$sSection = "items";
 			$sAction = "overview";
 
+			$aVarsForView = [];
+
 
 			switch($maParams['request']->section){
 				case 'items':
@@ -21,7 +23,7 @@
 				case 'oncologies':
 				case 'settings':
 				case 'errors':
-					$sSection = $maParams['request']->section;
+					$aVarsForView['section'] = $maParams['request']->section;
 					break;
 			}
 
@@ -29,7 +31,14 @@
 				case 'overview':
 				case 'new':
 				case 'edit':
-					$sAction = $maParams['request']->action;
+					$aVarsForView['section'] = $maParams['request']->action;
+					break;
+			}
+
+			switch($maParams['request']->section){
+				case 'items':
+
+					$aVarsForView['items'] = FileController::getModels();
 					break;
 			}
 
@@ -51,7 +60,7 @@
 			}
 			*/
 
-			return View::render("pages\\admin\\$sSection-$sAction", ['section' => $sSection]);
+			return View::render("pages\\admin\\$sSection-$sAction", $aVarsForView);
 		}
 
 		function makeContentsPage($sAction = "list"){
