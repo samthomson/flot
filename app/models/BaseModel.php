@@ -16,6 +16,20 @@
 			return new static();
 		}
 
+		public static function createFromFile($sUId)
+		{
+			$sReadPath = $GLOBALS['files.models_path'];
+
+			$sFilePath = $sReadPath."item_$sUId.flotcms";
+
+			$fModel = fopen($sFilePath, "r") or die("can't read model file");
+
+			$oParsed = self::createFromJson(fread($fModel, filesize($sFilePath)));
+
+			fclose($fModel);
+
+			return $oParsed;
+		}
 		public static function createFromJson($sJson)
 		{
 			// parse json and return a new object accordingly

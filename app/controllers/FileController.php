@@ -14,7 +14,7 @@
 
 		public static function bSaveModel($sFile, $sContents)
 		{
-			return self::bSaveFile($sFile.".flotcms", "datastore", $sContents);
+			return self::bSaveFile("item_".$sFile.".flotcms", "datastore", $sContents);
 		}
 
 		public static function getModels()
@@ -40,24 +40,5 @@
 			}
 
 			return $aObjects;
-		}
-
-		public static function modelFromFile($sName)
-		{
-			$sReadPath = $GLOBALS['files.models_path'];
-
-			$sSeekPath = $sReadPath."$sName.flotcms";
-
-			$fModel = fopen($sSeekPath, "r") or die("can't read model file");
-
-			$oParsed = PageModel::createFromJson(fread($fModel, filesize($sSeekPath)));
-
-			//print_r($oParsed);
-			//echo $oParsed->mGetProperty('title'), "<br/>";
-			//echo $oParsed->amProperties['title']->value, "<br/>";
-
-			fclose($fModel);
-
-			return $oParsed;
 		}
 	}

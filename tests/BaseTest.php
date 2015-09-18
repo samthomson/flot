@@ -44,7 +44,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
         $iIdSaved = $oTestPage->save();
 
-        $oModel = FileController::modelFromFile($iIdSaved);
+        $oModel = PageModel::createFromFile($iIdSaved);
 
 
         $this->assertEquals($oModel->mGetProperty('title'), $sTestTitle);
