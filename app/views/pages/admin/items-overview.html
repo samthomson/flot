@@ -1,0 +1,29 @@
+{% extends "templates\\admin.html" %}
+
+
+{% block actionbuttons %}
+	{% include 'partials\\admin\\items-overview-buttons.html' %}
+{% endblock %}
+
+
+{% block actionarea %}
+	<table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Id</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+	{% for item in items %}
+	<?php/* print_r(item.amProperties['title']['value']); */?>
+        <tr>
+          <th scope="row">1</th>
+          <td>{{ item.sUId }}</td>
+          <td>{{ item.mGetProperty('title') }}</td>
+        </tr>
+    {% endfor %}
+      </tbody>
+	</table>
+{% endblock %}
