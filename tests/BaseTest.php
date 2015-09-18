@@ -22,4 +22,32 @@ class BaseTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($page->getText(),'[to be generated]');
         //$this->visit('/')->see('[to be generated]');
     }
+    public function testPageModelCreate()
+    {
+        $oTestPage = PageModel::create();
+
+        $oTestPage->_SetProperty("title", "test page title!");
+
+
+        $this->assertEquals($oTestPage->mGetProperty('title'), "test page title!");
+    }
+    public function testPageModelWriteRead()
+    {
+        // create a page and write and save it, then open it up from disk and make sure attributes are the same, test with funny characters (punctuations and foreign utf8 stuff)
+
+        $oTestPage = PageModel::create();
+
+        $sTestTitle = "did this title save?";
+
+        $oTestPage->_SetProperty("title", $sTestTitle);
+
+
+        $iIdSaved = $oTestPage->save();
+
+        $oModel = FileController::modelFromFile($iIdSaved);
+
+
+        $this->assertEquals($oModel->mGetProperty('title'), $sTestTitle);
+
+    }
 }

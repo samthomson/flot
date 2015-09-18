@@ -48,11 +48,14 @@
 
 		public function save()
 		{
-			// persist model to disk
+			// persist model to disk, returns model id or null
 
 			$sFileContents = json_encode(get_object_vars($this));
 
-			FileController::bSaveModel($this->sUId, $sFileContents);
+			if(FileController::bSaveModel($this->sUId, $sFileContents))
+				return $this->sUId;
+
+			return null;
 		}
 
 		public function _SetProperty($sKey, $mValue)
