@@ -52,7 +52,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
     }
     public function testPageCollectionCreationModelWriteRead()
     {
-
+        // test that a newly created and saved collection, can be read into memory and contain an empty array of items
         $oPages = PageCollectionModel::create();
         $oPages->save();
 
@@ -60,6 +60,29 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
 
         $this->assertEquals($oSaved, []);
+
+    }
+    public function testPageCollectionCreationModelWriteRead()
+    {
+        // test a new collection by writing an item through it
+        $oPages = PageCollectionModel::create();
+        $oPages->save();
+
+        $oTestPage = PageModel::create();
+
+        $sTestTitle = "did this title save in the collection?";
+
+        $oTestPage->_SetProperty("title", $sTestTitle);
+
+        $oPages::saveItem($oTestPage);
+
+
+        $oSaved = PageCollectionModel::getAllItems();
+
+
+
+
+        $this->assertEquals($oSaved[$oTestPage->sUId]['title'], $sTestTitle);
 
     }
 }
