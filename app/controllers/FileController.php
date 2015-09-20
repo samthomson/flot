@@ -17,6 +17,11 @@
 			return self::bSaveFile("item_".$sFile.".flotcms", "datastore", $sContents);
 		}
 
+		public static function bSaveCollection($sCollectionName, $sContents)
+		{
+			return self::bSaveFile("collection_".$sCollectionName.".flotcms", "datastore", $sContents);
+		}
+
 		public static function getModels()
 		{
 			$sReadPath = $GLOBALS['files.models_path'];

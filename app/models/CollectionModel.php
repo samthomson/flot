@@ -8,7 +8,7 @@
 		*/
 		protected $amPropertiesToExposeOfItems = [];
 		protected $sTypeOfItems = "";
-		public $sName = "item";
+		public $sName = "";
 
 		private $amItems = [];
 
@@ -19,19 +19,19 @@
 
 		public static function create()
 		{
-			return new static();
+			$o = new static();
+			// initiate items from disk
+			$o->amItems = $o->createFromFile();
+
+			return $o;
 		}
 
-		public static function getAllItems($sJson)
-		{
-			return [];
-		}
 
-		public static function createFromFile()
+		public function createFromFile()
 		{
 			$sReadPath = $GLOBALS['files.models_path'];
 
-			$sFilePath = $sReadPath."collection_items.flotcms";
+			$sFilePath = $sReadPath."collection_".$this->sName.".flotcms";
 
 			$fModel = fopen($sFilePath, "r") or die("can't read model file");
 
@@ -40,5 +40,52 @@
 			fclose($fModel);
 
 			return $oParsed;
+		}
+		public static function createFromJson($sString)
+		{
+			return json_decode($sString);
+		}
+
+		private function save()
+		{
+			$aItemsToPersist = [];
+
+			foreach ($this->amItems as $key => $mItem) {
+				$oItem = [];
+
+				$oItem['sUId'] = $mItem->sUId;
+
+				foreach ($this->amPropertiesToExposeOfItems as $sPropertyToPersist) {
+					$oItem[$sPropertyToPersist] = $mItem->mGetProperty($sPropertyToPersist);
+				}
+				array_push($aItemsToPersist, $oItem);
+			}
+
+			$sFileContents = json_encode($aItemsToPersist);
+
+			if(FileController::bSaveCollection($this->sName, $sFileContents))
+				return true;
+
+			return false;
+		}
+
+		public static function getAllItems()
+		{
+			$mModel = self::create();
+
+			return $mModel->amItems;
+		}
+
+		public static function saveItem($mItem)
+		{
+			// save that specific item, but also update this collection too
+			// save that individual item to disk, overwriting any previou
+			$mItem->save();
+
+			$mModel = self::create();
+			// update the item in our collection
+			$mModel->amItems[$mItem->sUId] = $mItem;
+			// now save our whole collection
+			$mModel->save();
 		}
 	}

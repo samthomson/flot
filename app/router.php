@@ -43,12 +43,21 @@ $oRouter->respond('GET', '/flot-manage/logout/', function () {
 /*
 test
 */
-$oRouter->respond('GET', '/test/', function () {
+$oRouter->respond('GET', '/test/createcollection', function () {
 
-	/*
-	*/
-	TestController::makeItem();
-	return FileController::getModels();
+    /*
+    */
+    $oPages = PageCollectionModel::create();
+    $oPages->save();
+});
+$oRouter->respond('GET', '/test/createitem', function () {
+
+    /*
+    */
+    $oItem = PageModel::create();
+    $oItem->_SetProperty("title", "item in collection?");
+
+    PageCollectionModel::saveItem($oItem);
 });
 
 
