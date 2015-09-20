@@ -9,7 +9,8 @@
 				'title' => [
 					'type' => 'string',
 					'editor' => 'text-input',
-					'value' => ''
+					'value' => '',
+					'exposed_to_collection' => true
 				]
 			];
 

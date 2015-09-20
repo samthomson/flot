@@ -48,13 +48,9 @@
 					$o->amProperties[$sPropertyNameKey] = [];
 					foreach ($aPropertyDetails as $sPopertyPropertyName => $sPopertyPropertyValue)
 					{
-						//array_push($o->amProperties[$sPropertyNameKey] , [$sPopertyPropertyName => $sPopertyPropertyValue]);
 						$o->amProperties[$sPropertyNameKey][$sPopertyPropertyName] = $sPopertyPropertyValue;
 					}
 				}
-				//print_r($o->amProperties);
-				//$o->title = $oJson->title;
-				//echo $o->title, "<br/>";
 			}
 
 			return $o;
@@ -80,5 +76,17 @@
 		public function mGetProperty($sKey)
 		{
 			return (isset($this->amProperties[$sKey]['value'])) ? $this->amProperties[$sKey]['value'] : null;
+		}
+
+		public function aGetPropertiesForCollection()
+		{
+			$aReturn = [];
+
+			foreach ($this->amProperties as $sPropertyName => $aPropertyProperties) {
+				if($aPropertyProperties['exposed_to_collection'] == true)
+					$aReturn[$sPropertyName] = $aPropertyProperties['value'];
+			}
+
+			return $aReturn;
 		}
 	}

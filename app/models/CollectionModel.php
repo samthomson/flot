@@ -21,7 +21,7 @@
 		{
 			$o = new static();
 			// initiate items from disk
-			$o->amItems = $o->createFromFile();
+			$o->createFromFile();
 
 			return $o;
 		}
@@ -35,33 +35,40 @@
 
 			$fModel = fopen($sFilePath, "r") or die("can't read model file");
 
-			$oParsed = self::createFromJson(fread($fModel, filesize($sFilePath)));
+			self::createFromJson(fread($fModel, filesize($sFilePath)));
 
 			fclose($fModel);
-
-			return $oParsed;
 		}
-		public static function createFromJson($sString)
+		public function createFromJson($sString)
 		{
-			return json_decode($sString);
+			foreach(json_decode($sString) as $sKey => $oPartialItem)
+			{
+				// no we'll iterate through partially items, they are partial because only some attributes of a model are stored in the collection file
+
+				$sUId = $sKey;
+
+				$this->amItems[$sUId] = $oPartialItem;
+			}
 		}
 
-		private function save()
+		public function save()
 		{
 			$aItemsToPersist = [];
 
-			foreach ($this->amItems as $key => $mItem) {
-				$oItem = [];
+			/*
 
-				$oItem['sUId'] = $mItem->sUId;
+			foreach ($this->amItems as $key => $mItem) {
+				$aExposedProperties = [];
 
 				foreach ($this->amPropertiesToExposeOfItems as $sPropertyToPersist) {
-					$oItem[$sPropertyToPersist] = $mItem->mGetProperty($sPropertyToPersist);
+					$aExposedProperties[$sPropertyToPersist] = $mItem->mGetProperty($sPropertyToPersist);
 				}
-				array_push($aItemsToPersist, $oItem);
+				array_push($aItemsToPersist, [$mItem->sUId => $oItem]);
 			}
 
 			$sFileContents = json_encode($aItemsToPersist);
+			*/
+			$sFileContents = json_encode($this->amItems);
 
 			if(FileController::bSaveCollection($this->sName, $sFileContents))
 				return true;
@@ -84,7 +91,7 @@
 
 			$mModel = self::create();
 			// update the item in our collection
-			$mModel->amItems[$mItem->sUId] = $mItem;
+			$mModel->amItems[$mItem->sUId] = $mItem->aGetPropertiesForCollection();
 			// now save our whole collection
 			$mModel->save();
 		}
