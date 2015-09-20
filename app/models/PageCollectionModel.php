@@ -12,9 +12,7 @@
 				'title'
 			];
 
-			$this->sName = "pages";		
-	
-
+			$this->sName = "pages";
 		}
 
 

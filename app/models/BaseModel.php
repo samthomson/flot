@@ -18,15 +18,9 @@
 
 		public static function createFromFile($sUId)
 		{
-			$sReadPath = $GLOBALS['files.models_path'];
+			$sFilePath = $GLOBALS['files.models_path']."item_$sUId.flotcms";
 
-			$sFilePath = $sReadPath."item_$sUId.flotcms";
-
-			$fModel = fopen($sFilePath, "r") or die("can't read model file");
-
-			$oParsed = self::createFromJson(fread($fModel, filesize($sFilePath)));
-
-			fclose($fModel);
+			$oParsed = self::createFromJson(FileController::sReadTextFromFile($sFilePath));
 
 			return $oParsed;
 		}

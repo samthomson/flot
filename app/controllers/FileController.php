@@ -6,9 +6,9 @@
 		{
 			$sWritePath = $GLOBALS['files.models_path'].$sFile;
 
-			$myfile = fopen($sWritePath, "w") or die("file fail");
-			fwrite($myfile, $sContents);
-			fclose($myfile);
+			$myfile = @fopen($sWritePath, "w") or die("file fail");
+			@fwrite($myfile, $sContents);
+			@fclose($myfile);
 			return true;
 		}
 
@@ -36,14 +36,23 @@
 
 				$oParsed = PageModel::createFromJson(fread($fModel, filesize($sModelPath)));
 
-				//print_r($oParsed);
-				//echo $oParsed->mGetProperty('title'), "<br/>";
-				//echo $oParsed->amProperties['title']->value, "<br/>";
-
 				array_push($aObjects, $oParsed);
 				fclose($fModel);
 			}
 
 			return $aObjects;
+		}
+
+		public static function sReadTextFromFile($sFilePath)
+		{
+			$sText = '';
+
+			$fModel = @fopen($sFilePath, "r");
+
+			$sText = @fread($fModel, filesize($sFilePath));
+
+			@fclose($fModel);
+
+			return $sText;
 		}
 	}

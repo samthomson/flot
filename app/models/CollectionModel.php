@@ -29,15 +29,9 @@
 
 		public function createFromFile()
 		{
-			$sReadPath = $GLOBALS['files.models_path'];
+			$sFilePath = $GLOBALS['files.models_path']."collection_".$this->sName.".flotcms";
 
-			$sFilePath = $sReadPath."collection_".$this->sName.".flotcms";
-
-			$fModel = fopen($sFilePath, "r") or die("can't read model file");
-
-			self::createFromJson(fread($fModel, filesize($sFilePath)));
-
-			fclose($fModel);
+			self::createFromJson(FileController::sReadTextFromFile($sFilePath));
 		}
 		public function createFromJson($sString)
 		{
@@ -55,19 +49,6 @@
 		{
 			$aItemsToPersist = [];
 
-			/*
-
-			foreach ($this->amItems as $key => $mItem) {
-				$aExposedProperties = [];
-
-				foreach ($this->amPropertiesToExposeOfItems as $sPropertyToPersist) {
-					$aExposedProperties[$sPropertyToPersist] = $mItem->mGetProperty($sPropertyToPersist);
-				}
-				array_push($aItemsToPersist, [$mItem->sUId => $oItem]);
-			}
-
-			$sFileContents = json_encode($aItemsToPersist);
-			*/
 			$sFileContents = json_encode($this->amItems);
 
 			if(FileController::bSaveCollection($this->sName, $sFileContents))

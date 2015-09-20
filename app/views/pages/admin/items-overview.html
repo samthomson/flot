@@ -17,7 +17,7 @@
       <tbody>
 	{% for key,item in items %}
         <tr>
-          <th scope="row">1</th>
+          <th scope="row">{{loop.index}}</th>
           <td>{{ key }}</td>
           <td>{{ item.title }}</td>
         </tr>

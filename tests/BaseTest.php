@@ -50,4 +50,16 @@ class BaseTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($oModel->mGetProperty('title'), $sTestTitle);
 
     }
+    public function testPageCollectionCreationModelWriteRead()
+    {
+
+        $oPages = PageCollectionModel::create();
+        $oPages->save();
+
+        $oSaved = PageCollectionModel::getAllItems();
+
+
+        $this->assertEquals($oSaved, []);
+
+    }
 }
