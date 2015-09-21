@@ -10,6 +10,7 @@
 
 			if (flock($myfile,LOCK_EX))
 			{
+				$sContents = '#'.$sContents;
 				fwrite($myfile, $sContents);
   				flock($myfile,LOCK_UN);
 				fclose($myfile);
@@ -18,6 +19,24 @@
 			else{
 				return false;
 			}
+		}
+
+		public static function sReadTextFromFile($sFilePath)
+		{
+			
+			$sText = '';
+
+			$fModel = fopen($sFilePath, "r");
+
+			clearstatcache(true, $sFilePath);
+			$sText = fread($fModel, filesize($sFilePath));
+
+			fclose($fModel);
+
+			if(strlen($sText) > 0)
+				$sText = substr($sText, 1);
+
+			return $sText;
 		}
 
 		public static function bSaveModel($sFile, $sContents)
@@ -49,20 +68,5 @@
 			}
 
 			return $aObjects;
-		}
-
-		public static function sReadTextFromFile($sFilePath)
-		{
-			
-			$sText = '';
-
-			$fModel = fopen($sFilePath, "r");
-
-			clearstatcache(true, $sFilePath);
-			$sText = fread($fModel, filesize($sFilePath));
-
-			fclose($fModel);
-
-			return $sText;
 		}
 	}
