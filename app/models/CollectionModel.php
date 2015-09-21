@@ -29,27 +29,34 @@
 
 		public function createFromFile()
 		{
+			echo "create from file<br/>";
 			$sFilePath = $GLOBALS['files.models_path']."collection_".$this->sName.".flotcms";
 
-			self::createFromJson(FileController::sReadTextFromFile($sFilePath));
+
+
+			$this->amItems = $this->createFromJson(FileController::sReadTextFromFile($sFilePath));
 		}
 		public function createFromJson($sString)
 		{
-			foreach(json_decode($sString) as $sKey => $oPartialItem)
+			echo "create from: $sString<br/>";
+			$aItems = [];
+
+			foreach((array)json_decode($sString) as $sKey => $oPartialItem)
 			{
 				// no we'll iterate through partially items, they are partial because only some attributes of a model are stored in the collection file
 
 				$sUId = $sKey;
 
-				$this->amItems[$sUId] = $oPartialItem;
+				$aItems[$sUId] = (array)$oPartialItem;
 			}
+
+			return $aItems;
 		}
 
 		public function save()
 		{
-			$aItemsToPersist = [];
-
 			$sFileContents = json_encode($this->amItems);
+
 
 			if(FileController::bSaveCollection($this->sName, $sFileContents))
 				return true;
@@ -70,10 +77,12 @@
 			// save that individual item to disk, overwriting any previou
 			$mItem->save();
 
-			$mModel = self::create();
+			$mCollectionModel = self::create();
 			// update the item in our collection
-			$mModel->amItems[$mItem->sUId] = $mItem->aGetPropertiesForCollection();
+			$aNewProps = $mItem->aGetPropertiesForCollection();
+			print_r($aNewProps);
+			$mCollectionModel->amItems[$mItem->sUId] = $aNewProps;
 			// now save our whole collection
-			$mModel->save();
+			$mCollectionModel->save();
 		}
 	}

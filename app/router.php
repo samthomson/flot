@@ -43,6 +43,45 @@ $oRouter->respond('GET', '/flot-manage/logout/', function () {
 /*
 test
 */
+
+        
+$oRouter->respond('GET', '/test/', function () {
+
+    // test a new collection by writing an item through it
+    //$oPages = PageCollectionModel::create();
+    //$oPages->save();
+
+    $oTestPage = PageModel::create();
+    $sTestTitle = "did this title save in the collection?";
+    $oTestPage->_SetProperty("title", $sTestTitle);
+
+    PageCollectionModel::saveItem($oTestPage);
+
+    print("\n");
+    print("\n");
+    echo "<br/>";
+    print("\n 3 ");
+    sleep(0);
+    echo "<br/>";
+
+    unset($oPages);
+
+    $oSaved = PageCollectionModel::getAllItems();
+
+
+    print_r($oSaved);
+
+
+    if($oSaved[$oTestPage->sUId]['title'] == $sTestTitle)
+        echo "PASS";
+});
+
+
+
+
+
+
+
 $oRouter->respond('GET', '/test/createcollection', function () {
 
     /*

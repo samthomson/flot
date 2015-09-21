@@ -1,0 +1,1217 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Gi",
+				"GithubUser"
+			],
+			[
+				"$s",
+				"$sJson"
+			],
+			[
+				"$sF",
+				"$sFile"
+			],
+			[
+				"bS",
+				"bSaveFile"
+			],
+			[
+				"$sa",
+				"$aPassOn"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"$c",
+				"$colour_silver"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"background",
+				"background-image"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"hei",
+				"max-height"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"$oF",
+				"$oFeedItem"
+			],
+			[
+				"$oa",
+				"$oaFeedItems"
+			],
+			[
+				"$ma",
+				"$maFeedItems"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"ore",
+				"oResultsData"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"iF",
+				"iFileIdFromHash"
+			],
+			[
+				"oR",
+				"oResults"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"url",
+				"urlencode"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"lat",
+				"latitude"
+			],
+			[
+				"render",
+				"renderResults"
+			],
+			[
+				"res",
+				"resizeend"
+			],
+			[
+				"$fi",
+				"$filter"
+			],
+			[
+				"media",
+				"mediadump_index"
+			],
+			[
+				"index",
+				"indexed"
+			],
+			[
+				"$o",
+				"$oTagHeight"
+			],
+			[
+				"$oT",
+				"$oTagWidth"
+			],
+			[
+				"finish",
+				"finishTagging"
+			],
+			[
+				"long",
+				"longitude"
+			],
+			[
+				"$f",
+				"$fDuration"
+			],
+			[
+				"$m",
+				"$mVideoProbe"
+			],
+			[
+				"$sKey",
+				"$sKeyValue"
+			],
+			[
+				"sS",
+				"sSearchMode"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"is_in",
+				"is_integer"
+			],
+			[
+				"$iFi",
+				"$iFiles"
+			],
+			[
+				"$oO",
+				"$oOfferingFromLeagueMember"
+			],
+			[
+				"team",
+				"teamLineUp"
+			],
+			[
+				"data",
+				"data-formation-position"
+			],
+			[
+				"ev",
+				"event"
+			],
+			[
+				"iP",
+				"iPositionDraggingFrom"
+			],
+			[
+				"placed",
+				"placed-player"
+			],
+			[
+				"bench",
+				"benchPlayer"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"sPo",
+				"sPosition"
+			],
+			[
+				"sP",
+				"sPositions"
+			],
+			[
+				"drag",
+				"draggable"
+			],
+			[
+				"post",
+				"position"
+			],
+			[
+				"$oLe",
+				"$oLeaugeMember"
+			],
+			[
+				"ob",
+				"ob_flush"
+			],
+			[
+				"flush",
+				"ob_flush"
+			],
+			[
+				"$sPl",
+				"$sPlayerName"
+			],
+			[
+				"opta",
+				"opta_players"
+			],
+			[
+				"leag",
+				"league-id"
+			],
+			[
+				"trans",
+				"transfers"
+			],
+			[
+				"of",
+				"offeringPlayer"
+			],
+			[
+				"money_",
+				"money_request"
+			],
+			[
+				"from",
+				"from_league_member_id"
+			],
+			[
+				"deete",
+				"delete"
+			],
+			[
+				"$iM",
+				"$iMoneyRequest"
+			],
+			[
+				"$oPlayer",
+				"$oPlayerRequest"
+			],
+			[
+				"$i",
+				"$iMoneyRequest"
+			],
+			[
+				"error",
+				"errormessage"
+			],
+			[
+				"$oP",
+				"$oPlayerOffer"
+			],
+			[
+				"league",
+				"league_member_id"
+			],
+			[
+				"$it",
+				"$iTeamSize"
+			],
+			[
+				"$oaA",
+				"$oaAvailablePlayers"
+			],
+			[
+				"Leag",
+				"LeagueMember"
+			],
+			[
+				"league_",
+				"league_member_id"
+			],
+			[
+				"$oL",
+				"$oLeagueMemberPlayer"
+			],
+			[
+				"$is",
+				"$iSnakeDirection"
+			],
+			[
+				"$oaP",
+				"$oaPreferredLists"
+			],
+			[
+				"$iS",
+				"$iSnakeLanePosition"
+			],
+			[
+				"$aa",
+				"$aaPreferredDrafs"
+			],
+			[
+				"isN",
+				"is_null"
+			],
+			[
+				"user_",
+				"user_id"
+			],
+			[
+				"$oaL",
+				"$oaLeagueMembers"
+			],
+			[
+				"Lea",
+				"LeagueMember"
+			],
+			[
+				"lea",
+				"leagueMembers"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"date",
+				"datepicker"
+			],
+			[
+				"$dt",
+				"$dtFrom"
+			],
+			[
+				"$iP",
+				"$iPerPage"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"$q",
+				"$qi"
+			],
+			[
+				"pub",
+				"public_path"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"$sFil",
+				"$sFilePath"
+			],
+			[
+				"te",
+				"text-transform"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"er",
+				"error_inverse_color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "info.php",
+			"settings":
+			{
+				"buffer_size": 20,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/router.php",
+			"settings":
+			{
+				"buffer_size": 2265,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/sam/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 138,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Context",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Watch",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib2,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp/www/flot1.dev",
+		"/C/wamp/www/flot1.dev/app"
+	],
+	"file_history":
+	[
+		"/C/Users/sam/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/projects/gitadev/scraper/tutorial/requirements.txt",
+		"/C/projects/gitadev/scraper/tutorial/samthomson.html",
+		"/C/projects/gitadev/scraper/tutorial/items.json",
+		"/C/projects/gitadev/scraper/tutorial/tutorial/spiders/__init__.py",
+		"/C/projects/gitadev/scraper/github_spider.py",
+		"/C/wamp/www/flot1.dev/phpunit.xml",
+		"/C/wamp/www/flot1.dev/.gitignore",
+		"/C/wamp/www/flot1.dev/app/controllers/admin.php",
+		"/C/wamp/www/flot1.dev/app/views/templates/admin.html",
+		"/C/wamp/www/flot1.dev/app/views/partials/admin/items-new-buttons.html",
+		"/C/wamp/www/flot1.dev/app/views/partials/admin/items-overview-buttons.html",
+		"/C/wamp/www/flot1.dev/app/views/pages/admin/items-new.html",
+		"/C/wamp/www/flot1.dev/app/views/pages/admin/items-overview.html",
+		"/C/wamp/www/flot1.dev/app/controllers/view.php",
+		"/C/wamp/www/flot1.dev/app/config/admin.php",
+		"/C/wamp/www/flot1.dev/app/views/pages/general/404.html",
+		"/C/wamp/www/flot1.dev/app/views/partials/admin/contents-overview-buttons.html",
+		"/C/wamp/www/flot1.dev/app/views/pages/admin/contents-overview.html",
+		"/C/wamp/www/flot1.dev/app/views/templates/left_admin_menu.html",
+		"/C/wamp/www/flot1.dev/app/views/templates/index.html",
+		"/C/wamp/www/flot1.dev/app/views/partials/404.html",
+		"/C/wamp/www/flot1.dev/bootstrap/autoload.php",
+		"/C/wamp/www/flot1.dev/vendor/nesbot/carbon/src/Carbon/Carbon.php",
+		"/C/wamp/www/flot1.dev/app/controllers/BaseController.php",
+		"/C/wamp/www/flot1.dev/app/controllers/Test.php",
+		"/C/wamp/www/flot1.dev/vendor/composer/autoload_real.php",
+		"/C/wamp/www/flot1.dev/vendor/autoload.php",
+		"/C/wamp/www/flot1.dev/c.php",
+		"/C/wamp/www/flot1.dev/.htaccess",
+		"/C/wamp/www/flot1.dev/flot.conf",
+		"/C/Users/sam/Desktop/CJnRZi6WUAAsW6I.png",
+		"/C/wamp/www/rssme/readme.md",
+		"/C/wamp/www/rssme/resources/views/partials/modals.blade.php",
+		"/C/projects/gitadev/scraper/top-stackoverflow-questions.json",
+		"/C/projects/gitadev/scraper/scrape.py",
+		"/C/Users/sam/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/sam/Desktop/view-source_jobbank.dk_sitemap.xml",
+		"/C/wamp/www/mediadump/bootstrap/compiled.php",
+		"/C/wamp/www/mediadump/vendor/autoload.php",
+		"/C/wamp/www/mediadump/bootstrap/autoload.php",
+		"/C/wamp/www/mediadump/server.php",
+		"/C/wamp/www/mediadump/app/start/artisan.php",
+		"/C/wamp/www/mediadump/app/start/local.php",
+		"/C/wamp/www/mediadump/app/filters.php",
+		"/C/wamp/www/mediadump/public/index.php",
+		"/C/wamp/www/flot1.dev/public/flot.conf",
+		"/C/wamp/www/flot1.dev/README.md",
+		"/C/wamp/www/flot1/README.md",
+		"/C/wamp/www/rssme/public/js/all.js.map",
+		"/C/wamp/www/rssme/gulpfile.js",
+		"/C/wamp/www/rssme/resources/assets/js/angular-1.4.3.min.js",
+		"/C/wamp/www/rssme/resources/views/layouts/center.blade.php",
+		"/C/wamp/www/mediadump/.gitignore",
+		"/C/wamp/www/mediadump/app/config/local/app.php",
+		"/C/wamp/www/mediadump/app/routes.php",
+		"/C/wamp/www/mediadump/app/config/local/database.php",
+		"/C/wamp/www/mediadump/app/controllers/SearchController.php",
+		"/C/wamp/www/mediadump/public/js/mediadump.js",
+		"/C/wamp/www/mediadump/app/config/app.php",
+		"/C/wamp/www/rssme/app/Http/Controllers/Feeds.php",
+		"/C/wamp/www/rssme/resources/views/app/home.blade.php",
+		"/C/wamp/www/rssme/config/app.php",
+		"/C/wamp/www/rssme/config/database.php",
+		"/C/wamp/www/rssme/app/Feeds/Feed.php",
+		"/C/wamp/www/rssme/.env",
+		"/C/wamp/www/rssme/.env.example",
+		"/C/wamp/www/mediadump/public/vendor/lazyload/lazyload.min.js",
+		"/C/wamp/www/mediadump/public/js/app.js",
+		"/C/wamp/www/mediadump/public/js/mediadump.min.js",
+		"/C/wamp/www/mediadump/app/controllers/ElasticSearchController.php",
+		"/C/wamp/www/mediadump/app/config/database.php",
+		"/C/wamp/www/mediadump/app/controllers/JPEGProcessor.php",
+		"/C/wamp/www/mediadump/public/js/justify.min.js",
+		"/C/wamp/www/mediadump/public/js/justify.js",
+		"/C/Users/sam/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/wamp/www/mediadump/app/views/pages/frontend.blade.php",
+		"/C/wamp/www/mediadump/public/scss/style.scss",
+		"/C/wamp/www/mediadump/public/scss/screen.scss",
+		"/C/wamp/www/mediadump/app/database/migrations/2014_11_11_203837_geo_data.php",
+		"/C/wamp/www/mediadump/app/controllers/AutoController.php",
+		"/C/wamp/www/mediadump/app/libraries/Helper.php",
+		"/C/wamp/www/mediadump/app/models/GeoDataModel.php",
+		"/C/Users/sam/Desktop/old confsd/samt.st",
+		"/C/wamp/www/mediadump/README.md",
+		"/C/Users/sam/Desktop/old confsd/domainethomson.com",
+		"/C/Users/sam/Desktop/old confsd/mediadump.samt.st",
+		"/C/Users/sam/Desktop/old confsd/blog.samt.st",
+		"/C/wamp/www/mediadump/app/storage/logs/laravel.log",
+		"/C/wamp/www/mediadump/app/controllers/PlacesProcessor.php",
+		"/C/wamp/www/blog.samt.st/wp-config.php",
+		"/C/wamp/www/blog.samt.st/.gitignore",
+		"/C/wamp/www/blog.samt.st/.htaccess",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/page-templates/gear_review_overview.php",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/header.php",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/functions.php",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/style.css",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/page.php",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/footer.php",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/single.php",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/page-templates/gear_review.php",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/js/scroll_to_fix.min.js",
+		"/C/wamp/www/blog.samt.st/wp-content/themes/Metro-Minimal/js/js_on_load.js",
+		"/C/wamp/www/mediadump/composer.json",
+		"/C/wamp/www/mediadump/app/views/partials/file-info.blade.php",
+		"/C/wamp/www/mediadump/artisan",
+		"/C/wamp/www/mediadump/composer.lock",
+		"/C/Users/sam/Desktop/laravel-2015-05-11.log",
+		"/S/v6/app/controllers/ProfilController.php",
+		"/S/v6/app/config/app.php",
+		"/S/v6/app/controllers/ImportMigrateController.php",
+		"/S/v6/app/config/database.php",
+		"/S/v6/app/routes.php",
+		"/S/v6/app/models/UserModel.php",
+		"/S/v6/app/config/compile.php",
+		"/S/v6/app/libraries/SpecialAuth.php",
+		"/C/Users/sam/Desktop/laravel.log",
+		"/S/v6/app/libraries/lucene.php",
+		"/S/v6/app/models/ProfilWorkJobtypeModel.php",
+		"/S/v6/app/database/migrations/2014_09_23_085740_create_LUland_table.php",
+		"/S/v6/app/models/CVModel.php",
+		"/S/v6/app/models/EducationModel.php",
+		"/S/v6/app/models/CVWorkGeoModel.php",
+		"/S/v6/app/models/GoogleProfile.php",
+		"/S/v6/app/models/SkillModel.php",
+		"/S/v6/composer.lock",
+		"/S/v6/app/models/ProfilWorkGeoModel.php",
+		"/S/v6/app/models/ProfilEducationModel.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"contribut",
+			"star",
+			"'",
+			"-->",
+			"<!--",
+			"$colour_background",
+			"bold",
+			"$colour_red",
+			"register",
+			"array(",
+			"font",
+			"individualQuery",
+			"aliases",
+			"hr",
+			"live",
+			"addQueryFromMap",
+			"map",
+			"font",
+			"media_dump_map_options",
+			"renderPa",
+			"stripPaginationStates",
+			"scrollTo",
+			"renderRes",
+			"performS",
+			"updatePa",
+			"setPage",
+			"\na.pagination{\n	background: $media_dump_inverse_colour;\n	color: $media_dump_colour;\n	border-color: $media_dump_colour !important;\n}\n#pagination.bottom a.pagination{\n	background-color: $media_dump_colour;\n	color: $media_dump_inverse_colour;\n}",
+			"pagination",
+			"background",
+			"pagin",
+			"right",
+			"return",
+			"iFileIdFromHash",
+			"performSearch(",
+			"iFileToRenderAfterSearch",
+			"foreach",
+			"resize",
+			")\n",
+			"setMode",
+			"performSearch",
+			"cancelSearch",
+			"performSe",
+			"queryChange",
+			"effect",
+			"i_fade_in_speed",
+			"esc",
+			"indexFil",
+			"header",
+			"brnad",
+			"bootstra",
+			"font",
+			"lazyl",
+			"effect",
+			"effect:",
+			"$white",
+			"img",
+			"();",
+			"renderR",
+			"renderTre",
+			"lazy",
+			"lazyloa",
+			"preloadNeighbours",
+			"setFile",
+			"updateFile",
+			"setFile",
+			"updateFile",
+			"setFile",
+			"updateFileInfo",
+			"updateFile",
+			"v",
+			"setFile",
+			"thumbClick",
+			"updateFile",
+			"setFile",
+			"v",
+			"preloadT",
+			"hash",
+			"renderTr",
+			"setSo",
+			"setSoli",
+			"justify",
+			"oResultsData",
+			"oResultsD",
+			"GeoDataModel",
+			"tree_lin",
+			"post_list",
+			"\n    top: 0px;",
+			"font-fa",
+			"Ralewa",
+			"1.2.2",
+			"updateFileInfo",
+			"setSo",
+			"json",
+			"renderTree",
+			"tree",
+			"renderRes",
+			"cv/new",
+			"checkCVOwnership",
+			"hash",
+			"save(",
+			"$options",
+			"hash",
+			"connection",
+			"search",
+			"cancelSearch",
+			"performSear",
+			"bMapEventsOn",
+			"bMapEventsOn = true",
+			"bMapEventsOn = true#",
+			"renderRes",
+			"performSe",
+			"bounds",
+			"marker",
+			"sizeDivide",
+			"divide",
+			"sizeDivide",
+			"addResizeMapEvent",
+			"google.m",
+			"oaMarkers",
+			"google",
+			"oaMarkers",
+			"icon",
+			"map",
+			"renderResults",
+			"no results",
+			"$small_icon_size",
+			"renderRes",
+			"map"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"",
+			"#}",
+			"{#",
+			"[",
+			"border-color",
+			"{}",
+			"} // ",
+			"// ",
+			"} //",
+			"formation-2",
+			"formation-14",
+			"formation-13",
+			"formation-12",
+			"formation-11",
+			"formation-10",
+			"formation-9",
+			"formation-8",
+			"formation-7",
+			"formation-6",
+			"formation-5",
+			"formation-4",
+			"formation-3",
+			"formation-2",
+			".formation-1",
+			"_",
+			","
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "info.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20,
+								20
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/router.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1429,
+								1429
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 504.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/sam/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								136,
+								136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\wamp\\www\\flot1.dev",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\wamp\\www\\flot1.dev",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\wamp\\www\\flot1.dev",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\wamp\\www\\flot1.dev",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.7,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "flot.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"restore_index":
+			{
+				"35":
+				{
+					"group": 0,
+					"index": 0
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 192.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

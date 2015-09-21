@@ -76,6 +76,7 @@
 		{
 			$aReturn = [];
 
+			// for each property
 			foreach ($this->amProperties as $sPropertyName => $aPropertyProperties) {
 				if($aPropertyProperties['exposed_to_collection'] == true)
 					$aReturn[$sPropertyName] = $aPropertyProperties['value'];
