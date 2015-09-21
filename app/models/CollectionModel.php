@@ -29,7 +29,7 @@
 
 		public function createFromFile()
 		{
-			$sFilePath = $GLOBALS['files.models_path']."collection_".$this->sName.".flotcms";
+			$sFilePath = $GLOBALS['files.models_path']."collection_".$this->sName.".php";
 
 			$sFileContents = FileController::sReadTextFromFile($sFilePath);
 

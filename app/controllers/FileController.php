@@ -22,19 +22,19 @@
 
 		public static function bSaveModel($sFile, $sContents)
 		{
-			return self::bSaveFile("item_".$sFile.".flotcms", "datastore", $sContents);
+			return self::bSaveFile("item_".$sFile.".php", "datastore", $sContents);
 		}
 
 		public static function bSaveCollection($sCollectionName, $sContents)
 		{
-			return self::bSaveFile("collection_".$sCollectionName.".flotcms", "datastore", $sContents);
+			return self::bSaveFile("collection_".$sCollectionName.".php", "datastore", $sContents);
 		}
 
 		public static function getModels()
 		{
 			$sReadPath = $GLOBALS['files.models_path'];
 
-			$sScanPath = $sReadPath."*.flotcms";
+			$sScanPath = $sReadPath."*.php";
 
 			$aObjects = [];
 
