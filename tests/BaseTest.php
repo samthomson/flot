@@ -7,7 +7,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-     /*
+     
     public function testBasicExample()
     {
         //$this->assertEquals(1,1);
@@ -62,7 +62,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($oSaved, []);
 
-    }*/
+    }
     public function testPageCollectionItemSave()
     {
         // test a new collection by writing an item through it
@@ -77,18 +77,8 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
         PageCollectionModel::saveItem($oTestPage);
 
-        print("\n");
-        print("\n");
-        print("\n 3 ");
-        sleep(0);
-
         $oSaved = PageCollectionModel::getAllItems();
 
-
-        print_r($oSaved);
-
-
         $this->assertEquals($oSaved[$oTestPage->sUId]['title'], $sTestTitle);
-
     }
 }

@@ -29,16 +29,14 @@
 
 		public function createFromFile()
 		{
-			echo "create from file<br/>";
 			$sFilePath = $GLOBALS['files.models_path']."collection_".$this->sName.".flotcms";
 
+			$sFileContents = FileController::sReadTextFromFile($sFilePath);
 
-
-			$this->amItems = $this->createFromJson(FileController::sReadTextFromFile($sFilePath));
+			$this->amItems = $this->createFromJson($sFileContents);
 		}
 		public function createFromJson($sString)
 		{
-			echo "create from: $sString<br/>";
 			$aItems = [];
 
 			foreach((array)json_decode($sString) as $sKey => $oPartialItem)
@@ -56,7 +54,6 @@
 		public function save()
 		{
 			$sFileContents = json_encode($this->amItems);
-
 
 			if(FileController::bSaveCollection($this->sName, $sFileContents))
 				return true;
@@ -80,9 +77,9 @@
 			$mCollectionModel = self::create();
 			// update the item in our collection
 			$aNewProps = $mItem->aGetPropertiesForCollection();
-			print_r($aNewProps);
+			
 			$mCollectionModel->amItems[$mItem->sUId] = $aNewProps;
 			// now save our whole collection
-			$mCollectionModel->save();
+			return $mCollectionModel->save();
 		}
 	}

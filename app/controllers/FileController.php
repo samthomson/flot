@@ -7,9 +7,17 @@
 			$sWritePath = $GLOBALS['files.models_path'].$sFile;
 
 			$myfile = fopen($sWritePath, "w") or die("file fail");
-			fwrite($myfile, $sContents);
-			fclose($myfile);
-			return true;
+
+			if (flock($myfile,LOCK_EX))
+			{
+				fwrite($myfile, $sContents);
+  				flock($myfile,LOCK_UN);
+				fclose($myfile);
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 
 		public static function bSaveModel($sFile, $sContents)
@@ -50,35 +58,11 @@
 
 			$fModel = fopen($sFilePath, "r");
 
+			clearstatcache(true, $sFilePath);
 			$sText = fread($fModel, filesize($sFilePath));
 
 			fclose($fModel);
 
 			return $sText;
-
-			/*
-
-			$line = '';
-
-$f = fopen($sFilePath, 'r');
-$cursor = -1;
-
-fseek($f, $cursor, SEEK_END);
-$char = fgetc($f);
-
-while ($char === "\n" || $char === "\r") {
-    fseek($f, $cursor--, SEEK_END);
-    $char = fgetc($f);
-}
-
-while ($char !== false && $char !== "\n" && $char !== "\r") {
-
-    $line = $char . $line;
-    fseek($f, $cursor--, SEEK_END);
-    $char = fgetc($f);
-}
-
-return $line;
-*/
 		}
 	}
