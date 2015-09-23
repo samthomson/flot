@@ -10,7 +10,7 @@
 
 			if (flock($myfile,LOCK_EX))
 			{
-				$sContents = '#'.$sContents;
+				$sContents = '<?php#'.$sContents.'?>';
 				fwrite($myfile, $sContents);
   				flock($myfile,LOCK_UN);
 				fclose($myfile);
@@ -33,27 +33,32 @@
 
 			fclose($fModel);
 
-			if(strlen($sText) > 0)
-				$sText = substr($sText, 1);
+			# remove opening php
+			if(strlen($sText) > 5)
+				$sText = substr($sText, 6);
+
+			# remove closing php
+			if(strlen($sText) > 2)
+				$sText = substr($sText, 0, strlen($sText)-2);
 
 			return $sText;
 		}
 
 		public static function bSaveModel($sFile, $sContents)
 		{
-			return self::bSaveFile("item_".$sFile.".php", "datastore", $sContents);
+			return self::bSaveFile("item_".$sFile.".flotcms", "datastore", $sContents);
 		}
 
 		public static function bSaveCollection($sCollectionName, $sContents)
 		{
-			return self::bSaveFile("collection_".$sCollectionName.".php", "datastore", $sContents);
+			return self::bSaveFile("collection_".$sCollectionName.".flotcms", "datastore", $sContents);
 		}
 
 		public static function getModels()
 		{
 			$sReadPath = $GLOBALS['files.models_path'];
 
-			$sScanPath = $sReadPath."*.php";
+			$sScanPath = $sReadPath."*.flotcms";
 
 			$aObjects = [];
 
