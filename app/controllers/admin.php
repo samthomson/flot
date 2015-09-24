@@ -23,7 +23,7 @@
 				case 'oncologies':
 				case 'settings':
 				case 'errors':
-					$aVarsForView['section'] = $maParams['request']->section;
+					$sSection = $maParams['request']->section;
 					break;
 			}
 
@@ -31,7 +31,7 @@
 				case 'overview':
 				case 'new':
 				case 'edit':
-					$aVarsForView['section'] = $maParams['request']->action;
+					$sAction = $maParams['request']->action;
 					break;
 			}
 
@@ -60,6 +60,9 @@
 			}
 			*/
 
+			$aVarsForView['section'] = $sSection;
+			$aVarsForView['action'] = $sAction;
+
 			return View::render("pages\\admin\\$sSection-$sAction", $aVarsForView);
 		}
 
@@ -74,7 +77,7 @@
 				$oNewPage = PageModel::create();
 
 				$iNewPageId = $oNewPage->save();
-				return Helper::Redirect("flot-manage/items/edit/".$iNewPageId);
+				return Helper::Redirect("flot-manage/?section=items&action=edit&id=".$iNewPageId);
 			}
 		}
 
