@@ -75,7 +75,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
         $oTestPage->_SetProperty("title", $sTestTitle);
 
-        PageCollectionModel::saveItem($oTestPage);
+        PageCollectionModel::updateItem($oTestPage);
 
         $oSaved = PageCollectionModel::getAllItems();
 

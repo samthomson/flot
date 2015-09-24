@@ -28,7 +28,7 @@ $oRouter->respond('GET', '/flot-manage/.[:section]?.[:action]?', function ($requ
 $oRouter->respond('POST', '/flot-manage/[:section]/[:action]', function ($request) {
 	/*
     */
-    return "$action $section";
+    return Admin::handlePost(["request" => $request]);
 });
 
 /*

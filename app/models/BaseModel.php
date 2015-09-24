@@ -4,6 +4,7 @@
 	{
 		protected $amProperties = [];
 		protected $sType = "";
+		protected $sCollection = "";
 		public $sUId = "";
 
 		public function __construct() {
@@ -53,13 +54,18 @@
 		public function save()
 		{
 			// persist model to disk, returns model id or null
-
+			$iReturn = null;
+			// save myself
 			$sFileContents = json_encode(get_object_vars($this));
 
 			if(FileController::bSaveModel($this->sUId, $sFileContents))
-				return $this->sUId;
+				$iReturn = $this->sUId;
 
-			return null;
+			// save my collection
+			//$this->sCollection::updateItem($this);
+			call_user_func([$this->sCollection, 'updateItem'], $this);
+
+			return $iReturn;
 		}
 
 		public function _SetProperty($sKey, $mValue)

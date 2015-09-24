@@ -67,19 +67,15 @@
 
 			return $mModel->amItems;
 		}
-
-		public static function saveItem($mItem)
+		public static function updateItem($mItem)
 		{
-			// save that specific item, but also update this collection too
-			// save that individual item to disk, overwriting any previou
-			$mItem->save();
-
+			// adds item or updates it, saving collection
 			$mCollectionModel = self::create();
 			// update the item in our collection
 			$aNewProps = $mItem->aGetPropertiesForCollection();
 			
 			$mCollectionModel->amItems[$mItem->sUId] = $aNewProps;
 			// now save our whole collection
-			return $mCollectionModel->save();
+			return $mCollectionModel->save();			
 		}
 	}

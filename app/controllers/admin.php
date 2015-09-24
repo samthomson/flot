@@ -63,6 +63,18 @@
 			return View::render("pages\\admin\\$sSection-$sAction", $aVarsForView);
 		}
 
+		public static function handlePost($oRequest)
+		{
+			$sSection = $oRequest['request']->section;
+			$sAction = $oRequest['request']->action;
+
+			if($sSection === "items" && $sAction === "new")
+			{
+				// create a new page, save it, forward user to editing view
+				
+			}
+		}
+
 		function makeContentsPage($sAction = "list"){
 
 			// depending on the action construct a different content menu

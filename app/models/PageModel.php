@@ -14,7 +14,8 @@
 				]
 			];
 
-			$this->sType = "page";			
+			$this->sType = "page";	
+			$this->sCollection = "PageCollectionModel";			
         }
 		
 	}

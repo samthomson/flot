@@ -26,12 +26,12 @@
 			
 			$sText = '';
 
-			$fModel = fopen($sFilePath, "r");
+			$fModel = @fopen($sFilePath, "r");
 
 			clearstatcache(true, $sFilePath);
-			$sText = fread($fModel, filesize($sFilePath));
+			$sText = @fread($fModel, filesize($sFilePath));
 
-			fclose($fModel);
+			@fclose($fModel);
 
 			# remove opening php
 			if(strlen($sText) > 5)
