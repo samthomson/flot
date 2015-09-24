@@ -71,7 +71,10 @@
 			if($sSection === "items" && $sAction === "new")
 			{
 				// create a new page, save it, forward user to editing view
-				
+				$oNewPage = PageModel::create();
+
+				$iNewPageId = $oNewPage->save();
+				return Helper::Redirect("flot-manage/items/edit/".$iNewPageId);
 			}
 		}
 
