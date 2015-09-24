@@ -1,0 +1,11 @@
+{% extends "templates\\admin.html" %}
+
+
+{% block actionbuttons %}
+	{% include 'partials\\admin\\items-edit-buttons.html' %}
+{% endblock %}
+
+{% block actionarea %}
+	editpage?
+  {{page.sUId}}
+{% endblock %}

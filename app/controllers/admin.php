@@ -32,12 +32,12 @@
 				case 'new':
 				case 'edit':
 					$sAction = $maParams['request']->action;
+					$aVarsForView['page'] = PageModel::createFromFile($maParams['request']->id);
 					break;
 			}
 
 			switch($maParams['request']->section){
 				case 'items':
-
 					$aVarsForView['items'] = PageCollectionModel::getAllItems();
 					break;
 			}
