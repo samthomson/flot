@@ -21,8 +21,6 @@ $oRouter = new Router();
 admin ui
 */
 $oRouter->respond('GET', '/flot-manage/.[:section]?.[:action]?.[:id]?', function ($request) {
-	/*
-    */
     return Admin::makeUI(["request" => $request]);
 });
 $oRouter->respond('POST', '/flot-manage/[:section]/[:action]', function ($request) {

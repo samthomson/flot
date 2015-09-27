@@ -2,28 +2,34 @@
 
 
 {% block actionbuttons %}
-	{% include 'partials\\admin\\items-overview-buttons.html' %}
+  {% include 'partials\\admin\\items-overview-buttons.html' %}
 {% endblock %}
 
 {% block actionarea %}
-	<table class="table">
+  <table class="table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Id</th>
-          <th>Name</th>
+          <th>Edit page</th>
+          <th>View page</th>
+          <th>page type</th>
+          <th>last changed</th>
+          <th>author</th>
+          <th>published</th>
+          <th>delete</th>
         </tr>
       </thead>
       <tbody>
-	{% for key,item in items %}
-        <a href="/flot-manage/?section=items&action=edit&id={{key}}">
+  {% for key,item in items %}
+        
         <tr>
-          <th scope="row">{{loop.index}}</th>
-          <td>{{ key }}</td>
-          <td>{{ item.title }}</td>
-        </tr>
-        </a>
+          <td><a href="/flot-manage/?section=items&action=edit&id={{key}}">{{ item['title'] }}</a></td>
+          <td>webpage</td>
+          <td>[date changed]</td>
+          <td>[author]</td>
+          <td>[published]</td>
+          <td>[deleted]</td>
+        </tr>        
     {% endfor %}
       </tbody>
-	</table>
+  </table>
 {% endblock %}

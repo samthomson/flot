@@ -6,6 +6,273 @@
 {% endblock %}
 
 {% block actionarea %}
-	editpage?
-  {{page.sUId}}
+
+  <div class="alert alert-info">Edit the fields on this page and save for them to be visible on your site. There are settings for SEO on the Extra tab. You can copy paste the embed codes from the Embed tab, into your template, if you haven't already</div>
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#edit" data-toggle="tab">Edit</a></li>
+  <li><a href="#extra" data-toggle="tab">Extra</a></li>
+  <li><a href="#codes" data-toggle="tab">Embed codes</a></li>
+</ul>
+
+
+  {#
+  # 
+  # edit tab
+  #
+  #}
+
+  <form method="post" action="/flot-manage/items/save">
+    <input type="hidden" name="id" value="{{page.sUId}}"/>
+<div class="tab-content">
+
+      
+      <div class="tab-pane active" id="edit">
+
+      {# title #}
+      <div class="form-group input-group-sm">
+        <label for="item_keywords">Title</label>
+        <input type="text" class="form-control" name="title" placeholder="page title" value="" id="item_edit_title">
+      </div>
+
+      {# url #}
+      <div id="url_input" class="input-group input-group-sm">
+        <span class="input-group-addon">
+          <input id="item_edit_auto_url" name="url_auto" value="true" type="checkbox"> set url for me
+        </span>
+        <input type="text" id="item_edit_url" class="form-control item_edit_url" placeholder="relative url" value="">
+
+          <span class="input-group-btn"><a class="btn btn-default btn-sm" href="javascript:_make_home_page();"><i class="glyphicon glyphicon-home"></i><span class="small-hidden">&nbsp;make homepage</span></a></span>
+        </div><!-- /input-group -->
+
+
+
+      
+      <hr/>
+
+      {#
+      //
+      // oncology specific elements
+      //
+      #}
+
+      {#
+      foreach ($this->o_oncology->full_elements as $element) {
+        $html_form .= '<label class="form-group">'.$element->name.'</label><br/>';
+
+        $s_value = '';
+        if(isset($this->o_full_item_object[$element->name])){
+          $s_value = urldecode($this->o_full_item_object[$element->name]);
+        }
+
+        $s_disabled_status = "";
+        if($element->editable === "false"){
+          $s_disabled_status = " disabled ";
+        }
+
+
+        switch ($element->type) {
+          case 'html':
+            $html_form .= '<textarea id="'.$element->type.$element->name.'" class="ckeditor" name="'.$element->name.'"'.$s_disabled_status.'>'.$s_value.'</textarea><br/>';
+            break;
+          case 'text':
+            $html_form .= '<input type="text" class="form-control" name="'.$element->name.'" value="'.$s_value.'" placeholder="'.$element->name.'"'.$s_disabled_status.'/>';
+            break;
+          case 'text_multiline':
+            $html_form .= '<textarea rows="6" id="'.$element->type.$element->name.'" class="form-control" name="'.$element->name.'"'.$s_disabled_status.'>'.$s_value.'</textarea><br/>';
+            break;
+          
+          default:
+            $html_form .= "flot doesn't support this type :(<br/>";
+            break;
+        }
+      }
+      #}
+
+
+      {# end edit tab #}
+      </div>
+
+      {#
+      # 'extra' tab
+      #}
+      <div class="tab-pane" id="extra">
+
+      {# keywords #}
+      <div class="form-group input-group-sm">
+        <label for="item_keywords">Keywords (comma seperated)</label>
+        <input id="item_keywords" type="text" class="form-control" name="keywords" placeholder="keywords" value="">
+      </div>
+
+      {# description #}
+      <div class="form-group input-group-sm">
+      <label for="item_description">Description</label><input type="text" class="form-control" name="description" id="item_description" placeholder="description" value="">
+      </div>
+
+      {# template #}
+      <div class="form-group input-group-sm">
+      <label for="item_template">Template</label>
+
+      <select name="template" class="form-control" id="item_template">
+
+      {#
+      $sa_files = $this->datastore->sa_templates_available();
+      foreach ($sa_files as $s_template_file) {
+        $s_selected = '';
+
+        if($s_template_file === $s_template){
+          $s_selected = 'selected ';
+        }
+        $html_form .= '<option '.$s_selected.'value="'.$s_template_file.'" >'.$s_template_file.'</option>';
+        
+      }
+      #}
+      </select>
+      </div>
+
+      {# parent #}
+      <div class="form-group input-group-sm">
+      <label for="item_parent">Parent</label>
+
+      <select name="parent" class="form-control" id="item_parent">
+      <option value=""></option>
+
+      {#
+
+      $oa_partial_items = $this->datastore->sa_get_pages_except($s_id);
+      foreach ($oa_partial_items as $item_id => $item_value) {
+        $s_selected = '';
+
+        if($item_id === $s_parent){
+          $s_selected = 'selected ';
+        }
+        $html_form .= '<option '.$s_selected.'value="'.$item_id.'" >'.$item_value.'</option>';
+        
+      }
+      #}
+      </select>
+      </div>
+
+      {# end extra tab #}
+      </div>
+
+
+      {#
+      # 'codes' tab
+      #}
+      <div class="tab-pane" id="codes">
+
+      {# info #}
+      <div class="alert alert-info"><strong>Embed codes</strong> can be placed in your websites theme, they will be replaced with the pages actual content, which can be set by editing a page.</div>
+
+      {# default types #}
+      <h4>Title</h4>
+      <kbd>{# item.mGetProperty('title') #}</kbd>
+
+      <h4>Description</h4>
+      <kbd>{#item:description#}</kbd>
+
+      <h4>Keywords</h4>
+      <kbd>{#item:keywords#}</kbd>
+
+
+      <hr/>
+
+      {# custom types #}
+      {#
+      if(count($this->o_oncology->full_elements) > 0){
+        foreach ($this->o_oncology->full_elements as $element) {
+          $html_form .= '<h4>'.ucfirst($element->name).' ('.$element->type.')</h4>';
+          $html_form .= '<kbd>{{item:'.$element->name.'}}</kbd>';
+        }
+      }else{
+        $html_form .= '<p>this page type has no custom elements.</p>';
+
+      }
+      #}
+      <hr/>
+
+
+      {# end extra tab #}
+      </div>
+
+
+      {# end tabs #}
+      </div>
+
+      {# hidden elements #}
+      <input id="published" type="hidden" name="published" value="">
+      <input type="hidden" name="section" value="items">
+      <input type="hidden" class="item_edit_url" name="url" value="">
+      <input type="hidden" name="item_id" value="">
+
+      {# save #}
+      <div class="form-group">
+
+      <button type="submit" class="btn btn-success pull-right"><i class="glyphicon glyphicon-floppy-disk"></i> save</button>
+      </div>
+
+      </form>
+
+      <div id="file_browser_modal" class="modal fade">
+        <div class="container">
+          <div class="modal-content">           
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Select a picture to insert</h4>
+            </div>
+            <div class="modal-body">
+              Click a file to select it, you can upload new files too. Once files are selected you can click "insert pictures" or choose a different picture size from the drop up menu on the same button.<hr/>
+
+              {#
+
+        $o_FileBrowser = new FileBrowser("select");
+
+        $html_form .= $o_FileBrowser->html_make_browser();
+
+#}
+          </div>
+            <div class="modal-footer">
+            <div id="file_browser_selected"></div><hr/>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              
+              <div class="btn-group dropup">
+                <button id="file_browser_insert_selected" onclick="insert_selected_pictures(\'\', \'medium\')" type="button" class="disabled btn btn-success">Insert picture(s)</button>
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+
+                {#
+
+                foreach ($this->datastore->settings->thumb_sizes as $size) {
+                  $html_form .= '<li><a href="javascript:insert_selected_pictures(\''.$this->datastore->settings->upload_dir.'\', \''.$size->name.'\');">'.$size->name.'</a></li>';
+                }
+                #}
+                <li><a href="javascript:insert_selected_pictures(\'\', \'\');">original</a></li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+      {#
+      $jsiJSI = new JSInjector;
+      $jsiJSI->_set_datastore($this->datastore);
+
+      $html_form .= $jsiJSI->s_start_script();
+      $html_form .= $jsiJSI->s_page_urls();
+      $html_form .= $jsiJSI->s_end_script();
+
+      return $html_form;
+      #}
+
+
+
+
+
+
 {% endblock %}

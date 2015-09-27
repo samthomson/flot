@@ -33,3 +33,22 @@
 		    return $base_url;
 		}
 	}
+
+	class Request{
+
+		public static function get($sKey, $mDefault = null)
+		{
+			switch($_SERVER['REQUEST_METHOD'])
+			{
+				case 'POST':
+					if(isset($_POST[$sKey]))
+						return $_POST[$sKey];
+					break;
+				case 'GET':
+					if(isset($_GET[$sKey]))
+						return $_GET[$sKey];
+					break;
+			}
+			return $mDefault;
+		}
+	}

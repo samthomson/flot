@@ -48,6 +48,7 @@
 				$aItems[$sUId] = (array)$oPartialItem;
 			}
 
+
 			return $aItems;
 		}
 
