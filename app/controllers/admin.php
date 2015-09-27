@@ -85,12 +85,15 @@
 				$sPageId = Request::get('id');
 
 
+				
 				if(isset($sPageId))
 				{
 					$oPageToUpdate = PageModel::createFromFile($sPageId);
 
 					if(Request::get('title'))
+					{
 						$oPageToUpdate->_SetProperty('title', Request::get('title'));
+					}
 
 
 					$oPageToUpdate->save();
