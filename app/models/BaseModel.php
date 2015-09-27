@@ -77,6 +77,10 @@
 		{
 			return (isset($this->amProperties[$sKey]['value'])) ? $this->amProperties[$sKey]['value'] : null;
 		}
+		public function aGetAllProperties()
+		{
+			return $this->amProperties;
+		}
 
 		public function aGetPropertiesForCollection()
 		{

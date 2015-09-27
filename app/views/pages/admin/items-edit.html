@@ -31,10 +31,16 @@
       <div class="tab-pane active" id="edit">
 
       {# title #}
-      <div class="form-group input-group-sm">
-        <label for="item_keywords">Title</label>
-        <input type="text" class="form-control" name="title" placeholder="page title" value="{{page.mGetProperty('title')}}" id="item_edit_title">
-      </div>
+
+  {% for key,property in page.aGetAllProperties() %}
+
+   <div class="form-group input-group-sm">
+    <label for="item_keywords">{{key}}</label>
+    <input type="{{property.editor}}" class="form-control" name="{{key}}" placeholder="page title" value="{{property.value}}" id="item_edit_title">
+  </div>
+
+  {% endfor %}
+      
 
       {# url #}
       <div id="url_input" class="input-group input-group-sm">

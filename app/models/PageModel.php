@@ -8,9 +8,15 @@
         	$this->amProperties = [
 				'title' => [
 					'type' => 'string',
-					'editor' => 'text-input',
+					'editor' => 'text',
 					'value' => '',
 					'exposed_to_collection' => true
+				],				
+				'content' => [
+					'type' => 'string',
+					'editor' => 'textarea',
+					'value' => '',
+					'exposed_to_collection' => false
 				]
 			];
 

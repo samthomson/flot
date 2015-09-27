@@ -90,10 +90,15 @@
 				{
 					$oPageToUpdate = PageModel::createFromFile($sPageId);
 
-					if(Request::get('title'))
+					// parse properties
+					foreach($oPageToUpdate->aGetAllProperties() as $mKey => $aProperty)
 					{
-						$oPageToUpdate->_SetProperty('title', Request::get('title'));
+						if(Request::get($mKey))
+						{
+							$oPageToUpdate->_SetProperty($mKey, Request::get($mKey));
+						}
 					}
+
 
 
 					$oPageToUpdate->save();
