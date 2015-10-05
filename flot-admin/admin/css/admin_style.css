@@ -480,3 +480,8 @@ bootstrap overloads
   color: #e74c3c; }
 
 /*# sourceMappingURL=admin_style.css.map */
+
+
+textarea.form-control.flot-edit{
+  height:200px;
+}
