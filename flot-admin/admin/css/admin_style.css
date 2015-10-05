@@ -485,3 +485,4 @@ bootstrap overloads
 textarea.form-control.flot-edit{
   height:200px;
 }
+#codes h4{text-transform: capitalize;}

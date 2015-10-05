@@ -185,15 +185,17 @@
 				<strong>Embed codes</strong> can be placed in your websites theme, they will be replaced with the pages actual content, which can be set by editing a page.
 			</div>
 
-			{# default types #}
-			<h4>Title</h4>
-			<kbd>{# item.mGetProperty('title') #}</kbd>
 
-			<h4>Description</h4>
-			<kbd>{#item:description#}</kbd>
+			{% for key,property in page.aGetAllProperties() %}
 
-			<h4>Keywords</h4>
-			<kbd>{#item:keywords#}</kbd>
+			<div class="form-group input-group-sm">
+
+				<h4>{{key}}</h4>
+				<kbd>{{'{{'}}{{key}}{{'}}'}}</kbd>
+
+			</div>
+
+			{% endfor %}
 
 
 			<hr/>
