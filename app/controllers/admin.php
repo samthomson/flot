@@ -91,15 +91,15 @@
 					$oPageToUpdate = PageModel::createFromFile($sPageId);
 
 					// parse properties
+
 					foreach($oPageToUpdate->aGetAllProperties() as $mKey => $aProperty)
 					{
-						if(Request::get($mKey))
+						$mRequestVar = Request::get($mKey);
+						if($mRequestVar)
 						{
-							$oPageToUpdate->_SetProperty($mKey, Request::get($mKey));
+							$oPageToUpdate->_SetProperty($mKey, $mRequestVar);
 						}
 					}
-
-
 
 					$oPageToUpdate->save();
 				}

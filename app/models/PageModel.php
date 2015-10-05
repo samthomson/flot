@@ -11,6 +11,12 @@
 					'editor' => 'text',
 					'value' => '',
 					'exposed_to_collection' => true
+				],	
+				'url' => [
+					'type' => 'string',
+					'editor' => 'text',
+					'value' => '',
+					'exposed_to_collection' => true
 				],				
 				'content' => [
 					'type' => 'string',
