@@ -81,6 +81,17 @@
 		{
 			return $this->amProperties;
 		}
+		public function aGetKeyValueProperties()		
+		{
+			$maParams = [];
+
+			foreach($this->amProperties as $sKey => $aValue)
+			{
+				$maParams[$sKey] = $aValue['value'];
+			}
+
+			return $maParams;
+		}
 
 		public function aGetPropertiesForCollection()
 		{

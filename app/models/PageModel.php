@@ -30,25 +30,15 @@
         	$loader = new Twig_Loader_Filesystem(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR .'storage/themes/default');
 			$twig = new Twig_Environment($loader);
 
-			$maParams = [];
-
-			foreach($this->amProperties as $sKey => $aValue)
-			{
-				$maParams[$sKey] = $aValue['value'];
-			}
+			$maParams = $this->aGetKeyValueProperties();
 
 
 			$template = $twig->loadTemplate('page.html');
 
 			$sGenerated = $template->render($maParams);
-			$sGenerated = $template->render(['title' => 'test']);
-
-
-			//'fd: '.$sGenerated);
 
 			$sWritePath = $GLOBALS['files.www_path'].'index.html';
 
-			#die($sWritePath);
 			FileController::bTempSaveFile($sWritePath, $sGenerated);			
         }
 		
