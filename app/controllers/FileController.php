@@ -21,6 +21,22 @@
 			}
 		}
 
+		public static function bTempSaveFile($sFile, $sContents)
+		{
+			$sFile = fopen($sFile, "w") or die("file fail");
+			
+			if (flock($sFile,LOCK_EX))
+			{
+				fwrite($sFile, $sContents);
+  				flock($sFile,LOCK_UN);
+				fclose($sFile);
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
 		public static function sReadTextFromFile($sFilePath)
 		{
 			

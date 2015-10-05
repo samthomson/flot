@@ -83,9 +83,7 @@
 			{
 				// create a new page, save it, forward user to editing view
 				$sPageId = Request::get('id');
-
-
-				
+			
 				if(isset($sPageId))
 				{
 					$oPageToUpdate = PageModel::createFromFile($sPageId);
@@ -102,6 +100,7 @@
 
 
 					$oPageToUpdate->save();
+					$oPageToUpdate->render();
 				}
 
 				return Helper::Redirect("flot-manage/?section=items&action=edit&id=".$sPageId);
