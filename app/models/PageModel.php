@@ -36,14 +36,18 @@
         	$loader = new Twig_Loader_Filesystem(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR .'storage/themes/default');
 			$twig = new Twig_Environment($loader);
 
+			# vars to pass to the template
 			$maParams = $this->aGetKeyValueProperties();
-
 
 			$template = $twig->loadTemplate('page.html');
 
 			$sGenerated = $template->render($maParams);
 
-			$sWritePath = $GLOBALS['files.www_path'].'index.html';
+			$sUrl = $this->mGetProperty('url');
+
+			$sWritePath = $GLOBALS['files.www_path'].$sUrl;
+
+			#die($sWritePath);
 
 			FileController::bTempSaveFile($sWritePath, $sGenerated);			
         }
