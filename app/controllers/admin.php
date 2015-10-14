@@ -92,14 +92,17 @@
 
 					foreach($oPageToUpdate->aGetAllProperties() as $mKey => $aProperty)
 					{
-						$mRequestVar = Request::get($mKey);
-						if($mRequestVar)
+						$mRequestVar = Request::get($mKey, '');
+
+						if($mRequestVar !== null)
 						{
 							$oPageToUpdate->_SetProperty($mKey, $mRequestVar);
 						}
 					}
 
+
 					$oPageToUpdate->save();
+					#print_r($oPageToUpdate);exit();
 					$oPageToUpdate->render();
 				}
 

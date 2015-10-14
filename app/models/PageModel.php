@@ -45,11 +45,18 @@
 
 			$sUrl = $this->mGetProperty('url');
 
-			$sWritePath = $GLOBALS['files.www_path'].$sUrl;
+			// webpage requires a url
+			if($sUrl !== '')
+			{
+				$sWritePath = $GLOBALS['files.www_path'].$sUrl;
 
-			#die($sWritePath);
+				#die($sWritePath);
+				FileController::bTempSaveFile($sWritePath, $sGenerated);	
 
-			FileController::bTempSaveFile($sWritePath, $sGenerated);			
+			}else{
+				// failed as no url/filepath to write to
+				return false;
+			}		
         }
 		
 	}
