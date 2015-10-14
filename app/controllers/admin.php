@@ -36,7 +36,7 @@
 					break;
 			}
 
-			switch($maParams['request']->section){
+			switch($sSection){
 				case 'items':
 					$aVarsForView['items'] = PageCollectionModel::getAllItems();
 					break;
