@@ -34,6 +34,10 @@
 		}
 	}
 
+	class UIHelper{
+
+	}
+
 	class Request{
 
 		public static function get($sKey, $mDefault = null)
