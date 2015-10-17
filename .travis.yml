@@ -4,5 +4,5 @@ php:
 
  before_script:
   # webserver setup
-  - php -S flot1.dev:8000 httpdocs/index.php &
+  - php -S localhost.dev:8000 httpdocs/index.php &
   - sleep 3

@@ -16,7 +16,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
         $session = new \Behat\Mink\Session($driver);
 
         $session->start();
-        $session->visit('http://flot1.dev/');
+        $session->visit('http://localhost.dev/');
         $page = $session->getPage();
 
         //$this->assertEquals($session->getStatusCode(),200);
