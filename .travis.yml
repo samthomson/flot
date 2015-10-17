@@ -4,5 +4,6 @@ php:
 
  before_script:
   # webserver setup
+  # fake change
   - php -S localhost.dev:8000 httpdocs/index.php &
   - sleep 3
