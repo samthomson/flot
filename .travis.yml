@@ -7,3 +7,4 @@ php:
   - composer install
   - php -S localhost.dev:8000 httpdocs/index.php &
   - sleep 3
+  
