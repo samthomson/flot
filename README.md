@@ -3,7 +3,7 @@ WARNING - this is a development branch!
 
 Flot is being re-wrote completely, in this branch. It will take over from master once feature parity is reached.
 
-![travis ci](https://travis-ci.org/samthomson/flot.svg "travis ci")
+[![travis ci](https://travis-ci.org/samthomson/flot.svg "travis ci")](https://travis-ci.org/samthomson/flot)
 
 flot
 ====
