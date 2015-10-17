@@ -2,9 +2,8 @@ language: php
 php:
   - 5.5
 
- before_script:
+before_script:
   # webserver setup
   - composer install
   - php -S localhost.dev:8000 httpdocs/index.php &
   - sleep 3
-  
