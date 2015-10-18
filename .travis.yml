@@ -3,9 +3,13 @@ php:
   - 5.5
 
 before_script:
-  # webserver setup
+  # install apache
   - sudo apt-get update > /dev/null
   - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
+  # create site
+  - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
+  - sudo /etc/init.d/apache2 restart
+  # create 'domain'
   - sudo sed -i -e "/DocumentRoot/i\ServerName flot1.dev" /etc/apache2/sites-available/default
   - echo "127.0.0.1 flot1.dev" | sudo tee -a /etc/hosts
   - sudo /etc/init.d/apache2 restart
