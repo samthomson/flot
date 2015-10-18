@@ -24,21 +24,40 @@ class BaseTest extends PHPUnit_Framework_TestCase
         #$this->assertEquals($page->getText(),'[to be generated]');
         //$this->visit('/')->see('[to be generated]');
     }
-    public function testAdminPagesVisible()
+
+    public function testAdminPagesReachableVisible()
     {
         $driver = new \Behat\Mink\Driver\GoutteDriver();
         $session = new \Behat\Mink\Session($driver);
 
+        $saPages = [
+            'items' => '',
+            'elements' => '?section=elements',
+            'pictures' => '?section=pictures',
+            'menus' => '?section=menus',
+            'oncologies' => '?section=oncologies',
+            'settings' => '?section=settings',
+            'errors' => '?section=errors'
+        ];
+
         $session->start();
-        $session->visit('http://flot1.dev/flot-manage/');
 
-        $page = $session->getPage();
+        $bResults = [];
 
-        $sectionLink = $page->find('css', '.items.admin_menu_left.active');
+        foreach ($saPages as $sClass => $sPageEnd) {
+            $session->visit('http://flot1.dev/flot-manage/'.$sPageEnd);
+            $page = $session->getPage();
+
+            $sectionLink = $page->find('css', '.items.admin_menu_left.active');
+
+            array_push($bResults, ($sectionLink === null ? false : true));
+        }
 
 
-        $this->assertNotNullEquals($sectionLink);
+        $this->assertNotContains(false, $bResults);
     }
+
+
     public function testPageModelCreate()
     {
         $oTestPage = PageModel::create();
