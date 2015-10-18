@@ -42,23 +42,6 @@
 					break;
 			}
 
-			/*
-
-			switch($maParams['request']->section){
-				case 'items':
-					switch($maParams['request']->action){
-						case 'new':
-							$htmlBody .= "edit buttons";
-							$htmlBody .= "<hr/>";
-							$htmlBody .= "edit ui";
-							break;
-					}
-					break;
-				default:
-					$htmlBody = $maParams['request']->section;
-					break;
-			}
-			*/
 
 			$aVarsForView['section'] = $sSection;
 			$aVarsForView['action'] = $sAction;
