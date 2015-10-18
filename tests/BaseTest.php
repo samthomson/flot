@@ -16,7 +16,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
         $session = new \Behat\Mink\Session($driver);
 
         $session->start();
-        $session->visit('http://127.0.0.1/flot-manage/');
+        $session->visit('http://flot1.dev/flot-manage/');
         #$session->visit('http://flot1.dev/index.html');
         $page = $session->getPage();
 
