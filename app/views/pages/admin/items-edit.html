@@ -35,14 +35,16 @@
 			{% for key,property in page.aGetAllProperties() %}
 
 			<div class="form-group input-group-sm">
-				<label for="item_keywords">{{key}}</label>
+				{% if property.editable == true %}
+					<label for="item_keywords">{{key}}</label>
 
-				{% if property.editor == "text" %}
-				<input type="text" class="form-control" name="{{key}}" placeholder="page title" value="{{property.value}}" id="item_edit_title">
-				{% endif %}
+					{% if property.editor == "text" %}
+					<input type="text" class="form-control" name="{{key}}" placeholder="page title" value="{{property.value}}" id="item_edit_title">
+					{% endif %}
 
-				{% if property.editor == "textarea" %}
-				<textarea class="form-control flot-edit" name="{{key}}">{{property.value}}</textarea>
+					{% if property.editor == "textarea" %}
+					<textarea class="form-control flot-edit" name="{{key}}">{{property.value}}</textarea>
+					{% endif %}
 				{% endif %}
 
 			</div>
@@ -223,7 +225,7 @@
 	</div>
 
 	{# hidden elements #}
-	<input id="published" type="hidden" name="published" value="">
+	<input id="published" type="hidden" name="published" value="{{page.mGetProperty('published', true)}}">
 	<input type="hidden" name="section" value="items">
 	<!--<input type="hidden" class="item_edit_url" name="url" value="">-->
 	<input type="hidden" name="item_id" value="">

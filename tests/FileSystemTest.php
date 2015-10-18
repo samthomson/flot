@@ -17,6 +17,29 @@ class FileSystemTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($oTestPage->mGetProperty('title'), "test page title!");
     }
+    public function testPageModelPublishableCreate()
+    {
+        $aExpectedStates = [false, true, false, true];
+        $aActualStates = [];
+
+        $oTestPage = PageModel::create();
+
+        array_push($aActualStates, $oTestPage->mGetProperty('published'));
+
+        $oTestPage->_SetProperty("published", true);
+
+        array_push($aActualStates, $oTestPage->mGetProperty('published'));
+
+        $oTestPage->_SetProperty("published", false);
+
+        array_push($aActualStates, $oTestPage->mGetProperty('published'));
+        $oTestPage->_SetProperty("published", true);
+
+        array_push($aActualStates, $oTestPage->mGetProperty('published'));
+
+
+        $this->assertEquals($aExpectedStates, $aActualStates);
+    }
     public function testPageModelWriteRead()
     {
         // create a page and write and save it, then open it up from disk and make sure attributes are the same, test with funny characters (punctuations and foreign utf8 stuff)
@@ -56,14 +79,28 @@ class FileSystemTest extends PHPUnit_Framework_TestCase
 
         $oTestPage = PageModel::create();
 
+        $aProperties = [
+            "title" => "did this title save in the collection?",
+            "published" => true
+        ];
+
         $sTestTitle = "did this title save in the collection?";
 
-        $oTestPage->_SetProperty("title", $sTestTitle);
+        foreach ($aProperties as $sKey => $sValue) {
+            $oTestPage->_SetProperty($sKey, $sValue);
+        }
+        
 
         PageCollectionModel::updateItem($oTestPage);
 
         $oSaved = PageCollectionModel::getAllItems();
 
-        $this->assertEquals($oSaved[$oTestPage->sUId]['title'], $sTestTitle);
+        $aMatches = [];
+
+        foreach ($aProperties as $sKey => $sValue) {
+            array_push($aMatches, ($oSaved[$oTestPage->sUId][$sKey] === $sValue ? true : false));
+        }
+
+        $this->assertNotContains(false, $aMatches);
     }
 }

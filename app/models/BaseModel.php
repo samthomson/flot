@@ -39,7 +39,7 @@
 			if(isset($oJson->amProperties))
 			{
 				foreach ($oJson->amProperties as $sPropertyNameKey => $aPropertyDetails) {
-					// parse each property
+					// parse each prroperty
 					$o->amProperties[$sPropertyNameKey] = [];
 					foreach ($aPropertyDetails as $sPopertyPropertyName => $sPopertyPropertyValue)
 					{
@@ -73,9 +73,13 @@
 			if(isset($this->amProperties[$sKey]))
 				$this->amProperties[$sKey]['value'] = $mValue;
 		}
-		public function mGetProperty($sKey)
+		public function mGetProperty($sKey, $bString = false)
 		{
-			return (isset($this->amProperties[$sKey]['value'])) ? $this->amProperties[$sKey]['value'] : null;
+			$mReturn = null;
+
+			$mReturn = (isset($this->amProperties[$sKey]['value'])) ? $this->amProperties[$sKey]['value'] : null;
+
+			return ($bString ? var_export($mReturn, true) : $mReturn);
 		}
 		public function aGetAllProperties()
 		{
@@ -100,7 +104,11 @@
 			// for each property
 			foreach ($this->amProperties as $sPropertyName => $aPropertyProperties) {
 				if($aPropertyProperties['exposed_to_collection'] == true)
-					$aReturn[$sPropertyName] = $aPropertyProperties['value'];
+
+					# now we just return the whole item
+					#$aReturn[$sPropertyName] = $aPropertyProperties['value'];
+
+					$aReturn[$sPropertyName] = $aPropertyProperties;
 			}
 
 			return $aReturn;

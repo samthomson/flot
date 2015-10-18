@@ -36,7 +36,6 @@ class AdminSectionUITest extends PHPUnit_Framework_TestCase
             array_push($bResults, ($sectionLink === null ? false : true));
         }
 
-
         $this->assertNotContains(false, $bResults);
     }
 

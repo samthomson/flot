@@ -39,14 +39,15 @@
 		{
 			$aItems = [];
 
-			foreach((array)json_decode($sString) as $sKey => $oPartialItem)
+			foreach(json_decode($sString, true) as $sKey => $oPartialItem)
 			{
 				// no we'll iterate through partially items, they are partial because only some attributes of a model are stored in the collection file
 
 				$sUId = $sKey;
 
-				$aItems[$sUId] = (array)$oPartialItem;
+				$aItems[$sUId] = $oPartialItem;
 			}
+
 
 
 			return $aItems;
@@ -62,11 +63,21 @@
 			return false;
 		}
 
-		public static function getAllItems()
+		public static function getAllItems($bStringValues = false)
 		{
 			$mModel = self::create();
 
-			return $mModel->amItems;
+			$aItems = $mModel->amItems;
+
+			if($bStringValues)
+			{
+				// convert the values to string, so they can be used in html views
+				foreach ($aItems as $key => $value) {
+					//$aItems[$key] = var_export($value, true);
+					//$aItems[$key] = json_encode($value);
+				}
+			}
+			return $aItems;
 		}
 		public static function updateItem($mItem)
 		{

@@ -14,7 +14,7 @@
 
 			$aVarsForView = [];
 
-
+			# determine section
 			switch($maParams['request']->section){
 				case 'items':
 				case 'elements':
@@ -27,6 +27,7 @@
 					break;
 			}
 
+			# determine actin for section (view all, edit individual etc)
 			switch($maParams['request']->action){
 				case 'overview':
 				case 'new':
@@ -38,7 +39,24 @@
 
 			switch($sSection){
 				case 'items':
-					$aVarsForView['items'] = PageCollectionModel::getAllItems();
+					$aItems = PageCollectionModel::getAllItems();
+					
+					$aReturnItems = [];
+					# make a key value array of property name-values with values forced to string
+					foreach ($aItems as $oItem) {
+						$aPropertyNameValue = [];
+						foreach ($oItem as $sPropertyKey => $sPropertyAttributes) {
+							$aPropertyNameValue[$sPropertyKey] = $sPropertyAttributes['value'];
+
+							if($sPropertyAttributes['type'] === 'bool')
+							{
+								$sPropertyAttributes['value'] = json_encode($sPropertyAttributes['value']);
+							}
+						}
+						$aReturnItems[] = $aPropertyNameValue;
+					}
+
+					$aVarsForView['items'] = $aReturnItems;
 					break;
 			}
 

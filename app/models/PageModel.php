@@ -10,19 +10,28 @@
 					'type' => 'string',
 					'editor' => 'text',
 					'value' => '',
-					'exposed_to_collection' => true
+					'exposed_to_collection' => true,
+					'editable' => true
 				],	
 				'url' => [
 					'type' => 'string',
 					'editor' => 'text',
 					'value' => '',
-					'exposed_to_collection' => true
+					'exposed_to_collection' => true,
+					'editable' => true
 				],				
 				'content' => [
 					'type' => 'string',
 					'editor' => 'textarea',
 					'value' => '',
-					'exposed_to_collection' => false
+					'exposed_to_collection' => false,
+					'editable' => true
+				],				
+				'published' => [
+					'type' => 'bool',
+					'value' => false,
+					'exposed_to_collection' => true,
+					'editable' => false
 				]
 			];
 
