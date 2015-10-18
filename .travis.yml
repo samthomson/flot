@@ -13,6 +13,7 @@ before_script:
   # configure apache virtual hosts
   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+  - echo "127.0.0.1 flot1.dev" | sudo tee -a /etc/hosts
   - sudo service apache2 restart
   - sleep 3
   # install packages

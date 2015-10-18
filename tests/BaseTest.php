@@ -20,7 +20,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
         #$session->visit('http://flot1.dev/index.html');
         $page = $session->getPage();
 
-        $this->assertEquals(200, $session->getStatusCode());
+        $this->assertEquals($session->getStatusCode(), 200);
         #$this->assertEquals($page->getText(),'[to be generated]');
         //$this->visit('/')->see('[to be generated]');
     }
