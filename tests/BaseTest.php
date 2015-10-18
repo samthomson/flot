@@ -24,6 +24,21 @@ class BaseTest extends PHPUnit_Framework_TestCase
         #$this->assertEquals($page->getText(),'[to be generated]');
         //$this->visit('/')->see('[to be generated]');
     }
+    public function testAdminPagesVisible()
+    {
+        $driver = new \Behat\Mink\Driver\GoutteDriver();
+        $session = new \Behat\Mink\Session($driver);
+
+        $session->start();
+        $session->visit('http://flot1.dev/flot-manage/');
+
+        $page = $session->getPage();
+
+        $sectionLink = $page->find('css', '.items.admin_menu_left.active');
+
+
+        $this->assertNotNullEquals($sectionLink);
+    }
     public function testPageModelCreate()
     {
         $oTestPage = PageModel::create();
