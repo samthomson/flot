@@ -5,5 +5,7 @@ php:
 before_script:
   # webserver setup
   - composer install
-  - php -S localhost.dev:8000 httpdocs/index.php &
+  - sudo sed -i -e "/DocumentRoot/i\ServerName flot1.dev" /etc/apache2/sites-available/default
+  - echo "127.0.0.1 flot1.dev" | sudo tee -a /etc/hosts
+  - sudo /etc/init.d/apache2 restart
   - sleep 3

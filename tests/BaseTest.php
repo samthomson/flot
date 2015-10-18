@@ -7,7 +7,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-     /*
+    
     public function testBasicExample()
     {
         //$this->assertEquals(1,1);
@@ -16,13 +16,13 @@ class BaseTest extends PHPUnit_Framework_TestCase
         $session = new \Behat\Mink\Session($driver);
 
         $session->start();
-        $session->visit('http://localhost.dev/');
+        $session->visit('http://flot1.dev/');
         $page = $session->getPage();
 
         //$this->assertEquals($session->getStatusCode(),200);
         $this->assertEquals($page->getText(),'[to be generated]');
         //$this->visit('/')->see('[to be generated]');
-    }*/
+    }
     public function testPageModelCreate()
     {
         $oTestPage = PageModel::create();
