@@ -31,7 +31,7 @@ class AdminSectionUITest extends PHPUnit_Framework_TestCase
             $session->visit('http://flot1.dev/flot-manage/'.$sPageEnd);
             $page = $session->getPage();
 
-            $sectionLink = $page->find('css', '.items.admin_menu_left.active');
+            $sectionLink = $page->find('css', '.'.$sClass.'.admin_menu_left.active');
 
             array_push($bResults, ($sectionLink === null ? false : true));
         }
