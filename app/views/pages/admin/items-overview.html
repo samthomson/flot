@@ -9,18 +9,17 @@
   <table class="table">
       <thead>
         <tr>
-          <th>Edit page</th>
-          <th>View page</th>
-          <th>page type</th>
-          <th>last changed</th>
-          <th>author</th>
-          <th>published</th>
-          <th>delete</th>
+            <th>Edit page</th>
+            <th>View page</th>
+            <th>page type</th>
+            <th>last changed</th>
+            <th>author</th>
+            <th>published</th>
+            <th>delete</th>
         </tr>
-      </thead>
-      <tbody>
-  {% for key,item in items %}
-        
+    </thead>
+    <tbody>
+        {% for key,item in items %}        
         <tr>
             <td>
                 <a href="/flot-manage/?section=items&action=edit&id={{key}}">edit {{ item['title'] }}</a>

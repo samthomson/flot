@@ -98,7 +98,7 @@ class FileSystemTest extends PHPUnit_Framework_TestCase
         $aMatches = [];
 
         foreach ($aProperties as $sKey => $sValue) {
-            array_push($aMatches, ($oSaved[$oTestPage->sUId][$sKey] === $sValue ? true : false));
+            array_push($aMatches, ($oSaved[$oTestPage->sUId][$sKey]['value'] === $sValue ? true : false));
         }
 
         $this->assertNotContains(false, $aMatches);
