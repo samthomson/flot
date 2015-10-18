@@ -6,6 +6,7 @@ before_script:
   # install apache
   - sudo apt-get update > /dev/null
   - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
+  - sudo a2enmod actions
   - sudo a2enmod rewrite
   # create site
   - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
