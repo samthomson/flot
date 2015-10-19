@@ -44,6 +44,21 @@
 					foreach ($aPropertyDetails as $sPopertyPropertyName => $sPopertyPropertyValue)
 					{
 						$o->amProperties[$sPropertyNameKey][$sPopertyPropertyName] = $sPopertyPropertyValue;
+
+						if($sPropertyNameKey === 'published')
+						{
+							echo "$sPropertyNameKey - $sPopertyPropertyName: ", $sPopertyPropertyValue, "<br/>";
+
+
+						}
+
+						/*
+						if((string)$sPopertyPropertyName === "type" && (string)$sPopertyPropertyValue === "boolean")
+						{
+							$o->amProperties[$sPropertyNameKey]['value'] = filter_var($sPopertyPropertyValue, FILTER_VALIDATE_BOOLEAN);
+							echo "force to bool";
+						}*/
+			
 					}
 				}
 			}
@@ -58,6 +73,10 @@
 			// save myself
 			$sFileContents = json_encode(get_object_vars($this));
 
+			////echo "save: ", $sFileContents, "<br/>";
+
+			////echo "saving: $sFileContents";exit();
+
 			if(FileController::bSaveModel($this->sUId, $sFileContents))
 				$iReturn = $this->sUId;
 
@@ -70,8 +89,28 @@
 
 		public function _SetProperty($sKey, $mValue)
 		{
-			if(isset($this->amProperties[$sKey]))
-				$this->amProperties[$sKey]['value'] = $mValue;
+			echo "about to set property ($sKey)", "<br/>";
+			echo "was of type: ", gettype($this->amProperties[$sKey]['value']), "<br/>";
+
+
+
+			if(isset($this->amProperties[$sKey]) && isset($this->amProperties[$sKey]['type']))
+			{
+				// ensure we set the type properly
+				switch ($this->amProperties[$sKey]['type']) {
+					case 'boolean':
+						$this->amProperties[$sKey]['value'] = filter_var($mValue, FILTER_VALIDATE_BOOLEAN);
+						break;
+					
+					default: # string
+						$this->amProperties[$sKey]['value'] = $mValue;
+						break;
+				}
+				
+			}
+
+
+			echo "now of type: ", gettype($this->amProperties[$sKey]['value']), "<br/><br/>";
 		}
 		public function mGetProperty($sKey, $bString = false)
 		{

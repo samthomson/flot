@@ -104,8 +104,9 @@
 					}
 
 
+					//print_r($oPageToUpdate);
 					$oPageToUpdate->save();
-					#print_r($oPageToUpdate);exit();
+					//print_r($oPageToUpdate);exit();
 					$oPageToUpdate->render();
 				}
 

@@ -78,6 +78,45 @@ class FileSystemTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($oModel->mGetProperty('title'), $sTestTitle);
 
     }
+    public function testPageModelPropertyTypePersistance()
+    {
+        // a property should only be set as its type dictates, ie bools should not have quotes
+
+        $oTestPage = PageModel::create();
+
+        $aaTypeValues = [
+            'title' => ["test title", "string"],            
+            'published' => ["true", "boolean"]
+        ];
+        $aaShouldReturnValues = [
+            'title' => ["test title", "string"],            
+            'published' => [true, "boolean"]
+        ];
+        $aaReturnedValues = [
+            'title' => [],            
+            'published' => []
+        ];
+
+        foreach ($aaTypeValues as $sPropertyKey => $aValueType) {
+            $oTestPage->_SetProperty($sPropertyKey, $aValueType[0]);
+        }
+
+
+        $iIdSaved = $oTestPage->save();
+
+        $oModel = PageModel::createFromFile($iIdSaved);
+
+        foreach ($aaReturnedValues as $sKey => $aEmpty) {
+            array_push($aaReturnedValues[$sKey], $oModel->mGetProperty($sKey));
+
+
+            array_push($aaReturnedValues[$sKey], gettype($oModel->mGetProperty($sKey)));
+        }
+
+
+        $this->assertEquals($aaShouldReturnValues, $aaReturnedValues);
+
+    }
     public function testPageCollectionCreationModelWriteRead()
     {
         // test that a newly created and saved collection, can be read into memory and contain an empty array of items

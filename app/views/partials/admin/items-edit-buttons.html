@@ -6,19 +6,28 @@
 		<i class="glyphicon glyphicon-eye-open"></i><span class="small-hidden"> view</span>
 	</a>
 </div>
+published: {{page.mGetProperty('published')}},
 
 {% if page.mGetProperty('published') == false %}
-not published,<br/>
+    not published
 {% else %}
-once published: {{ page.mGetProperty('published') }},<br/>
+    published
 {% endif %}
 
 
 <div class="btn-group edit_item_general_toolbar">
-	<a class="btn btn-success btn-sm" href="javascript:publish('published');">
+	<a class="btn btn-success btn-sm" href="javascript:publish('published');"
+	{% if page.mGetProperty('published') != false %}
+ disabled=""
+{% endif %}
+>
 		<i class="glyphicon glyphicon-cloud-upload"></i> save &amp; publish
 	</a>
-	<a class="btn btn-warning btn-sm" href="javascript:publish('unpublished');">
+	<a class="btn btn-warning btn-sm" href="javascript:publish('unpublished');"
+	{% if page.mGetProperty('published') == false %}
+ disabled=""
+{% endif %}
+>
 		<i class="glyphicon glyphicon-cloud-download"></i> unpublish
 	</a>
 </div>

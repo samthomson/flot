@@ -28,7 +28,7 @@
 					'editable' => true
 				],				
 				'published' => [
-					'type' => 'bool',
+					'type' => 'boolean',
 					'value' => false,
 					'exposed_to_collection' => true,
 					'editable' => false
@@ -36,7 +36,7 @@
 			];
 
 			$this->sType = "page";	
-			$this->sCollection = "PageCollectionModel";			
+			$this->sCollection = "PageCollectionModel";
         }
 
         public function render()
