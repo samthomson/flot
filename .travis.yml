@@ -19,4 +19,4 @@ before_script:
   - sudo service apache2 restart
   - sleep 3
   # install packages
-  - composer install --no-interaction
+  #- composer install --no-interaction
