@@ -107,7 +107,7 @@
 					$oPageToUpdate->render();
 				}
 
-				return Helper::Redirect("flot-manage/?section=items&action=edit&id=".$sPageId);
+				return Helper::Redirect("flot-manage/?section=items");
 			}
 		}
 
