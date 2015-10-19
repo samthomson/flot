@@ -6,14 +6,6 @@
 		<i class="glyphicon glyphicon-eye-open"></i><span class="small-hidden"> view</span>
 	</a>
 </div>
-published: {{page.mGetProperty('published')}},
-
-{% if page.mGetProperty('published') == false %}
-    not published
-{% else %}
-    published
-{% endif %}
-
 
 <div class="btn-group edit_item_general_toolbar">
 	<a class="btn btn-success btn-sm" href="javascript:publish('published');"

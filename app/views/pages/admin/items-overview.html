@@ -30,7 +30,13 @@
             <td>[page type]</td>
             <td>[date changed]</td>
             <td>[author]</td>
-            <td>{{ item['published'] }}</td>
+            <td>
+                {% if item['published'] == true %}
+                <i class="glyphicon glyphicon-ok fore-colour-green"></i>
+                {% else %}
+                <i class="glyphicon glyphicon-remove fore-colour-red"></i>
+                {% endif %}
+            </td>
             <td>[deleted]</td>
         </tr>        
     {% endfor %}

@@ -49,11 +49,6 @@
 						$aPropertyNameValue = [];
 						foreach ($oItem as $sPropertyKey => $sPropertyAttributes) {
 							$aPropertyNameValue[$sPropertyKey] = $sPropertyAttributes['value'];
-/*
-							if($sPropertyAttributes['type'] === 'bool')
-							{
-								$sPropertyAttributes['value'] = json_encode($sPropertyAttributes['value']);
-							}*/
 						}
 						$aReturnItems[$iItemId] = $aPropertyNameValue;
 					}

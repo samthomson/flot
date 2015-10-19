@@ -10,6 +10,11 @@ $error_inverse_color: #fff;
 $delete_color: #c0392b;
 $delete_inverse_color: #fff;
 
+$colour_green: #38b248;
+$colour_red: #ed1a3b;
+
+
+
 body{
   font-family: 'Lato', sans-serif;
   word-wrap:break-word;
@@ -72,15 +77,16 @@ body.smaller_left .condensed_hidden{display: none;}
 
 .blue {
   color: #0074d9; }
-.green {
-  color: #38b248; }
 .olive{
   color: #3D9970;}
 .yellow {
   color: #ffdc00; }
-.red {color: #ed1a3b; }
+  
 .orange {color: #FF851B; }
 .gray {color: #AAAAAA; }
+
+.fore-colour-green{color: $colour_green;}
+.fore-colour-red{color: $colour_red;}
 
 
   hr {margin-top: 10px;margin-bottom: 10px;}
