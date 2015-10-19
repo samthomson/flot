@@ -189,14 +189,15 @@
 
 
 			{% for key,property in page.aGetAllProperties() %}
+				{% if property.editable == true %}
+				<div class="form-group input-group-sm">
 
-			<div class="form-group input-group-sm">
+					<h4>{{key}}</h4>
+					<kbd>{{'{{'}}{{key}}{{'}}'}}</kbd>
 
-				<h4>{{key}}</h4>
-				<kbd>{{'{{'}}{{key}}{{'}}'}}</kbd>
+				</div>
 
-			</div>
-
+				{% endif %}
 			{% endfor %}
 
 
