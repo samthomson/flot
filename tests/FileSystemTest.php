@@ -40,7 +40,26 @@ class FileSystemTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($aExpectedStates, $aActualStates);
     }
-    public function testPageModelWriteRead()
+    public function testPageModelPersistance()
+    {
+        // create a page and write and save it, then open it up from disk and make sure attributes are the same, test with funny characters (punctuations and foreign utf8 stuff)
+
+        $oTestPage = PageModel::create();
+
+        $sTestTitle = "did this title save?";
+
+        $oTestPage->_SetProperty("title", $sTestTitle);
+
+
+        $iIdSaved = $oTestPage->save();
+
+        $oModel = PageModel::createFromFile($iIdSaved);
+
+
+        $this->assertEquals($iIdSaved, $oModel->sUId);
+
+    }
+    public function testPageModelPropertyPersistance()
     {
         // create a page and write and save it, then open it up from disk and make sure attributes are the same, test with funny characters (punctuations and foreign utf8 stuff)
 

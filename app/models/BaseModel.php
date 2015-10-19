@@ -36,7 +36,6 @@
 			$o->sUId = $oJson->sUId;
 
 			// cms level properties
-			print_r($oJson);
 			if(isset($oJson->amProperties))
 			{
 				foreach ($oJson->amProperties as $sPropertyNameKey => $aPropertyDetails) {

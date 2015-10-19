@@ -43,7 +43,7 @@
 					
 					$aReturnItems = [];
 					# make a key value array of property name-values with values forced to string
-					foreach ($aItems as $oItem) {
+					foreach ($aItems as $iItemId => $oItem) {
 						$aPropertyNameValue = [];
 						foreach ($oItem as $sPropertyKey => $sPropertyAttributes) {
 							$aPropertyNameValue[$sPropertyKey] = $sPropertyAttributes['value'];
@@ -53,7 +53,7 @@
 								$sPropertyAttributes['value'] = json_encode($sPropertyAttributes['value']);
 							}
 						}
-						$aReturnItems[] = $aPropertyNameValue;
+						$aReturnItems[$iItemId] = $aPropertyNameValue;
 					}
 
 					$aVarsForView['items'] = $aReturnItems;
