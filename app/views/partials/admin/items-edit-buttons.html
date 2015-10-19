@@ -7,8 +7,15 @@
 	</a>
 </div>
 
+{% if page.mGetProperty('published') == false %}
+not published,<br/>
+{% else %}
+once published: {{ page.mGetProperty('published') }},<br/>
+{% endif %}
+
+
 <div class="btn-group edit_item_general_toolbar">
-	<a class="btn btn-success btn-sm" disabled="" href="javascript:publish('published');">
+	<a class="btn btn-success btn-sm" href="javascript:publish('published');">
 		<i class="glyphicon glyphicon-cloud-upload"></i> save &amp; publish
 	</a>
 	<a class="btn btn-warning btn-sm" href="javascript:publish('unpublished');">
@@ -17,4 +24,8 @@
 </div>
 
 
-<div class="btn-group"><a class="btn btn-danger btn-sm" href="/flot-admin/admin/index.php?section=items&amp;oncology=page&amp;item=pagestart&amp;action=delete"><i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span></a></div>
+<div class="btn-group">
+	<a class="btn btn-danger btn-sm" href="/flot-admin/admin/index.php?section=items&amp;oncology=page&amp;item=pagestart&amp;action=delete">
+		<i class="glyphicon glyphicon-trash"></i><span class="small-hidden"> delete</span>
+	</a>
+</div>

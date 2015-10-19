@@ -6,10 +6,7 @@
 		<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
-		<script src="/flot-admin/admin/js/jquery.min.js"></script>
-		<script src="/flot-admin/admin/js/bootstrap.min.js"></script>
-		<script src="/flot-admin/admin/js/admin.php"></script>
-		<script src="/flot-admin/admin/js/admin_item_list.js"></script>
+		
 
 		<title>flot - manage your site</title>
 	</head>
@@ -71,5 +68,9 @@
 				{% block actionarea %}{% endblock %}
 			</div>
 		</div>
+
+		<script src="/flot-admin/admin/js/jquery.min.js"></script>
+		<script src="/flot-admin/admin/js/bootstrap.min.js"></script>
+		{% block base_scripts %}{% endblock %}
 	</body>
 </html>

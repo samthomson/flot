@@ -34,6 +34,8 @@
 				case 'edit':
 					$sAction = $maParams['request']->action;
 					$aVarsForView['page'] = PageModel::createFromFile($maParams['request']->id);
+
+					//print_r($aVarsForView['page']);
 					break;
 			}
 
@@ -47,11 +49,11 @@
 						$aPropertyNameValue = [];
 						foreach ($oItem as $sPropertyKey => $sPropertyAttributes) {
 							$aPropertyNameValue[$sPropertyKey] = $sPropertyAttributes['value'];
-
+/*
 							if($sPropertyAttributes['type'] === 'bool')
 							{
 								$sPropertyAttributes['value'] = json_encode($sPropertyAttributes['value']);
-							}
+							}*/
 						}
 						$aReturnItems[$iItemId] = $aPropertyNameValue;
 					}
