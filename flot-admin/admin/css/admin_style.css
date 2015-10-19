@@ -14,12 +14,11 @@ body {
 @media only screen and (max-width: 600px) {
   .left_col {
     width: 50px; }
-
   .right_col {
     margin-left: 50px; }
-
   .small-hidden {
     display: none; } }
+
 a, a:visited {
   color: #191919; }
 
@@ -85,23 +84,23 @@ body.smaller_left .condensed_hidden{display: none;}
 .blue {
   color: #0074d9; }
 
-.green {
-  color: #38b248; }
-
 .olive {
   color: #3D9970; }
 
 .yellow {
   color: #ffdc00; }
 
-.red {
-  color: #ed1a3b; }
-
 .orange {
   color: #FF851B; }
 
 .gray {
   color: #AAAAAA; }
+
+.fore-colour-green {
+  color: #38b248; }
+
+.fore-colour-red {
+  color: #ed1a3b; }
 
 hr {
   margin-top: 10px;
@@ -454,6 +453,7 @@ label.form-group {
     filter: alpha(opacity=0);
     font-size: 100%;
     height: 100%; } }
+
 .modal-dialog {
   max-width: 60%;
   width: auto; }
@@ -478,11 +478,3 @@ bootstrap overloads
   background: #fff;
   border-color: #e74c3c;
   color: #e74c3c; }
-
-/*# sourceMappingURL=admin_style.css.map */
-
-
-textarea.form-control.flot-edit{
-  height:200px;
-}
-#codes h4{text-transform: capitalize;}
